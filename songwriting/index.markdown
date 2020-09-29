@@ -82,11 +82,11 @@ layout: songwriting
 		</div>
 		<div class="prices">
 			<div>
-				<h6>12 weeks</h6><h6>55 € / week</h6>
+				<h6>12 weeks</h6><h6>33 € / week</h6>
 			</div>
 			<hr>
 			<div>
-				<span>4 weeks</span><span>59 € / week</span>
+				<span>4 weeks</span><span>37 € / week</span>
 			</div>
 		</div>
 		<div class="vat">
