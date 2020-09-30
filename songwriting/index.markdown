@@ -5,7 +5,7 @@ layout: songwriting
 
 <html lang="en">
 	<header>
-		<iframe width="600" height="340" src="https://www.youtube-nocookie.com/embed/wJsiGW6GR3M?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe width="600" height="340" src="https://www.youtube-nocookie.com/embed/ikbKiuuIe2s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		<h1>
 			Online Songwriting Lessons
 		</h1>
@@ -66,7 +66,7 @@ layout: songwriting
 			alternating track 	
 		</h5>
 		<div class="trackdesc">	
-			If you want to go into depth with your songwriting, <br>with time to work on your exercises during the lessons.
+			If you are self-directed, and want a continuous <br>boost of inspiration to stay on course. 
 		</div>
 		<div id="biweekly">
 			<div class="trackfacts">
