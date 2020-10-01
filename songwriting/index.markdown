@@ -5,7 +5,7 @@ layout: songwriting
 
 <html lang="en">
 	<header>
-		<iframe width="600" height="340" src="https://www.youtube-nocookie.com/embed/ikbKiuuIe2s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe width="600" height="340" src="https://www.youtube-nocookie.com/embed/WPeA4xfTJ8s?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		<h1>
 			Online Songwriting Lessons
 		</h1>
@@ -13,7 +13,7 @@ layout: songwriting
 			<h2>	
 				UNCOVER YOUR <br>ORIGINALITY
 			</h2>
-			<a class="signup" href="">
+			<a class="signup" href="https://forms.gle/2efvjAijBqZEd69Q9">
 				sign up
 			</a>
 		</div>
@@ -57,7 +57,7 @@ layout: songwriting
 		<div class="vat">
 			All prices including VAT (25%)
 		</div>
-		<a class="signup" href="">
+		<a class="signup" href="https://forms.gle/2efvjAijBqZEd69Q9">
 			sign up
 		</a>
 	</div>
@@ -92,7 +92,7 @@ layout: songwriting
 		<div class="vat">
 			All prices including VAT (25%)
 		</div>
-		<a class="signup" style="background-color: #C96C46;" href="">
+		<a class="signup" style="background-color: #C96C46;" href="https://forms.gle/2efvjAijBqZEd69Q9">
 			sign up
 		</a>
 	</div>
@@ -103,7 +103,7 @@ layout: songwriting
 <div id="aboutme">
 	I'm Petter Rylén, a Swedish songwriter, pianist and producer. I finished my masters in Music Performance in 2015 from the Rhythmic Music Conservatory in Copenhagen, and have since been working as a touring musician, composer and music educator. 
 	<br><br>
-	If you’re curious to know more about me I would recommend checking out <a href="http://petterrylen.com#albums">my albums</a>, or watching <a href="youtube.com/c/pianopetter">these videos</a>, about how I make music. 
+	If you’re curious to know more about me I would recommend checking out <a href="http://petterrylen.com/#albums">my albums</a>, or watching <a href="http://www.youtube.com/c/pianopetter">these videos</a>, about how I make music. 
 </div>
 <img src="/images/guitar.jpg">
 <h5 class="orange">
