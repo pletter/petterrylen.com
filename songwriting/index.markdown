@@ -125,42 +125,40 @@ layout: songwriting
 	<div>
 	What happens when I sign&nbsp;up?
 	</div> 
-	After you have filled in the sign up form and made the payment, 
-	I will ask you to send me 3 of your latest tunes 
-	(if you already have written&nbsp;songs). 
+	In the sign up form you can tell me about your experience with songwriting, and send me links to 3 of your latest songs (if you have already written songs). Once I receive your answers I will write you an email with details of payment and my availability for our first video&nbsp;call. 
 	<div>
-	What do I need? 
+	What do I&nbsp;need? 
 	</div>
 	<ul>
 	<li>A device that can do video calls.</li>
 	<li>Daily access to either:
 		<ul>
 			<li> a chord instrument (piano, guitar, etc).</li>
-			<li> a computer with a music making program (Ableton, Logic, Fruity Loops etc) + basic recording equipment.</li>
+			<li> a computer with a music making program (Ableton, Logic, Fruity Loops etc) + basic recording&nbsp;equipment.</li>
 		</ul>	
 	</li>
-	<li>Some spare time to work on your songs. </li>
+	<li>Some spare time to work on your&nbsp;songs. </li>
 	</ul>
 	<div>
-	How do I pay?
+	How do I&nbsp;pay?
 	</div>
-	Paypal (or Swish if you live in Sweden).
+	Paypal (or Swish if you live in&nbsp;Sweden).
 	<div>
-	What days do you teach?
+	What days do you&nbsp;teach?
 	</div>
-	Wednesdays and Thursdays.
+	Wednesdays and&nbsp;Thursdays.
 	<div>
-	What if I’m not good enough?
+	What if I’m not good&nbsp;enough?
 	</div>
 	You are! My methods are about trying our best with whatever means we have at hand, 
 	and constantly learning new things by trying out the things we can’t yet do. 
-	So yes, if you are a human, this course is for you. 
+	So yes, if you are a human, this course is for&nbsp;you. 
 	<div>
-	I don’t want to sing? 
+	I don’t want to&nbsp;sing? 
 	</div>
-	No problem, as long as you don’t mind me telling you to try it anyway. 
+	No problem, as long as you don’t mind me telling you to try it&nbsp;anyway. 
 	<div>
-	Do you teach [insert musical genre]? 
+	Do you teach [insert musical&nbsp;genre]? 
 	</div>
 	Yes. 
 </div>
