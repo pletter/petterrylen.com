@@ -5,16 +5,19 @@ layout: songwriting
 
 <html lang="en">
 	<header>
-		<iframe width="600" height="340" src="https://www.youtube-nocookie.com/embed/WPeA4xfTJ8s?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<div id="trailer">
+		<iframe class="yt"  src="https://www.youtube-nocookie.com/embed/WPeA4xfTJ8s?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+		</iframe>
+		</div>
 		<h1>
-			Online Songwriting Lessons
+			Online<br>Songwriting<br>Lessons
 		</h1>
 		<div>
 			<h2>	
-				UNCOVER YOUR <br>ORIGINALITY
+				UNCOVER&nbsp;YOUR <br>ORIGINALITY
 			</h2>
 			<a class="signup" href="https://forms.gle/2efvjAijBqZEd69Q9">
-				sign up
+				sign&nbsp;up
 			</a>
 		</div>
 	</header>
@@ -55,10 +58,10 @@ layout: songwriting
 			</div>
 		</div>
 		<div class="vat">
-			All prices including VAT (25%)
+			All&nbsp;prices&nbsp;including&nbsp;VAT&nbsp;(25%)
 		</div>
 		<a class="signup" href="https://forms.gle/2efvjAijBqZEd69Q9">
-			sign up
+			sign&nbsp;up
 		</a>
 	</div>
 	<div class="track">
@@ -90,10 +93,10 @@ layout: songwriting
 			</div>
 		</div>
 		<div class="vat">
-			All prices including VAT (25%)
+			All&nbsp;prices&nbsp;including&nbsp;VAT&nbsp;(25%)
 		</div>
 		<a class="signup" style="background-color: #C96C46;" href="https://forms.gle/2efvjAijBqZEd69Q9">
-			sign up
+			sign&nbsp;up
 		</a>
 	</div>
 <img src="/images/petter.jpg">
