@@ -56,7 +56,7 @@ layout: songwriting
 		<div class="vat">
 			All&nbsp;prices&nbsp;including&nbsp;VAT&nbsp;(25%)
 		</div>
-		<a class="signup" href="https://forms.gle/2efvjAijBqZEd69Q9">
+		<a class="signup tracksignup" href="https://forms.gle/2efvjAijBqZEd69Q9">
 			sign&nbsp;up
 		</a>
 	</div>
@@ -91,7 +91,7 @@ layout: songwriting
 		<div class="vat">
 			All&nbsp;prices&nbsp;including&nbsp;VAT&nbsp;(25%)
 		</div>
-		<a class="signup" style="background-color: #C96C46;" href="https://forms.gle/2efvjAijBqZEd69Q9">
+		<a class="signup tracksignup" style="background-color: #C96C46;" href="https://forms.gle/2efvjAijBqZEd69Q9">
 			sign&nbsp;up
 		</a>
 	</div>

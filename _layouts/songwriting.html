@@ -3,8 +3,33 @@
 <head>
 	<title>Online Songwriting Lessons</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=600">
+	<meta name="viewport" content="width=width-device-width, initial-scale=1.0">
 	<style>
+		
+		@font-face {
+		  font-family: avenirbook;
+		  src: url(/fonts/avenirltstd-book.otf);
+		}
+		
+		@font-face {
+		  font-family: avenirmedium;
+		  src: url(/fonts/avenirltstd-medium.otf);
+		}
+		
+		@font-face {
+		  font-family: avenirheavy;
+		  src: url(/fonts/avenirltstd-heavy.otf);
+		}
+		
+		@font-face {
+		  font-family: avenirblack;
+		  src: url(/fonts/avenirltstd-black.otf);
+		}
+		
+		@font-face {
+		  font-family: avenirblackoblique;
+		  src: url(/fonts/avenirltstd-blackoblique.otf);
+		}
 		
 		html {
 			background-color: #BCBDC0;
@@ -12,13 +37,13 @@
 		
 		body {
 			background-color: #342E37;
-			font-family: avenir;
+			font-family: avenirbook;
 			color: #FAFFFD;
 			margin: 0px;
 		}
 		
 		.yt {
-			width: 100vw;
+			width: 100%;
 			height: 56.1vw;
 			max-height: 550px;
 		}
@@ -30,7 +55,6 @@
 		}
 		
 		h1, h2, h3, h4, h5, h6 {
-			font-family: avenir;
 			color: #FAFFFD;
 			margin: 0;
 			margin-block-start: 0.0em;
@@ -38,7 +62,7 @@
 		}
 		
 		img {
-			width: 100vw;
+			width: 100%;
 			margin: 73px 0px;
 			max-height: 400px;
 			object-fit: cover;
@@ -51,8 +75,8 @@
 		}
 		
 		header h1 {
+			font-family: avenirmedium;
 			text-align: center;
-			font-weight: 400;
 			font-size: 70px;
 			line-height: 1.28em;
 			margin: 60px 0px 0px;
@@ -65,25 +89,26 @@
 		}
 		
 		header h2 {
+			font-family: avenirblackoblique;
 			text-align: right;
 			color: #C96C46;
-			font-style: oblique;
 			line-height: 1.15em;
+			font-weight: normal;
 		}
 		
 		.signup {
 			padding: 8px 17px;
 			background-color: #A2D729;
 			color: #342E37;
-			font-weight: 900;
+			font-weight: 400;
 			font-size: 23px;
 			text-decoration: none;
 			border-radius: 10px;
 			display: inline-block;
 			margin-left: 20px;
-			margin-bottom: 1px;
+			margin-bottom: 4px;
 			border: none;
-			font-style: oblique;
+			font-family: avenirblackoblique;
 		}
 		
 		.signup:hover {
@@ -101,7 +126,9 @@
 		}
 		
 		#introtext h4 {
+			font-family: avenirblack;
 			color: #A2D729;
+			font-weight: 400;
 			font-size: 28px;
 			margin-top: 35px;
 			letter-spacing: 0.45px;
@@ -156,7 +183,6 @@
 		.prices {
 			width: 250px;
 			margin: 30px;
-			
 		}
 		
 		hr {
@@ -203,6 +229,10 @@
 			width: inherit;
 		}
 		
+		.tracksignup {
+			margin-left: 0px !important;
+		}
+		
 		#aboutme {
 			max-width: 460px;
 			margin: 0 auto;
@@ -233,9 +263,6 @@
 			margin-top: 25px;
 		}
 		
-		#questions ul {
-			max-width: 300px;
-		}
 		
 		#contact {
 			display: flex;
