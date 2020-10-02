@@ -121,7 +121,7 @@ layout: songwriting
 	<div>
 	How many spots do you&nbsp;have?
 	</div>
-	I currently only have space for 5 more students. It's true, <a href="https://forms.gle/2efvjAijBqZEd69Q9">hurry&nbsp;up</a> :)
+	I currently only have space for 5 more students. 
 	<div>
 	What happens when I sign&nbsp;up?
 	</div> 
