@@ -5,10 +5,6 @@ layout: songwriting
 
 <html lang="en">
 	<header>
-		<div id="trailer">
-		<iframe class="yt"  src="https://www.youtube-nocookie.com/embed/WPeA4xfTJ8s?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-		</iframe>
-		</div>
 		<h1>
 			Online<br>Songwriting<br>Lessons
 		</h1>
@@ -35,13 +31,13 @@ layout: songwriting
 		</h4>
 		Tailored tasks every week to <br> keep you inspired.
 	</div>
-	<img src="/images/piano.jpeg">
+	<img src="/images/piano.jpg">
 	<div class="track">
 		<h5>
 			weekly track 	
 		</h5>
 		<div class="trackdesc">	
-			If you want to go into depth with your songwriting, <br>with time to work on your exercises during the lessons.
+			If you want to go into depth with your songwriting, <br class="wide">with time to work on your exercises during the&nbsp;lessons.
 		</div>
 		<div class="trackfacts">
 			<img class="videocallevery" src="/images/videocall.png">
@@ -69,7 +65,7 @@ layout: songwriting
 			alternating track 	
 		</h5>
 		<div class="trackdesc">	
-			If you are self-directed, and want a continuous <br>boost of inspiration to stay on course. 
+			If you are self-directed, and want a continuous <br class="wide">boost of inspiration to stay on&nbsp;course. 
 		</div>
 		<div id="biweekly">
 			<div class="trackfacts">

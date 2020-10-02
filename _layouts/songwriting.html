@@ -3,7 +3,7 @@
 <head>
 	<title>Online Songwriting Lessons</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=600, initial-scale=1">
+	<meta name="viewport" content="width=600">
 	<style>
 		
 		html {
@@ -11,26 +11,22 @@
 		}
 		
 		body {
-			width: px;
-			margin: 0 auto;
 			background-color: #342E37;
 			font-family: avenir;
 			color: #FAFFFD;
-			-webkit-text-size-adjust: none;
-			text-size-adjust: none;
-			
+			margin: 0px;
 		}
 		
 		.yt {
-			width: 100%;
+			width: 100vw;
 			height: 56.1vw;
 			max-height: 550px;
-			margin: 0 auto;
 		}
 		
 		#trailer {
-			width: 100%;
 			margin-top: 0px;
+			max-width: none;
+			padding: 0;
 		}
 		
 		h1, h2, h3, h4, h5, h6 {
@@ -42,8 +38,16 @@
 		}
 		
 		img {
-			width: 100%;
+			width: 100vw;
 			margin: 73px 0px;
+			max-height: 400px;
+			object-fit: cover;
+		}
+		
+		header {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
 		}
 		
 		header h1 {
@@ -51,13 +55,12 @@
 			font-weight: 400;
 			font-size: 70px;
 			line-height: 1.28em;
-			margin: 60px 0px;
+			margin: 60px 0px 0px;
 		}
 		
 		header div {
 			display: flex;
-			margin: 60px auto;
-			width: 337px;
+			margin: 60px 0 0px;
 			align-items: center;
 		}
 		
@@ -201,8 +204,9 @@
 		}
 		
 		#aboutme {
-			width: 460px;
+			max-width: 460px;
 			margin: 0 auto;
+			padding: 0px 20px;
 			line-height: 1.6em;
 			letter-spacing: 0.4px;
 			margin-top: 35px;
@@ -219,8 +223,9 @@
 		}
 		
 		#questions {
-			width: 460px;
+			max-width: 460px;
 			margin: 35px auto 0px;
+			padding: 0px 20px;
 		}
 		
 		#questions div {
@@ -229,7 +234,7 @@
 		}
 		
 		#questions ul {
-			width: 300px;
+			max-width: 300px;
 		}
 		
 		#contact {
@@ -253,10 +258,84 @@
 			display: inline-block;
 		}
 		
+		@media screen and (max-width: 600px) {
+			
+			h2 {
+				font-size: 6vw;
+			}
+			
+			header h1 {
+				font-size: 15vw;
+			}
+			
+			header div {
+				margin-right: 4px;
+			}
+			
+			#biweekly {
+				width: auto;
+			}
+			
+			.signup {
+				font-size: 6vw;
+			}
+			
+			#introtext h4 {
+				font-size: 6.2vw;
+			}
+			
+			#introtext {
+				font-size: 5vw;	
+			}
+			
+			h5 {
+				font-size: 15vw;
+			}
+			
+			.vat {
+				font-size: 4vw;
+			}
+			
+			.wide {
+				display: none;
+			}
+			
+			.trackdesc {
+				font-size: 4vw;
+			}
+			
+			.prices, .trackfacts span {
+				font-size: 4vw;
+			}
+			
+			.prices {
+				width: 60vw;
+			}
+			
+			.track h6 {
+				font-size: 5vw;
+			}
+			
+			#biweekly {
+				width: 100%;
+				display: flex;
+				justify-content: space-evenly;
+			}
+			
+			#aboutme, #questions {
+				font-size: 4vw;
+				line-height: normal;
+			}
+			
+		}
+		
 	</style>
 </head>
 <body>
-	
+	<div id="trailer">
+	<iframe class="yt"  src="https://www.youtube-nocookie.com/embed/WPeA4xfTJ8s?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+	</iframe>
+	</div>
 	<div id="content">
 		{{ content }}
 	</div>
