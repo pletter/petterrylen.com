@@ -72,7 +72,7 @@ layout: songwriting
 		<div class="trackdesc">	
 			If you are self-directed, and want a continuous <br class="wide">boost of inspiration to stay on&nbsp;course. 
 		</div>
-		<div id="biweekly">
+		<div class="alternative" id="biweekly">
 			<div class="trackfacts">
 				<img class="videocalleven" src="/images/videocall.png">
 				<h6>45 min video call</h6>
