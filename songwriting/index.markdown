@@ -35,7 +35,8 @@ layout: songwriting
 		</h4>
 		Tailored tasks every week to <br> keep you inspired.
 	</div>
-	<img src="/images/piano.jpg">
+	<img class="wideimg" src="/images/piano.jpg">
+	<img class="mobilimg" src="/images/pianomobil.jpg">
 	<div class="track">
 		<h5>
 			weekly track 	
@@ -99,7 +100,9 @@ layout: songwriting
 			sign&nbsp;up
 		</a>
 	</div>
-<img src="/images/petter.jpg">
+<img class="wideimg" src="/images/petter.jpg">
+<img class="mobilimg" src="/images/pettermobil.jpg">
+
 <h5>
 	about me
 </h5>
@@ -108,7 +111,9 @@ layout: songwriting
 	<br><br>
 	If you’re curious to know more about me I would recommend checking out <a href="http://petterrylen.com/#albums">my albums</a>, or watching <a href="http://www.youtube.com/c/pianopetter">these videos</a>, about how I make music. 
 </div>
-<img src="/images/guitar.jpg">
+<img class="wideimg" src="/images/guitar.jpg">
+<img class="mobilimg" src="/images/guitarmobil.jpg">
+
 <h5 class="orange">
 	questions
 </h5>
@@ -159,7 +164,9 @@ layout: songwriting
 	</div>
 	Yes. 
 </div>
-<img src="/images/mic.jpg">
+<img class="wideimg" src="/images/mic.jpg">
+<img class="mobilimg" src="/images/micmobil.jpg">
+
 <h5 class="orange">
 	contact
 </h5>

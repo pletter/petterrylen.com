@@ -99,6 +99,7 @@
 			display: flex;
 			flex-direction: column;
 			align-items: flex-end;
+			margin-top: 70px;
 		}
 		
 		.logo {
@@ -215,7 +216,7 @@
 		
 		.prices {
 			width: 250px;
-			margin: 30px;
+			margin: 25px 0px 25px;
 		}
 		
 		hr {
@@ -224,14 +225,13 @@
 		}
 		
 		.prices div {
-
 			display: flex;
 			justify-content: space-between;
 		}
 		
 		.vat {
 			opacity: 0.4;
-			margin-bottom: 35px;
+			margin-bottom: 27px;
 		}
 		
 		.track {
@@ -239,6 +239,10 @@
 			flex-direction: column;
 			align-items: center;
 			margin-bottom: 60px;
+		}
+		
+		.track:nth-child(5) {
+			margin-bottom: 0px;
 		}
 		
 		#biweekly {
@@ -327,6 +331,14 @@
 			display: none;
 		}
 		
+		.mobilimg {
+			display: none;
+		}
+		
+		.wideimg {
+			display: block;
+		}
+		
 		@media screen and (max-width: 600px) {
 			
 			#titles {
@@ -338,6 +350,8 @@
 			
 			.originality {
 				width: 90vw;
+				padding-top: 60px;
+				padding-left: 4vw;
 			}
 			
 			h2 {
@@ -386,6 +400,7 @@
 			
 			.trackdesc {
 				font-size: 4vw;
+				margin-top: 25px;
 			}
 			
 			.prices, .trackfacts span {
@@ -408,6 +423,15 @@
 			
 			#aboutme, #questions {
 				font-size: 4vw;
+				margin-top: 25px;
+			}
+			
+			.mobilimg {
+				display: block;
+			}
+			
+			.wideimg {
+				display: none;
 			}
 	
 		}
