@@ -5,10 +5,14 @@ layout: songwriting
 
 <html lang="en">
 	<header>
+		<div id="titles">
+		<a href="/songwriting"><img class="logo" src="/images/logo.png"></a>
+		<a class="signuphover" href="https://forms.gle/2efvjAijBqZEd69Q9"><img class="originality" src="/images/signup.png"></a>
+		</div>
 		<h1>
-			Online<br>Songwriting<br>Lessons
+			Online <br class="narrow"> Songwriting<br class="narrow"> Lessons
 		</h1>
-		<div>
+		<div style="display: none;">
 			<h2>	
 				UNCOVER&nbsp;YOUR <br>ORIGINALITY
 			</h2>
@@ -56,7 +60,7 @@ layout: songwriting
 		<div class="vat">
 			All&nbsp;prices&nbsp;including&nbsp;VAT&nbsp;(25%)
 		</div>
-		<a class="signup tracksignup" href="https://forms.gle/2efvjAijBqZEd69Q9">
+		<a class="signup tracksignup signuphover" href="https://forms.gle/2efvjAijBqZEd69Q9">
 			sign&nbsp;up
 		</a>
 	</div>
@@ -91,7 +95,7 @@ layout: songwriting
 		<div class="vat">
 			All&nbsp;prices&nbsp;including&nbsp;VAT&nbsp;(25%)
 		</div>
-		<a class="signup tracksignup" style="background-color: #C96C46;" href="https://forms.gle/2efvjAijBqZEd69Q9">
+		<a class="signup tracksignup signuphover" style="background-color: #C96C46;" href="https://forms.gle/2efvjAijBqZEd69Q9">
 			sign&nbsp;up
 		</a>
 	</div>
@@ -110,11 +114,15 @@ layout: songwriting
 </h5>
 <div id="questions">
 	<div>
-	What happens when I sign up?
+	How many spots do you&nbsp;have?
+	</div>
+	I currently only have space for 5 more students. It's true, <a href="https://forms.gle/2efvjAijBqZEd69Q9">hurry&nbsp;up</a> :)
+	<div>
+	What happens when I sign&nbsp;up?
 	</div> 
 	After you have filled in the sign up form and made the payment, 
 	I will ask you to send me 3 of your latest tunes 
-	(if you already have written songs) 
+	(if you already have written&nbsp;songs). 
 	<div>
 	What do I need? 
 	</div>
@@ -156,7 +164,7 @@ layout: songwriting
 	contact
 </h5>
 <div id="contact">
-<a style="background-color: #C96C46; padding: 13.5px 20px 12.5px;
+<a style="background-color: #C96C46; padding: 15.5px 20px 12.5px;
 ;" href="mailto:hello@pianopetter.com">hello@pianopetter.com</a>
 <a href="tel:+46 (0) 78 340 34 79">+46 (0) 78 340 34 79</a>
 </div>	
