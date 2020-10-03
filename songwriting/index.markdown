@@ -1,6 +1,8 @@
 ---
 title: songwriting
 layout: songwriting
+image:
+  path: /images/piano/.jpg
 ---
 
 <html lang="en">
@@ -61,7 +63,7 @@ layout: songwriting
 		<div class="vat">
 			All&nbsp;prices&nbsp;including&nbsp;VAT&nbsp;(25%)
 		</div>
-		<a class="signup tracksignup signuphover" href="https://forms.gle/2efvjAijBqZEd69Q9">
+		<a class="signup tracksignup signuphover" href="https://docs.google.com/forms/d/e/1FAIpQLSdbnuIXr6BGFY0xWUUnSDahfmBnCHnvAWtnp_IJT8Hh5XMRSw/viewform?usp=pp_url&entry.1112249897=Weekly+track.+12+weeks+is+660%E2%82%AC.+4+weeks+is+236%E2%82%AC.">
 			sign&nbsp;up
 		</a>
 	</div>
@@ -96,7 +98,7 @@ layout: songwriting
 		<div class="vat">
 			All&nbsp;prices&nbsp;including&nbsp;VAT&nbsp;(25%)
 		</div>
-		<a class="signup tracksignup signuphover" style="background-color: #C96C46;" href="https://forms.gle/2efvjAijBqZEd69Q9">
+		<a class="signup tracksignup signuphover" style="background-color: #C96C46;" href="https://docs.google.com/forms/d/e/1FAIpQLSdbnuIXr6BGFY0xWUUnSDahfmBnCHnvAWtnp_IJT8Hh5XMRSw/viewform?usp=pp_url&entry.1112249897=Alternative+track.+12+weeks+is+396%E2%82%AC.+4+weeks+is+148%E2%82%AC.">
 			sign&nbsp;up
 		</a>
 	</div>

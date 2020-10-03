@@ -2,6 +2,8 @@ url: http://petterrylen.com
 
 permalink: pretty
 
+description: Online Songwriting Lessons will bring your songs over the finish line with tailored songwriting exercises and supportive video chats. 
+
 defaults:
     -
         scope:
