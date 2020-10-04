@@ -44,7 +44,7 @@ image:
 			weekly track 	
 		</h5>
 		<div class="trackdesc">	
-			If you want to go into depth with your songwriting, <br class="wide">with time to work on your exercises during the&nbsp;lessons.
+			If you want to go into depth with your songwriting, and<br class="wide"> have time to work on your exercises during the&nbsp;lessons.
 		</div>
 		<div class="trackfacts">
 			<img class="videocallevery" src="/images/videocall.png">
@@ -135,8 +135,8 @@ image:
 	<li>A device that can do video calls.</li>
 	<li>Daily access to either:
 		<ul>
-			<li> a chord instrument (piano, guitar, etc).</li>
-			<li> a computer with a music making program (Ableton, Logic, Fruity Loops etc) + basic recording&nbsp;equipment.</li>
+			<li>a chord instrument (piano, guitar, etc).</li>
+			<li>or a computer with a music making program (Ableton, Logic, Fruity Loops etc) + basic recording&nbsp;equipment.</li>
 		</ul>	
 	</li>
 	<li>Some spare time to work on your&nbsp;songs. </li>
