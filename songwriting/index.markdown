@@ -182,6 +182,6 @@ image:
 <div id="contact">
 <a style="background-color: #C96C46; padding: 15.5px 20px 12.5px;
 ;" href="mailto:hello@pianopetter.com">hello@pianopetter.com</a>
-<a href="tel:+46 (0) 78 340 34 79">+46 (0) 78 340 34 79</a>
+<a href="tel:+46 (0) 78 340 34 79">+46 (0) 79 340 34 78</a>
 </div>	
 </html>
