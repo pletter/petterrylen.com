@@ -31,7 +31,7 @@ image:
 		<h4>
 			coaching and feedback
 		</h4>
-		Bring your songs over the finish line <br>with supportive video chats.
+		Bring your songs over the finish line <br>with one-to-one video chats.
 		<h4>
 			weekly songwriting exercises
 		</h4>
@@ -113,8 +113,11 @@ image:
 			sign&nbsp;up
 		</a>
 	</div>
-<img class="wideimg" src="/images/petter.jpg">
-<img class="mobilimg" src="/images/pettermobil.jpg">
+	
+<img style="display: none;" class="wideimg" src="/images/petter.jpg">
+<img style="display: none;" class="mobilimg" src="/images/pettermobil.jpg">
+<img class="wideimg" src="/images/guitar.jpg">
+<img  class="mobilimg" src="/images/guitarmobil.jpg">
 
 <h5>
 	about me
@@ -122,10 +125,13 @@ image:
 <div id="aboutme">
 	I'm Petter Rylén, a Swedish songwriter, pianist and producer. I finished my masters in Music Performance in 2015 from the Rhythmic Music Conservatory in Copenhagen, and have since been working as a touring musician, composer and music educator. 
 	<br><br>
-	If you’re curious to know more about me I would recommend checking out <a href="http://petterrylen.com/#albums">my albums</a>, or watching <a href="http://www.youtube.com/c/pianopetter">these videos</a>, about how I make music. 
+	If you’re curious to know more about me I would recommend checking out <a href="http://petterrylen.com/#albums">my albums</a>, or watching <a href="http://www.youtube.com/c/pianopetter">my videos</a>, about how I make music: 
 </div>
-<img class="wideimg" src="/images/guitar.jpg">
-<img class="mobilimg" src="/images/guitarmobil.jpg">
+
+<iframe style="margin: 73px 0px;" class="yt"  src="https://www.youtube.com/embed/mfYZNy_MCb8?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+
+
 
 <h5 class="orange">
 	questions
