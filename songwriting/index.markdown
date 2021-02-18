@@ -44,13 +44,13 @@ image:
 	<img style="display: none;" class="wideimg" src="/images/piano.jpg">
 	<img style="display: none;" class="mobilimg" src="/images/pianomobil.jpg">
 	<div class="track">
-		<h5>
-			weekly lessons 	
+		<h5 class="orange">
+			prices 	
 		</h5>
 		<div class="trackdesc">	
-			If you want to go into depth with your songwriting, and<br class="wide"> have time to work on your exercises during the&nbsp;lessons.
+			Lessons are 45 min video calls and will be <br class="wide">scheduled&nbsp;on a weekly or bi-weekly&nbsp;basis.
 		</div>
-		<div class="alternative" id="biweekly">
+		<div style="display: none;" class="alternative" id="biweekly">
 			<div class="trackfacts">
 				<img class="videocalleven" src="/images/videocall.png">
 				<h6>45 min video call</h6>
@@ -64,21 +64,28 @@ image:
 		</div>
 		<div class="prices">
 			<div>
-				<h6>12 weeks</h6><h6>55 € / week</h6>
+				<h6>Single lesson</h6><span></span><h6>75 €</h6>
 			</div>
 			<hr>
 			<div>
-				<span>4 weeks</span><span>59 € / week</span>
+				<h6>10 lessons</h6><span>20% off</span><h6>600 €</h6>
+			</div>
+			<hr>
+			<div>
+				<h6>20 lessons</h6><span>25% off</span><h6>1125 €</h6>
 			</div>
 		</div>
 		<div class="vat">
 			All&nbsp;prices&nbsp;including&nbsp;VAT&nbsp;(25%)
 		</div>
-		<a class="signup tracksignup signuphover" href="https://docs.google.com/forms/d/e/1FAIpQLSdbnuIXr6BGFY0xWUUnSDahfmBnCHnvAWtnp_IJT8Hh5XMRSw/viewform?usp=pp_url&entry.1112249897=Weekly+track.+12+weeks+is+660%E2%82%AC.+4+weeks+is+236%E2%82%AC.">
-			sign&nbsp;up
-		</a>
+		<div class="interested">
+			Interested?
+			<br>
+			<br>
+			Send me an <a href="mailto:hello@pianopetter.com?subject=Online Songwriting Lessons&body=Hi Petter, I'm interested in songwriting lessons, what is your availability?">email</a> or fill&nbsp;in&nbsp;this&nbsp;<a href="https://docs.google.com/forms/d/e/1FAIpQLSdbnuIXr6BGFY0xWUUnSDahfmBnCHnvAWtnp_IJT8Hh5XMRSw/viewform?usp=pp_url&entry.1112249897=Weekly+track.+12+weeks+is+660%E2%82%AC.+4+weeks+is+236%E2%82%AC.">form</a>.
+		</div>
 	</div>
-	<div class="track">
+	<div style="display: none;" class="track">
 		<h5 class="orange">
 			bi-weekly lessons 	
 		</h5>
@@ -118,6 +125,7 @@ image:
 <img style="display: none;" class="mobilimg" src="/images/pettermobil.jpg">
 <img class="wideimg" src="/images/guitar.jpg">
 <img  class="mobilimg" src="/images/guitarmobil.jpg">
+
 
 <h5>
 	about me
@@ -163,9 +171,9 @@ image:
 	</div>
 	No problem, as long as you don’t mind me telling you to try it&nbsp;anyway.
 	<div>
-	What happens when I sign&nbsp;up?
-	</div> 
-	In the sign up form you can tell me about your experience with songwriting, and send me links to 3 of your latest songs (if you have already written songs). Once I receive your answers I will write you an email with details of payment and my availability for our first video&nbsp;call.
+	How do I sign&nbsp;up?
+	</div>
+	Send me an <a href="mailto:hello@pianopetter.com?subject=Online Songwriting Lessons&body=Hi Petter, I'm interested in songwriting lessons, what is your availability?">email</a> and I will get back to you with my availability! Before your first lesson, in order to help you as much as possible, I will ask you to tell me more about yourself by filling in this <a href="https://docs.google.com/forms/d/e/1FAIpQLSdbnuIXr6BGFY0xWUUnSDahfmBnCHnvAWtnp_IJT8Hh5XMRSw/viewform?usp=pp_url&entry.1112249897=Weekly+track.+12+weeks+is+660%E2%82%AC.+4+weeks+is+236%E2%82%AC.">form</a>. You can also sign up by filling in the form straight&nbsp;away. 
 	<div>
 	How do I&nbsp;pay?
 	</div>
