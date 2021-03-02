@@ -165,7 +165,7 @@ image:
 	<div>
 	What if I’m not good&nbsp;enough?
 	</div>
-	You are! My methods are about trying our best with whatever means we have at hand, so yes, if you are a human, these lessons are for&nbsp;you. 
+	You are! My methods are about doing our best with whatever means we have at hand, discovering how easy it is to write songs, and the enjoyment of trying things we don't think we can&nbsp;do. 
 	<div>
 	I don’t want to&nbsp;sing? 
 	</div>
