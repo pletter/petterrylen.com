@@ -125,7 +125,7 @@ image:
 <img style="display: none;" class="mobilimg" src="/images/pettermobil.jpg">
 <img style="display: none;" class="wideimg" src="/images/guitar.jpg">
 <img style="display: none;" class="mobilimg" src="/images/guitarmobil.jpg">
-<iframe style="margin: 73px 0px;" class="yt" src="https://www.youtube.com/embed/9C7rJsm3NvA?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe style="margin: 0px 0px 73px;" class="yt" src="https://www.youtube.com/embed/9C7rJsm3NvA?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <h5>
 	about me
