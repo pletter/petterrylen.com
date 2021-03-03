@@ -68,11 +68,11 @@ image:
 			</div>
 			<hr>
 			<div>
-				<h6>10 lessons</h6><span>20% off</span><h6>600 €</h6>
+				<h6>5 lessons</h6><span>20% off</span><h6>300 €</h6>
 			</div>
 			<hr>
 			<div>
-				<h6>20 lessons</h6><span>25% off</span><h6>1125 €</h6>
+				<h6>10 lessons</h6><span>25% off</span><h6>560 €</h6>
 			</div>
 		</div>
 		<div class="vat">
@@ -125,7 +125,7 @@ image:
 <img style="display: none;" class="mobilimg" src="/images/pettermobil.jpg">
 <img style="display: none;" class="wideimg" src="/images/guitar.jpg">
 <img style="display: none;" class="mobilimg" src="/images/guitarmobil.jpg">
-<iframe style="margin: 0px 0px 73px;" class="yt" src="https://www.youtube.com/embed/9C7rJsm3NvA?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe style="margin: 0px 0px 73px;" class="yt" src="https://www.youtube.com/embed/9C7rJsm3NvA?controls=0?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <h5>
 	about me
