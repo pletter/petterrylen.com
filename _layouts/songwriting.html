@@ -197,14 +197,15 @@
 		}
 		
 		.trackdesc {
-			text-align: center;
+			text-align: left;
 			margin: 45px 0px 20px;
 			letter-spacing: 0.4px;
 			line-height: 1.5em;
+			width: 350px
 		}
 		
 		.interested {
-			text-align: center;
+			text-align: left;
 			margin: 20px;
 			letter-spacing: 0.4px;
 			font-size: 20px;
@@ -247,7 +248,7 @@
 		
 		.prices div {
 			display: grid;
-			grid-template-columns: 2fr 1fr 1fr;
+			grid-template-columns: 2.5fr 1fr 1fr;
 		}
 		
 		.prices div span {
@@ -265,10 +266,19 @@
 			text-align: right;
 		}
 		
+		.prices h6:nth-child(2){
+			text-align: right;
+		}
+		
 		.vat {
-			opacity: 0.4;
+			width: 350px;
+			opacity: 0.5;
 			margin: 20px 0px 17px;
-			font-size: 15px;
+			font-size: 14.3px;
+			text-align: left;
+			margin: 23px auto 20px;
+			letter-spacing: 0.4px;
+			line-height: 1.5em;
 		}
 		
 		.track {
@@ -433,6 +443,7 @@
 			
 			.vat {
 				font-size: 4vw;
+				width: 80vw;
 			}
 			
 			.wide {
@@ -446,6 +457,7 @@
 			.trackdesc {
 				font-size: 4vw;
 				margin-top: 25px;
+				width: 80vw;
 			}
 			
 			.prices, .trackfacts span {

@@ -48,7 +48,11 @@ image:
 			prices 	
 		</h5>
 		<div class="trackdesc">	
-			Lessons are 45 min video calls and will be <br class="wide">scheduled&nbsp;on a weekly or bi-weekly&nbsp;basis.
+			Lessons are 45 min video calls and will be scheduled on a weekly&nbsp;basis.
+		</div>
+		<div style="margin: 10px 0 10px"  class="trackdesc">
+			<h6 style="color: #A2D729; letter-spacing: 0.45px;
+			line-height: 1.45em;">35% launch discount in return <br class="wide">for review and&nbsp;feedback!</h6> 
 		</div>
 		<div style="display: none;" class="alternative" id="biweekly">
 			<div class="trackfacts">
@@ -64,19 +68,15 @@ image:
 		</div>
 		<div class="prices">
 			<div>
-				<h6>Single lesson</h6><span></span><h6>75 €</h6>
+				<h6>Try-it-out lesson</h6><h6 style="text-decoration: line-through; text-decoration-color: #C96C46;">55 €</h6><h6 style="color:#A2D729;">36 €</h6>
 			</div>
 			<hr>
 			<div>
-				<h6>5 lessons</h6><span>20% off</span><h6>300 €</h6>
-			</div>
-			<hr>
-			<div>
-				<h6>10 lessons</h6><span>25% off</span><h6>560 €</h6>
+				<h6>Monthly cost</h6><h6 style="text-decoration: line-through; text-decoration-color: #C96C46;">240 €</h6><h6 style="color:#A2D729;">156 €</h6>
 			</div>
 		</div>
 		<div class="vat">
-			All&nbsp;prices&nbsp;including&nbsp;VAT&nbsp;(25%)
+			 Get a full refund of your try-it-out lesson if you don't find it useful. Monthly cost includes on avarage 4.3&nbsp;lessons. All prices including VAT&nbsp;(25%).
 		</div>
 		<div class="interested">
 			Interested?
