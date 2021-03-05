@@ -48,41 +48,36 @@ image:
 			prices 	
 		</h5>
 		<div class="trackdesc">	
-			Lessons are 45 min video calls and will be scheduled on a weekly&nbsp;basis.
+			Lessons are 45 min video calls. I'm&nbsp;currently <br class="midbr"> offering a <strong class="green">35%&nbsp;launch&nbsp;discount!</strong>
 		</div>
-		<div style="margin: 10px 0 10px"  class="trackdesc">
-			<h6 style="color: #A2D729; letter-spacing: 0.45px;
-			line-height: 1.45em;">35% launch discount in return <br class="wide">for review and&nbsp;feedback!</h6> 
+		<div>
 		</div>
-		<div style="display: none;" class="alternative" id="biweekly">
-			<div class="trackfacts">
-				<img class="videocalleven" src="/images/videocall.png">
-				<h6>45 min video call</h6>
-				<span>every week</span>
+			<div id="prices">
+			<div class="pricebox">
+				<h6 class="orange">Try-it-out lesson</h6>
+				<div style="position: relative;">
+					<img style="width: 60px;top: -78px;left: 22px;"  src="/images/redstroke.png">
+					<h6 style="font-weight: 100;">55 €</h6><h6 class="green">36 €</h6></div>
+				<div>Fully refundable if you <br>don't find it useful!</div>
 			</div>
-			<div class="trackfacts">
-				<img class="written" src="/images/written.png">
-				<h6>written feedback</h6>
-				<span>once a week</span>
+			<div class="pricebox">
+				<h6 class="orange">Weekly lessons</h6>
+				<div style="margin: 25px 0px 16px;">Monthly cost.</div>
+				<div style="position: relative;"><h6 style="font-weight: 100;">240 €</h6>
+				<img style="width: 70px;top: -83px;left: 10px;" class src="/images/redstroke.png">
+				<h6 class="green">156 €</h6></div>
 			</div>
-		</div>
-		<div class="prices">
-			<div>
-				<h6>Try-it-out lesson</h6><h6 style="text-decoration: line-through; text-decoration-color: #C96C46;">55 €</h6><h6 style="color:#A2D729;">36 €</h6>
 			</div>
-			<hr>
-			<div>
-				<h6>Monthly cost</h6><h6 style="text-decoration: line-through; text-decoration-color: #C96C46;">240 €</h6><h6 style="color:#A2D729;">156 €</h6>
-			</div>
-		</div>
 		<div class="vat">
-			 Get a full refund of your try-it-out lesson if you don't find it useful. Monthly cost includes on avarage 4.3&nbsp;lessons. All prices including VAT&nbsp;(25%).
+			 All prices including VAT&nbsp;(25%).
 		</div>
 		<div class="interested">
 			Interested?
 			<br>
 			<br>
-			Send me an <a href="mailto:hello@pianopetter.com?subject=Online Songwriting Lessons&body=Hi Petter, I'm interested in songwriting lessons, what is your availability?">email</a> or fill&nbsp;in&nbsp;this&nbsp;<a href="https://docs.google.com/forms/d/e/1FAIpQLSdbnuIXr6BGFY0xWUUnSDahfmBnCHnvAWtnp_IJT8Hh5XMRSw/viewform?usp=pp_url&entry.1112249897=Weekly+track.+12+weeks+is+660%E2%82%AC.+4+weeks+is+236%E2%82%AC.">form</a>.
+			Send me an <a class="green" href="mailto:hello@pianopetter.com?subject=Online Songwriting Lessons&body=Hi Petter, I'm interested in songwriting lessons, what is your availability?">email</a>
+			<br>
+			 or fill&nbsp;in&nbsp;this&nbsp;<a class="green" href="https://docs.google.com/forms/d/e/1FAIpQLSdbnuIXr6BGFY0xWUUnSDahfmBnCHnvAWtnp_IJT8Hh5XMRSw/viewform?usp=pp_url&entry.1112249897=Weekly+track.+12+weeks+is+660%E2%82%AC.+4+weeks+is+236%E2%82%AC.">form</a>.
 		</div>
 	</div>
 	<div style="display: none;" class="track">
@@ -131,9 +126,9 @@ image:
 	about me
 </h5>
 <div id="aboutme">
-	I'm Petter Rylén, a Swedish songwriter, pianist and producer. I finished my masters in Music Performance in 2015 from the Rhythmic Music Conservatory in Copenhagen, and have since been working as a touring musician, composer and music educator. 
+	I'm Petter Rylén, a Swedish songwriter, pianist and producer. I got my masters degree in Music Performance in 2015 from the Rhythmic Music Conservatory in Copenhagen, and have since been working as a touring musician, composer and music educator. 
 	<br><br>
-	If you’re curious to know more about me I would recommend checking out <a href="http://petterrylen.com/#albums">my albums</a>, or watching <a href="http://www.youtube.com/c/pianopetter">my videos</a>, about how I make music: 
+	If you’re curious to know more about me I would recommend checking out <a href="http://petterrylen.com/#albums">my albums</a>, or watching <a href="http://www.youtube.com/c/pianopetter">my videos</a>, about how I make music.
 </div>
 
 <iframe style="margin: 73px 0px;" class="yt"  src="https://www.youtube.com/embed/mfYZNy_MCb8?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
@@ -186,6 +181,10 @@ image:
 	Do you teach [insert musical&nbsp;genre]? 
 	</div>
 	Yes. 
+	<div>
+	What if I can't afford to pay for lessons&nbsp;? 
+	</div>
+	Congratulations for reading this far! Since I'm just launching this business and I'm eager to get started and get some feedback, I've decided to give 3 people a month's worth of free lessons. So just <a href="mailto:hello@pianopetter.com?subject=Online Songwriting Lessons&body=Hi Petter, I'm interested in the offer of free songwriting lessons, is it still available?">send me an email</a> and tell what you want help with and I'll get back to you if you're amonst the first 3 to write.  
 </div>
 <img class="wideimg" src="/images/mic.jpg">
 <img class="mobilimg" src="/images/micmobil.jpg">

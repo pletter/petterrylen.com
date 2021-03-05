@@ -192,24 +192,29 @@
 			color: #C96C46;
 		}
 		
+		.green {
+			color: #A2D729;
+		}
+		
 		.track {
 			font-size: 18px;
+			font-weight: 100;
 		}
 		
 		.trackdesc {
-			text-align: left;
-			margin: 45px 0px 20px;
+			text-align: center;
+			margin: 45px 35px 20px;
 			letter-spacing: 0.4px;
 			line-height: 1.5em;
-			width: 350px
 		}
 		
 		.interested {
-			text-align: left;
+			text-align: center;
 			margin: 20px;
 			letter-spacing: 0.4px;
-			font-size: 20px;
-			line-height: 1.45em;
+			font-size: 24px;
+			font-weight: 900;
+			line-height: 1.55em;
 		}
 		
 		.trackfacts {
@@ -220,62 +225,46 @@
 		}
 		
 		h6 {
-			font-size: 24px;
-			font-weight: 500;
+			font-size: 28px;
+			font-weight: 900;
 		}
 		
-		.trackfacts span {
-			font-weight: 500;
+		.pricebox {
+			display: flex;
+			flex-direction: column;
+			border: 4px solid #858388;
+			border-radius: 7px;
+			padding: 45px;
+			text-align: center;
+			margin: 30px;
+			background-color:;
+		}
+		
+		.pricebox div {
+			display: flex;
+			justify-content: space-evenly;
+			margin: 15px 0px 0px;
 			letter-spacing: 0.4px;
+			line-height: 1.5em;
 		}
 		
-		.videocallevery {
-			height: 36px;
-			width: inherit;
-			margin: 0px 0px 0px 0px;
-			margin-bottom: 9px;
+		.pricebox img {
+			position: absolute;
+			opacity: 0.7;
 		}
 		
-		.prices {
-			width: 350px;
-			margin: 25px 0px 25px;
-		}
-		
-		hr {
-			opacity: 0.2;
-			margin: 5px 0px 9px;
-		}
-		
-		.prices div {
-			display: grid;
-			grid-template-columns: 2.5fr 1fr 1fr;
-		}
-		
-		.prices div span {
-			color: #A2D729;
-			align-self: end;
-			font-size: 15px;
-			margin-bottom: 2px;
-		}
-		
-		.prices h6 {
-			align-self: end;
-		}
-		
-		.prices h6:nth-child(3){
-			text-align: right;
-		}
-		
-		.prices h6:nth-child(2){
-			text-align: right;
+		#prices {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin: 0 auto;
 		}
 		
 		.vat {
-			width: 350px;
 			opacity: 0.5;
-			margin: 20px 0px 17px;
+			margin: 20px;
 			font-size: 14.3px;
-			text-align: left;
+			text-align: center;
 			margin: 23px auto 20px;
 			letter-spacing: 0.4px;
 			line-height: 1.5em;
@@ -286,35 +275,6 @@
 			flex-direction: column;
 			align-items: center;
 			margin-bottom: 60px;
-		}
-		
-		.alternative {
-			margin-bottom: 0px;
-		}
-		
-		#biweekly {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-			width: 380px;
-		}
-		
-		#biweekly img {
-			margin: 0px 0px 9px 0px;
-		}
-		
-		.videocalleven {
-				height: 30px;
-				width: inherit;
-			}
-		
-		.written {
-			height: 30px;
-			width: inherit;
-		}
-		
-		.tracksignup {
-			margin-left: 0px !important;
 		}
 		
 		#aboutme {
@@ -394,6 +354,19 @@
 			line-height: 1.5em;
 		}
 		
+		.midbr {
+			display: none; 
+		}
+		
+		@media screen and (max-width: 736px){
+			
+			.midbr {
+				display: block; 
+			}
+			
+			
+		}
+		
 		@media screen and (max-width: 600px) {
 			
 			#titles {
@@ -441,9 +414,12 @@
 				font-size: 15vw;
 			}
 			
+			#prices {
+				display: flex;
+				flex-direction: column;
+			}
+			
 			.vat {
-				font-size: 4vw;
-				width: 80vw;
 			}
 			
 			.wide {
@@ -455,27 +431,17 @@
 			}
 			
 			.trackdesc {
-				font-size: 4vw;
 				margin-top: 25px;
 				width: 80vw;
 			}
 			
-			.prices, .trackfacts span {
-				font-size: 4vw;
-			}
-			
-			.prices {
-				width: 80vw;
+			.pricebox {
+				padding: 20px;
 			}
 			
 			.track h6 {
-				font-size: 5vw;
-			}
-			
-			#biweekly {
-				width: 100%;
-				display: flex;
-				justify-content: space-evenly;
+				font-size: 25px;
+				font-weight: 900;
 			}
 			
 			#aboutme, #questions {
@@ -494,8 +460,20 @@
 			.contacttext {
 				width: 80vw;
 			}
-	
+			
+			.mobilebr {
+				display: block;
+			}
+				
 		}
+		
+		@media screen and (max-width: 500px) {
+		
+		.midbr {
+			display: none; 
+		}
+		
+	}
 		
 	</style>
 	<link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
