@@ -118,11 +118,27 @@ image:
 	
 <img style="display: none;" class="wideimg" src="/images/petter.jpg">
 <img style="display: none;" class="mobilimg" src="/images/pettermobil.jpg">
-<img style="display: none;" class="wideimg" src="/images/guitar.jpg">
-<img style="display: none;" class="mobilimg" src="/images/guitarmobil.jpg">
+
 <iframe style="margin: 0px 0px 73px;" class="yt" src="https://www.youtube.com/embed/9C7rJsm3NvA?controls=0?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <h5>
+Testemonials
+</h5>
+
+<div class="testi">
+	“<i>I feel very fortunate to have found Petter! His teaching is creative, encouraging and very inspirational. Each week I come away feeling totally amazed by what i have achieved in the lesson. I highly recommend him!</i>” - Carmela Gianfagna
+	<br><br>
+	“<i>Petter is a very focused and present teacher, who has led me through some of my most hardcore obstacles in my music with ease, and I can strongly recommend him to everyone that wants to get through with music. He’s is crazy, brave and it’s easy to feel that all he wishes for is for me to succeed!</i>” - Johan Ransby Granberg
+	<br><br>
+	"<i>Petter has an untamed creativity. His style is wonderful and wild. He helped me harness my own musicality and took me on an organic journey of discovery</i>" – Jacqueline Abbey
+	<br><br>
+	"<i>I had very limited song writing knowledge before working with Petter. But through the techniques and exercises we did he gave me confidence I never expected! He always pushed me and made sure I was doing the best I could do, and not just settling for ok. He taught me to always finish a song, even if I’ve decided I hate it, because finishing a song is the hardest part. I’m so proud of the pieces I wrote while working with Petter, and he always gave me ideas and techniques I’d have never thought of to continually develop and progress every part of every song. And also every lesson was fun! He’s really easy to talk to and I couldn’t recommend him more!</i>" – Kristy Cromwell Leigh
+</div>
+
+<img class="wideimg" src="/images/guitar.jpg">
+<img class="mobilimg" src="/images/guitarmobil.jpg">
+
+<h5 class="orange">
 	about me
 </h5>
 <div id="aboutme">
@@ -136,7 +152,7 @@ image:
 
 
 
-<h5 class="orange">
+<h5>
 	questions
 </h5>
 <div id="questions">
@@ -185,7 +201,7 @@ image:
 <img class="wideimg" src="/images/mic.jpg">
 <img class="mobilimg" src="/images/micmobil.jpg">
 
-<h5>
+<h5 class="orange">
 	contact
 </h5>
 		<div class="contacttext">Send me an email or give me a <br class="wide">
@@ -193,8 +209,8 @@ ring if you have any&nbsp;questions!
 			 <br class="wide">
 		</div>
 <div id="contact">
-<a style="background-color: #C96C46; padding: 15.5px 20px 12.5px;
+<a style="padding: 15.5px 20px 12.5px;
 ;" href="mailto:hello@pianopetter.com?subject=Online Songwriting Lessons">hello@pianopetter.com</a>
-<a href="tel:+46 (0) 78 340 34 79">+46 (0) 79 340 34 78</a>
+<a style="background-color: #C96C46;" href="tel:+46 (0) 78 340 34 79">+46 (0) 79 340 34 78</a>
 </div>	
 </html>
