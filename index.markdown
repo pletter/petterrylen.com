@@ -5,24 +5,33 @@ layout: default
 <html lang="en">
 <div class="centered" id="bio">
 	<p>
-		I'm a pianist, composer, youtuber, beatboxer and person.
+		I'm a pianist, singer and youtuber in Sweden. 
 	</p>
 	<p>
-		I grew up by a lake in eastern Sweden. The piano got its hooks into me when I was 14, 
-		and that's when I started playing jazz. Ever since then, 
-		all I've has been doing is playing the piano, 
-		writing piano music, improvising on the piano, teaching the piano, 
-		playing the piano, making videos about piano, thinking about piano, 
-		piano piano, piano piano piano piano.
+		Just released a double single called <a href="https://songwhip.com/petterrylen/silence">Silence</a> with George Goom as a remix artist! 
 	</p>
 	<p>
-		Now I live in Newport, Wales, and I started a new chapter of my life, 
-		with one mission: writing piano music.
 	</p>	
 </div>
 <div id="albums">
 	<h1>albums</h1>
-	<div>	
+	<div>
+		<a class="albumart" href="https://songwhip.com/petterrylen/silence">
+			<div class="imgwrap">
+				<img src="/images/silence.jpg">
+				<div class="imgdescription">
+					<h2>Silence</h2>
+				</div>
+			</div>
+		</a>
+		<a class="albumart" href="https://songwhip.com/petterrylen/honeymoon-in-wales">
+			<div class="imgwrap">
+				<img src="/images/honeymooninwales.jpg">
+				<div class="imgdescription">
+					<h2></h2>
+				</div>
+			</div>
+		</a>	
 		<a class="albumart" href="https://album.link/hjX5cKnZmmSJ8">
 			<div class="imgwrap">
 				<img src="/images/afterthemeltdown.jpg">
@@ -70,21 +79,21 @@ layout: default
 <div id="concerts">
 	<h1>concerts</h1>
 	<div>
-		<div>Live Stream</div>
-		<div>Oct 5th 9PM UTC+2</div>
-		<div><a href="http://twitch.com/pianopetterplays">Twitch</a></div>
 		<div></div>
-		<div>Live Stream</div>
-		<div>Oct 19th 9PM UTC+2</div>
-		<div><a href="http://twitch.com/pianopetterplays">Twitch</a></div>
+		<div>April 21st</div>
+		<div>To be announced</div>
 		<div></div>
-		<div>Live Stream</div>
-		<div>Nov 2th 9PM UTC+2</div>
-		<div><a href="http://twitch.com/pianopetterplays">Twitch</a></div>
+		<div style="display: none;">Live Stream</div>
+		<div style="display: none;">Oct 19th 9PM UTC+2</div>
+		<div style="display: none;"><a href="http://twitch.com/pianopetterplays">Twitch</a></div>
+		<div></div>
+		<div style="display: none;">Live Stream</div>
+		<div style="display: none;">Nov 2th 9PM UTC+2</div>
+		<div style="display: none;"><a href="http://twitch.com/pianopetterplays">Twitch</a></div>
 		<div></div>		
-		<div>Live Stream</div>
-		<div>Nov 16th 9PM UTC+2</div>
-		<div><a href="http://twitch.com/pianopetterplays">Twitch</a></div>		
+		<div style="display: none;">Live Stream</div>
+		<div style="display: none;">Nov 16th 9PM UTC+2</div>
+		<div style="display: none;"><a href="http://twitch.com/pianopetterplays">Twitch</a></div>		
 	</div>	
 </div>
 		
