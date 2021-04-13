@@ -122,7 +122,7 @@ image:
 <iframe style="margin: 0px 0px 73px;" class="yt" src="https://www.youtube.com/embed/9C7rJsm3NvA?controls=0?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <h5>
-Testemonials
+Testimonials
 </h5>
 
 <div class="testi">
