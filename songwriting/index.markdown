@@ -193,10 +193,6 @@ Testimonials
 	What days do you&nbsp;teach?
 	</div>
 	Wednesdays and&nbsp;Thursdays.
-	<div>
-	What if I can't afford to pay for&nbsp;lessons? 
-	</div>
-	Congratulations for reading this far! Since I'm just launching this business and I'm eager to get started and get some feedback, I've decided to give 3 people 4 free lessons. So just <a href="mailto:hello@pianopetter.com?subject=Online Songwriting Lessons&body=Hi Petter, I'm interested in the offer of free songwriting lessons, is it still available?">send me an email</a> and tell me what you want help with and I'll get back to you if you're amonst the first 3 to&nbsp;write.  
 </div>
 <img class="wideimg" src="/images/mic.jpg">
 <img class="mobilimg" src="/images/micmobil.jpg">
