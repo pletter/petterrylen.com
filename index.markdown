@@ -5,10 +5,7 @@ layout: default
 <html lang="en">
 <div class="centered" id="bio">
 	<p>
-		I'm a pianist, singer and youtuber in Sweden. 
-	</p>
-	<p>
-		Just released a double single called <a href="https://songwhip.com/petterrylen/silence">Silence</a> with George Goom as a remix artist! 
+		<a href="https://songwhip.com/petterrylen/the-bended-tree">The Bended Tree</a> is out!!!!!!!!!!!!!!!!!!! It's a piano album, and then the legendary George Goom<a href="https://songwhip.com/.../the-bended-tree-george-goom-remix"> remixed</a> it.
 	</p>
 	<p>
 	</p>	
@@ -16,11 +13,19 @@ layout: default
 <div id="albums">
 	<h1>albums</h1>
 	<div>
-		<a class="albumart" href="https://songwhip.com/petterrylen/silence">
+		<a class="albumart" href="https://songwhip.com/petterrylen/the-bended-tree">
 			<div class="imgwrap">
-				<img src="/images/silence.jpg">
+				<img src="/images/thebendedtree.jpg">
 				<div class="imgdescription">
-					<h2>Silence</h2>
+					<h2 class="black">The Bended Tree</h2>
+				</div>
+			</div>
+		</a>
+		<a class="albumart" href="https://songwhip.com/petterrylen/the-bended-tree-george-goom-remix">
+			<div class="imgwrap">
+				<img src="/images/thebendedtreeremix.jpg">
+				<div class="imgdescription">
+					<h2 class="black">The Bended Tree <br>(George Goom Remix)</h2>
 				</div>
 			</div>
 		</a>
@@ -79,9 +84,9 @@ layout: default
 <div id="concerts">
 	<h1>concerts</h1>
 	<div>
-		<div></div>
-		<div>April 21st</div>
-		<div>To be announced</div>
+		<div>I</div>
+		<div> can't </div>
+		<div>wait!</div>
 		<div></div>
 		<div style="display: none;">Live Stream</div>
 		<div style="display: none;">Oct 19th 9PM UTC+2</div>
