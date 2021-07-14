@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Petters Pianolektioner</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=width-device-width, initial-scale=1.0">
+	<style>
+		
+		@font-face {
+		  font-family: avenirbook;
+		  src: url(/fonts/avenirltstd-book.otf);
+		}
+		
+		@font-face {
+		  font-family: avenirmedium;
+		  src: url(/fonts/avenirltstd-medium.otf);
+		}
+		
+		@font-face {
+		  font-family: avenirheavy;
+		  src: url(/fonts/avenirltstd-heavy.otf);
+		}
+		
+		@font-face {
+		  font-family: avenirblack;
+		  src: url(/fonts/avenirltstd-black.otf);
+		}
+		
+		@font-face {
+		  font-family: avenirblackoblique;
+		  src: url(/fonts/avenirltstd-blackoblique.otf);
+		}
+		
+		body {
+			font-family: avenirbook;
+			margin: 0 auto;
+			width: 100vw;
+		}
+		
+		h1 {
+			margin: 30px 0px;
+			font-size: 35px;
+			font-family: avenirheavy;
+			text-align: center;
+			text-transform: uppercase;
+		}
+		
+		h2 {
+			font-family: avenirmedium;
+			font-size: 30px;
+			margin: 0px 0px 5px;
+		}
+		
+		h3 {
+			font-size: 22px;
+			margin-top: 0px;
+		}
+		
+		#introvideo {
+			width: 100%;
+			height: 56.25vw;
+		}
+		
+		.introtext {
+			width: 100vw;
+		}
+		
+		.introtext > div:nth-child(odd) {
+			background-color: #EDEDED;
+		}
+		
+		.introtext > div > div {
+			width: 80vw;
+			text-align: center;
+			margin: 0 auto;
+			padding: 30px 0px;
+			font-size: 22px;
+		}
+		
+		
+		#introquote {
+			width: 80vw;
+			margin: 0 auto;
+			text-align: left;
+			padding: 30px 0px;
+			font-size: 18px;
+		}
+		
+		#requirements {
+			font-size: 22px;
+			text-align: center;
+			
+			background-color: #EDEDED;
+		}
+		
+		#requirements > div:nth-child(odd) {
+		}
+		
+		#requirements > div {
+		width: 80vw;
+		margin: 0 auto;
+		padding: 30px 0px;
+		}
+		
+		#requirements h2 {
+			margin: 0px;
+			font-size: 30px;
+			text-align: center;
+			font-family: avenirmedium;
+		}
+		
+		.contentsection {
+		font-size: 18px;
+		}
+		
+		.contentsection > div > div {
+			width: 80vw;
+			margin: 0 auto;
+			text-align: left;
+			padding: 30px 0px;
+		}
+		
+		.contentsection > div:nth-child(even) {
+			background-color: #EDEDED;
+		}
+		
+		#bokaprova {
+			width: 100vw;
+			margin: 0 auto;
+			text-align: center;
+			padding: 30px 0px;
+			font-size: 22px;
+			background-color: #EDEDED;
+			letter-spacing: 1px;
+		}
+		
+		#bokaprova h2 {
+			font-size: 30px;
+			margin: 0px;
+		}
+		
+		#prices {
+			display: flex;
+			align-items: center;
+			justify-content: space-evenly;
+			font-family: avenirheavy;
+		}
+		
+		#prices > div {
+			margin-top: 10px;
+			position: relative;
+		}
+		
+		#prices img {
+	   		position: absolute;
+	    	opacity: 0.7;
+			width: 70px;
+			left: -10px;	
+			top: -7px;	
+			
+		}
+		
+		#pricebox {
+			display: flex;
+			flex-direction: column;
+			width: 270px;
+			margin: 0 auto;
+			border: 3px solid #424242;
+			border-radius: 7px;
+			padding: 30px 15px;
+			text-align: center;
+			background-color: ;
+		}
+		
+		#pricebox:hover {
+			background-color: white;
+			
+		}
+		
+		.calendly-badge-content span {
+			display: none !important;
+		}
+		
+		.calendly-badge-widget { 
+			left: 50% !important; 
+			margin-left: -158px !important;
+		}
+		
+		.calendly-badge-content {
+			font-family: avenirheavy !important;
+			color: black !important;
+			padding: 10px 25px !important;
+			font-size: 22px !important;
+		}
+		
+		
+		
+		
+	
+		
+		@media screen and (max-width: 736px){
+			
+		
+		
+		}
+		
+		@media screen and (max-width: 600px) {
+			
+			
+		}
+		
+		@media screen and (max-width: 500px) {
+		
+		}
+		
+	</style>
+	<link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+	<meta property="og:image" content="/images/piano.jpg"/>
+	<meta property="og:description" content=""/>
+</head>
+<body>
+	
+	<div id="content">
+		{{ content }}
+	</div>
+		<footer>
+			
+		</footer>
+</body>
+</html>
