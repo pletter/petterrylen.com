@@ -12,7 +12,7 @@ image:
 <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/petterrylen/50min?hide_gdpr_banner=1', text: 'boka lektion', color: '#EDEDED', textColor: '#black', branding: true }); }</script>
 <!-- Calendly badge widget end -->
 <header>
-	<h1>Petters Pianolektioner</h1>
+	<img src="/images/title.png">
 </header>
 <iframe style="margin-bottom: -6px;" id="introvideo" src="https://www.youtube.com/embed/2-fFQjIffrs?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <div class="introtext">
@@ -20,32 +20,71 @@ image:
 		<div>
 			<h2>Spela dina favoritlåtar</h2>
 			lär dig skapa egna pianoversioner av musik&nbsp;du&nbsp;älskar
+			<img id="cat" src="/images/cat.png">
 		</div>
 	</div>
 	<div>
 		<div>
 		<h2>Komponera din egen&nbsp;pianomusik</h2>
 		metoder som gör det superlätt att&nbsp;börja&nbsp;skriva
+		<img id="pen" src="/images/pen.png">
 		</div>
 	</div>
 	<div>
 		<div>
 		<h2>Improvisera och spela&nbsp;pianosolo</h2>
 		ta en paus från prestation och att&nbsp;”spela&nbsp;rätt”
+		<img id="right" src="/images/right.png">
 		</div>
 	</div>
 	<div>
 		<div>
-		<h2>barn pensionär</h2>
+		<h2>treåring pensionär</h2>
 		<h2>nybörjare mozart</h2>
 		spela piano som den <i>du</i> är
+		<img id="mozart" src="/images/mozart.png">
 		</div>
 	</div>
 </div>
-<div id="provapa">
-		<h2>Prova-på-pris</h2>
-		<div>
+<div class="contentsection">
+	
+</div>
+<div id="forstalektionen">
+	<h2>Första lektionen</h2>
+	<div>
+		<img src="/images/tea.png">
+		Dricka te och prata
+	</div>
+	<div>
+		<img src="/images/keys.png">
+		Börja spela favoritlåt
+	</div>
+	<div>
+		<img src="/images/party.png">
+		Ha roligt direkt! 
+	</div>
+	<div id="priser">
+		<h2 style="position: relative;"><img class="redstroke" src="/images/redstroke.png">800 kr</h2>	<h2>200 kr</h2>
+	</div>
+	<div id="bokaprova">
+		<!-- Calendly link widget begin -->
+		<link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
+		<script src="https://calendly.com/assets/external/widget.js" type="text/javascript"></script>
+		<!-- Calendly link widget end -->
+		<a onclick="Calendly.showPopupWidget('https://calendly.com/petterrylen/50min');return false;" id="pricebox">
+		<h2>Boka första lektionen</h2>
+		</a>
+	</div>
+</div>
+<div id="provapa" style="display: none;">
+		<h2>Prova-på-lektion</h2>
 		<h1 style="font-family: avenirblack; font-size: 61px; color: black;">200 kr</h1>
+		<div style="text-align: left; font-size: 18px; width: 80vw;">
+			Vi dricker en kopp te, lyssnar på några av dina favoritlåtar och pratar om vad du vill lära&nbsp;dig. 
+			<br><br>
+			Spela bluessolo, skriva ackorden till din första låt, eller lära dig melodin som du alltid nynnar&nbsp;på? 
+		</div>
+		<div>
 		<div id="bokaprova">
 			<!-- Calendly link widget begin -->
 			<link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
@@ -58,34 +97,25 @@ image:
 		</div>
 </div>
 <div id="vadfardu">
-	<h2>Lektion 55 minuter</h2> 
-	<div id="ordinariepriser">
-	<h2>800 kr</h2>
-	</div> 
+	<h2>55 minuter lektion</h2>
 	<div id="dufar">
 		<ul>
-		<li><i>Specialgjorda övningar för&nbsp;din&nbsp;personliga&nbsp;stil</i></li>
+		<li><i>Specialgjorda läxor för&nbsp;din&nbsp;personliga&nbsp;stil</i></li>
 		<li><i>Metoder som aktiverar din&nbsp;kreativitet</i></li>
 		<li><i>Spela dina favoritlåtar&nbsp;på&nbsp;piano</i></li>
 		<li><i>Läxhjälp mitt&nbsp;i&nbsp;veckan</i></li>
 		<li><i>En lugn piano-oas&nbsp;i&nbsp;din&nbsp;vardag</i></li>
 		</ul>
-	</div>
+	</div> 
+	<div id="ordinariepriser">
+	<h2>800 kr</h2>
+	</div> 
 </div> 
 
 <div class="requirements">
 </div>
 
-<div class="contentsection">
-	<div>
-		<div>
-			<h3>Första lektionen</h3>
-			Vi dricker en kopp te, lyssnar på några av dina favoritlåtar och pratar om vad du vill lära dig. 
-			<br><br>
-			Sen visar jag hur snabbt du kan komma igång att ha roligt med pianot – till exempel genom att spela bluessolo, skriva ackorden till din första låt, eller lära oss melodin som du alltid nynnar på. 
-		</div>
-	</div>
-</div>
+
 
 
 <div class="contentsection">
