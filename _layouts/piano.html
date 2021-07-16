@@ -48,6 +48,7 @@
 			font-family: avenirmedium;
 			font-size: 30px;
 			margin: 0px 0px 5px;
+			line-height: 1.3em;
 		}
 		
 		h3 {
@@ -77,56 +78,36 @@
 		
 		.introtext {
 			width: 100vw;
-		}
-		.introtext > div {
-		position: relative;
+			text-align: center;
+			margin-bottom: 50px;
 		}
 		
-		.introtext > div:nth-child(odd) {
-			background-color: #EDEDED;
+		.introtext > div {
+			display: flex;
+			width: 80vw;
+			justify-content: space-around;
+			align-items: center;
+			margin: 50px auto 0px;
+			text-align: left;
+			
+		}
+		
+		.introtext > div:nth-child(even) {
+			text-align: right;
 		}
 		
 		.introtext > div > div {
-			width: 80vw;
-			text-align: center;
-			margin: 0 auto;
-			padding: 30px 0px;
 			font-size: 22px;
+			max-width: 185px;
 		}
 		
-		#cat {
+		.introtext img {
 			width: 70px;
-			position: absolute;
-			right: 15px;
-			bottom: -20px;
+			height: inherit;
 		}
-		
-		#pen {
-			position: absolute;
-			width: 50px;
-			left: 15px;
-			bottom: 20px;
-		} 
-		
-		#right {
-				width: 70px;
-				position: absolute;
-				right: 30px;
-				bottom: -20px;
-		}
-		
-		#mozart {
-				width: 40px;
-				position: absolute;
-				left: 10px;
-				bottom: 45px;
-		}
-		
-		
 		
 		#forstalektionen {
 			padding: 30px 0px;
-			background-color: #EDEDED;
 		}
 		
 		#forstalektionen h2 {
@@ -137,7 +118,7 @@
 		#forstalektionen > div {
 			display: flex;
 			align-items: center;
-			width: 80vw;
+			width: 85vw;
 			margin: 0 auto;
 			font-size: 22px;
 			padding: 10px 0px;
@@ -242,13 +223,13 @@
 			border-radius: 30px;
 			padding: 13px 24px 11px;
 			text-align: center;
-			background-color: white;
+			background-color: #EDEDED;
 			filter: drop-shadow(0 0px 0px #4F0000);
 			
 		}
 		
 		#pricebox:hover {
-			background-color: #EDEDED;
+			background-color: white;
 			
 		}
 		

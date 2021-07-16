@@ -19,30 +19,36 @@ image:
 	<div>
 		<div>
 			<h2>Spela dina favoritlåtar</h2>
-			lär dig skapa egna pianoversioner av musik&nbsp;du&nbsp;älskar
-			<img id="cat" src="/images/cat.png">
+				lär dig skapa egna pianoversioner av musik&nbsp;du&nbsp;älskar
+		</div>
+		<img style="margin: 0px -15px 30px 0px;"  id="yeah" src="/images/yeahyeah.png">
+	</div>
+	<div>
+		<img style="margin-bottom: 30px;" src="/images/pen.png">
+		<div>
+			<h2>Komponera<br> din egen<br>pianomusik</h2>
+			<div>
+				metoder som gör det&nbsp;superlätt att&nbsp;börja&nbsp;skriva
+			</div>
 		</div>
 	</div>
 	<div>
 		<div>
-		<h2>Komponera din egen&nbsp;pianomusik</h2>
-		metoder som gör det superlätt att&nbsp;börja&nbsp;skriva
-		<img id="pen" src="/images/pen.png">
+			<h2>Improvisera och spela pianosolo</h2>
+			<div>
+				ta en paus från prestation och att&nbsp;”spela&nbsp;rätt”
+			</div>
 		</div>
+		<img id="fyrverkeri" src="/images/fyrverkeri.png">
 	</div>
 	<div>
-		<div>
-		<h2>Improvisera och spela&nbsp;pianosolo</h2>
-		ta en paus från prestation och att&nbsp;”spela&nbsp;rätt”
-		<img id="right" src="/images/right.png">
-		</div>
-	</div>
-	<div>
+		<img id="mozart" src="/images/mozart.png">
 		<div>
 		<h2>treåring pensionär</h2>
 		<h2>nybörjare mozart</h2>
-		spela piano som den <i>du</i> är
-		<img id="mozart" src="/images/mozart.png">
+			<div>
+				spela piano som den&nbsp;<i>du</i>&nbsp;är
+			</div>
 		</div>
 	</div>
 </div>
@@ -122,16 +128,12 @@ image:
 	<div>
 		<div>
 			<h3>Spela vilken låt som helst</h3>
-			Ed Sheeran, Abba eller Beethoven – musik är roligast när vi får spela den musik vi älskar! 
-			<br><br>
-			Skicka en länk till din favoritlåt innan lektionen så hittar jag ett sätt att spela den som passar dig. 
+			Ed Sheeran, Abba eller Beethoven – skicka en länk till din favoritlåt innan lektionen så hittar jag ett sätt att spela den som passar dig. 
 		</div>
 	</div>
 	<div>
 		<div>
 			<h3>Du styr skeppet.</h3>
-			Min undervisning bygger på att hjälpa dig med precis det du allra helst vill ha hjälp med. 
-			<br><br>
 			Tillsammans gör vi en plan för hur du når din målsättning, vare sig du letar efter en kreativ utmaning på fritiden eller vill bli världsomseglande konsertpianist. 		</div>
 	</div>
 	<div>
@@ -145,7 +147,7 @@ image:
 			<h3>Lär dig använda dina öron</h3>
 			På mina lektioner lär du dig genom att imitera mig eller lyssna efter vad du tycker låter bäst.
 			<br><br>
-			Tillsammans hjälps vi åt att hitta melodier och ackord — en ton i taget.
+			Vi hjälps åt att hitta melodier och ackord — en ton i taget.
 		</div>
 	</div>
 	<div>
