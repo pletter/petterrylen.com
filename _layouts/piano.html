@@ -4,6 +4,15 @@
 	<title>Petters Pianolektioner</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=width-device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	<link href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans&display=swap" rel="stylesheet">
 	<style>
 		
 		@font-face {
@@ -32,21 +41,25 @@
 		}
 		
 		body {
-			font-family: avenirbook;
+			font-family: 'lato', sans-serif;
 			margin: 0 auto;
 			width: 100vw;
+			font-weight: 300;
 		}
 		
 		h1 {
 			margin: 0;
-			font-size: 35px;
-			font-family: avenirheavy;
+			font-size: 31px;
+			font-family: 'lato', sans-serif;			
 			text-transform: uppercase;
+			letter-spacing: 1px;
+			text-align: center;
 		}
 		
 		h2 {
-			font-family: avenirmedium;
+			font-family: 'Quicksand', sans-serif;			
 			font-size: 30px;
+			font-weight: 500;
 			margin: 0px 0px 5px;
 			line-height: 1.3em;
 		}
@@ -56,6 +69,11 @@
 			margin-top: 0px;
 		}
 		
+		h3 {
+			font-family: 'Quicksand', sans-serif;	
+		}		
+		
+		
 		br {
 			line-height: 13px;
 		}
@@ -63,17 +81,18 @@
 		header {
 			background-color: ;
 			margin: 0 auto;
-			padding: 30px 7vw;
+			padding: 30px 0vw;
 			text-align: center;
 		}
 		
 		header img {
-			width: 80vw;
+			width: 90vw;
 		}
 		
 		#introvideo {
-			width: 100%;
-			height: 56.25vw;
+			width: 80vw;
+			height: 45vw;
+			padding: 0px 10vw;
 		}
 		
 		.introtext {
@@ -85,7 +104,7 @@
 		.introtext > div {
 			display: flex;
 			width: 80vw;
-			justify-content: space-around;
+			justify-content: space-between;
 			align-items: center;
 			margin: 50px auto 0px;
 			text-align: left;
@@ -97,17 +116,35 @@
 		}
 		
 		.introtext > div > div {
-			font-size: 22px;
 			max-width: 185px;
+			font-size: 22px;
 		}
 		
 		.introtext img {
-			width: 70px;
+			width: 80px;
 			height: inherit;
 		}
 		
+		.introtext img:nth-child(even) {
+			margin-right: 10px;
+		}
+		
+		.introtext img:nth-child(odd) {
+			margin-left: 10px;
+		}
+		
 		#forstalektionen {
-			padding: 30px 0px;
+			padding: 30px 0px 5px;
+			width: 80vw;
+			margin: 0 auto;
+		}
+		
+		#forstalektionen h1 {
+			font-size: 28px;
+			margin-bottom: 30px;
+			padding: 10px 0px;
+			border-bottom: 2px solid black;
+			border-top: 2px solid black;
 		}
 		
 		#forstalektionen h2 {
@@ -117,61 +154,37 @@
 		
 		#forstalektionen > div {
 			display: flex;
+			flex-direction: column;
 			align-items: center;
-			width: 85vw;
-			margin: 0 auto;
+			justify-content: space-around;
 			font-size: 22px;
-			padding: 10px 0px;
+			padding: 20px 0px;
+		}
+		
+		#forstalektionen > div > div {
+			width: 200px;
 		}
 		
 		#forstalektionen > div > img {
 			width: 50px;
-			padding-right: 30px;
+			padding-bottom: 15px;
 		}
 		
 		#priser {
-		justify-content: space-around;
-		padding: 15px 0px;
+		}
+		
+		.price {
+			font-size: 45px;
+			font-family: lato;
+			margin: 0px;
 		}
 		
 		.redstroke {
 			position: absolute;
 			opacity: 0.7;
-			width: 70px;
+			width: 90px;
 			left: -8px;
-			top: -2px;
-		}
-				
-		
-		#introquote {
-			width: 80vw;
-			margin: 0 auto;
-			text-align: left;
-			padding: 30px 0px;
-			font-size: 18px;
-		}
-		
-		#requirements {
-			font-size: 22px;
-			text-align: center;
-			
-			background-color: ;
-		}
-		
-		#requirements > div:nth-child(odd) {
-		}
-		
-		#requirements > div {
-		width: 80vw;
-		margin: 0 auto;
-		padding: 30px 0px;
-		}
-		
-		#requirements h2 {
-			margin: 0px;
-			font-size: 30px;
-			text-align: center;
-			font-family: avenirmedium;
+			top: 10px;
 		}
 		
 		.contentsection {
@@ -186,7 +199,7 @@
 		}
 		
 		.contentsection > div:nth-child(odd) {
-			background-color: #EDEDED;
+			background-color: ;
 		}
 		
 		#provapa {
@@ -195,9 +208,7 @@
 			padding: 30px 0px;
 			background-color: #EDEDED;
 		}
-		
-		#FFABAB
-		
+				
 		#bokaprova {
 			padding: 0px 0px;
 			font-size: 22px;
@@ -207,13 +218,6 @@
 		#bokaprova h2 {
 			font-size: 22px;
 			margin: 0px;
-			font-family: avenirmedium;
-		}
-		
-		#provapa h1 {
-			text-transform: none;
-			margin: 10px 0px 10px;
-			filter: drop-shadow(0 0 0px white);
 		}
 		
 		#pricebox {
@@ -221,11 +225,13 @@
 			margin: 0 auto;
 			border: 2px solid #424242;
 			border-radius: 30px;
-			padding: 13px 24px 11px;
+			padding: 13px 20px 13px;
 			text-align: center;
-			background-color: #EDEDED;
-			filter: drop-shadow(0 0px 0px #4F0000);
-			
+			background-color: #F6F6F6;
+		}
+		
+		#pricebox h2 {
+			font-family: lato;
 		}
 		
 		#pricebox:hover {
@@ -233,20 +239,11 @@
 			
 		}
 		
-		#provapa > div {
-			display: ;
-			flex-direction: row; 
-			justify-content: space-evenly;
-			align-items: center;
-			width: 90vw;
-			margin: 15px auto 0px;
-		}
-		
 		#prices {
 			display: flex;
 			align-items: center;
 			justify-content: space-evenly;
-			font-family: avenirheavy;
+			font-family: ;
 		}
 		
 		#prices > div {
@@ -263,7 +260,6 @@
 		}
 		
 		
-		
 		.calendly-badge-content span {
 			display: none !important;
 		}
@@ -273,10 +269,11 @@
 		}
 		
 		.calendly-badge-content {
-			font-family: avenirmedium !important;
+			font-family: lato !important;
 			color: black !important;
-			padding: 6px 20px 2px!important;
+			padding: 3.5px 20px 3.5px !important;
 			font-size: 22px !important;
+			font-weight: 500 !important;
 		}
 		
 		#vadfardu {
@@ -284,20 +281,15 @@
 			margin: 0 auto;
 			padding: 30px 0px;
 			text-align: center;
-			background-color: ;
+			width: 80vw;
 		}
 		
-		#ordinariepriser {
-			display: flex;
-			justify-content: space-evenly;
-			width: 90vw;
-			margin: 10px auto;
-		}
-		
-		#ordinariepriser h2 {
-			font-family: avenirblack;
-			font-size: 45px;
-			padding: 15px 0px 5px;
+		#vadfardu h1 {
+			font-size: 26px;
+			margin-bottom: 50px;
+			padding: 10px 0px;
+			border-bottom: 3px solid black;
+			border-top: 3px solid black;
 		}
 		
 		#dufar {
@@ -308,16 +300,30 @@
 			line-height: 1.4em;
 		}
 		
-		ul {
-			list-style-type: none;
+		#dufar > div {
+			display: flex;
+			align-items: center;
+			padding-bottom: 35px;
 		}
 		
-		#dufar li {
-			padding-bottom: 20px;
+		#dufar img {
+			width: 60px;
+			height: 100%;
+			padding-right: 20px;
 		}
 		
+		#ordinariepris {
+			padding-bottom: 35px;
+		}
+	
 		
-		
+		#introquote {
+			width: 80vw;
+			margin: 0 auto;
+			text-align: left;
+			padding: 30px 0px;
+			font-size: 18px;
+		}
 		
 		
 	

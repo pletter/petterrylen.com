@@ -9,10 +9,11 @@ image:
 <!-- Calendly badge widget begin -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-<script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/petterrylen/50min?hide_gdpr_banner=1', text: 'boka lektion', color: '#EDEDED', textColor: '#black', branding: true }); }</script>
+<script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/petterrylen/50min?hide_gdpr_banner=1', text: 'Boka lektion', color: '#F6F6F6', textColor: '#black', branding: true }); }</script>
 <!-- Calendly badge widget end -->
 <header>
-	<img src="/images/title.png">
+	<h1>PETTERS PIANOLEKTIONER</h1>
+	<img style="display: none;" src="/images/title.png">
 </header>
 <iframe style="margin-bottom: -6px;" id="introvideo" src="https://www.youtube.com/embed/2-fFQjIffrs?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <div class="introtext">
@@ -21,10 +22,10 @@ image:
 			<h2>Spela dina favoritlåtar</h2>
 				lär dig skapa egna pianoversioner av musik&nbsp;du&nbsp;älskar
 		</div>
-		<img style="margin: 0px -15px 30px 0px;"  id="yeah" src="/images/yeahyeah.png">
+		<img style="margin-bottom: 30px;" src="/images/yeahyeah.png">
 	</div>
 	<div>
-		<img style="margin-bottom: 30px;" src="/images/pen.png">
+		<img style="margin-bottom: 0px;" src="/images/pen.png">
 		<div>
 			<h2>Komponera<br> din egen<br>pianomusik</h2>
 			<div>
@@ -36,7 +37,7 @@ image:
 		<div>
 			<h2>Improvisera och spela pianosolo</h2>
 			<div>
-				ta en paus från prestation och att&nbsp;”spela&nbsp;rätt”
+				ta en paus från prestation och att&nbsp;'spela&nbsp;rätt'
 			</div>
 		</div>
 		<img id="fyrverkeri" src="/images/fyrverkeri.png">
@@ -47,7 +48,7 @@ image:
 		<h2>treåring pensionär</h2>
 		<h2>nybörjare mozart</h2>
 			<div>
-				spela piano som den&nbsp;<i>du</i>&nbsp;är
+				spela piano som&nbsp;den&nbsp;<i>du</i>&nbsp;är
 			</div>
 		</div>
 	</div>
@@ -56,21 +57,21 @@ image:
 	
 </div>
 <div id="forstalektionen">
-	<h2>Första lektionen</h2>
+	<h1>Första lektionen</h1>
 	<div>
 		<img src="/images/tea.png">
-		Dricka te och prata
+		<div><h2>Dricka te och&nbsp;prata</h2></div>
 	</div>
 	<div>
 		<img src="/images/keys.png">
-		Börja spela favoritlåt
+		<div><h2>Börja spela favoritlåt</h2></div>
 	</div>
 	<div>
 		<img src="/images/party.png">
-		Ha roligt direkt! 
+		<div><h2>Ha roligt direkt!</h2></div> 
 	</div>
 	<div id="priser">
-		<h2 style="position: relative;"><img class="redstroke" src="/images/redstroke.png">800 kr</h2>	<h2>200 kr</h2>
+		<p style="position: relative;"><img class="redstroke" src="/images/redstroke2.png">800 kr</p>	<h3 class="price">200 kr</h3>
 	</div>
 	<div id="bokaprova">
 		<!-- Calendly link widget begin -->
@@ -82,39 +83,41 @@ image:
 		</a>
 	</div>
 </div>
-<div id="provapa" style="display: none;">
-		<h2>Prova-på-lektion</h2>
-		<h1 style="font-family: avenirblack; font-size: 61px; color: black;">200 kr</h1>
-		<div style="text-align: left; font-size: 18px; width: 80vw;">
-			Vi dricker en kopp te, lyssnar på några av dina favoritlåtar och pratar om vad du vill lära&nbsp;dig. 
-			<br><br>
-			Spela bluessolo, skriva ackorden till din första låt, eller lära dig melodin som du alltid nynnar&nbsp;på? 
+<div id="vadfardu">
+	<h1>55 minuter lektion</h1>
+	<div id="dufar">
+		<div>
+			<img src="/images/cap.png">
+			<div>Specialgjorda läxor för&nbsp;din&nbsp;personliga&nbsp;stil</div>
 		</div>
 		<div>
-		<div id="bokaprova">
-			<!-- Calendly link widget begin -->
-			<link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
-			<script src="https://calendly.com/assets/external/widget.js" type="text/javascript"></script>
-			<!-- Calendly link widget end -->
-			<a onclick="Calendly.showPopupWidget('https://calendly.com/petterrylen/50min');return false;" id="pricebox">
-			<h2>boka första lektionen</h2>
-			</a>
+			<img src="/images/lamp.png">
+			<div>Metoder som aktiverar din&nbsp;kreativitet</div>
 		</div>
+		<div>
+			<img src="/images/star.png">
+			<div>Spela dina<br> favoritlåtar&nbsp;på&nbsp;piano</div>
 		</div>
-</div>
-<div id="vadfardu">
-	<h2>55 minuter lektion</h2>
-	<div id="dufar">
-		<ul>
-		<li><i>Specialgjorda läxor för&nbsp;din&nbsp;personliga&nbsp;stil</i></li>
-		<li><i>Metoder som aktiverar din&nbsp;kreativitet</i></li>
-		<li><i>Spela dina favoritlåtar&nbsp;på&nbsp;piano</i></li>
-		<li><i>Läxhjälp mitt&nbsp;i&nbsp;veckan</i></li>
-		<li><i>En lugn piano-oas&nbsp;i&nbsp;din&nbsp;vardag</i></li>
-		</ul>
+		<div>
+			<img src="/images/paper.png">
+			<div>Läxhjälp mitt&nbsp;i&nbsp;veckan</div>
+		</div>
+		<div>
+			<img src="/images/oas.png">
+			<div>En lugn piano-oas <br>i&nbsp;din&nbsp;vardag</div>
+		</div>
 	</div> 
-	<div id="ordinariepriser">
-	<h2>800 kr</h2>
+	<div id="ordinariepris">
+	<h3 class="price">800 kr</h3>
+	</div>
+	<div id="bokaprova">
+		<!-- Calendly link widget begin -->
+		<link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
+		<script src="https://calendly.com/assets/external/widget.js" type="text/javascript"></script>
+		<!-- Calendly link widget end -->
+		<a onclick="Calendly.showPopupWidget('https://calendly.com/petterrylen/50min');return false;" id="pricebox">
+		<h2>Boka första lektionen</h2>
+		</a>
 	</div> 
 </div> 
 
