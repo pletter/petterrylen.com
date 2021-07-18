@@ -12,8 +12,7 @@ image:
 <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/petterrylen/50min?hide_gdpr_banner=1', text: 'Boka lektion', color: '#F6F6F6', textColor: '#black', branding: true }); }</script>
 <!-- Calendly badge widget end -->
 <header>
-	<h1>PETTERS PIANOLEKTIONER</h1>
-	<img style="display: none;" src="/images/title.png">
+	<img style="display: ;" src="/images/title2.gif">
 </header>
 <iframe style="margin-bottom: -6px;" id="introvideo" src="https://www.youtube.com/embed/2-fFQjIffrs?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <div class="introtext">
@@ -130,7 +129,7 @@ image:
 <div class="contentsection">
 	<div>
 		<div>
-			<h3>Spela vilken låt som helst</h3>
+			<h3>Spela vilken låt som&nbsp;helst</h3>
 			Ed Sheeran, Abba eller Beethoven – skicka en länk till din favoritlåt innan lektionen så hittar jag ett sätt att spela den som passar dig. 
 		</div>
 	</div>
