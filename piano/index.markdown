@@ -12,15 +12,17 @@ image:
 <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/petterrylen/50min?hide_gdpr_banner=1', text: 'Boka lektion', color: '#F6F6F6', textColor: '#black', branding: true }); }</script>
 <!-- Calendly badge widget end -->
 <header>
-	<video width="320" height="170" autoplay loop muted playsinline>
+	<video  autoplay loop muted playsinline>
 	  <source src="/images/pianotitlevideo3.mp4" type="video/mp4">
 	  Your browser does not support the video tag.
 	</video>
 </header>
-	<video width="320" height="170" controls>
-	  <source src="/images/testvideo.mp4" type="video/mp4">
-	  Your browser does not support the video tag.
-	</video>
+	<div id="introvideo">
+		<video class="videoad" controls>
+	 	   <source src="/images/videotest2.mp4" type="video/mp4">
+		   Your browser does not support the video tag.
+		</video>
+	</div>
 	
 <div class="introtext">
 	<div>
@@ -28,7 +30,7 @@ image:
 			<h2>Spela dina favoritlåtar</h2>
 				lär dig skapa egna pianoversioner av musik&nbsp;du&nbsp;älskar
 		</div>
-		<img style="margin-bottom: 0px;" src="/images/jb.png">
+		<img style="margin-bottom: 0px;" src="/images/shower5.png">
 	</div>
 	<div>
 		<img style="margin-bottom: 0px;" src="/images/pen2.png">
@@ -46,10 +48,10 @@ image:
 				ta en paus från prestation och att&nbsp;'spela&nbsp;rätt'
 			</div>
 		</div>
-		<img id="fyrverkeri" src="/images/fyrverkeri.png">
+		<img id="fyrverkeri" src="/images/firework10.png">
 	</div>
 	<div>
-		<img id="mozart" src="/images/mozart.png">
+		<img id="mozart" src="/images/moz5.png">
 		<div>
 		<h2>treåring pensionär</h2>
 		<h2>nybörjare mozart</h2>
@@ -111,7 +113,7 @@ image:
 			<div>En lugn piano-oas <br>i&nbsp;din&nbsp;vardag</div>
 		</div>
 		<div class="dufarrow">
-			<img src="/images/paper.png">
+			<img src="/images/calender.png">
 			<div>Lektion varje eller varannan&nbsp;vecka</div>
 		</div>
 	</div> 
@@ -129,16 +131,6 @@ image:
 	</div> 
 </div>
 <img style="width: 100%; padding: 15px 0px 20px;" src="/images/pianomobil.jpg">
-<div id="var">
-	<div>
-		<img src="/images/map.png">
-		<div>
-			Finn Malmgrens Väg 23 <br>
-			121 38 Johanneshov 
-		</div>
-	</div>
-	<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16292.616993662192!2d18.079363767976762!3d59.3066194800666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f783dc7c7bb35%3A0x520c1de37daff654!2sFinn%20Malmgrens%20v%C3%A4g%2023%2C%20121%2038%20Johanneshov!5e0!3m2!1ssv!2sse!4v1626792222532!5m2!1ssv!2sse" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-</div>
 <div class="contentsection">
 	<div>
 		<div>
@@ -154,14 +146,8 @@ image:
 	</div>
 	<div>
 		<div>
-			<h3>Du styr skeppet.</h3>
-			Tillsammans gör vi en plan för hur du når din målsättning, vare sig du letar efter en kreativ utmaning på fritiden eller vill bli världsomseglande konsertpianist. 		</div>
-	</div>
-	<div>
-		<div>
 			<h3>Lär dig använda dina öron</h3>
 			På mina lektioner lär du dig genom att imitera mig eller lyssna efter vad du tycker låter bäst.
-			<br><br>
 			Vi hjälps åt att hitta melodier och ackord — en ton i taget.
 		</div>
 	</div>
@@ -172,6 +158,11 @@ image:
 			<br><br>
 			Detta gör det lättare för oss att sätta överkomliga delmål, och om du fastnar med din läxa hjälper jag dig att komma loss!
 		</div>
+	</div>
+	<div>
+		<div>
+			<h3>Du styr skeppet.</h3>
+			Tillsammans gör vi en plan för hur du når din målsättning. Jag är med dig på allt från kreativ fritidssyssla till planer att bli en världsomseglande konsertpianist. 		</div>
 	</div>
 </div>
 <img style="width: 100%;" src="/images/pianopetter.jpg">
@@ -212,6 +203,7 @@ image:
 			</div>
 		</div>
 </div>
+
 <div id="referenser">
 	<h1>REFERENSER</h1>
 	<div>
@@ -227,33 +219,40 @@ image:
 		</div>
   </div>
   <div>
-	 "Petter has an untamed creativity. His style is wonderful and wild. He helped me harness my own musicality and took me on an organic journey of discovery" – Jacqueline Abbey     
+	 "Petter has an untamed creativity. His style is wonderful and wild. He helped me harness my own musicality and took me on an organic journey of discovery"   
 		<div>
 			- Jacqueline Abbey
-		</div>
-	</div>
-	<div>
-	  	   "I had very limited song writing knowledge before working with Petter. But through the techniques and exercises we did he gave me confidence I never expected! He always pushed me and made sure I was doing the best I could do, and not just settling for ok. He taught me to always finish a song, even if I’ve decided I hate it, because finishing a song is the hardest part. I’m so proud of the pieces I wrote while working with Petter, and he always gave me ideas and techniques I’d have never thought of to continually develop and progress every part of every song. And also every lesson was fun! He’s really easy to talk to and I couldn’t recommend him more!"   
-		<div>
-			– Kristy Cromwell Leigh
 		</div>
 	</div>
 </div>
 
 
-<br>
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+<div id="var">
+	<div>
+		<img src="/images/map.png">
+		<div>
+			Finn Malmgrens Väg 23 <br>
+			121 38 Johanneshov 
+		</div>
+	</div>
+	<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16292.616993662192!2d18.079363767976762!3d59.3066194800666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f783dc7c7bb35%3A0x520c1de37daff654!2sFinn%20Malmgrens%20v%C3%A4g%2023%2C%20121%2038%20Johanneshov!5e0!3m2!1ssv!2sse!4v1626792222532!5m2!1ssv!2sse" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
 <div id="contact">
-<a href="mailto:hello@pianopetter.com?subject=Pianolektioner">hello@pianopetter.com</a>
-<a href="tel:+46 (0) 78 340 34 79">+46 (0) 79 340 34 78</a>
-</div>	
+	<img src="/images/phone.png">
+	Pling pling eller skicka mail om du har några frågor!
+	<div> 
+		<a href="mailto:hello@pianopetter.com?subject=Pianolektioner">hello@pianopetter.com</a>	
+		<a href="tel:+46 (0) 78 340 34 79">+46 (0) 79 340 34 78</a>
+	</div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+	
 </html>
