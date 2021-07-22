@@ -6,13 +6,8 @@ image:
 ---
 
 <html lang="en">
-<!-- Calendly badge widget begin -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-<script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/petterrylen/50min?hide_gdpr_banner=1', text: 'Boka lektion', color: '#F6F6F6', textColor: '#black', branding: true }); }</script>
-<!-- Calendly badge widget end -->
 <header>
-	<video  autoplay loop muted playsinline>
+	<video  autoplay muted playsinline>
 	  <source src="/images/pianotitlevideo3.mp4" type="video/mp4">
 	  Your browser does not support the video tag.
 	</video>
@@ -97,11 +92,11 @@ image:
 			<div>Specialgjorda läxor för&nbsp;din&nbsp;personliga&nbsp;stil</div>
 		</div>
 		<div class="dufarrow">
-			<img src="/images/lamp.png">
+			<img src="/images/dino.png">
 			<div>Metoder som aktiverar din&nbsp;kreativitet</div>
 		</div>
 		<div class="dufarrow">
-			<img src="/images/cake.png">
+			<img src="/images/star2.png">
 			<div>Spela dina<br> favoritlåtar&nbsp;på&nbsp;piano</div>
 		</div>
 		<div class="dufarrow" style="display: none;">
@@ -163,6 +158,12 @@ image:
 		<div>
 			<h3>Du styr skeppet.</h3>
 			Tillsammans gör vi en plan för hur du når din målsättning. Jag är med dig på allt från kreativ fritidssyssla till planer att bli en världsomseglande konsertpianist. 		</div>
+	</div>
+	<div>
+		<div>
+			<h3>I verkligheten eller ej</h3>
+			Lektionerna hålls i Petters <a href="">pianostudio i Hammarbyhöjden</a>, eller online över videochat. 
+		</div>
 	</div>
 </div>
 <img style="width: 100%;" src="/images/pianopetter.jpg">
@@ -227,6 +228,19 @@ image:
 </div>
 
 
+
+<div id="contact">
+	<div> 
+		<div>
+			<img src="/images/email.png">
+			<a href="mailto:hello@pianopetter.com?subject=Pianolektioner">hello@pianopetter.com</a>	
+		</div>
+		<div>
+			<img style="margin-right: 25px;" src="/images/phone.png">
+			<a href="tel:+46 (0) 78 340 34 79">+46 79 340 34 78</a>
+		</div>
+	</div>
+</div>
 <div id="var">
 	<div>
 		<img src="/images/map.png">
@@ -237,21 +251,15 @@ image:
 	</div>
 	<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16292.616993662192!2d18.079363767976762!3d59.3066194800666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f783dc7c7bb35%3A0x520c1de37daff654!2sFinn%20Malmgrens%20v%C3%A4g%2023%2C%20121%2038%20Johanneshov!5e0!3m2!1ssv!2sse!4v1626792222532!5m2!1ssv!2sse" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 </div>
-<div id="contact">
-	<img src="/images/phone.png">
-	Pling pling eller skicka mail om du har några frågor!
-	<div> 
-		<a href="mailto:hello@pianopetter.com?subject=Pianolektioner">hello@pianopetter.com</a>	
-		<a href="tel:+46 (0) 78 340 34 79">+46 (0) 79 340 34 78</a>
+	<div id="bokaprova">
+		<!-- Calendly link widget begin -->
+		<link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
+		<script src="https://calendly.com/assets/external/widget.js" type="text/javascript"></script>
+		<!-- Calendly link widget end -->
+		<a onclick="Calendly.showPopupWidget('https://calendly.com/petterrylen/50min');return false;" id="pricebox">
+		<h2>Boka första lektionen</h2>
+		</a>
 	</div>
-</div>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 	
