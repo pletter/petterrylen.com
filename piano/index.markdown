@@ -141,7 +141,7 @@ image:
 	</div>
 	<div>
 		<div>
-			<h3>Lär dig använda dina öron</h3>
+			<h3>Lär dig använda dina&nbsp;öron</h3>
 			På mina lektioner lär du dig genom att imitera mig eller lyssna efter vad du tycker låter bäst.
 			Vi hjälps åt att hitta melodier och ackord — en ton i taget.
 		</div>
@@ -156,7 +156,7 @@ image:
 	</div>
 	<div>
 		<div>
-			<h3>Du styr skeppet.</h3>
+			<h3>Dina mål är mina mål</h3>
 			Tillsammans gör vi en plan för hur du når din målsättning. Jag är med dig på allt från kreativ fritidssyssla till planer att bli en världsomseglande konsertpianist. 		</div>
 	</div>
 	<div>
@@ -245,25 +245,15 @@ image:
 			</div>
 		</div>
   </div>
-	<button onclick="myFunction()" id="myBtn">Läs fler recensioner</button>
+	<button onclick="read_more_reviews()" id="read_more_button">Läs fler recensioner</button>
 </div>
 <script>
-function myFunction() {
-  var dots = document.getElementById("dots");
-  var moreText = document.getElementById("more");
-  var btnText = document.getElementById("myBtn");
-  var textdiv = document.getElementById("textdiv");
-  
-  if (dots.style.display === "none") {
-    dots.style.display = "inline";
-    btnText.innerHTML = "Läs fler recensioner";
-    moreText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    btnText.innerHTML = "Läs mindre";
-    moreText.style.display = "inline";
-	textdiv.style.padding = "0px 0px 50px";
-  }
+function read_more_reviews() {
+  let more_text = document.getElementById("more");
+  let read_more = document.getElementById("read_more_button");
+   
+    more_text.style.display = "inline";
+	read_more.style.display = "none";
 }
 </script>
 
