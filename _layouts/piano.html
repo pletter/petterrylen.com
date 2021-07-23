@@ -136,7 +136,7 @@
 		.forstalektionrow {
 			display: grid;
 			grid-template-columns: 80px 200px;
-			padding-bottom: 50px;
+			padding-bottom: 30px;
 			width: 280px;
 			margin: 0 auto;
 		}
@@ -144,11 +144,13 @@
 		.forstadesc {
 			align-self: center;
 			font-weight: 500;
+			line-height: 1.5em;
 		}
 		
 		#forstalektionen > div > img {
 			width: 50px;
 			padding-right: 30px;
+			align-self: center;
 		}
 		
 		#priser {
@@ -170,8 +172,8 @@
 		
 		.redstroke {
 			position: absolute;
-			opacity: 0.7;
-			width: 90px;
+			opacity: 0.4;
+			width: 160px;
 			left: -8px;
 			top: 10px;
 		}
@@ -206,9 +208,9 @@
 		}
 		
 		#pricebox:hover {
-			background-color: white;
+			background-color: black;
 			border: 2px solid #424242;
-			color: black;
+			color: white;
 		}
 		
 		#prices img {
@@ -335,15 +337,6 @@
 			padding-bottom: 15px;
 		}
 		
-		#contact a {
-			border-bottom: 2px solid black;
-			padding-bottom: 2px;
-		}
-		
-		#contact a:hover {
-			background-color: white;
-		}
-		
 		#contact > div {
 			margin: 40px 0px 0px;
 		}
@@ -372,6 +365,15 @@
 			align-self: center;
 		}
 		
+		#var a, #contact a {
+		border-bottom: 2px solid black;
+		padding-bottom: 2px;
+		}
+		
+		#var a:hover, #contact a:hover{
+			border-bottom: 2px solid white;
+		}
+		
 		#var > div {
 			display: ;
 			grid-template-columns: 70px 221px;
@@ -393,23 +395,65 @@
 			width: 85vw;
 			font-size: 22px;
 			margin: 0 auto;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
 		}
 		
 		#referenser > div {
 			padding-bottom: 50px;
 		}
 		
-		#referenser > div > div {
-			padding-top: 15px;
+		.citatnamn {
+			display: flex;
+			padding-bottom: 20px;
+			align-items: center;
+			justify-content: center;
+			font-weight: 500;
 		}
 		
 		#referenser h1 {
+			width: 85vw;
 			font-size: 30px;
 			margin: 30px 0px 65px;
 			padding: 10px 0px;
 			border-bottom: 3px solid black;
 			border-top: 3px solid black;
 		}
+		
+		#referenser img {
+			width: 40px;
+			padding-right: 15px;		
+		}
+		
+		#more {
+			display: none;
+		}
+		
+		#more > div {
+			padding-bottom: 50px;
+		}
+		
+		#more > div > div {
+			padding-top: 15px;
+		}
+		
+		button {
+			font-family: "lato", sans-serif;
+			font-size: 22px;
+			font-weight: 500;
+			border: 2px solid black;
+			background-color: white;
+			margin-bottom: 30px;
+			border-radius: 15px;
+			padding: 13px 20px 13px;
+		}
+		
+		button:hover {
+			background-color: #F0F0F0;
+			
+		}
+		
 		
 		.calendly-badge-content span {
 			display: none !important;

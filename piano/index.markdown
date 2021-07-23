@@ -8,12 +8,12 @@ image:
 <html lang="en">
 <header>
 	<video  autoplay muted playsinline>
-	  <source src="/images/pianotitlevideo3.mp4" type="video/mp4">
+	  <source src="/images/pianotitlevideo12.mp4" type="video/mp4">
 	  Your browser does not support the video tag.
 	</video>
 </header>
 	<div id="introvideo">
-		<video class="videoad" controls>
+		<video class="videoad" controls playsinline>
 	 	   <source src="/images/videotest2.mp4" type="video/mp4">
 		   Your browser does not support the video tag.
 		</video>
@@ -59,19 +59,19 @@ image:
 <div id="forstalektionen">
 	<h1>Första lektionen</h1>
 	<div class="forstalektionrow">
-		<img src="/images/tea.png">
+		<img src="/images/cup2.png">
 		<div class="forstadesc">Dricka te och&nbsp;prata</div>
 	</div>
 	<div class="forstalektionrow">
-		<img src="/images/keys.png">
+		<img src="/images/play2.png">
 		<div class="forstadesc">Börja spela favoritlåt</div>
 	</div>
 	<div class="forstalektionrow">
-		<img src="/images/party.png">
+		<img src="/images/party3.png">
 		<div class="forstadesc">Ha roligt direkt! :–)</div> 
 	</div>
 	<div id="priser">
-		<span style="position: relative;"><img class="redstroke" src="/images/redstroke2.png">800 kr</span>
+		<span style="position: relative;"><img class="redstroke" src="/images/redstroke2.png"> ord. pris 800 kr</span>
 		<h3 class="price">200 kr</h3>
 	</div>
 	<div id="bokaprova">
@@ -96,7 +96,7 @@ image:
 			<div>Metoder som aktiverar din&nbsp;kreativitet</div>
 		</div>
 		<div class="dufarrow">
-			<img src="/images/star2.png">
+			<img src="/images/star5.png">
 			<div>Spela dina<br> favoritlåtar&nbsp;på&nbsp;piano</div>
 		</div>
 		<div class="dufarrow" style="display: none;">
@@ -104,7 +104,7 @@ image:
 			<div>Läxhjälp mitt&nbsp;i&nbsp;veckan</div>
 		</div>
 		<div class="dufarrow">
-			<img src="/images/oas.png">
+			<img src="/images/pianooas3.png">
 			<div>En lugn piano-oas <br>i&nbsp;din&nbsp;vardag</div>
 		</div>
 		<div class="dufarrow">
@@ -162,7 +162,7 @@ image:
 	<div>
 		<div>
 			<h3>I verkligheten eller ej</h3>
-			Lektionerna hålls i Petters <a href="">pianostudio i Hammarbyhöjden</a>, eller online över videochat. 
+			Lektionerna hålls i Petters pianostudio i <a href="">Hammarbyhöjden</a>, eller online över videochat. 
 		</div>
 	</div>
 </div>
@@ -172,7 +172,7 @@ image:
 		<div>
 			<img src="/images/master.png">
 			<div>
-			<a href="https://www.youtube.com/watch?v=jRQC_Xpla8w">Master i piano</a> från Rytmiska Musikkonservatoriet i Köpenhamn. 
+			Master i piano från Rytmiska Musikkonservatoriet i Köpenhamn. 
 			</div>
 		</div>
 		<div>
@@ -184,7 +184,7 @@ image:
 		<div>
 			<img src="/images/trio.png">
 			<div>
-			<a href="https://youtu.be/CsNLcU0tq2U">Spelar</a> med danska jazzlegenderna Kresten Osgood och Casper Nyvang&nbsp;Rask. 
+			Spelar med <a href="https://youtu.be/CsNLcU0tq2U">danska jazzlegenderna</a> Kresten Osgood och Casper Nyvang&nbsp;Rask. 
 			</div>
 		</div>
 		<div style="display: none;">
@@ -206,26 +206,66 @@ image:
 </div>
 
 <div id="referenser">
-	<h1>REFERENSER</h1>
+	<h1>Recensioner</h1>
 	<div>
-		 “I feel very fortunate to have found Petter! His teaching is creative, encouraging and very inspirational. Each week I come away feeling totally amazed by what I have achieved in the lesson. I highly recommend him!”  
-		<div>
-			– Carmela Gianfagna
+		<div class="citatnamn">
+			<img src="/images/carmela3.png">
+			 Carmela Gianfagna
 		</div>
+		 “I feel very fortunate to have found Petter! His teaching is creative, encouraging and very inspirational. Each week I come away feeling totally amazed by what I have achieved in the lesson. I highly recommend him!”  
 	</div>
 	<div>
-	 “Petter is a very focused and present teacher, who has led me through some of my most hardcore obstacles in my music with ease, and I can strongly recommend him to everyone that wants to get through with music. He’s is crazy, brave and it’s easy to feel that all he wishes for is for me to succeed!”   
-		<div>
-			- Johan Ransby Granberg
+		<div class="citatnamn">
+			<img src="/images/johan2.png">
+			Johan Ransby Granberg
 		</div>
+	 “Petter is a very focused and present teacher, who has led me through some of my most hardcore obstacles in my music with ease. He’s is crazy, brave and it’s easy to feel that all he wishes for is for me to succeed!”   
   </div>
   <div>
-	 "Petter has an untamed creativity. His style is wonderful and wild. He helped me harness my own musicality and took me on an organic journey of discovery"   
-		<div>
-			- Jacqueline Abbey
-		</div>
+	<div class="citatnamn">
+		<img src="/images/jackie2.png">
+		Jacqueline Abbey
 	</div>
+	 "Petter has an untamed creativity. His style is wonderful and wild. He helped me harness my own musicality and took me on an organic journey of discovery"   
+  </div>
+  <div style="padding: 0px;">
+	  <span id="dots"></span>
+		<div id="more">
+			<div>
+			  	   "I had very limited song writing knowledge before working with Petter. But through the techniques and exercises we did he gave me confidence I never expected! He always pushed me and made sure I was doing the best I could do, and not just settling for ok. He taught me to always finish a song, even if I’ve decided I hate it, because finishing a song is the hardest part. I’m so proud of the pieces I wrote while working with Petter, and he always gave me ideas and techniques I’d have never thought of to continually develop and progress every part of every song. And also every lesson was fun! He’s really easy to talk to and I couldn’t recommend him more!"   
+				<div>
+					– Kristy Cromwell Leigh
+				</div>
+			</div>
+			<div>
+				"Petter's approach to song writing is unique and beautiful. He is a very calming, fun, patient and kind teacher. I became brave enough to take my time to search for notes and melodies while we were doing the lessons. It brought me to writing melodies that came deeper from within me, making space and time for them and feel them out." 
+				<div>
+					Carolin R.
+				</div>
+			</div>
+		</div>
+  </div>
+	<button onclick="myFunction()" id="myBtn">Läs fler recensioner</button>
 </div>
+<script>
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+  var textdiv = document.getElementById("textdiv");
+  
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Läs fler recensioner";
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Läs mindre";
+    moreText.style.display = "inline";
+	textdiv.style.padding = "0px 0px 50px";
+  }
+}
+</script>
 
 
 
@@ -245,8 +285,7 @@ image:
 	<div>
 		<img src="/images/map.png">
 		<div>
-			Finn Malmgrens Väg 23 <br>
-			121 38 Johanneshov 
+			<a href="">Hammarbyhöjden</a>
 		</div>
 	</div>
 	<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16292.616993662192!2d18.079363767976762!3d59.3066194800666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f783dc7c7bb35%3A0x520c1de37daff654!2sFinn%20Malmgrens%20v%C3%A4g%2023%2C%20121%2038%20Johanneshov!5e0!3m2!1ssv!2sse!4v1626792222532!5m2!1ssv!2sse" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
