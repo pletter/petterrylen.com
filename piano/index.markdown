@@ -162,7 +162,7 @@ image:
 	<div>
 		<div>
 			<h3>I stockholm eller varsomhelst</h3>
-			Lektionerna hålls i Petters pianostudio i <a href="">Hammarbyhöjden</a>, eller online över videochat. 
+			Lektionerna hålls i Petters pianostudio i <a href="/piano/#plats">Hammarbyhöjden</a>, eller online över videochat. 
 		</div>
 	</div>
 </div>
@@ -276,6 +276,7 @@ function read_more_reviews() {
 	</div>
 </div>
 <div id="var">
+	<div id="plats"></div>
 	<div>
 		<img src="/images/map.png">
 		<div>
