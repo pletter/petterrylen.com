@@ -71,8 +71,8 @@ image:
 		<div class="forstadesc">Ha roligt direkt! :–)</div> 
 	</div>
 	<div id="priser">
-		<span style="position: relative;"><img class="redstroke" src="/images/redstroke2.png"> ord. pris 800 kr</span>
 		<h3 class="price">200 kr</h3>
+		<span style="position: relative;">ord. pris 800 kr</span>
 	</div>
 	<div id="bokaprova">
 		<!-- Calendly link widget begin -->
@@ -206,30 +206,31 @@ image:
 </div>
 
 <div id="referenser">
-	<h1>Recensioner</h1>
+	<img id="quotes_img" src="/images/quotes3.png">
 	<div>
 		<div class="citatnamn">
 			<img src="/images/carmela3.png">
 			 Carmela Gianfagna
 		</div>
-		 “I feel very fortunate to have found Petter! His teaching is creative, encouraging and very inspirational. Each week I come away feeling totally amazed by what I have achieved in the lesson. I highly recommend him!”  
+		 I feel very fortunate to have found Petter! His teaching is creative, encouraging and very inspirational. Each week I come away feeling totally amazed by what I have achieved in the lesson. I highly recommend him!
 	</div>
 	<div>
 		<div class="citatnamn">
 			<img src="/images/johan2.png">
 			Johan Ransby Granberg
 		</div>
-	 “Petter is a very focused and present teacher, who has led me through some of my most hardcore obstacles in my music with ease. He’s is crazy, brave and it’s easy to feel that all he wishes for is for me to succeed!”   
+	 Petter is a very focused and present teacher, who has led me through some of my most hardcore obstacles in my music with ease. He’s is crazy, brave and it’s easy to feel that all he wishes for is for me to succeed!  
   </div>
   <div>
 	<div class="citatnamn">
 		<img src="/images/jackie2.png">
 		Jacqueline Abbey
 	</div>
-	 "Petter has an untamed creativity. His style is wonderful and wild. He helped me harness my own musicality and took me on an organic journey of discovery"   
+	<div id="faded" style="mask-image: linear-gradient(to bottom, black 10%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 10%, transparent 100%);">
+	 Petter has an untamed creativity. His style is wonderful and wild. He helped me harness my own musicality and took me on an organic journey of discovery   
+ 	</div>
   </div>
   <div style="padding: 0px;">
-	  <span id="dots"></span>
 		<div id="more">
 			<div>
 			  	   "I had very limited song writing knowledge before working with Petter. But through the techniques and exercises we did he gave me confidence I never expected! He always pushed me and made sure I was doing the best I could do, and not just settling for ok. He taught me to always finish a song, even if I’ve decided I hate it, because finishing a song is the hardest part. I’m so proud of the pieces I wrote while working with Petter, and he always gave me ideas and techniques I’d have never thought of to continually develop and progress every part of every song. And also every lesson was fun! He’s really easy to talk to and I couldn’t recommend him more!"   
@@ -245,15 +246,18 @@ image:
 			</div>
 		</div>
   </div>
-	<button onclick="read_more_reviews()" id="read_more_button">Läs fler recensioner</button>
+	<button onclick="read_more_reviews()" id="read_more_button">Läs mer</button>
 </div>
 <script>
 function read_more_reviews() {
   let more_text = document.getElementById("more");
   let read_more = document.getElementById("read_more_button");
-   
+  let faded_div = document.getElementById("faded");
+  
     more_text.style.display = "inline";
 	read_more.style.display = "none";
+	faded_div.style.removeProperty("-webkit-mask-image");
+	faded_div.style.removeProperty("mask-image");
 }
 </script>
 
