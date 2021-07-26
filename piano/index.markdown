@@ -125,7 +125,7 @@ image:
 		</a>
 	</div> 
 </div>
-<img style="width: 100%; padding: 15px 0px 20px;" src="/images/pianomobil.jpg">
+<img style="width: 100%;" src="/images/pianomobil.jpg">
 <div class="contentsection">
 	<div>
 		<div>
@@ -275,8 +275,8 @@ function read_more_reviews() {
 		</div>
 	</div>
 </div>
+<div id="plats"></div>
 <div id="var">
-	<div id="plats"></div>
 	<div>
 		<img src="/images/map.png">
 		<div>
@@ -285,7 +285,7 @@ function read_more_reviews() {
 	</div>
 	<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16292.616993662192!2d18.079363767976762!3d59.3066194800666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f783dc7c7bb35%3A0x520c1de37daff654!2sFinn%20Malmgrens%20v%C3%A4g%2023%2C%20121%2038%20Johanneshov!5e0!3m2!1ssv!2sse!4v1626792222532!5m2!1ssv!2sse" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 </div>
-	<div id="bokaprova">
+	<div id="bokaprova" class="last_boka">
 		<!-- Calendly link widget begin -->
 		<link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
 		<script src="https://calendly.com/assets/external/widget.js" type="text/javascript"></script>
