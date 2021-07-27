@@ -13,14 +13,18 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com"> 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 	<style>
 		
 		body {
-			font-family: 'lato', sans-serif;
+			font-family: 'Raleway', sans-serif;
 			margin: 0 auto;
 			width: auto;
-			font-weight: 300;
-			font-size: 22px;
+			font-weight: 400;
+			font-size: 21.8px;
+			line-height: 1.4em;
 		}
 		
 		h1 {
@@ -35,7 +39,7 @@
 		h2 {
 			font-family: 'Quicksand', sans-serif;			
 			font-size: 30px;
-			font-weight: 500;
+			font-weight: 600;
 			margin: 0px 0px 5px;
 			line-height: 1.3em;
 		}
@@ -67,6 +71,10 @@
 			text-align: center;
 		}
 		
+		header a {
+			border-bottom: 0px;
+		}
+		
 		header video {
 			width: 85vw;
 		}
@@ -77,7 +85,7 @@
 		}
 		
 		.videoad {
-			margin: 70px auto 20px;
+			margin: 20px auto 50px;
 			width: 100%;
 		}
 		
@@ -135,15 +143,15 @@
 		
 		.forstalektionrow {
 			display: grid;
-			grid-template-columns: 80px 200px;
+			grid-template-columns: 80px 210px;
 			padding-bottom: 30px;
-			width: 280px;
+			width: 290px;
 			margin: 0 auto;
 		}
 		
 		.forstadesc {
 			align-self: center;
-			font-weight: 500;
+			font-weight: 400;
 			line-height: 1.5em;
 		}
 		
@@ -153,36 +161,39 @@
 			align-self: center;
 		}
 		
-		#priser {
+		.priser {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			padding: 0px 0px 40px;
+			padding: 20px 0px 20px;
 		}
 		
-		#priser span {
-			font-size: 20px;
+		.price_comment {
+			font-size: 19px;
+			font-family: 'lato', sans-serif;
+			opacity: 0.8;
+			margin-top: 3px;
 		}
 				
 		.price {
 			font-size: 45px;
-			font-family: lato;
+			font-family: 'lato', sans-serif;
+			font-weight: 800;		
 			margin: 0px;
 		}
 				
-		#bokaprova {
+		#book_first {
 			text-align: center;
 			letter-spacing: 0px;
 		}
 		
-		#bokaprova h2 {
+		#book_first h2 {
 			font-size: 22px;
 			margin: 0px;
 			font-weight: 700;
-			
 		}
 		
-		#pricebox {
+		#book_button {
 			display: inline-block;
 			margin: 0 auto;
 			border: 2px solid #424242;
@@ -193,33 +204,23 @@
 			background-color: #323232;
 		}
 		
-		#pricebox a {
-			font-family: lato;
-			font-weight: 900;
+		#book_button h2 {
+			font-weight: 700;
 		}
 		
-		#pricebox:hover {
+		#book_button:hover {
 			background-color: black;
 			border: 2px solid #424242;
 			color: white;
 		}
 		
-		#prices img {
-	   		position: absolute;
-	    	opacity: 0.7;
-			width: 70px;
-			left: -10px;	
-			top: -7px;	
-		}
-		
-		#vadfardu {
+		#lesson_desc {
 			width: 85vw;
 			margin: 0 auto;
 			padding: 70px 0px 70px;
-			text-align: center;
 		}
 		
-		#vadfardu h1 {
+		#lesson_desc h1 {
 			font-size: 26px;
 			margin-bottom: 50px;
 			padding: 10px 0px;
@@ -227,40 +228,36 @@
 			border-top: 3px solid black;
 		}
 		
-		#dufar {
-			text-align: left;
-			line-height: 1.4em;
-		}
-		
-		.dufarrow {
-				display: grid;
-				width: 85vw;
-				margin: 0 auto;
-				grid-template-columns: 85px 220px;
-				padding-bottom: 30px;
-		}
-		
-		.dufarrow div {
-			align-self: center;
-			width: 200px;
-			}
-		
 		#dufar img {
 			width: 60px;
 			padding-right: 25px;
 			align-self: center;
 		}
 		
+		.lesson_desc_row {
+			display: grid;
+			width: 305px;
+			margin: 0 auto;
+			grid-template-columns: 85px 220px;
+			padding-bottom: 30px;
+		}
+		
+		.lesson_desc_row div {
+			align-self: center;
+		}
+		
+		
 		#ordinariepris {
-			padding: 0px 0px 30px;
+			padding: 25px 0px 25px;
+			text-align: center;
 		}
 		
 		
 		.contentsection {
-		font-size: 22px;
-		padding: 60px 0px 20px;
-		width: 85vw;
-		margin: 0 auto;
+			font-size: 22px;
+			padding: 60px 0px 20px;
+			width: 85vw;
+			margin: 0 auto;
 		}
 		
 		.contentsection > div > div {
@@ -269,24 +266,15 @@
 			padding: 0px 0px 50px;
 		}
 		
-		.contentsection h3 {
-		font-size: 30px;
-		font-weight: 500;
-		margin-bottom: 15px;
-		}
-	
-		
-		#introquote {
-			width: 85vw;
-			margin: 0 auto;
-			text-align: left;
-			padding: 30px 0px;
+		.contentsection h2 {
+			margin-bottom: 15px;
+			line-height: 1.4em;
 		}
 		
 		#ommig {
 			width: 85vw;
 			margin: 70px auto 0px;
-			font-size: 22px;
+			font-size: 19.5px;
 		}
 		
 		#ommig h1 {
@@ -314,6 +302,74 @@
 			align-self: center;
 			justify-self: center;
 		}
+		
+		#referenser {
+			width: 85vw;
+			font-size: 19.5px;
+			margin: 0 auto;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		
+		#quotes_img {
+			width: 150px;
+			padding: 80px 0px 40px;
+		}
+		
+		#referenser > div {
+			padding-bottom: 50px;
+		}
+		
+		.citatnamn {
+			display: flex;
+			padding-bottom: 20px;
+			align-items: center;
+			justify-content: center;
+			font-weight: 500;
+		}
+		
+		#referenser h1 {
+			width: 85vw;
+			font-size: 30px;
+			margin: 30px 0px 65px;
+			padding: 10px 0px;
+			border-bottom: 0px solid black;
+			border-top: 3px solid black;
+		}
+		
+		.citatnamn img {
+			width: 40px;
+			padding-right: 15px;		
+		}
+		
+		#more {
+			display: none;
+		}
+		
+		#more > div {
+			padding-bottom: 50px;
+		}
+		
+		#more > div > div {
+			padding-top: 15px;
+		}
+		
+		button {
+			font-family: 'Raleway', sans-serif;
+			font-size: 22px;
+			font-weight: 300;
+			border: 2px solid black;
+			background-color: white;
+			margin-top: -40px;
+			margin-bottom: 30px;
+			border-radius: 15px;
+			padding: 7px 15px 7px;
+		}
+		
+		button:hover {
+			background-color: #F6F6F6;
+		}	
 		
 		#contact {
 			width: 85vw;
@@ -358,8 +414,9 @@
 		}
 		
 		#var a, #contact a {
-		border-bottom: 2px solid black;
-		padding-bottom: 2px;
+			border-bottom: 2px solid black;
+			padding-bottom: 2px;
+			font-weight: 400;
 		}
 		
 		#var a:hover, #contact a:hover{
@@ -383,78 +440,9 @@
 		}
 		
 		
-		#referenser {
-			width: 85vw;
-			font-size: 22px;
-			margin: 0 auto;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-		}
 		
-		#quotes_img {
-			width: 150px;
-			padding: 50px;
-		}
 		
-		#referenser > div {
-			padding-bottom: 50px;
-		}
-		
-		#referenser > div:nth-child(3) {
-		}
-		
-		.citatnamn {
-			display: flex;
-			padding-bottom: 20px;
-			align-items: center;
-			justify-content: center;
-			font-weight: 500;
-		}
-		
-		#referenser h1 {
-			width: 85vw;
-			font-size: 30px;
-			margin: 30px 0px 65px;
-			padding: 10px 0px;
-			border-bottom: 0px solid black;
-			border-top: 3px solid black;
-		}
-		
-		.citatnamn img {
-			width: 40px;
-			padding-right: 15px;		
-		}
-		
-		#more {
-			display: none;
-		}
-		
-		#more > div {
-			padding-bottom: 50px;
-		}
-		
-		#more > div > div {
-			padding-top: 15px;
-		}
-		
-		button {
-			font-family: "lato", sans-serif;
-			font-size: 22px;
-			font-weight: 300;
-			border: 2px solid black;
-			background-color: white;
-			margin-top: -40px;
-			margin-bottom: 30px;
-			border-radius: 15px;
-			padding: 7px 15px 7px;
-		}
-		
-		button:hover {
-			background-color: #F6F6F6;
-		}	
-		
-		.last_boka {
+		.last_book {
 			margin-bottom: 20px;
 		}
 	
