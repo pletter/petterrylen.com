@@ -8,6 +8,7 @@ image:
 <html lang="en">
 <header>
 	<a href="/piano">
+		<img src="/images/title4.png">
 	<video  autoplay muted playsinline>
 	  <source src="/images/pianotitlevideo12.mp4" type="video/mp4">
 	  Your browser does not support the video tag.
@@ -162,12 +163,12 @@ image:
 	<div>
 		<div>
 			<h2>Dina mål är mina mål</h2>
-			Jag är med dig på allt från kreativ fritidssyssla, sökningar till musikhögskola eller planer att bli en världsomseglande konsertpianist. 		</div>
+			Jag är med dig på allt från kreativ fritidssyssla, sökningar till musikhögskola eller planer att bli en världs&shy;omseglande konsertpianist. 		</div>
 	</div>
 	<div>
 		<div>
 			<h2>I stockholm eller varsomhelst</h2>
-			Lektionerna hålls i Petters pianostudio i <a href="/piano/#plats">Hammarby<wbr>&shy;höjden</a>, eller&nbsp;online över videochat. 
+			Lektionerna hålls i Petters pianostudio i <a href="/piano/#plats">Hammarby&shy;höjden</a>, eller&nbsp;online över videochat. 
 		</div>
 	</div>
 </div>
@@ -177,7 +178,7 @@ image:
 		<div>
 			<img src="/images/master.png">
 			<div>
-			Master i piano från Rytmiska Musik<wbr>&shy;konservatoriet i Köpenhamn. 
+			Master i piano från Rytmiska Musik&shy;konservatoriet i Köpenhamn. 
 			</div>
 		</div>
 		<div>
@@ -238,16 +239,20 @@ image:
   <div style="padding: 0px;">
 		<div id="more">
 			<div>
-			  	   I had very limited song writing knowledge before working with Petter. But through the techniques and exercises we did he gave me confidence I never expected! He always pushed me and made sure I was doing the best I could do, and not just settling for ok. He taught me to always finish a song, even if I’ve decided I hate it, because finishing a song is the hardest part. I’m so proud of the pieces I wrote while working with Petter, and he always gave me ideas and techniques I’d have never thought of to continually develop and progress every part of every song. And also every lesson was fun! He’s really easy to talk to and I couldn’t recommend him more!   
+				<div class="citatnamn">
+					<img src="/images/jackie2.png">
+					Kristy Cromwell Leigh
+				</div>
+			  	   I had very limited song writing knowledge before working with Petter. But through the techniques and exercises we did he gave me confidence I never expected! I’m so proud of the pieces I wrote while working with Petter, and he always gave me ideas and techniques I’d have never thought of. And also every lesson was fun! He’s really easy to talk to and I couldn’t recommend him more!   
 				<div>
-					– Kristy Cromwell Leigh
 				</div>
 			</div>
 			<div>
-				Petter's approach to song writing is unique and beautiful. He is a very calming, fun, patient and kind teacher. I became brave enough to take my time to search for notes and melodies while we were doing the lessons. It brought me to writing melodies that came deeper from within me, making space and time for them and feel them out. 
-				<div>
-					Carolin R.
+				<div class="citatnamn">
+					<img src="/images/jackie2.png">
+					Carolin R.				
 				</div>
+				Petter's approach to song writing is unique and beautiful. He is a very calming, fun, patient and kind teacher. I became brave enough to take my time to search for notes and melodies while we were doing the lessons. It brought me to writing melodies that came deeper from within me, making space and time for them and feel them out. 
 			</div>
 		</div>
   </div>
