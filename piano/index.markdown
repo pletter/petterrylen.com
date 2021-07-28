@@ -8,7 +8,7 @@ image:
 <html lang="en">
 <header>
 	<a href="/piano">
-		<img src="/images/title4.png">
+		<img src="/images/pianomedpiano.png">
 	<video  autoplay muted playsinline>
 	  <source src="/images/pianotitlevideo12.mp4" type="video/mp4">
 	  Your browser does not support the video tag.
@@ -32,14 +32,14 @@ image:
 	<div>
 		<div>
 			<h2>Spela dina favoritlåtar</h2>
-				lär dig skapa egna pianoversioner av musik&nbsp;du&nbsp;älskar
+				lär dig skapa egna&nbsp;pianoversioner av&nbsp;musik&nbsp;du&nbsp;älskar
 		</div>
-		<img style="margin-bottom: 0px;" src="/images/shower5.png">
+		<img style="margin-right: 0vw;" src="/images/shower5.png">
 	</div>
 	<div>
 		<img style="margin-bottom: 0px;" src="/images/pen2.png">
 		<div>
-			<h2>Komponera<br> din egen<br>pianomusik</h2>
+			<h2>Komponera din egen pianomusik</h2>
 			<div>
 				metoder som gör det&nbsp;superlätt att&nbsp;börja&nbsp;skriva
 			</div>
@@ -104,7 +104,7 @@ image:
 		</div>
 		<div class="lesson_desc_row">
 			<img src="/images/star5.png">
-			<div>Spela dina<br> favoritlåtar&nbsp;på&nbsp;piano</div>
+			<div>Spela dina favorit&shy;låtar&nbsp;på&nbsp;piano</div>
 		</div>
 		<div class="lesson_desc_row" style="display: none;">
 			<img src="/images/paper.png">
@@ -112,7 +112,7 @@ image:
 		</div>
 		<div class="lesson_desc_row">
 			<img src="/images/pianooas3.png">
-			<div>En lugn piano-oas <br>i&nbsp;din&nbsp;vardag</div>
+			<div>En lugn piano-oas i&nbsp;din&nbsp;vardag</div>
 		</div>
 		<div class="lesson_desc_row">
 			<img src="/images/calender.png">
@@ -149,7 +149,7 @@ image:
 		<div>
 			<h2>Använd dina&nbsp;öron</h2>
 			På mina lektioner lär du dig genom att imitera mig eller lyssna efter vad du tycker låter bäst.
-			Vi hjälps åt att hitta melodier och ackord — en ton i taget.
+			Vi hjälps åt att hitta melodier och ackord — en ton&nbsp;i&nbsp;taget.
 		</div>
 	</div>
 	<div>
