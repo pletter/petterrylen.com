@@ -65,6 +65,10 @@
 			opacity: 0.85;
 		}
 		
+		.narrow_br {
+			display: none;
+		}
+		
 		.wide_br {
 			display: none;
 		}	
@@ -456,11 +460,17 @@
 			margin: 40px 0px 10px;
 		}
 	
+	
+	
+	
+	
+	
+	
 		
 		@media screen and (min-width: 600px) {
 			
 			body {
-				width: 800px;
+				width: 100%;
 				font-size: 25px;
 			}
 			
@@ -474,7 +484,7 @@
 			
 			#book_button {
 				padding: 13px 22px;
-				margin: 50px 0px;
+				margin: 70px 0px;
 			}
 			
 			#book_button h2 {
@@ -508,20 +518,19 @@
 				margin-top: 60px;
 			}
 			
+			.introtext {
+				max-width: 90%;
+				margin: 0px auto 90px;
+			}
 			
 			.introtext > div {
-				width: 75%;
+				width: auto;
 				justify-content: space-around;
 				padding-bottom: 50px;
-				
 			}
 			
 			.introtext > div > div {
 				max-width: 350px;
-			}
-			
-			.introtext > div > div:nth-child(even) {
-				text-align: left;
 			}
 			
 			.introtext > div > div:nth-child(odd) {
@@ -540,11 +549,15 @@
 				margin-left: 0vw;
 			}
 			
+			.priser {
+				padding: 20px 0px 0px;
+			}
+			
 			#forstalektionen {
-				width: 100%;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
+				width: auto;
 			}
 			
 			#forstalektionen h1 {
@@ -554,6 +567,7 @@
 				padding: 20px 0px;
 				border-top: 0px solid black;
 				border-bottom: 0px solid black;
+				line-height: 1.1em;
 			}
 			
 			.forstalektionrow {
@@ -580,6 +594,7 @@
 					padding: 20px 0px;
 					border-top: 0px solid black;
 					border-bottom: 0px solid black;
+					line-height: 1.1em;
 			}
 			
 			#lesson_desc {
@@ -607,12 +622,14 @@
 			}
 			
 			.contentsection {
+				padding: 120px 0px 90px;
 				width: 75%;
 			}
 			
 			#ommig {
 				width: 75%;
 				font-size: 25px;
+				margin: 120px auto;
 			}
 			
 			#ommig > div {
@@ -632,21 +649,88 @@
 				padding: 20px 0px;
 				border-top: 0px solid black;
 				border-bottom: 0px solid black;
+				line-height: 1.1em;
+			}
+			
+			#quotes_img {
+				width: 150px;
+				padding: 50px 0px 50px;
 			}
 			
 			#referenser {
 				width: 75%;
 				font-size: 22px;
 			}
+			
+			#contact > div {
+				margin-top: 110px;
+			}
+			
+			#var {
+				margin-bottom: 0px;
+			}
+			
+			.last_book {
+				margin: 0px 0px 0px;
+			}
 							
 		}	
 		
-		@media screen and (max-width: 600px) {
+		@media screen and (min-width: 730px) {
+		
+			.introtext {
+				max-width: 75%;
+			}
 			
+			#shower_girl {
+				padding-right: 20px;
+			}
+		}
+		
+		@media screen and (min-width: 800px) {
+			body {
+				width: 800px;
+				
+			}
+			
+			.introtext {
+				max-width: 100%;
+			}
+			
+			.introtext > div {
+				justify-content: space-around;
+				padding-bottom: 50px;
+			}
+			
+			.introtext > div {
+				width: 75%; 
+			}
+			
+			.introtext > div > div:nth-child(even) {
+				text-align: left;
+			}
+			
+			#lesson_desc h1 {
+					font-size: 52px;
+			}
 			
 		}
 		
-		@media screen and (max-width: 350px) {
+		@media screen and (min-width: 440px) {
+		
+		.introtext > div {
+			justify-content: space-around;
+		}
+		
+	}
+		
+		@media screen and (max-width: 360px) {
+			
+			h1 {
+				line-height: 1.1em;
+				font-size: 24px !important;
+			}
+			
 			body {
 				font-size: 20px;
 			}
@@ -655,6 +739,43 @@
 				font-size: 20px;
 			}
 			
+			#book_button {
+				padding: 13px 18px;
+			}
+			
+			.introtext img {
+				width: 80px !important;
+			}
+			
+			.introtext img:nth-child(even) {
+				margin-right: 3vw !important;
+			}
+		
+			.introtext img:nth-child(odd) {
+				margin-left: 0vw;
+			}
+			
+			#shower_girl {
+				margin-bottom: 25px;
+			}
+			
+			.narrow_br {
+				display: block;
+			}
+			
+			#dufar > div > div {
+				width: 180px;
+			}
+			
+			.lesson_desc_row {
+			    width: 245px;
+			    grid-template-columns: 85px 160px;
+			}
+			
+			.forstalektionrow {
+			    grid-template-columns: 80px 190px;
+			    width: 270px;
+
 		}
 		
 </style>

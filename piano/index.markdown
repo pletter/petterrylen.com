@@ -24,7 +24,7 @@ image:
 </header>
 	<div id="introvideo">
 		<video class="videoad" controls playsinline>
-	 	   <source src="/images/pianomedpetter_nosubs.mp4" type="video/mp4">
+	 	   <source src="/images/pianomedpetter_v2.mp4" type="video/mp4">
 		   <source src="/images/pianomedpetter_nosubs.webm" type="video/webm">
 		   Your browser does not support the video tag.
 		</video>
@@ -42,7 +42,7 @@ image:
 			<h2>Spela dina favoritlåtar</h2>
 				lär dig skapa egna&nbsp;pianoversioner av&nbsp;musik&nbsp;du&nbsp;älskar
 		</div>
-		<img style="margin-right: 0vw;" src="/images/shower5.png">
+		<img id="shower_girl" style="margin-right: 0vw;" src="/images/shower5.png">
 	</div>
 	<div>
 		<img style="margin-bottom: 0px;" src="/images/pen2.png">
@@ -104,7 +104,7 @@ image:
 	<div id="dufar">
 		<div class="lesson_desc_row">
 			<img src="/images/cap.png">
-			<div>Specialgjorda läxor för&nbsp;din&nbsp;personliga&nbsp;stil</div>
+			<div>Specialgjorda <br class="narrow_br"> läxor för&nbsp;din&nbsp;<br class="narrow_br">personliga&nbsp;stil</div>
 		</div>
 		<div class="lesson_desc_row">
 			<img src="/images/dino.png">
@@ -208,7 +208,7 @@ image:
 		<div>
 			<img src="/images/house.png">
 			<div>
-			Tycker om att spela <a href="https://www.walesonline.co.uk/whats-on/music-nightlife-news/newport-petter-rylen-pianist-sweden-17408314">pianokonserter</a> för allmänheten i sitt hem. 
+			Tycker om att spela <a href="https://www.walesonline.co.uk/whats-on/music-nightlife-news/newport-petter-rylen-pianist-sweden-17408314">piano&shy;konserter</a> för allmänheten i sitt hem. 
 			</div>
 		</div>
 		<div>
@@ -241,7 +241,7 @@ image:
 		Jacqueline Abbey
 	</div>
 	<div id="faded" style="mask-image: linear-gradient(to bottom, black 10%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 10%, transparent 100%);">
-	 Petter has an untamed creativity. His style is wonderful and wild. He helped me harness my own musicality and took me on an organic journey of discovery   
+	 Petter has an untamed creativity. His style is wonderful and wild. He helped me harness my own musicality and took me on an organic journey of discovery.   
  	</div>
   </div>
   <div style="padding: 0px;">
