@@ -522,7 +522,10 @@
 			
 			.introtext > div > div:nth-child(even) {
 				text-align: left;
-				
+			}
+			
+			.introtext > div > div:nth-child(odd) {
+				max-width: 300px;				
 			}
 			
 			.introtext img {
@@ -545,21 +548,18 @@
 			}
 			
 			#forstalektionen h1 {
-				font-size: 45px;
+				font-size: 55px;
+				font-weight: 800;
 				letter-spacing: 3px;
 				padding: 20px 0px;
-				border-top: 4px solid black;
-				border-bottom: 4px solid black;
+				border-top: 0px solid black;
+				border-bottom: 0px solid black;
 			}
 			
 			.forstalektionrow {
 				grid-template-columns: 135px 240px;
 				padding-bottom: 50px;
 				width: 375px;
-			}
-			
-			.forstadesc {
-				font-size: px;
 			}
 			
 			#forstalektionen > div > img {
@@ -574,11 +574,12 @@
 			}
 			
 			#lesson_desc h1 {
-				font-size: 45px;
-				letter-spacing: 3px;
-				padding: 20px 0px;
-				border-top: 4px solid black;
-				border-bottom: 4px solid black;
+					font-size: 52px;
+					font-weight: 800;
+					letter-spacing: 3px;
+					padding: 20px 0px;
+					border-top: 0px solid black;
+					border-bottom: 0px solid black;
 			}
 			
 			#lesson_desc {
@@ -611,10 +612,31 @@
 			
 			#ommig {
 				width: 75%;
+				font-size: 25px;
+			}
+			
+			#ommig > div {
+				grid-template-columns: 145px auto;
+				padding-bottom: 30px;
+			}
+			
+			#ommig > div img {
+				width: 110px;
+				padding-right: 35px;
+			}
+			
+			#ommig h1 {
+				font-size: 52px;
+				font-weight: 800;
+				letter-spacing: 3px;
+				padding: 20px 0px;
+				border-top: 0px solid black;
+				border-bottom: 0px solid black;
 			}
 			
 			#referenser {
 				width: 75%;
+				font-size: 22px;
 			}
 							
 		}	

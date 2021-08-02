@@ -198,7 +198,7 @@ image:
 		<div>
 			<img src="/images/trio.png">
 			<div>
-			Spelar med <a href="https://youtu.be/CsNLcU0tq2U">danska jazzlegenderna</a> Kresten Osgood och Casper Nyvang&nbsp;Rask. 
+			Spelar med <a href="https://youtu.be/CsNLcU0tq2U">danska jazz&shy;legenderna</a> Kresten Osgood och Casper Nyvang&nbsp;Rask. 
 			</div>
 		</div>
 		<div style="display: none;">
@@ -248,7 +248,7 @@ image:
 		<div id="more">
 			<div>
 				<div class="citatnamn">
-					<img src="/images/jackie2.png">
+					<img src="/images/carmela3.png">
 					Kristy Cromwell Leigh
 				</div>
 			  	   I had very limited song writing knowledge before working with Petter. But through the techniques and exercises we did he gave me confidence I never expected! I’m so proud of the pieces I wrote while working with Petter, and he always gave me ideas and techniques I’d have never thought of. And also every lesson was fun! He’s really easy to talk to and I couldn’t recommend him more!   
