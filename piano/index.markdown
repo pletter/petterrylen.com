@@ -7,8 +7,15 @@ image:
 
 <html lang="en">
 <header>
-	<a href="/piano">
+	<a class="narrow_title" href="/piano">
 		<img src="/images/pianomedpiano.png">
+	<video  autoplay muted playsinline>
+	  <source src="/images/pianotitlevideo12.mp4" type="video/mp4">
+	  Your browser does not support the video tag.
+	</video>
+	</a>
+	<a class="wide_title" href="/piano">
+		<img src="/images/pianomedwide.png">
 	<video  autoplay muted playsinline>
 	  <source src="/images/pianotitlevideo12.mp4" type="video/mp4">
 	  Your browser does not support the video tag.
@@ -17,7 +24,8 @@ image:
 </header>
 	<div id="introvideo">
 		<video class="videoad" controls playsinline>
-	 	   <source src="/images/videotest2.mp4" type="video/mp4">
+	 	   <source src="/images/pianomedpetter_nosubs.mp4" type="video/mp4">
+		   <source src="/images/pianomedpetter_nosubs.webm" type="video/webm">
 		   Your browser does not support the video tag.
 		</video>
 	</div>
@@ -39,9 +47,9 @@ image:
 	<div>
 		<img style="margin-bottom: 0px;" src="/images/pen2.png">
 		<div>
-			<h2>Komponera din egen pianomusik</h2>
+			<h2>Komponera din <br class="wide_br"> egen pianomusik</h2>
 			<div>
-				metoder som gör det&nbsp;superlätt att&nbsp;börja&nbsp;skriva
+				metoder som gör det superlätt att&nbsp;börja&nbsp;skriva
 			</div>
 		</div>
 	</div>
@@ -49,7 +57,7 @@ image:
 		<div>
 			<h2>Improvisera och spela pianosolo</h2>
 			<div>
-				ta en paus från prestation och att&nbsp;'spela&nbsp;rätt'
+				ta en paus från prestation <br class="wide_br"> och att&nbsp;'spela&nbsp;rätt'
 			</div>
 		</div>
 		<img id="fyrverkeri" src="/images/firework10.png">
@@ -293,7 +301,6 @@ function read_more_reviews() {
 			<a href="">Hammarbyhöjden</a>
 		</div>
 	</div>
-	<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16292.616993662192!2d18.079363767976762!3d59.3066194800666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f783dc7c7bb35%3A0x520c1de37daff654!2sFinn%20Malmgrens%20v%C3%A4g%2023%2C%20121%2038%20Johanneshov!5e0!3m2!1ssv!2sse!4v1626792222532!5m2!1ssv!2sse" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 </div>
 	<div id="book_first" class="last_book">
 		<link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
