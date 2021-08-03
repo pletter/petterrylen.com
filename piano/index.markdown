@@ -1,8 +1,8 @@
 ---
-title: piano
+title: Piano med Petter
 layout: piano
 image:
-  path: /images/piano/.jpg
+  path: /images/pianooas3/.png
 ---
 
 <html lang="en">
