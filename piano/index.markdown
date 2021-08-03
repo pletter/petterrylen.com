@@ -32,7 +32,7 @@ image:
 	<div id="book_first">
 		<link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
 		<script src="https://calendly.com/assets/external/widget.js" type="text/javascript"></script>
-		<a onclick="Calendly.showPopupWidget('https://calendly.com/petterrylen/50min');return false;" id="book_button">
+		<a onclick="Calendly.showPopupWidget('https://calendly.com/petter-rylen/pianolektion');return false;" id="book_button">
 		<h2>Boka första lektionen</h2>
 		</a>
 	</div>
@@ -94,7 +94,7 @@ image:
 	<div id="book_first">
 		<link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
 		<script src="https://calendly.com/assets/external/widget.js" type="text/javascript"></script>
-		<a onclick="Calendly.showPopupWidget('https://calendly.com/petterrylen/50min');return false;" id="book_button">
+		<a onclick="Calendly.showPopupWidget('https://calendly.com/petter-rylen/pianolektion');return false;" id="book_button">
 		<h2>Boka första lektionen</h2>
 		</a>
 	</div>
@@ -134,7 +134,7 @@ image:
 	<div id="book_first">
 		<link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
 		<script src="https://calendly.com/assets/external/widget.js" type="text/javascript"></script>
-		<a onclick="Calendly.showPopupWidget('https://calendly.com/petterrylen/50min');return false;" id="book_button">
+		<a onclick="Calendly.showPopupWidget('https://calendly.com/petter-rylen/pianolektion');return false;" id="book_button">
 		<h2>Boka första lektionen</h2>
 		</a>
 	</div> 
@@ -305,7 +305,7 @@ function read_more_reviews() {
 	<div id="book_first" class="last_book">
 		<link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
 		<script src="https://calendly.com/assets/external/widget.js" type="text/javascript"></script>
-		<a onclick="Calendly.showPopupWidget('https://calendly.com/petterrylen/50min');return false;" id="book_button">
+		<a onclick="Calendly.showPopupWidget('https://calendly.com/petter-rylen/pianolektion');return false;" id="book_button">
 		<h2>Boka första lektionen</h2>
 		</a>
 	</div>
