@@ -2,24 +2,16 @@
 title: Piano med Petter
 layout: piano
 image:
-  path: /images/pianooas3/.png
+  path: /images/pianooas/.png
 ---
 
 <html lang="en">
 <header>
 	<a class="narrow_title" href="/piano">
 		<img src="/images/pianomedpiano.png">
-	<video  autoplay muted playsinline>
-	  <source src="/images/pianotitlevideo12.mp4" type="video/mp4">
-	  Your browser does not support the video tag.
-	</video>
 	</a>
 	<a class="wide_title" href="/piano">
 		<img src="/images/pianomedwide.png">
-	<video  autoplay muted playsinline>
-	  <source src="/images/pianotitlevideo12.mp4" type="video/mp4">
-	  Your browser does not support the video tag.
-	</video>
 	</a>
 </header>
 	<div id="introvideo">
@@ -42,10 +34,10 @@ image:
 			<h2>Spela dina favoritlåtar</h2>
 				lär dig skapa egna&nbsp;pianoversioner av&nbsp;musik&nbsp;du&nbsp;älskar
 		</div>
-		<img id="shower_girl" style="margin-right: 0vw;" src="/images/shower5.png">
+		<img id="shower_girl" style="margin-right: 0vw;" src="/images/shower.png">
 	</div>
 	<div>
-		<img style="margin-bottom: 0px;" src="/images/pen2.png">
+		<img style="margin-bottom: 0px;" src="/images/pen.png">
 		<div>
 			<h2>Komponera din <br class="wide_br"> egen pianomusik</h2>
 			<div>
@@ -60,10 +52,10 @@ image:
 				ta en paus från prestation <br class="wide_br"> och att&nbsp;'spela&nbsp;rätt'
 			</div>
 		</div>
-		<img id="fyrverkeri" src="/images/firework10.png">
+		<img id="fyrverkeri" src="/images/firework.png">
 	</div>
 	<div>
-		<img id="mozart" src="/images/moz5.png">
+		<img id="mozart" src="/images/mozart.png">
 		<div>
 		<h2>treåring pensionär</h2>
 		<h2>nybörjare mozart</h2>
@@ -76,15 +68,15 @@ image:
 <div id="forstalektionen">
 	<h1>Första lektionen</h1>
 	<div class="forstalektionrow">
-		<img src="/images/cup2.png">
+		<img src="/images/cup.png">
 		<div class="forstadesc">Dricka te och&nbsp;prata</div>
 	</div>
 	<div class="forstalektionrow">
-		<img src="/images/play2.png">
+		<img src="/images/keys.png">
 		<div class="forstadesc">Börja spela favoritlåt</div>
 	</div>
 	<div class="forstalektionrow">
-		<img src="/images/party3.png">
+		<img src="/images/party.png">
 		<div class="forstadesc">Ha roligt direkt! :–)</div> 
 	</div>
 	<div class="priser">
@@ -111,7 +103,7 @@ image:
 			<div>Metoder som aktiverar&nbsp;din kreativitet</div>
 		</div>
 		<div class="lesson_desc_row">
-			<img src="/images/star5.png">
+			<img src="/images/star.png">
 			<div>Spela dina favorit&shy;låtar&nbsp;på&nbsp;piano</div>
 		</div>
 		<div class="lesson_desc_row" style="display: none;">
@@ -119,7 +111,7 @@ image:
 			<div>Läxhjälp mitt&nbsp;i&nbsp;veckan</div>
 		</div>
 		<div class="lesson_desc_row">
-			<img src="/images/pianooas3.png">
+			<img src="/images/pianooas.png">
 			<div>En lugn piano-oas i&nbsp;din&nbsp;vardag</div>
 		</div>
 		<div class="lesson_desc_row">
@@ -226,24 +218,24 @@ image:
 </div>
 
 <div id="referenser">
-	<img id="quotes_img" src="/images/quotes3.png">
+	<img id="quotes_img" src="/images/quotes.png">
 	<div>
 		<div class="citatnamn">
-			<img src="/images/carmela3.png">
+			<img src="/images/carmela.png">
 			 Carmela Gianfagna
 		</div>
 		 I feel very fortunate to have found Petter! His teaching is creative, encouraging and very inspirational. Each week I come away feeling totally amazed by what I have achieved in the lesson. I highly recommend him!
 	</div>
 	<div>
 		<div class="citatnamn">
-			<img src="/images/johan2.png">
+			<img src="/images/johan.png">
 			Johan Ransby Granberg
 		</div>
 	 Petter is a very focused and present teacher, who has led me through some of my most hardcore obstacles in my music with ease. He is crazy, brave and it’s easy to feel that all he wishes for is for me to succeed!  
   </div>
   <div>
 	<div class="citatnamn">
-		<img src="/images/jackie2.png">
+		<img src="/images/jackie.png">
 		Jacqueline Abbey
 	</div>
 	<div id="faded" style="mask-image: linear-gradient(to bottom, black 10%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 10%, transparent 100%);">
@@ -254,7 +246,7 @@ image:
 		<div id="more">
 			<div>
 				<div class="citatnamn">
-					<img src="/images/carmela3.png">
+					<img src="/images/carmela.png">
 					Kristy Cromwell Leigh
 				</div>
 			  	   I had very limited song writing knowledge before working with Petter. But through the techniques and exercises we did he gave me confidence I never expected! I’m so proud of the pieces I wrote while working with Petter, and he always gave me ideas and techniques I’d have never thought of. And also every lesson was fun! He’s really easy to talk to and I couldn’t recommend him more!   
@@ -263,7 +255,7 @@ image:
 			</div>
 			<div>
 				<div class="citatnamn">
-					<img src="/images/jackie2.png">
+					<img src="/images/jackie.png">
 					Carolin R.				
 				</div>
 				Petter's approach to song writing is unique and beautiful. He is a very calming, fun, patient and kind teacher. I became brave enough to take my time to search for notes and melodies while we were doing the lessons. It brought me to writing melodies that came deeper from within me, making space and time for them and feel them out. 
