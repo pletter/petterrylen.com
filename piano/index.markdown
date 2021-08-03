@@ -17,7 +17,6 @@ image:
 	<div id="introvideo">
 		<video class="videoad" controls playsinline>
 	 	   <source src="/images/pianomedpetter_v2.mp4" type="video/mp4">
-		   <source src="/images/pianomedpetter_nosubs.webm" type="video/webm">
 		   Your browser does not support the video tag.
 		</video>
 	</div>
