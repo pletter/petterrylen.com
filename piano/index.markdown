@@ -199,10 +199,6 @@ image:
 			Spelar med <a href="https://youtu.be/CsNLcU0tq2U">danska jazz&shy;legenderna</a> Kresten Osgood och Casper Nyvang&nbsp;Rask. 
 			</div>
 		</div>
-		<div style="display: none;">
-			<img src="/images/original.png">
-			Spelade i The Original Trio. 
-		</div>
 		<div>
 			<img src="/images/house.png">
 			<div>
@@ -243,27 +239,45 @@ image:
  	</div>
   </div>
   <div style="padding: 0px;">
-		<div id="more">
-			<div>
-				<div class="citatnamn">
-					<img src="/images/carmela.png">
-					Kristy Cromwell Leigh
-				</div>
-			  	   I had very limited song writing knowledge before working with Petter. But through the techniques and exercises we did he gave me confidence I never expected! I’m so proud of the pieces I wrote while working with Petter, and he always gave me ideas and techniques I’d have never thought of. And also every lesson was fun! He’s really easy to talk to and I couldn’t recommend him more!   
-				<div>
-				</div>
-			</div>
-			<div>
-				<div class="citatnamn">
-					<img src="/images/jackie.png">
-					Carolin R.				
-				</div>
-				Petter's approach to song writing is unique and beautiful. He is a very calming, fun, patient and kind teacher. I became brave enough to take my time to search for notes and melodies while we were doing the lessons. It brought me to writing melodies that came deeper from within me, making space and time for them and feel them out. 
-			</div>
-		</div>
+	  <div id="more">
+		  <div>
+			  <div class="citatnamn">
+				  <img src="/images/carmela.png">
+				  Kristy Cromwell Leigh
+			  </div>
+			  I had very limited song writing knowledge before working with Petter. But through the techniques and exercises we did he gave me confidence I never expected! I’m so proud of the pieces I wrote while working with Petter, and he always gave me ideas and techniques I’d have never thought of. And also every lesson was fun! He’s really easy to talk to and I couldn’t recommend him more!   
+		  </div>
+		  <div>
+			  <div class="citatnamn">
+				  <img src="/images/jackie.png">
+				  Carolin R.				
+			  </div>
+			  Petter's approach to song writing is unique and beautiful. He is a very calming, fun, patient and kind teacher. I became brave enough to take my time to search for notes and melodies while we were doing the lessons. It brought me to writing melodies that came deeper from within me, making space and time for them and feel them out. 
+		  </div>
+		  <div>
+			  <div class="citatnamn">
+				  <img src="/images/johan.png">
+				  Michael
+			  </div>
+			  Petter has been extremely helpful in my progression as an artist. He's patient and really tries to get to the root of why you don't understand something and tries to find the best solution that would work for you.
+		  </div>
+		  <div>
+			  <div class="citatnamn">
+				  <img src="/images/carmela.png">
+				  Yana Azia
+			  </div>
+			  I'm so grateful for having Petter as my teacher as he's very flexible, talented and encouraging which helped me a lot in building my musical intuitions. Thank you so much for conducting fun songwriting lessons, I'll never forget this experience!
+		  </div>
+		  <div>
+			  <div class="citatnamn">
+				  <img src="/images/johan.png">
+				  Luke Pottage
+			  </div>
+			  I had little knowledge of how to write music when I got in touch with Petter. In only a few short lessons, he got me to a place where I was writing my own songs (chord progressions, melody, and lyrics) in a way I never before thought possible.  Petter is an incredibly talented musician and has helped me so much on my musical journey - I couldn't recommend him highly enough!
+		  </div>
+	  </div>
+	  <button onclick="read_more_reviews()" id="read_more_button">Läs mer</button>
   </div>
-	<button onclick="read_more_reviews()" id="read_more_button">Läs mer</button>
-</div>
 <script>
 function read_more_reviews() {
   let more_text = document.getElementById("more");
@@ -276,9 +290,7 @@ function read_more_reviews() {
 	faded_div.style.removeProperty("mask-image");
 }
 </script>
-
-
-
+</div>
 <div id="contact">
 	<div> 
 		<div>
@@ -309,5 +321,4 @@ function read_more_reviews() {
 	</div>
 <br>
 <br>
-	
 </html>
