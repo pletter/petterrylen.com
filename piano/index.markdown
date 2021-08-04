@@ -2,7 +2,7 @@
 title: Piano med Petter
 layout: piano
 image:
-  path: http://petterrylen.com/images/pianooas.png
+  path: /images/pianopetter.jpg
 ---
 
 <html lang="en">
