@@ -15,7 +15,7 @@ image:
 	</a>
 </header>
 	<div id="introvideo">
-		<video class="videoad" controls playsinline>
+		<video class="videoad" controls playsinline poster="/images/placeholder.jpg">
 	 	   <source src="/images/piano_ad_nord_v2.mp4" type="video/mp4">
 		   Your browser does not support the video tag.
 		</video>
