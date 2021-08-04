@@ -108,7 +108,7 @@ layout: default
 		I make <a href="https://www.youtube.com/channel/UCGhztSsxhbE-m3TAD86iYmA?">videos on youtube</a>. 
 		like me on <a href="http://facebook.com/pianopetter">facebook</a>, 
 		and follow me on <a href="http://instagram.com/petterrylen">instagram</a>. 
-		send me an <a href="mailto:hello@pianopetter.com">email</a>. check&nbsp;out my <a href="https://www.dropbox.com/sh/7mssozg4br3xf3r/AABbmr2ObMYXj9moysFzJo26a?dl=0">press&nbsp;kit</a>. learn to <a href="/songwriting">write&nbsp;songs</a>.
+		send me an <a href="mailto:hello@pianopetter.com">email</a>. check&nbsp;out my <a href="https://www.dropbox.com/sh/7mssozg4br3xf3r/AABbmr2ObMYXj9moysFzJo26a?dl=0">press&nbsp;kit</a>. learn to <a href="/piano">play&nbsp;piano</a>.
 	</p>
 </div>
 </html>
