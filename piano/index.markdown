@@ -1,6 +1,8 @@
 ---
 title: Piano med Petter
 layout: piano
+image:
+  path: /images/pianooas.png/
 ---
 
 <html lang="en">
