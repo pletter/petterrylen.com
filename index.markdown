@@ -84,9 +84,9 @@ layout: default
 <div id="concerts">
 	<h1>concerts</h1>
 	<div>
-		<div>I</div>
-		<div> can't </div>
-		<div>wait!</div>
+		<div></div>
+		<div>Coming soon.</div>
+		<div></div>
 		<div></div>
 		<div style="display: none;">Live Stream</div>
 		<div style="display: none;">Oct 19th 9PM UTC+2</div>
