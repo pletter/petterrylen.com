@@ -5,7 +5,7 @@ layout: default
 <html lang="en">
 <div class="centered" id="bio">
 	<p>
-		<a href="https://songwhip.com/petterrylen/the-bended-tree">The Bended Tree</a> is out!!!!!!!!!!!!!!!!!!! It's a piano album, and then the legendary George Goom<a href="https://songwhip.com/.../the-bended-tree-george-goom-remix"> remixed</a> it.
+		<a href="https://songwhip.com/petterrylen/the-bended-tree">The Bended Tree</a> is out! It's a piano album, and then the legendary George Goom<a href="https://songwhip.com/.../the-bended-tree-george-goom-remix"> remixed</a> it.
 	</p>
 	<p>
 	</p>	
