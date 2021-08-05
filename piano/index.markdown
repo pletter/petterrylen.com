@@ -224,7 +224,7 @@ image:
 	</div>
 	<div>
 		<div class="citatnamn">
-			<img src="/images/johan.png">
+			<img src="/images/johanreal.png">
 			Johan Ransby Granberg
 		</div>
 	 Petter is a very focused and present teacher, who has led me through some of my most hardcore obstacles in my music with ease. He is crazy, brave and it’s easy to feel that all he wishes for is for me to succeed!  
