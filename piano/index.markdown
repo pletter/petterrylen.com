@@ -319,7 +319,7 @@ function read_more_reviews() {
 		</div>
 		<div>
 			<img style="margin-right: 25px;" src="/images/phone.png">
-			<a href="tel:+46 (0) 79 340 34 79">+46 79 340 34 78</a>
+			<a href="tel:+46 (0) 79 340 34 78">+46 79 340 34 78</a>
 		</div>
 	</div>
 </div>
