@@ -216,13 +216,18 @@ image:
 		</div>
 		 I feel very fortunate to have found Petter! His teaching is creative, encouraging and very inspirational. Each week I come away feeling totally amazed by what I have achieved in the lesson. I highly recommend him!
 	</div>
-	<div>
-		<div class="citatnamn">
-			<img src="/images/johanreal.png">
-			Johan Ransby Granberg
-		</div>
-	 Petter is a very focused and present teacher, who has led me through some of my most hardcore obstacles in my music with ease. He is crazy, brave and it’s easy to feel that all he wishes for is for me to succeed!  
-  </div>
+  <div>
+	  <div class="citatnamn">
+		  <img src="/images/johan.png">
+		  Luke Pottage
+	  </div>
+	  I had little knowledge of how to write music when I got in touch with Petter. In only a few short lessons, he got me to a place where I was writing my own songs (chord progressions, melody, and lyrics) in a way I never before thought possible.  
+	  <br>
+	  <div style="line-height: 50%; padding: 0px;">
+	      <br>
+	  </div>
+	  Petter is an incredibly talented musician and has helped me so much on my musical journey - I couldn't recommend him highly enough!
+  </div>	
   <div>
 	<div class="citatnamn">
 		<img src="/images/jackie.png">
@@ -241,7 +246,7 @@ image:
 			  </div>
 			  I had very limited song writing knowledge before working with Petter. But through the techniques and exercises we did he gave me confidence I never expected! 
 			  <br>
-			  <div style="line-height: 30%;">
+			  <div style="line-height: 50%; padding: 0px;">
 			      <br>
 			  </div>
 			  I’m so proud of the pieces I wrote while working with Petter, and he always gave me ideas and techniques I’d have never thought of. And also every lesson was fun! He’s really easy to talk to and I couldn’t recommend him more!   
@@ -253,7 +258,7 @@ image:
 			  </div>
 			  Petter's approach to song writing is unique and beautiful. He is a very calming, fun, patient and kind teacher. 
 			  <br>
-			  <div style="line-height: 30%;">
+			  <div style="line-height: 50%; padding: 0px;">
 			      <br>
 			  </div>
 			  I became brave enough to take my time to search for notes and melodies while we were doing the lessons. It brought me to writing melodies that came deeper from within me, making space and time for them and feel them out. 
@@ -265,6 +270,13 @@ image:
 			  </div>
 			  Petter has been extremely helpful in my progression as an artist. He's patient and really tries to get to the root of why you don't understand something and tries to find the best solution that would work for you.
 		  </div>
+			<div>
+				<div class="citatnamn">
+					<img src="/images/johanreal.png">
+					Johan Ransby Granberg
+				</div>
+			 Petter is a very focused and present teacher, who has led me through some of my most hardcore obstacles in my music with ease. He is crazy, brave and it’s easy to feel that all he wishes for is for me to succeed!  
+		  </div>
 		  <div>
 			  <div class="citatnamn">
 				  <img src="/images/carmela.png">
@@ -272,22 +284,10 @@ image:
 			  </div>
 			  I'm so grateful for having Petter as my teacher as he's very flexible, talented and encouraging which helped me a lot in building my musical intuitions. 
 			  <br>
-			  <div style="line-height: 30%;">
+			  <div style="line-height: 50%; padding: 0px;">
 			      <br>
 			  </div>
 			  Thank you so much for conducting fun songwriting lessons, I'll never forget this experience!
-		  </div>
-		  <div>
-			  <div class="citatnamn">
-				  <img src="/images/johan.png">
-				  Luke Pottage
-			  </div>
-			  I had little knowledge of how to write music when I got in touch with Petter. In only a few short lessons, he got me to a place where I was writing my own songs (chord progressions, melody, and lyrics) in a way I never before thought possible.  
-			  <br>
-			  <div style="line-height: 30%;">
-			      <br>
-			  </div>
-			  Petter is an incredibly talented musician and has helped me so much on my musical journey - I couldn't recommend him highly enough!
 		  </div>
 	  </div>
 	  <button onclick="read_more_reviews()" id="read_more_button">Läs mer</button>
