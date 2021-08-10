@@ -26,7 +26,7 @@ image:
 		Skriv också gärna om du andra särkilda önskemål för vad du vill göra, så förbereder jag hur jag kan hjälpa dig bäst möjligt. 
 		<br>
 		<br>
-		Avbokningar mindre än 7 dagar innan lektionen återbetalas till 50%. Priset för kontinuerliga hemmalektioner kan bli högre beroende på min restid till dig. 
+		Avbokningar mindre än 7 dagar innan lektionen återbetalas till 50%.
 		<br>
 		<br>
 		Jag ser mycket fram emot vår pianolektion! 

@@ -165,16 +165,10 @@ image:
 			<h2>Dina mål är mina mål</h2>
 			Jag är med dig på allt från kreativ fritidssyssla, sökningar till musikhögskola eller planer att bli en världs&shy;omseglande konsertpianist. 		</div>
 	</div>
-	<div style="display: none;">
-		<div>
-			<h2>I stockholm eller varsomhelst</h2>
-			Lektionerna hålls i Petters pianostudio i <a href="/piano/#plats">Hammarby&shy;höjden</a>, eller&nbsp;online över videochat. 
-		</div>
-	</div>
 	<div>
 		<div>
-			<h2>Hemma hos dig i Stockholm <br class="wide_br"> eller varsomhelst</h2>
-			Jag kommer antingen hem till dig och ditt piano, eller så ses vi över videochat. 
+			<h2>I stockholm eller varsomhelst</h2>
+			Lektionerna hålls i Petters pianostudio i <a href="https://www.google.com/maps?daddr=47+Partihandlarvägen+Årsta+Stockholm+12040">Årstaberg</a>, eller&nbsp;online över videochat. 
 		</div>
 	</div>
 </div>
@@ -324,11 +318,11 @@ function read_more_reviews() {
 	</div>
 </div>
 <div id="plats"></div>
-<div style="display: none;" id="var">
+<div id="var">
 	<div>
 		<img src="/images/map.png">
 		<div>
-			<a href="">Hammarbyhöjden</a>
+			<a href="https://www.google.com/maps?daddr=47+Partihandlarvägen+Årsta+Stockholm+12040">Årstaberg</a>
 		</div>
 	</div>
 </div>
