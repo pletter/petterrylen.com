@@ -167,7 +167,7 @@ image:
 	</div>
 	<div>
 		<div>
-			<h2>I stockholm eller varsomhelst</h2>
+			<h2>I Stockholm eller varsomhelst</h2>
 			Lektionerna hålls i Petters pianostudio i <a href="https://www.google.com/maps?daddr=47+Partihandlarvägen+Årsta+Stockholm+12040">Årstaberg</a>, eller&nbsp;online över videochat. 
 		</div>
 	</div>
