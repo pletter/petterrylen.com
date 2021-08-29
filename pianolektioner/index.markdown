@@ -219,15 +219,11 @@ image:
   <div>
 	  <div class="citatnamn">
 		  <img src="/images/johan.png">
-		  Luke Pottage
+		  Dominic Mayer
 	  </div>
-	  I had little knowledge of how to write music when I got in touch with Petter. In only a few short lessons, he got me to a place where I was writing my own songs (chord progressions, melody, and lyrics) in a way I never before thought possible.  
-	  <br>
-	  <div style="line-height: 50%; padding: 0px;">
-	      <br>
-	  </div>
-	  Petter is an incredibly talented musician and has helped me so much on my musical journey - I couldn't recommend him highly enough!
-  </div>	
+  	Amazing and friendly piano teacher, fantastic at explaining everything with infinite patience! Learnt so much in a small amount of time, highly recommended!
+  </div>
+  	
   <div>
 	<div class="citatnamn">
 		<img src="/images/jackie.png">
@@ -239,6 +235,18 @@ image:
   </div>
   <div style="padding: 0px;">
 	  <div id="more">
+		  <div>
+			  <div class="citatnamn">
+				  <img src="/images/johan.png">
+				  Luke Pottage
+			  </div>
+			  I had little knowledge of how to write music when I got in touch with Petter. In only a few short lessons, he got me to a place where I was writing my own songs (chord progressions, melody, and lyrics) in a way I never before thought possible.  
+			  <br>
+			  <div style="line-height: 50%; padding: 0px;">
+			      <br>
+			  </div>
+			  Petter is an incredibly talented musician and has helped me so much on my musical journey - I couldn't recommend him highly enough!
+		  </div>
 		  <div>
 			  <div class="citatnamn">
 				  <img src="/images/carmela.png">
