@@ -1,5 +1,5 @@
 ---
-title: Piano med Petter
+title: Piano med Petter – Pianolektioner i Stockholm
 layout: piano
 image:
   path: /images/pianopetter.jpg
