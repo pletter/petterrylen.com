@@ -7,10 +7,10 @@ image:
 
 <html lang="en">
 <header>
-	<a class="narrow_title" href="/pianolektioner">
+	<a class="narrow_title" href="https://pianomedpetter.se">
 		<img src="/images/pianomedpiano.png">
 	</a>
-	<a class="wide_title" href="/pianolektioner">
+	<a class="wide_title" href="https://pianomedpetter.se">
 		<img src="/images/pianomedwide.png">
 	</a>
 </header>
