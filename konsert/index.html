@@ -26,10 +26,11 @@
 			margin: 0 auto;
 			width: 80vw;
 			max-width: 600px;
-			font-family: "Roboto", "Helvetica Neue", sans-serif;
+			font-family: "Josefin Sans", "Helvetica Neue", sans-serif;
 			font-size: 20px;
-			font-weight: 300;
+			font-weight: 500;
 			letter-spacing: 0.07em;
+			background-color: #FF5B00;
 		}
 
 		a {
@@ -47,29 +48,47 @@
 
 		img {
 			display: block;
-			width: 100%;
-			margin-bottom: 20px;
+			width: 90%;
+			margin-bottom: 80px;
 		}
 
 		h1 {
-			font-size: 35px;
-			font-family: "Lato", sans-serif;
-			font-weight: 500;
+			font-size: 60px;
+			font-family: "Josefin Sans", sans-serif;
+			font-weight: 700;
 			margin: 20px 0px;
-			text-align: center;
+			text-align: left;
 			line-height: 1.35em;
 		}
 		
 		h2 {
-			font-size: 40px;
+			font-size: 80px;
 			font-family: "Josefin Sans", sans-serif;
-			font-weight: 500;
+			font-weight: 700;
 			margin-top: 0;
-			text-align: center;
+			text-align: left;
+		}
+
+		h3 {
+			font-size: 35px;
+			font-weight: 400;
+			margin-top: 0;
+			text-align: left;
+			line-height: 1.35em;
+		}
+
+		.smaller {
+			font-size: 30px;
 		}
 		
 		div {
 			box-sizing: border-box;
+		}
+
+		.text {
+			width: 400px;
+			font-weight: 500;
+			line-height: 1.35em;
 		}
 
 		.video {
@@ -85,39 +104,99 @@
 			position: relative;
 			box-sizing: border-box;
 		}
-	
-		
-		}	
+
+		#links img {
+			width: 50px;
+			margin: 0 20px 0 0;
+		}
+
+		#links {
+			font-size: 35px;
+			margin-bottom: 70px;
+		}
+
+		.linkgrid {
+			display: grid;
+			grid-template-columns: 70px 300px;
+			align-items: center;
+			margin-bottom: 20px;
+		}
+
+		a {
+			color: black;
+			text-decoration: none;
+		}
+
+		a:hover {
+			color: white;
+			text-decoration: none;
+		}
+
+		@media screen and (max-width: 665px) {
+			
+			h1 {
+				font-size: 40px;
+			}
+
+		.smaller {
+			font-size: 25px;
+		}
+
+		h2 {
+			line-height: 1.20em;
+		}
+
+
+
+		}
 	</style>
 </head>
 <body>
 	<header>
 			<div>
-					<h1>Petter Rylén spelar konsert på Vintervikens Trädgårdskafé!</h1>
+					<h1>Konsert <span class="smaller">med</span>
+						<br>
+						Petter Rylén <span class="smaller">på</span> 
+						<br>
+						Vintervikens Trädgårdskafé!</h1>
 			</div>
 	</header>
 	<div>
-<img src="/images/petter2.jpg">
-Petter Rylen, jazzpianist och låtskrivare, fortsätter att förgylla Trädgårdskaféets nya orangerie med andra delen av vårens konsertserie. 
-<br><br>
 
-En intim kväll med fokus på tystnaden mellan tonerna, vackra melodier och texter om allt det spännande som uppstår i ensamheten och stillheten. 
-<br><br>
+<img src="/images/pettertriangle.png">
 
-Tillsammans siktar vi mot stjärnorna, för att förhoppningsvis kraschlanda för en fest på månen 🎉❤️
-<br><br>
 <b>
-Datum: 27 mars 
-<br>
-Konserten startar: 18:00 
-<br>
-Pris: 80 kr
+<h2>
+24 april 18:00 
+</h2>
+
+<h3>Swisha 80 kr per&nbsp;biljett till <br><span style="font-weight: 700;">123 307 28 08 </span>för att&nbsp;boka&nbsp;plats. </h3>
+
 </b>
+<br><br>
+<div class="text">
+<i>Petter Rylen, jazzpianist och låtskrivare, fortsätter att förgylla Trädgårdskaféets nya orangerie med andra delen av vårens konsertserie.
+<br><br>
+
+En intim kväll med fokus på tystnaden mellan tonerna, vackra melodier och texter om det oförståeliga som uppstår i ensamheten och stillheten. </i> 
+<br><br>
+</div>
 <br>
 <br>
-Swisha 80 kr per biljett till <b>123 307 28 08</b> för att boka. Begränsat antal platser.
-<br>
-<br>
+<div id="links">
+<a href="http://instagram.com/petterrylen">
+	<div class="linkgrid">
+		<img src="/images/ig.png">
+		petterrylen
+	</div>
+</a>
+<a href="https://open.spotify.com/album/53bwvUEMiqRV344uGTDU6U?si=RFr1o_OiR5etWTH16ITGOQ">
+	<div class="linkgrid">
+		<img src="/images/sp.png">
+		<p style="margin: 5px 0px 0px 0px;">The Bended Tree</p>
+	</div>
+</a>
+</div>
 <div style="position: relative;
 padding-bottom: 56.25%;
 overflow: hidden;">
