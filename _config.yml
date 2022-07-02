@@ -1,0 +1,24 @@
+url: http://petterrylen.com
+
+permalink: pretty
+
+host: 0.0.0.0 
+
+description: Online Songwriting Lessons will bring your songs over the finish line with tailored songwriting exercises and supportive video chats. 
+
+defaults:
+    -
+        scope:
+            path: ""
+        values:
+            layout: "default"
+    -
+        scope:
+            path: "songwriting"
+        values:
+            layout: "songwriting"
+    -
+        scope:
+            path: "songwritingse"
+        values:
+            layout: "songwritingse"
