@@ -26,7 +26,7 @@
 		}
 
 		a:hover {
-			color: hsl(30, 60%, 50%);
+			color: rgb(216, 133, 56);
 		}
 
 		ul {
@@ -40,17 +40,17 @@
 		}
 
 		.strongh1 {
-			color: green;
+			color: rgb(22, 133, 22);
 			font-weight: 700;
 		}
 
 		.strong1 {
-			color: blueviolet;
+			color: rgb(88, 11, 160);
 			font-weight: 500;
 		}
 
 		.strong2 {
-			color: darkorange;
+			color: rgb(216, 133, 56);
 			font-weight: 500;
 		}
 
@@ -95,7 +95,7 @@
 		.infosection {
 			margin: 0 auto 170px;
 			padding: 80px 40px;
-			background-color: lightblue;
+			background-color: rgb(206, 226, 232);
 			text-align: center;
 		}
 
