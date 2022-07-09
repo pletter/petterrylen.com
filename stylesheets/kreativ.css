@@ -141,7 +141,7 @@
 		}
 
 
-		@media (max-width: 400px) {
+		@media (max-width: 600px) {
 			body {
 				width: 300px;
 			}
@@ -162,5 +162,22 @@
 
 			.infosection h2 {
 				font-size: 40px;
+			}
+		}
+
+		@media (max-width: 360px) {
+
+			body {
+				width: 280px;
+			}
+
+			.calendly-badge-widget .calendly-badge-content {
+				margin: 0 auto !important;
+				font-size: 23px !important;
+			}
+
+			.calendly-badge-widget {
+				right: 10px !important;
+				left: 15px!important;
 			}
 		}
