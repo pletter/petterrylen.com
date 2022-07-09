@@ -79,11 +79,11 @@
 			-o-transform: rotate(-180deg);
 		}
 
-		li:nth-child(even) {
+		li:nth-child(3n+3) {
 			text-align: right;
 		}
 
-		li:nth-child(3n) {
+		li:nth-child(3n+2) {
 			text-align: center;
 		}
 
