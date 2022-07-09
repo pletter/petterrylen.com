@@ -148,6 +148,10 @@
 			border-radius: 0px !important;
 		}
 
+		.calendly-badge-widget .calendly-badge-content:hover {
+			background: white !important;
+		}
+
 
 		@media (max-width: 600px) {
 			body {
