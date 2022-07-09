@@ -5,6 +5,8 @@
 			font-family: "Josefin Sans", "Helvetica Neue", sans-serif;
 			font-size: 27px;
 			font-weight: 300;
+			color: white;
+			background-color: black;
 		}
 
 		header {
@@ -21,8 +23,8 @@
 
 		a {
 			text-decoration: none;
-			color: black;
-			border-bottom: 2px black solid;
+			color: white;
+			border-bottom: 2px white solid;
 		}
 
 		a:hover {
@@ -97,6 +99,16 @@
 			padding: 80px 40px;
 			background-color: lightblue;
 			text-align: center;
+			color: black;
+		}
+
+		.infosection a {
+			color: black;
+			padding: 3px;
+		}
+
+		.infosection a:hover {
+			color: rgb(216, 133, 56);
 		}
 
 
