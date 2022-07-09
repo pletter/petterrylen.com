@@ -1,0 +1,141 @@
+
+		body {
+			margin: 0 auto;
+			width: 400px;
+			font-family: "Josefin Sans", "Helvetica Neue", sans-serif;
+			font-size: 27px;
+			font-weight: 300;
+		}
+
+		header {
+			text-align: center;
+			margin: 120px 120px 120px 120px;
+		}
+
+		#medpetter {
+			font-size: 27px;
+			font-weight: 300;
+			text-align: right;
+			margin: -180px 0px 120px 0px;
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+			border-bottom: 2px black solid;
+		}
+
+		a:hover {
+			color: hsl(30, 60%, 50%);
+		}
+
+		ul {
+			list-style-type: none;
+			padding: 0px;
+		}
+
+		li {
+			margin-bottom: 90px;
+			line-height: 1.3em;
+		}
+
+		.ontop {
+			margin-top: 90px;
+		}
+
+		.strongh1 {
+			color: green;
+			font-weight: 700;
+		}
+
+		.strong1 {
+			color: blueviolet;
+			font-weight: 500;
+		}
+
+		.strong2 {
+			color: darkorange;
+			font-weight: 500;
+		}
+
+		.strong3 {
+			color: green;
+			font-weight: 500;
+		}
+
+		.small2 {
+			font-style: italic;
+			text-align: right;
+			margin-bottom: 170px;
+		}
+
+		.bigger {
+			font-weight: 500;
+			font-size: 30px;
+		}
+
+		.upsidedown {
+			display: inline-block;
+			transform: rotate(-180deg);
+  			-webkit-transform: rotate(-180deg);
+			 -moz-transform: rotate(-180deg);
+				-ms-transform: rotate(-180deg);
+			-o-transform: rotate(-180deg);
+		}
+
+		li:nth-child(even) {
+			text-align: right;
+		}
+
+		li:nth-child(3n) {
+			text-align: center;
+		}
+
+		.section {
+			max-width: 300px;
+			margin: 0 auto 170px;
+		}
+
+		.infosection {
+			margin: 0 auto 170px;
+			padding: 80px 40px;
+			background-color: lightblue;
+			text-align: center;
+		}
+
+
+		img {
+			display: block;
+			width: 100%;
+		}
+
+		h1 {
+			font-size: 60px;
+			font-family: "Josefin Sans", sans-serif;
+			font-weight: 700;
+			margin-top: 0;
+			display: inline;
+		}
+		
+		h2 {
+			font-size: 50px;
+			font-family: "Josefin Sans", sans-serif;
+			font-weight: 600;
+			margin-top: 0;
+			text-align: center;
+			margin: 0px;
+		}
+		
+		div {
+			box-sizing: border-box;
+		}
+
+		.calendly-badge-widget .calendly-badge-content {
+			background-color: lightblue !important;
+			color: black !important;
+			font-family: "Josefin Sans"!important;
+			font-size: 27px !important;
+			font-weight: 500 !important; 
+			padding: 20px 30px 13px 30px !important;
+			border-radius: 0px !important;
+		}
