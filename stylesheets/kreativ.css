@@ -6,7 +6,10 @@
 			font-size: 27px;
 			font-weight: 400;
 			color: white;
-			background-color: black;
+			background-color: rgb(27, 27, 27);
+		}
+
+		#wrapper {
 		}
 
 		header {
