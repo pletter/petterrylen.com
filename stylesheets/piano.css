@@ -1,9 +1,9 @@
 		
 		body {
-			font-family: 'Raleway', sans-serif;
+			font-family: 'Josefin Sans', sans-serif;
 			margin: 0 auto;
 			width: auto;
-			font-weight: 400;
+			font-weight: 300;
 			font-size: 21.8px;
 			line-height: 1.4em;
 		}
@@ -11,14 +11,14 @@
 		h1 {
 			margin: 0;
 			font-size: 31px;
-			font-family: 'lato', sans-serif;			
+			font-family: 'Josefin Sans', sans-serif;			
 			text-transform: uppercase;
-			letter-spacing: 1px;
+			letter-spacing:;
 			text-align: center;
 		}
 		
 		h2 {
-			font-family: 'Quicksand', sans-serif;			
+			font-family: 'Josefin Sans', sans-serif;			
 			font-size: 30px;
 			font-weight: 600;
 			margin: 0px 0px 5px;
@@ -31,7 +31,7 @@
 		}
 		
 		h3 {
-			font-family: 'Quicksand', sans-serif;	
+			font-family: 'Josefin Sans', sans-serif;	
 		}
 		
 		a {
@@ -138,7 +138,7 @@
 		#forstalektionen h1 {
 			font-size: 28px;
 			margin-bottom: 50px;
-			padding: 10px 0px;
+			padding: 20px 0px 10px;
 			border-bottom: 2px solid black;
 			border-top: 2px solid black;
 		}
@@ -192,28 +192,43 @@
 		#book_first h2 {
 			font-size: 22px;
 			margin: 0px;
-			font-weight: 700;
 		}
 		
 		#book_button {
 			display: inline-block;
 			margin: 0 auto;
-			border: 2px solid #323232;
-			border-radius: 15px;
+			border: none;
+			border-radius: 8px;
 			padding: 13px 20px 13px;
 			text-align: center;
-			color: white;
-			background-color: #323232;
+			color: rgb(52, 25, 25);
+			background: linear-gradient(90deg, rgb(149, 241, 73) 0%, rgb(255, 213, 208) 50%, rgb(149, 241, 73) 100%);
+			animation: gradient 10s ease infinite;
+			background-size: 400% 400%;
+		}
+
+		@keyframes gradient {
+			0% {
+				background-position: 0% 50%;
+			}
+			50% {
+				background-position: 100% 50%;
+			}
+			100% {
+				background-position: 0% 50%;
+			}
 		}
 		
+		
+		
 		#book_button h2 {
-			font-weight: 700;
+			font-weight: 600;
+			padding-top: 5px;
 		}
 		
 		#book_button:hover {
-			background-color: black;
-			border: 2px solid black;
-			color: white;
+			background: linear-gradient(90deg, rgb(149, 241, 73) 0%, rgb(255, 213, 208) 64%, rgb(149, 241, 73) 100%);
+			color: black;
 		}
 		
 		#lesson_desc {
@@ -225,7 +240,7 @@
 		#lesson_desc h1 {
 			font-size: 26px;
 			margin-bottom: 50px;
-			padding: 10px 0px;
+			padding: 20px 0px 10px;
 			border-bottom: 3px solid black;
 			border-top: 3px solid black;
 		}
@@ -282,7 +297,7 @@
 		#ommig h1 {
 			font-size: 30px;
 			margin-bottom: 50px;
-			padding: 10px 0px;
+			padding: 20px 0px 10px;
 			border-bottom: 3px solid black;
 			border-top: 3px solid black;
 		}
@@ -348,18 +363,20 @@
 		}
 		
 		button {
-			font-family: 'Raleway', sans-serif;
+			font-family: 'Josefin Sans', sans-serif;
 			font-size: 19.5px;
 			border: 2px solid black;
 			background-color: white;
 			margin-top: -40px;
 			margin-bottom: 30px;
 			border-radius: 15px;
-			padding: 7px 15px 7px;
+			padding: 10px 15px 7px;
 		}
 		
 		button:hover {
 			background-color: #F6F6F6;
+			border: 2px solid black;
+
 		}	
 		
 		#contact {
@@ -466,6 +483,7 @@
 				font-family: "lato", sans-serif;
 				letter-spacing: 2px;
 				text-transform: none;
+				padding-top: 0px;
 			}
 			
 			.narrow_title {
@@ -535,7 +553,6 @@
 			#forstalektionen h1 {
 				font-size: 55px;
 				font-weight: 800;
-				letter-spacing: 3px;
 				padding: 20px 0px;
 				border-top: 0px solid black;
 				border-bottom: 0px solid black;
@@ -562,7 +579,6 @@
 			#lesson_desc h1 {
 					font-size: 52px;
 					font-weight: 800;
-					letter-spacing: 3px;
 					padding: 20px 0px;
 					border-top: 0px solid black;
 					border-bottom: 0px solid black;
@@ -617,7 +633,6 @@
 			#ommig h1 {
 				font-size: 52px;
 				font-weight: 800;
-				letter-spacing: 3px;
 				padding: 20px 0px;
 				border-top: 0px solid black;
 				border-bottom: 0px solid black;
