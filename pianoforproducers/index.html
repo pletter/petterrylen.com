@@ -1,114 +1,175 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Piano Course</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <style>
 
+<head>
+  <title>Piano Navigation for Producers</title>
+  <style>
+    /* CSS styles go here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0 auto;
+      width: 600px;
+    }
 
-.chapter {
-  display: block;
-}
+    h1,
+    h2 {
+      text-align: center;
+    }
 
-.lesson {
-  margin: 1rem 0 5rem;
-}
+    header {
+      background-color: rgb(148, 250, 255);
+      padding: 20px 0px;
+      margin: 20px;
+    }
 
-body {
-  font-family: "Josefin Sans", sans-serif;
-  margin: 0 auto;
-  max-width: 700px;
-  padding: 0;
+    .chapter {
+      margin: 50px auto;
+    }
 
-}
+    .chapter-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
 
-header {
-  background-color: #6200EE;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 1rem;
-}
+    .video-list {
+      display: block;
+      margin-bottom: 50px;
+    }
 
-nav {
-  background-color: #2e2e2e;
-  display: flex;
-  justify-content: center;
-}
+    .video {
+      background-color: #eee;
+      border-radius: 5px;
+      padding: 20px;
+      margin: 10px auto;
+    }
 
-nav ul {
-  list-style: none;
-  display: flex;
-}
+    .video-title {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
 
-nav ul li {
-  margin: 0 1rem;
-}
+    .video-description {
+      font-size: 14px;
+      display: none;
+    }
+  </style>
+</head>
 
-nav a {
-  color: white;
-  text-decoration: none;
-}
-
-main {
-  padding: 2rem;
-}
-
-section {
-  margin-bottom: 2rem;
-}
-
-footer {
-  background-color: #02989e;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-}
-
-
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Piano for producers</h1>
-    </header>
-    <main>
-      <section id="overview">
-        <p>Welcome to this piano course! In this course, you will learn to play chords.</p>
-      </section>
-      <section id="lessons">
-          <h2>Chapter 1 – Minor and major chords</h2>
-          <div class="chapter">
-            <div class="lesson">
-              <h4>Lesson 1: Introduction to basic chords</h4>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/rC0r6jmMO10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-              <p>In this lesson, we will introduce you to the basics of playing the piano, including the layout of the keys and pedals.</p>
-            </div>
-            <div class="lesson">
-              <h4>Lesson 2: Chords with the white keys</h4>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/ZmfIsXeD4xA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>              <p>In this lesson, we will show you the proper posture and finger placement for playing the piano.</p>
-            </div>
-            <div class="lesson">
-              <h4>Lesson 3: Minor into major and major into major</h4>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/6d-ePiHQU1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>              <p>In this lesson, we will teach you the basics of reading sheet music and how to play simple melodies.</p>
-            </div>
-            <div class="lesson">
-                <h4>Lesson 4: The magical formulas</h4>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/Koz_powz2Bg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                <p>In this lesson, we will teach you the basics of reading sheet music and how to play simple melodies.</p>
-              </div>
-              <div class="lesson">
-                <h4>Lesson 5: Bm and B</h4>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/1ECpcq7AFG8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                <p>In this lesson, we will teach you the basics of reading sheet music and how to play simple melodies.</p>
-              </div>
-              <div class="lesson">
-                <h4>Lesson 6: Chords with a black root note</h4>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/LL8Gly4Bfpo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-              </div>
+<body>
+  <header>
+    <h1>Piano Navigation for Producers</h1>
+  </header>
+  <main>
+    <div class="chapter">
+      <h2 class="chapter-title">Chapter 1: Major and Minor Chords</h2>
+      <div class="video-list">
+        <div class="video">
+          <h3 class="video-title">Video 1: Major Chords</h3>
+          <p class="video-description">Learn the basics of major chords and how to play them.</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/F1LU8tdCDCY?controls=0"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+        <div class="video">
+          <h3 class="video-title">Video 2: Minor Chords</h3>
+          <p class="video-description">Learn the basics of minor chords and how to play them.</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/xqAXidSkKGg?controls=0"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+        <div class="video">
+          <h3 class="video-title">Video 3: Major both hands</h3>
+          <p class="video-description">Put your skills to the test with these chord exercises.</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/ySXK8kCAUTQ?controls=0"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
           </div>
-          <!-- repeat the above chapter structure for chapters 2-10 -->
-      </section>
-    </main>
-    <footer>
-    </footer>
-  </body>
-</html>
+          <div class="video">
+            <h3 class="video-title">Video 4: Minor both hands</h3>
+            <p class="video-description">Learn how to identify major and minor chords in popular songs.</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/GDqV4EKzi2k?controls=0"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="chapter">
+        <h2 class="chapter-title">Chapter 2: Inversions</h2>
+        <div class="video-list">
+          <div class="video">
+            <h3 class="video-title">Video 5: What are inversion? </h3>
+            <p class="video-description"></p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/32pldV9iJ5k?controls=0"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="video">
+            <h3 class="video-title">Video 6: Major inversion ladder</h3>
+            <p class="video-description"></p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/vhNpbV0okUA?controls=0"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="video">
+            <h3 class="video-title">Video 7: Minor inversion ladder</h3>
+            <p class="video-description"></p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/e2lIFfj5V-o?controls=0"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="video">
+            <h3 class="video-title">Video 8: 1st inversions major</h3>
+            <p class="video-description"></p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/0pt-eZyXbjU?controls=0"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="video">
+            <h3 class="video-title">Video 9: 1st inversions minor</h3>
+            <p class="video-description"></p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/U-XDFioGFrw?controls=0"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+            <div class="video">
+              <h3 class="video-title">Video 10: 2nd inversions major</h3>
+              <p class="video-description"></p>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/0mvTjHY817k?controls=0"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+              <div class="video">
+                <h3 class="video-title">Video 11: 2nd inversions minor</h3>
+                <p class="video-description"></p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/0dkPlsL2aWM?controls=0"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+            </div>
+              <div class="video">
+                  <h3 class="video-title">Video 12 inversion boss major</h3>
+                  <p class="video-description"></p>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/N_qdo7GhRg4?controls=0"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                </div>
+                <div class="video">
+                  <h3 class="video-title">Video 13 inversion boss minor</h3>
+                  <p class="video-description"></p>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/BQZ1x2VXkLg?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                
+                </div>
+              </div>
+            </div>
+            </main>
+            </body>
