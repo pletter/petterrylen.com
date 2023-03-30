@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let videoArray = ['3xRo8K_hSRM', 'LWJ__GpNNgY', 'WTfsPz0Kq-M', 'dFYMOzoSDNE']
+        let titleArray = ['Video 1', 'Video 2', 'Video 3', 'Video 4']
+        let currentPage = 0;
+        function nextVid(pageId) {
+            document.getElementById('videoContainer').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + videoArray[pageId] + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+            document.getElementById('title').innerHTML = titleArray[pageId];
+        };
+        function backVid() {
+            if (currentPage === 0) {
+                currentPage = videoArray.length-1
+            }
+            else {
+                currentPage = currentPage - 1
+            }
+            nextVid(currentPage);
+
+        }
+
+        function forwardVid() {
+            if (currentPage === videoArray.length-1) {
+                currentPage = 0
+
+            }
+            else {
+                currentPage = currentPage + 1
+            }
+            nextVid(currentPage);
+        }
+
+    </script>
+    <h1 id="title">Tryk på next</h1>
+    <div id="videoContainer">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/3xRo8K_hSRM" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+    </div>
+    <button onclick="backVid();;">back</button> - <button onclick="forwardVid();">next</button>
+
+
+
+
+</body>
+
+</html>
