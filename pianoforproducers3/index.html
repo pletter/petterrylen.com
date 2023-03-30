@@ -16,10 +16,11 @@
         function nextVid(pageId) {
             document.getElementById('videoContainer').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + videoArray[pageId] + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
             document.getElementById('title').innerHTML = titleArray[pageId];
+            currentPage = pageId
         };
         function backVid() {
             if (currentPage === 0) {
-                currentPage = videoArray.length-1
+                currentPage = videoArray.length - 1
             }
             else {
                 currentPage = currentPage - 1
@@ -29,7 +30,7 @@
         }
 
         function forwardVid() {
-            if (currentPage === videoArray.length-1) {
+            if (currentPage === videoArray.length - 1) {
                 currentPage = 0
 
             }
@@ -39,18 +40,33 @@
             nextVid(currentPage);
         }
 
+
     </script>
-    <h1 id="title">Tryk på next</h1>
-    <div id="videoContainer">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/3xRo8K_hSRM" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
+    <div style="display: grid; grid-template-columns: 200px auto;">
+        <div><div id="leftmenu"></div></div>
+
+        <div>
+            <h1 id="title">Tryk på next</h1>
+            <div id="videoContainer">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/3xRo8K_hSRM"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+            <button onclick="backVid();;">back</button> - <button onclick="forwardVid();">next</button>
+        </div>
     </div>
-    <button onclick="backVid();;">back</button> - <button onclick="forwardVid();">next</button>
 
 
 
+<script>
+            function addMenu() {
+            for (let i = 0; i < titleArray.length; i++) {
+                document.getElementById('leftmenu').innerHTML += '<button onclick="nextVid(' + i + ')">' + titleArray[i] + '</button><br>';
+            }
+        }
+        addMenu();
+</script>
 
 </body>
 
