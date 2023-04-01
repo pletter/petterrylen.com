@@ -93,15 +93,15 @@
         }
 
         #leftmenu button.selectedChapter {
-            background-color: hsl(305, 100%, 68%);
+            background-color: hsl(185, 46%, 66%);
         }
 
         #leftmenu button.selected {
-            background-color: hsl(39, 100%, 68%);
+            background-color: hsl(39, 85%, 69%);
         }
 
         #leftmenu button.selected:hover {
-            background-color: hsl(39, 100%, 68%);
+            background-color: hsl(39, 85%, 69%);
         }
 
         .visible {
@@ -116,7 +116,7 @@
         #nextBtn:hover,
         #backBtn:hover,
         #leftmenu button:hover {
-            background-color: hsl(55, 100%, 93%);
+            background-color: hsl(112, 50%, 82%);
         }
 
         @media only screen and (max-width: 600px) {
@@ -132,6 +132,10 @@
 
             #leftmenu {
                 margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center; 
+                align-items: center;
             }
 
             button {
@@ -139,13 +143,18 @@
             }
 
             #leftmenu button {
-                width: 80vw;
+                width: 70vw;
                 text-align: center;
                 padding: 15px 0px 13px;
             }
 
+            #leftmenu .chapterlink {
+            font-size: 190%;
+            width: 80vw;
+        }
+
             #leftmenu button:hover {
-                background-color: hsl(305, 100%, 68%);
+                background-color: hsl(185, 46%, 66%);
             }
         }
     </style>
