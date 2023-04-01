@@ -5,18 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
     <title>PIANO COURSE</title>
     <style>
+        * {
+            touch-action: manipulation;
+        }
 
         body {
             font-family: 'josefin sans', Courier, monospace, sans-serif;
             margin: 4vw;
         }
+
 
         #site {
             display: flex;
@@ -60,6 +64,7 @@
         #leftmenu button {
             font-family: josefin sans;
             display: grid;
+            margin-bottom: 15px;
         }
 
         #leftmenu button {
@@ -69,13 +74,15 @@
             padding: 9px 9px 7px;
         }
 
-        #chapter0menu14, #chapter1menu4, #chapter2menu4  {
+        #chapter0menu14,
+        #chapter1menu4,
+        #chapter2menu4 {
             margin-bottom: 35px;
         }
 
         #backBtn {
             font-size: 1em;
-            visibility: hidden;
+            display: none;
         }
 
 
@@ -104,8 +111,8 @@
             background-color: hsl(39, 85%, 69%);
         }
 
-        .visible {
-            visibility: visible;
+        .invisible {
+            visibility: hidden;
         }
 
         button {
@@ -134,7 +141,7 @@
                 margin: 0 auto;
                 display: flex;
                 flex-direction: column;
-                justify-content: center; 
+                justify-content: center;
                 align-items: center;
             }
 
@@ -149,74 +156,57 @@
             }
 
             #leftmenu .chapterlink {
-            font-size: 190%;
-            width: 80vw;
-        }
+                font-size: 190%;
+                width: 80vw;
+            }
 
             #leftmenu button:hover {
                 background-color: hsl(185, 46%, 66%);
             }
         }
     </style>
+    <script src="json.js"></script>
 </head>
 
 <body>
+    <div>
 
-    <script src="json.js"></script>
+    </div>
 
-    <script>
-        let currentPage = 0;
-        let currentChapter
-
-        const localProgress = localStorage.getItem("progress");
-        const localChapter = localStorage.getItem("chapter");
-
-
-        // If the value is not present in localStorage, use a default value
-        if (localProgress === null) {
-            localProgress = 0
-            localChapter = 0
-        }
-
-
-
-
-
-    </script>
-      <header>
+    <header>
         <h2>Piano for producers</h2>
-      </header>
+    </header>
     <div id="site">
-    <div id="leftmenu"></div>
+        <div id="leftmenu"></div>
 
-    <div class="content">
-        <h1 id="title">Tryk på next</h1>
-        <div style="min-height: fit-content; margin: 40px 0px; padding: 0px 40px;">
-            <span id="textContainer"></span>
-        </div>
-        <div id="videoContainer" style="aspect-ratio: 16/9; width: 100%;">
-            <iframe width="100%" style="aspect-ratio: 16/9;" src="https://www.youtube.com/embed/3xRo8K_hSRM"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-        </div>
-        
-        <div style="display: grid; grid-template-columns: auto auto;">
-            <div>
-                <button onclick="backVid();" id="backBtn">back</button>
+        <div class="content">
+            <h1 id="title">Tryk på next</h1>
+            <div style="min-height: fit-content; margin: 40px 0px; padding: 0px 40px;">
+                <span id="textContainer"></span>
             </div>
-            <div>
-                <button style="float: right;" onclick="forwardVid();" id="nextBtn">continue to next lesson</button>
+            <div id="videoContainer" style="aspect-ratio: 16/9; width: 100%;">
+                <iframe width="100%" style="aspect-ratio: 16/9;" src="https://www.youtube.com/embed/3xRo8K_hSRM"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+
+            <div style="display: grid; grid-template-columns: auto auto;">
+                <div>
+                    <button onclick="previousVideo();" id="backBtn">back</button>
+                </div>
+                <div>
+                    <button style="float: right;" onclick="nextVideo();" id="nextBtn">continue to next lesson</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
     <script>
 
         function gotoVideo(chapterIndex, videoIndex) {
-            /* MAKE SURE THAT PAGEID IS AN INT AND NOT TEXT */
+            // make sure these are integers
             chapterIndex = parseInt(chapterIndex)
             videoIndex = parseInt(videoIndex)
 
@@ -232,25 +222,37 @@
 
 
 
-            /* If start then hide */
-            if (videoIndex === 0) {
-                document.getElementById('backBtn').classList.add('visible')
+
+            let isFirstVideo = videoIndex === 0
+            let isFirstChapter = chapterIndex === 0
+            if (isFirstVideo && isFirstChapter) {
+                document.getElementById('backBtn').classList.add('invisible')
             }
             else {
-                console.log('should be back')
-                document.getElementById('backBtn').classList.remove('visible')
+                document.getElementById('backBtn').classList.remove('invisible')
             }
-            if (videoIndex === allChapters[chapterIndex].videos.length - 1) {
-                document.getElementById('nextBtn').style.display = 'none'
+
+            let isLastVideo = videoIndex === allChapters[chapterIndex].videos.length - 1
+            if (isLastVideo) {
+                document.getElementById('nextBtn').innerHTML = "Continue to next chapter"
             }
             else {
-                document.getElementById('nextBtn').style.display = 'inline'
+                document.getElementById('nextBtn').innerHTML = "Continue to next lesson"
             }
+            let isLastChapter = chapterIndex === allChapters.length - 1
+            if (isLastVideo && isLastChapter) {
+                document.getElementById('nextBtn').classList.add('invisible')
+            }
+
+            else {
+                document.getElementById('nextBtn').classList.remove('invisible')
+            }
+
             /* update progression and save in localStorage */
-            currentPage = videoIndex
-            currentChapter = chapterIndex
-            localStorage.setItem("progress", parseInt(currentPage));
-            localStorage.setItem("chapter", parseInt(currentChapter));
+            currentChapterIndex = chapterIndex
+            currentVideoIndex = videoIndex
+            localStorage.setItem("currentChapterIndex", currentChapterIndex);
+            localStorage.setItem("currentVideoIndex", currentVideoIndex);
 
 
             /* change menu */
@@ -261,14 +263,14 @@
                     allBtn[i].classList.remove("hiddenChapter")
 
                 }
-                else if (parseInt(allBtn[i].id.slice(7)) !== currentChapter && allBtn[i].id.length > 9) {
+                else if (parseInt(allBtn[i].id.slice(7)) !== currentChapterIndex && allBtn[i].id.length > 9) {
                     allBtn[i].classList.add("hiddenChapter")
 
                 }
                 else if (allBtn[i].id === "chapter" + chapterIndex) {
                     allBtn[i].classList.add("selectedChapter")
                 }
-                
+
                 else {
                     allBtn[i].classList.remove("selected")
                     allBtn[i].classList.remove("selectedChapter")
@@ -277,28 +279,26 @@
             }
 
         };
-        function backVid() {
-            if (currentPage === 0) {
-                currentPage = allChapters[currentChapter - 1].videos.length - 1;
-                currentChapter--
+        function previousVideo() {
+            if (currentVideoIndex === 0) {
+                currentVideoIndex = allChapters[currentChapterIndex - 1].videos.length - 1;
+                currentChapterIndex -= 1
             }
             else {
-                currentPage = parseInt(currentPage) - 1
+                currentVideoIndex = currentVideoIndex - 1
             }
-            gotoVideo(currentChapter,currentPage);
+            gotoVideo(currentChapterIndex, currentVideoIndex);
         }
 
-        function forwardVid() {
-            if (currentPage === allChapters[currentChapter].videos.length - 1) {
-                currentPage = 0
-                currentChapter++
-
+        function nextVideo() {
+            if (currentVideoIndex === allChapters[currentChapterIndex].videos.length - 1) {
+                currentVideoIndex = 0
+                currentChapterIndex += 1
             }
             else {
-                currentPage++
+                currentVideoIndex += 1
             }
-            gotoVideo(currentChapter, currentPage);
-
+            gotoVideo(currentChapterIndex, currentVideoIndex);
         }
 
         function addMenu() {
@@ -307,25 +307,38 @@
                 let chapter = allChapters[chapterIndex];
                 document.getElementById('leftmenu').innerHTML += '<button class="chapterlink" id="chapter' + chapterIndex + '" onclick="gotoVideo(' + chapterIndex + ', 0)">' + chapter.title + '</button>';
                 for (let videoIndex = 0; videoIndex < chapter.videos.length; videoIndex += 1) {
-                    document.getElementById('leftmenu').innerHTML += '&nbsp;&nbsp;<button id="chapter' + chapterIndex + 'menu' + videoIndex + '" onclick="gotoVideo(' + chapterIndex + ',' + videoIndex + ')">' + allChapters[chapterIndex].videos[videoIndex].title + '</button>';
+                    document.getElementById('leftmenu').innerHTML += ' <button id="chapter' + chapterIndex + 'menu' + videoIndex + '" onclick="gotoVideo(' + chapterIndex + ',' + videoIndex + ')">' + (videoIndex + 1) + ".&nbsp;" + allChapters[chapterIndex].videos[videoIndex].title + '</button>';
 
                 }
 
             }
 
         }
-        addMenu();
 
-        gotoVideo(parseInt(localChapter), parseInt(localProgress))
+        function getFromLocalStorage(key, defaultValue) {
+            let value = localStorage.getItem(key)
+            if (value === null) {
+                value = defaultValue;
+            }
+            return value;
+        }
+
+
+        let currentChapterIndex = parseInt(getFromLocalStorage("currentChapterIndex", 0));
+        let currentVideoIndex = parseInt(getFromLocalStorage("currentVideoIndex", 0));
+
+        addMenu()
+        gotoVideo(currentChapterIndex, currentVideoIndex)
+
 
         /* Listen for keys */
         document.addEventListener("keydown", function (event) {
             if (event.keyCode === 37) {
                 // Left arrow key pressed
-                backVid()
+                previousVideo()
             } else if (event.keyCode === 39) {
                 // Right arrow key pressed
-                forwardVid()
+                nextVideo()
             }
         });
     </script>
