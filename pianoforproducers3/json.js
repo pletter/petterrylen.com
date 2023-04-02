@@ -5,37 +5,37 @@ let chapter1 = {
     {
       title: "The Major Circle",
       description: "learn how the circle training works and practice your basic major chords",
-      videoId: "dKG8qUGK40o",
+      videoId: "WkS72UAMq8Y",
     },
     {
       title: "Why the circle?",
-      description: "hej hej",
-      videoId: "PswVpeqSNYE",
+      description: "",
+      videoId: "v0YlSCe4Bhw",
     },
     {
       title: "The minor circle",
       description: "",
-      videoId: "PswVpeqSNYE",
+      videoId: "am8dbP16OME",
     },
     {
       title: "Two hand arpeggio",
       description: "",
-      videoId: "xXsWyPiQLmk",
+      videoId: "dSg7x0P_sPU",
     },
     {
       title: "Playalong 70 bpm",
       description: "",
-      videoId: "YICiXC5FdAA",
+      videoId: "i1k3_EZrxN0",
     },
     {
       title: "If you can't keep up",
       description: "",
-      videoId: "48zeau9-reI",
+      videoId: "EVNLDeof4sM",
     },
     {
       title: "Playalong, chord by chord",
       description: "",
-      videoId: "lhinvd9sPzM",
+      videoId: "3Mmoe6mx1ro",
     },
     {
       title: "Playalong 60 bpm",

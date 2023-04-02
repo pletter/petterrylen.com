@@ -180,12 +180,12 @@
         <div id="leftmenu"></div>
 
         <div class="content">
-            <h1 id="title">Tryk på next</h1>
+            <h1 id="title">1. The major circle</h1>
             <div style="min-height: fit-content; margin: 40px 0px; padding: 0px 40px;">
                 <span id="textContainer"></span>
             </div>
             <div id="videoContainer" style="aspect-ratio: 16/9; width: 100%;">
-                <iframe width="100%" style="aspect-ratio: 16/9;" src="https://www.youtube.com/embed/3xRo8K_hSRM"
+                <iframe width="100%" style="aspect-ratio: 16/9;" src="https://www.youtube.com/embed/WkS72UAMq8Y"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
@@ -329,6 +329,15 @@
 
         addMenu()
         gotoVideo(currentChapterIndex, currentVideoIndex)
+
+
+        document.onfullscreenchange = (event) => {
+            if (!document.fullscreenElement) {
+                // Code to scroll down slightly
+                window.scrollBy(0, 1000);
+            }
+        };
+
 
 
         /* Listen for keys */
