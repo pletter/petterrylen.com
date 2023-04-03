@@ -311,8 +311,6 @@
                 if (allBtn[i].id === "chapter" + chapterIndex + "menu" + videoIndex) {
                     allBtn[i].classList.add("selected")
                     allBtn[i].classList.remove("hiddenChapter")
-                    document.getElementById('chapter' + chapterIndex + 'menucircle' + videoIndex).classList.add("selectedcircle")
-
                 }
                 else if (parseInt(allBtn[i].id.slice(7)) !== currentChapterIndex && allBtn[i].id.length > 9) {
                     allBtn[i].classList.add("hiddenChapter")
