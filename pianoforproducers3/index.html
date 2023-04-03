@@ -32,8 +32,8 @@
         }
 
         #title {
-            height: 40px;
-            margin-bottom: 60px;
+            font-size: 1.6em;
+            margin-bottom: 20px;
         }
 
         h2 {
@@ -52,12 +52,31 @@
             display: none;
         }
 
+        .chapterDescription {
+            font-size: 50%;
+            margin: 5px 0px 0px 3px;
+            font-style: italic;
+            text-transform: lowercase;
+        }
+
         #leftmenu .chapterlink {
             font-size: 190%;
+            text-align: left;
+            text-transform: lowercase;
+        }
+
+        .videolink {
+            margin-left: 10px;
+            transition: 0.1s;
+        }
+
+        .videolink:hover {
+            margin-left: 5px;
+            transition: 0.1s;
         }
 
         #leftmenu {
-            min-width: fit-content;
+            min-width: 300px;
             margin: 0px 40px 0px 0px;
         }
 
@@ -74,17 +93,10 @@
             padding: 9px 9px 7px;
         }
 
-        #chapter0menu14,
-        #chapter1menu4,
-        #chapter2menu4 {
-            margin-bottom: 35px;
-        }
-
         #backBtn {
             font-size: 1em;
             display: none;
         }
-
 
         #backBtn,
         #nextBtn {
@@ -105,6 +117,7 @@
 
         #leftmenu button.selected {
             background-color: hsl(39, 85%, 69%);
+            margin-left: ;
         }
 
         #leftmenu button.selected:hover {
@@ -126,15 +139,48 @@
             background-color: hsl(112, 50%, 82%);
         }
 
+        .circle {
+            border: 1.5px solid black;
+            padding: 4px 4px;
+            border-radius: 50%;
+            width: 4px;
+            height: 4px;
+            margin-bottom: 15px;
+        }
+
+        .selectedcircle {
+            background-color: hsl(128, 44%, 64%);
+        }
+
+        .menuitemcontainer {
+            display: flex;
+            align-items: center;
+        }
+
         @media only screen and (max-width: 800px) {
+
+            header h2 {
+                font-size: 1em;
+                padding: 7px 7px 5px;
+                text-align: left;
+                display: inline-block;
+                margin: -5px 0px 20px -5px;
+                font-weight: 700;
+            }
+
             #site {
                 flex-direction: column-reverse;
             }
 
             .content {
                 width: 90vw;
-                margin: 40px auto;
+                margin: 0px auto 37px;
                 text-align: center;
+            }
+
+            #title {
+                font-size: 1.2em;
+                margin-bottom: 20px;
             }
 
             #leftmenu {
@@ -163,6 +209,10 @@
             #leftmenu button:hover {
                 background-color: hsl(185, 46%, 66%);
             }
+
+            #videoContainer {
+                margin-bottom: 15px;
+            }
         }
     </style>
     <script src="json.js"></script>
@@ -181,7 +231,7 @@
 
         <div class="content">
             <h1 id="title">1. The major circle</h1>
-            <div style="min-height: fit-content; margin: 40px 0px; padding: 0px 40px;">
+            <div>
                 <span id="textContainer"></span>
             </div>
             <div id="videoContainer" style="aspect-ratio: 16/9; width: 100%;">
@@ -216,7 +266,7 @@
 
 
             /* Set title */
-            document.getElementById('title').innerHTML = allChapters[chapterIndex].videos[videoIndex].title
+            document.getElementById('title').innerHTML = (videoIndex + 1) + ".&nbsp;" + allChapters[chapterIndex].videos[videoIndex].title
             /* Set text */
             document.getElementById('textContainer').innerHTML = allChapters[chapterIndex].videos[videoIndex].description
 
@@ -261,6 +311,7 @@
                 if (allBtn[i].id === "chapter" + chapterIndex + "menu" + videoIndex) {
                     allBtn[i].classList.add("selected")
                     allBtn[i].classList.remove("hiddenChapter")
+                    document.getElementById('chapter' + chapterIndex + 'menucircle' + videoIndex).classList.add("selectedcircle")
 
                 }
                 else if (parseInt(allBtn[i].id.slice(7)) !== currentChapterIndex && allBtn[i].id.length > 9) {
@@ -305,9 +356,9 @@
             let startChapter = 0;
             for (let chapterIndex = 0; chapterIndex < allChapters.length; chapterIndex += 1) {
                 let chapter = allChapters[chapterIndex];
-                document.getElementById('leftmenu').innerHTML += '<button class="chapterlink" id="chapter' + chapterIndex + '" onclick="gotoVideo(' + chapterIndex + ', 0)">' + chapter.title + '</button>';
+                document.getElementById('leftmenu').innerHTML += '<button class="chapterlink" id="chapter' + chapterIndex + '" onclick="gotoVideo(' + chapterIndex + ', 0)">' + chapter.title + "&nbsp;" + '<span class="chapterDescription">' + chapter.description + '</span></button>';
                 for (let videoIndex = 0; videoIndex < chapter.videos.length; videoIndex += 1) {
-                    document.getElementById('leftmenu').innerHTML += ' <button id="chapter' + chapterIndex + 'menu' + videoIndex + '" onclick="gotoVideo(' + chapterIndex + ',' + videoIndex + ')">' + (videoIndex + 1) + ".&nbsp;" + allChapters[chapterIndex].videos[videoIndex].title + '</button>';
+                    document.getElementById('leftmenu').innerHTML += '<button id="chapter' + chapterIndex + 'menu' + videoIndex + '" class="videolink" onclick="gotoVideo(' + chapterIndex + ',' + videoIndex + ')">' + (videoIndex + 1) + ".&nbsp;" + allChapters[chapterIndex].videos[videoIndex].title + '</button>';
 
                 }
 
@@ -329,14 +380,6 @@
 
         addMenu()
         gotoVideo(currentChapterIndex, currentVideoIndex)
-
-
-        document.onfullscreenchange = (event) => {
-            if (!document.fullscreenElement) {
-                // Code to scroll down slightly
-                window.scrollBy(0, 1000);
-            }
-        };
 
 
 
