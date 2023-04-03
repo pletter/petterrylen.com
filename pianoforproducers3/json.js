@@ -82,7 +82,7 @@ let chapter1 = {
 
 let chapter2 = {
   title: "Chapter 2",
-  description: "learn the inversion ladder",
+  description: "the inversion ladder",
   videos: [
     {
       title: "circle of figs",
@@ -140,6 +140,18 @@ let chapter3 = {
       title: "Major ladder, 3 times/chord",
       description: "",
       videoId: "TUVIl_2Bsh0",
+    },
+  ]
+}
+
+let chapter4 = {
+  title: "Course complete",
+  description: "Congratulations!!!!",
+  videos: [
+    {
+      title: "",
+      description: "",
+      videoId: "",
     },
   ]
 }

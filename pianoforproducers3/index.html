@@ -21,6 +21,20 @@
             margin: 4vw;
         }
 
+        .progressBar {
+            transition: height 1s ease-in-out;
+            background-color: pink;
+            width: 100%;
+        }
+
+        .emptyBar {
+            border-right: 1.5px solid #00000044;
+            border-left: 1.5px solid #00000044;
+            padding: 0px 3px;
+            margin-bottom: 13px;
+        }
+
+
 
         #site {
             display: flex;
@@ -48,6 +62,7 @@
             margin-bottom: 30px;
         }
 
+
         #textContainer {
             display: none;
         }
@@ -63,6 +78,14 @@
             font-size: 190%;
             text-align: left;
             text-transform: lowercase;
+            padding: 20px 25px 15px;
+        }
+
+        .percentage {
+            margin-top: 15px;
+            font-size: 100%;
+            margin-left: 3px;
+            font-weight: 300;
         }
 
         .videolink {
@@ -117,7 +140,6 @@
 
         #leftmenu button.selected {
             background-color: hsl(39, 85%, 69%);
-            margin-left: ;
         }
 
         #leftmenu button.selected:hover {
@@ -157,6 +179,9 @@
             align-items: center;
         }
 
+
+
+
         @media only screen and (max-width: 800px) {
 
             header h2 {
@@ -193,6 +218,7 @@
 
             button {
                 color: black;
+                cursor: pointer;
             }
 
             #leftmenu button {
@@ -204,6 +230,7 @@
             #leftmenu .chapterlink {
                 font-size: 190%;
                 width: 80vw;
+                text-align: center;
             }
 
             #leftmenu button:hover {
@@ -213,6 +240,8 @@
             #videoContainer {
                 margin-bottom: 15px;
             }
+
+
         }
     </style>
     <script src="json.js"></script>
@@ -234,10 +263,10 @@
             <div>
                 <span id="textContainer"></span>
             </div>
-            <div id="videoContainer" style="aspect-ratio: 16/9; width: 100%;">
+            <div id="videoContainer" style="aspect-ratio: 16/9;">
                 <iframe width="100%" style="aspect-ratio: 16/9;" src="https://www.youtube.com/embed/WkS72UAMq8Y"
                     title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
                     allowfullscreen></iframe>
             </div>
 
@@ -261,7 +290,7 @@
             videoIndex = parseInt(videoIndex)
 
             document.getElementById('videoContainer').innerHTML = '<iframe width="100%" style="aspect-ratio: 16/9;" src="https://www.youtube.com/embed/'
-                + allChapters[chapterIndex].videos[videoIndex].videoId +
+                + allChapters[chapterIndex].videos[videoIndex].videoId + '?autoplay=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1' +
                 '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
 
 
@@ -312,6 +341,7 @@
                     allBtn[i].classList.add("selected")
                     allBtn[i].classList.remove("hiddenChapter")
                 }
+
                 else if (parseInt(allBtn[i].id.slice(7)) !== currentChapterIndex && allBtn[i].id.length > 9) {
                     allBtn[i].classList.add("hiddenChapter")
 
@@ -325,9 +355,32 @@
                     allBtn[i].classList.remove("selectedChapter")
                     allBtn[i].classList.remove("hiddenChapter")
                 }
-            }
+                for (let i = 0; i < allChapters.length; i++) {
 
-        };
+                    let progressBar = parseInt(videoIndex / (allChapters[i].videos.length) * 100)
+                    if (chapterIndex > i) {
+                        document.getElementById('chapterprogress' + i).innerHTML = '100%'
+                        document.getElementsByClassName('progressBar')[i].style.height = '0%'
+                        document.getElementsByClassName('progressBar')[i].style.display = 'none'
+
+                    }
+                    else if (chapterIndex < (i)) {
+                        document.getElementById('chapterprogress' + i).innerHTML = '0%'
+                        document.getElementsByClassName('progressBar')[i].style.height = '0%'
+                        document.getElementsByClassName('progressBar')[i].style.display = 'none'
+
+
+                    }
+                    else {
+                        document.getElementById('chapterprogress' + i).innerHTML = progressBar + '%'
+                        document.getElementsByClassName('progressBar')[i].style.height = 'calc(' + progressBar + '% + 25px)'
+                        document.getElementsByClassName('progressBar')[i].style.display = 'block'
+
+
+                    }
+                }
+            }
+        }
         function previousVideo() {
             if (currentVideoIndex === 0) {
                 currentVideoIndex = allChapters[currentChapterIndex - 1].videos.length - 1;
@@ -354,9 +407,12 @@
             let startChapter = 0;
             for (let chapterIndex = 0; chapterIndex < allChapters.length; chapterIndex += 1) {
                 let chapter = allChapters[chapterIndex];
-                document.getElementById('leftmenu').innerHTML += '<button class="chapterlink" id="chapter' + chapterIndex + '" onclick="gotoVideo(' + chapterIndex + ', 0)">' + chapter.title + "&nbsp;" + '<span class="chapterDescription">' + chapter.description + '</span></button>';
+                document.getElementById('leftmenu').innerHTML += '<button class="chapterlink" id="chapter'
+                    + chapterIndex + '" onclick="gotoVideo(' + chapterIndex + ', 0)">' +
+                    chapter.title + "&nbsp;" +
+                    '<span class="chapterDescription">' + chapter.description + '</span><span class="percentage" id="chapterprogress' + chapterIndex + '"></span></button><div style="display: grid; grid-template-columns: 20px auto"><div class="emptyBar"> <div class="progressBar"></div></div><div class="chaptersdiv"></div></div>';
                 for (let videoIndex = 0; videoIndex < chapter.videos.length; videoIndex += 1) {
-                    document.getElementById('leftmenu').innerHTML += '<button id="chapter' + chapterIndex + 'menu' + videoIndex + '" class="videolink" onclick="gotoVideo(' + chapterIndex + ',' + videoIndex + ')">' + (videoIndex + 1) + ".&nbsp;" + allChapters[chapterIndex].videos[videoIndex].title + '</button>';
+                    document.getElementsByClassName('chaptersdiv')[chapterIndex].innerHTML += '<button id="chapter' + chapterIndex + 'menu' + videoIndex + '" class="videolink" onclick="gotoVideo(' + chapterIndex + ',' + videoIndex + ')">' + (videoIndex + 1) + ".&nbsp;" + allChapters[chapterIndex].videos[videoIndex].title + '</button>';
 
                 }
 
@@ -379,7 +435,13 @@
         addMenu()
         gotoVideo(currentChapterIndex, currentVideoIndex)
 
+        $(function () {
+            $('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
 
+            $(window).resize(function () {
+                $('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
+            });
+        });
 
         /* Listen for keys */
         document.addEventListener("keydown", function (event) {
