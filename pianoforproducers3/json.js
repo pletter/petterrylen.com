@@ -99,13 +99,13 @@ let chapter1 = {
       type: "2",
     },
     {
-      title: "Move on to the next chapter",
+      title: "Move on to next chapter",
       description: "",
       videoId: "",
       type: "1",
     },
     {
-      title: "How I write chord progressions",
+      title: "How I write chords",
       description: "",
       videoId: "",
       type: "1",
@@ -284,7 +284,7 @@ let chapter4 = {
       type: "1",
     },
     {
-      title: "Playalong 3rd positions, slowly",
+      title: "3rd position, slowly",
       description: "",
       videoId: "",
       type: "2",
@@ -296,13 +296,13 @@ let chapter4 = {
       type: "2",
     },
     {
-      title: "Playalong 5th position, slowly",
+      title: "5th position, slowly",
       description: "",
       videoId: "",
       type: "2",
     },
     {
-      title: "Playalong both positions 90 bpm",
+      title: "Both positions 90 bpm",
       description: "",
       videoId: "",
       type: "2",
