@@ -10,7 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
-    <title>PIANO COURSE</title>
+    <title>Chords training program</title>
     <style>
         * {
             touch-action: manipulation;
@@ -18,13 +18,14 @@
 
         body {
             font-family: 'josefin sans', Courier, monospace, sans-serif;
-            margin: 4vw;
+            margin: 2vw 4vw 4vw 4vw;
         }
 
         .progressBar {
             transition: height 1s ease-in-out;
-            background-color: rgb(161, 161, 161);
-            border-bottom: black 2px solid;
+            background: rgb(250, 237, 168);
+            background: linear-gradient(180deg, rgba(250, 237, 168, 1) 0%, rgba(111, 181, 111, 1) 56%, rgba(42, 196, 228, 1) 100%);
+            filter: blur(3px);
             width: 100%;
             border-radius: 3px;
         }
@@ -34,8 +35,9 @@
             border-left: 0 solid #00000044;
             background-color: rgb(235, 235, 235);
             padding: 0px 0px;
+            filter: blur(2px);
             margin-bottom: 13px;
-            margin-right: 7px;
+            margin-right: 12px;
             border-radius: 3px;
         }
 
@@ -46,7 +48,7 @@
         }
 
         .content {
-            width: 600px;
+            width: 1000px;
             margin: 0 auto;
         }
 
@@ -55,12 +57,27 @@
             margin-bottom: 20px;
         }
 
+        #title img {
+            height: 45px;
+            width: auto;
+            margin: 0px 20px 0px 0px;
+        }
+
+        #title div {
+            display: flex;
+            align-items: center;
+        }
+
         h2 {
-            color: white;
-            background-color: black;
-            font-size: 200%;
-            text-align: center;
-            padding: 30px 0px 25px;
+            color: rgb(38, 38, 38);
+            font-size: 90%;
+            text-align: left;
+            padding: 12px 10px 10px;
+            display: inline-block;
+            margin: 0px 0px 25px;
+            border-radius: 2px;
+            background: rgb(245, 234, 210);
+            filter: blur(0.5px);
         }
 
         #videoContainer {
@@ -93,15 +110,7 @@
             font-weight: 300;
         }
 
-        .videolink {
-            margin-left: 10px;
-            transition: 0.1s;
-        }
 
-        .videolink:hover {
-            margin-left: 5px;
-            transition: 0.1s;
-        }
 
         #leftmenu {
             min-width: 300px;
@@ -121,6 +130,10 @@
             padding: 9px 9px 7px;
         }
 
+        img {
+            width: 20px;
+        }
+
         #backBtn {
             font-size: 1em;
             display: none;
@@ -128,8 +141,9 @@
 
         #backBtn,
         #nextBtn {
-            font-size: 1.1em;
-            background-color: white;
+            font-size: 150%;
+            background: rgb(250, 237, 168);
+            background: linear-gradient(93deg, rgba(250, 237, 168, 0.3239889705882353) 0%, rgba(111, 181, 111, 0.3744091386554622) 48%, rgba(42, 196, 228, 0.2567620798319328) 98%);
             border: 1px solid black;
             font-family: josefin sans;
             padding: 9px 12px 7px;
@@ -164,24 +178,6 @@
         #backBtn:hover,
         #leftmenu button:hover {
             background-color: hsl(112, 50%, 82%);
-        }
-
-        .circle {
-            border: 1.5px solid black;
-            padding: 4px 4px;
-            border-radius: 50%;
-            width: 4px;
-            height: 4px;
-            margin-bottom: 15px;
-        }
-
-        .selectedcircle {
-            background-color: hsl(128, 44%, 64%);
-        }
-
-        .menuitemcontainer {
-            display: flex;
-            align-items: center;
         }
 
 
@@ -226,6 +222,11 @@
                 cursor: pointer;
             }
 
+            #nextBtn {
+                font-size: 110%;
+            }
+
+
             #leftmenu button {
                 width: 70vw;
                 text-align: center;
@@ -262,12 +263,13 @@
     </div>
 
     <header>
-        <h2>Piano for producers</h2>
+        <h2>Piano chords practice program</h2>
     </header>
     <div id="site">
         <div id="leftmenu"></div>
 
         <div class="content">
+            <div id="type"></div>
             <h1 id="title">1. The major circle</h1>
             <div>
                 <span id="textContainer"></span>
@@ -298,15 +300,27 @@
             chapterIndex = parseInt(chapterIndex)
             videoIndex = parseInt(videoIndex)
 
+            function currentIcon() {
+                if (allChapters[chapterIndex].videos[videoIndex].type === '1') {
+                    return '<img src="speech.png">';
+                }
+
+                else {
+                    return '<img src="keys7.png">';
+                }
+
+            }
+
             document.getElementById('videoContainer').innerHTML = '<iframe width="100%" style="aspect-ratio: 16/9;" src="https://www.youtube.com/embed/'
                 + allChapters[chapterIndex].videos[videoIndex].videoId + '?autoplay=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1' +
                 '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
 
 
             /* Set title */
-            document.getElementById('title').innerHTML = (videoIndex + 1) + ".&nbsp;" + allChapters[chapterIndex].videos[videoIndex].title
+            document.getElementById('title').innerHTML = '<div>' + currentIcon(allChapters[chapterIndex].videos[videoIndex].type) + (videoIndex + 1) + ".&nbsp;" + allChapters[chapterIndex].videos[videoIndex].title + '</div>'
             /* Set text */
             document.getElementById('textContainer').innerHTML = allChapters[chapterIndex].videos[videoIndex].description
+
 
 
 
@@ -341,7 +355,6 @@
             currentVideoIndex = videoIndex
             localStorage.setItem("currentChapterIndex", currentChapterIndex);
             localStorage.setItem("currentVideoIndex", currentVideoIndex);
-
 
             /* change menu */
             let allBtn = document.getElementById('leftmenu').getElementsByTagName('button')
@@ -412,6 +425,8 @@
             gotoVideo(currentChapterIndex, currentVideoIndex);
         }
 
+
+
         function addMenu() {
             let startChapter = 0;
             for (let chapterIndex = 0; chapterIndex < allChapters.length; chapterIndex += 1) {
@@ -419,7 +434,7 @@
                 document.getElementById('leftmenu').innerHTML += '<button class="chapterlink" id="chapter'
                     + chapterIndex + '" onclick="gotoVideo(' + chapterIndex + ', 0)">' +
                     chapter.title + "&nbsp;" +
-                    '<span class="chapterDescription">' + chapter.description + '</span><span class="percentage" id="chapterprogress' + chapterIndex + '"></span></button><div style="display: grid; grid-template-columns: 12px auto"><div class="emptyBar"> <div class="progressBar"></div></div><div class="chaptersdiv"></div></div>';
+                    '<span class="chapterDescription">' + chapter.description + '</span><span class="percentage" id="chapterprogress' + chapterIndex + '"></span></button><div style="display: grid; grid-template-columns: 18px auto;"><div class="emptyBar"> <div class="progressBar"></div></div><div class="chaptersdiv"></div></div>';
                 for (let videoIndex = 0; videoIndex < chapter.videos.length; videoIndex += 1) {
                     document.getElementsByClassName('chaptersdiv')[chapterIndex].innerHTML += '<button id="chapter' + chapterIndex + 'menu' + videoIndex + '" class="videolink" onclick="gotoVideo(' + chapterIndex + ',' + videoIndex + ')">' + (videoIndex + 1) + ".&nbsp;" + allChapters[chapterIndex].videos[videoIndex].title + '</button>';
 
@@ -443,14 +458,6 @@
 
         addMenu()
         gotoVideo(currentChapterIndex, currentVideoIndex)
-
-        $(function () {
-            $('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
-
-            $(window).resize(function () {
-                $('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
-            });
-        });
 
         /* Listen for keys */
         document.addEventListener("keydown", function (event) {
