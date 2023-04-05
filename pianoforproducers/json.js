@@ -3,6 +3,13 @@ let chapter1 = {
   description: "major and minor chords",
   videos: [
     {
+      title: "Course introduction",
+      description: "",
+      videoId: "FcImLkLsneU",
+      type: "1",
+      duration: "4",
+    },
+    {
       title: "The major circle",
       description: "learn how the circle training works and practice your basic major chords",
       videoId: "LDkoVX8C4A4",
