@@ -224,7 +224,7 @@
 
             header h2 {
                 font-size: 1em;
-                padding: 7px 7px 5px;
+                padding: 10px 9px 7px 10px;
                 text-align: left;
                 display: inline-block;
                 margin: -5px 0px 20px -5px;
@@ -244,13 +244,18 @@
             }
 
             #title {
-                font-size: 1.2em;
+                font-size: 100%;
                 margin-bottom: 20px;
+                line-height: 1.4em;
             }
 
             #title img {
                 height: 35px;
                 margin-right: 15px;
+            }
+
+            .durationbox {
+                margin: 7px;
             }
 
 
@@ -303,6 +308,17 @@
             }
 
 
+        }
+
+        @media only screen and (max-width: 350px) {
+            #title {
+                font-size: 90%;
+            }
+
+            #leftmenu .videolink {
+                font-size: 90%;
+
+            }
         }
     </style>
     <script src="json.js"></script>

@@ -45,7 +45,7 @@ let chapter1 = {
       duration: "2",
     },
     {
-      title: "Playalong, chord by chord",
+      title: "Playalong, chord&nbsp;by&nbsp;chord",
       description: "",
       videoId: "hfr4lieoJKM",
       type: "2",
@@ -94,7 +94,7 @@ let chapter1 = {
       duration: "5",
     },
     {
-      title: "Keep your fingers down",
+      title: "Keep your fingers&nbsp;down",
       description: "",
       videoId: "kc6c-oGuJbo",
       type: "1",
@@ -115,7 +115,7 @@ let chapter1 = {
       duration: "4",
     },
     {
-      title: "Move on to next chapter",
+      title: "Move on to next&nbsp;chapter",
       description: "",
       videoId: "BlXHHTQx5e4",
       type: "1",
@@ -186,14 +186,14 @@ let chapter2 = {
       duration: "4",
     },
     {
-      title: "Playalong, slow major ladder",
+      title: "Playalong, major ladder&nbsp;x3",
       description: "",
       videoId: "bjD-9LABnI8",
       type: "2",
       duration: "11",
     },
     {
-      title: "Playalong, slow minor ladder",
+      title: "Playalong, minor ladder&nbsp;x3",
       description: "",
       videoId: "cXZeL8t-lAU",
       type: "2",
@@ -221,7 +221,7 @@ let chapter2 = {
       duration: "6",
     },
     {
-      title: "If you can't keep up",
+      title: "If you can't keep&nbsp;up",
       description: "",
       videoId: "TdFjFMXjqQg",
       type: "1",
