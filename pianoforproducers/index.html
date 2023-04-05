@@ -48,6 +48,15 @@
         .content {
             width: 70vw;
             margin: 0 auto;
+            position: fixed;
+            left: 26vw;
+        }
+
+        @media only screen and (max-width: 1420px) {
+            .content {
+                width: calc(75vw - 150px);
+                left: calc(17vw + 185px);
+            }
         }
 
         #title {
@@ -59,6 +68,13 @@
             height: 45px;
             width: auto;
             margin: 0px 20px 0px 0px;
+        }
+
+        .durationbox {
+            font-weight: 300;
+            font-size: 100%;
+            font-style: italic;
+            margin: 0px 0px -1px 15px;
         }
 
         #title div {
@@ -73,8 +89,14 @@
             padding: 12px 10px 10px;
             display: inline-block;
             margin: 0px 0px 25px;
-            border-radius: 2px;
+            border-radius: 5px;
             background: rgb(30, 30, 30);
+            box-shadow: 2px 3px rgb(152, 47, 20);
+        }
+
+        h2 span {
+            font-weight: 300;
+            font-size: 91%;
         }
 
         #videoContainer {
@@ -217,6 +239,8 @@
                 width: 90vw;
                 margin: 0px auto 37px;
                 text-align: center;
+                position: unset;
+
             }
 
             #title {
@@ -228,6 +252,8 @@
                 height: 35px;
                 margin-right: 15px;
             }
+
+
 
             #leftmenu {
                 margin: 0 auto;
@@ -288,7 +314,9 @@
     </div>
 
     <header>
-        <h2>Piano chords practice program</h2>
+        <a href="/">
+            <h2>Piano for producers <br><span>chords practice program</span></h2>
+        </a>
     </header>
     <div id="site">
         <div id="leftmenu"></div>
@@ -354,7 +382,7 @@
 
 
             /* Set title */
-            document.getElementById('title').innerHTML = '<div>' + currentIcon(chapterIndex, videoIndex) + (videoIndex + 1) + ".&nbsp;" + allChapters[chapterIndex].videos[videoIndex].title + '</div>'
+            document.getElementById('title').innerHTML = '<div>' + currentIcon(chapterIndex, videoIndex) + (videoIndex + 1) + ".&nbsp;" + allChapters[chapterIndex].videos[videoIndex].title + '&nbsp;<div class="durationbox">' + allChapters[chapterIndex].videos[videoIndex].duration + '&nbsp;min.</div></div>'
             /* Set text */
             document.getElementById('textContainer').innerHTML = allChapters[chapterIndex].videos[videoIndex].description
 
