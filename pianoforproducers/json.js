@@ -360,6 +360,13 @@ let chapter4 = {
       type: "2",
       duration: "5",
     },
+    {
+      title: "Both positions 110 bpm",
+      description: "",
+      videoId: "G1Mqa8X_0UE",
+      type: "2",
+      duration: "4",
+    },
   ]
 }
 
