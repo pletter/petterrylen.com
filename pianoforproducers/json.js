@@ -281,21 +281,21 @@ let chapter2 = {
 
 let chapter3 = {
   title: "Chapter 3",
-  description: "9ths (coming soon)",
+  description: " Let's add 9ths",
   videos: [
     {
-      title: "coming soon",
+      title: "Color notes",
       description: "",
-      videoId: "",
-      type: "2",
-      duration: "1",
+      videoId: "8bbXipXLUrs",
+      type: "1",
+      duration: "11",
     },
     {
-      title: "coming soon",
+      title: "The 12 numerical steps",
       description: "",
-      videoId: "",
-      type: "2",
-      duration: "1",
+      videoId: "hw7ZtDL5RD8",
+      type: "1",
+      duration: "8",
     },
     {
       title: "coming soon",
