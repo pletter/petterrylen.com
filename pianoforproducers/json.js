@@ -318,6 +318,7 @@ let chapter3 = {
       type: "2",
       duration: "8",
     },
+
     {
       title: "Playalong 70 bpm",
       description: "",
@@ -484,14 +485,56 @@ let chapter4 = {
 
 let chapter5 = {
   title: "Chapter 5",
-  description: "Sus4 (coming soon)",
+  description: "Suspense!",
   videos: [
     {
-      title: "coming soon",
+      title: "The sus4 chord",
       description: "",
-      videoId: "",
+      videoId: "1RaAObYS9LI",
+      type: "1",
+      duration: "4",
+    },
+    {
+      title: "The other way around",
+      description: "",
+      videoId: "nO6V_jBJ_vc",
+      type: "1",
+      duration: "7",
+    },
+    {
+      title: "70 bpm, two bars",
+      description: "",
+      videoId: "KuTgqYpympA",
+      type: "2",
+      duration: "4",
+    },
+    {
+      title: "70 bpm, one bar",
+      description: "",
+      videoId: "6OF9UDbJmBk",
+      type: "2",
+      duration: "3",
+    },
+    {
+      title: "90 bpm, minor resolve!",
+      description: "",
+      videoId: "VmEGLZzhSdA",
+      type: "2",
+      duration: "3",
+    },
+    {
+      title: "Move on to next chapter",
+      description: "",
+      videoId: "f0Z3Dj3AhrE",
       type: "1",
       duration: "1",
+    },
+    {
+      title: "Optional: 110 bpm",
+      description: "",
+      videoId: "6PgOAuqV3FI",
+      type: "2",
+      duration: "2",
     },
   ]
 }
