@@ -565,7 +565,7 @@ let chapter6 = {
       duration: "3",
     },
     {
-      title: "4 on the floor",
+      title: "on the floor",
       description: "",
       videoId: "hSKCKw_CJaE",
       type: "2",
