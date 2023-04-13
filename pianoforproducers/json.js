@@ -12,7 +12,7 @@ let chapter1 = {
     {
       title: "The major circle",
       description: "learn how the circle training works and practice your basic major chords",
-      videoId: "LDkoVX8C4A4",
+      videoId: "m4mauEEmjgI",
       type: "2",
       duration: "7",
     },
@@ -115,9 +115,16 @@ let chapter1 = {
       duration: "4",
     },
     {
+      title: "Please stop the metronome",
+      description: "",
+      videoId: "yw4Ik3BOv68",
+      type: "1",
+      duration: "2",
+    },
+    {
       title: "Playalong 120 bpm",
       description: "",
-      videoId: "zOOgPcfuxZ0",
+      videoId: "FxsgY9ZIGyI",
       type: "2",
       duration: "4",
     },
@@ -128,13 +135,7 @@ let chapter1 = {
       type: "1",
       duration: "1",
     },
-    {
-      title: "How I write chords",
-      description: "",
-      videoId: "leDUev2Pd-I",
-      type: "1",
-      duration: "21",
-    },
+
     {
       title: "120 bpm variation 1",
       description: "",
@@ -156,7 +157,6 @@ let chapter1 = {
       type: "2",
       duration: "4",
     },
-
   ]
 }
 
@@ -568,7 +568,7 @@ let chapter6 = {
       title: "on the floor",
       description: "",
       videoId: "hSKCKw_CJaE",
-      type: "2",
+      type: "1",
       duration: "1",
     },
     {
@@ -593,32 +593,53 @@ let chapter6 = {
       duration: "2",
     },
     {
-      title: "coming soon",
+      title: "100 bpm 1 bar",
       description: "",
-      videoId: "",
+      videoId: "OMd2-0PGJ4o",
       type: "2",
-      duration: "",
+      duration: "2",
     },
     {
-      title: "coming soon",
+      title: "The m9 chord",
       description: "",
-      videoId: "",
-      type: "2",
-      duration: "",
+      videoId: "v5L3-kjap3g",
+      type: "1",
+      duration: "4",
     },
     {
-      title: "coming soon",
+      title: "Arpeggio rhythm",
       description: "",
-      videoId: "",
-      type: "2",
-      duration: "",
+      videoId: "MWaWQdNF6VI",
+      type: "1",
+      duration: "2",
     },
     {
-      title: "coming soon",
+      title: "70 bpm, 2 bars",
       description: "",
-      videoId: "",
+      videoId: "A5Qhs3IelGU",
       type: "2",
-      duration: "",
+      duration: "3",
+    },
+    {
+      title: "70 bpm, 1 bar",
+      description: "",
+      videoId: "Kp_qRhYrP60",
+      type: "2",
+      duration: "2",
+    },
+    {
+      title: "90 bpm, 1 bar",
+      description: "",
+      videoId: "VffvCrg2WzQ",
+      type: "2",
+      duration: "2",
+    },
+    {
+      title: "110  bpm, 1 bar",
+      description: "",
+      videoId: "lZt3q4JK0WE",
+      type: "2",
+      duration: "2",
     },
     {
       title: "coming soon",
