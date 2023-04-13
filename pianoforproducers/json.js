@@ -115,7 +115,7 @@ let chapter1 = {
       duration: "4",
     },
     {
-      title: "Please stop the metronome",
+      title: "Turn off the metronome",
       description: "",
       videoId: "yw4Ik3BOv68",
       type: "1",
@@ -642,11 +642,11 @@ let chapter6 = {
       duration: "2",
     },
     {
-      title: "coming soon",
+      title: "130 bpm, 1 bar",
       description: "",
-      videoId: "",
+      videoId: "gvrXXz6UYSY",
       type: "2",
-      duration: "",
+      duration: "2",
     },
     {
       title: "coming soon",
