@@ -330,7 +330,7 @@
             }
 
             .modal-content {
-                width: 60%;
+                width: 70%;
                 padding: 60px 30px;
                 font-size: 23px;
             }
@@ -524,6 +524,7 @@
         // When the user clicks the "info" button, show the modal and disable scrolling of the background
         infoButton.onclick = function () {
             modal.style.display = "block";
+            body.style.overflow = "hidden";
             document.body.classList.add("modal-open");
         }
 
@@ -531,6 +532,8 @@
             const modal = document.querySelector(".modal");
             modal.style.display = "none";
             modalBackground.removeEventListener("click", closeModal);
+            body.style.overflow = "scroll";
+
         }
 
         // When the user clicks the close button or the modal background, hide the modal and enable scrolling of the background
