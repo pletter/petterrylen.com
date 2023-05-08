@@ -33,9 +33,9 @@ let chapter1 = {
     {
       title: "Two hand arpeggio",
       description: "",
-      videoId: "NBr5nKoubHI",
+      videoId: "q_PsZBKZbeU",
       type: "1",
-      duration: "1",
+      duration: "4",
     },
     {
       title: "Playalong 70 bpm",
@@ -68,9 +68,9 @@ let chapter1 = {
     {
       title: "The sustain pedal",
       description: "",
-      videoId: "E97wbB2weYg",
+      videoId: "v6LQTwBz1Zo",
       type: "1",
-      duration: "2",
+      duration: "3",
     },
     {
       title: "Playalong 70 bpm",
