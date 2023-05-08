@@ -5,9 +5,9 @@ let chapter1 = {
     {
       title: "Course introduction",
       description: "",
-      videoId: "FcImLkLsneU",
+      videoId: "181MCHVOxSY",
       type: "1",
-      duration: "4",
+      duration: "5",
     },
     {
       title: "The major circle",
