@@ -7,7 +7,7 @@ let chapter1 = {
       description: "",
       videoId: "181MCHVOxSY",
       type: "1",
-      duration: "5",
+      duration: "2",
     },
     {
       title: "The major circle",
