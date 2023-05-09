@@ -47,7 +47,7 @@ let chapter2 = {
     {
       title: "White note chords",
       description: "",
-      videoId: "dN592OcxZnE",
+      videoId: "YoHm9Asr7jA",
       type: "2",
       duration: "6",
     },
