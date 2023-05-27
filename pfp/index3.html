@@ -23,13 +23,14 @@
         }
 
         h1 {
-            font-size: 30px;
+            font-size: clamp(25px, 2.5vw, 30px);
             line-height: 1.6em;
-
+            font-weight: 500;
         }
 
         h2 {
-            font-size: 70px;
+            font-size: clamp(29px, 8.5vw, 70px);
+            font-weight: 700;
         }
 
         h3 {}
@@ -41,22 +42,19 @@
         p {
             max-width: 900px;
             margin: 15px auto;
+            line-height: 1.4em;
         }
 
         header {
-            background-color: #dadab0;
-            padding: 80px;
+            background-color: #dad9c5;
+            background: linear-gradient(180deg, rgba(218, 217, 197, 1) 0%, rgba(252, 228, 204, 1) 100%);
+            padding: 80px 40px;
             text-align: center;
             margin: 0 auto;
         }
 
         .textdiv {
             padding: 150px 80px;
-            margin: 0 auto;
-        }
-
-        .textdiv>div {
-            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -68,7 +66,8 @@
         #why {
             font-size: 1.5em;
             line-height: 1.4em;
-            background: rgb(37, 14, 96);
+            background: radial-gradient(circle, rgba(65, 0, 106, 1) 13%, rgba(43, 43, 43, 1) 49%);
+
             color: whitesmoke;
         }
 
@@ -81,7 +80,7 @@
 
         #petter {
             line-height: 1.4em;
-            background: rgb(1, 84, 80);
+            background: radial-gradient(circle, rgba(36, 60, 5, 1) 1%, rgba(43, 43, 43, 1) 40%);
             color: whitesmoke;
             display: flex;
             flex-wrap: wrap;
@@ -130,9 +129,9 @@
             color: #73eaa5;
             background: rgb(29, 29, 29);
             text-transform: uppercase;
-            font-size: 4em;
+            font-size: clamp(1.5em, 4.5vw, 4em);
             text-align: center;
-            padding: 100px;
+            padding: 100px 0px;
         }
 
         #price span {
@@ -191,8 +190,105 @@
             margin-top: 80px;
         }
 
+        a {
+            color: black;
+            text-decoration: none;
+            border-bottom: 2px solid black;
+        }
+
+        a:hover {
+            color: rgb(42, 42, 42);
+            text-decoration: none;
+            border-bottom: 2px solid rgb(232, 232, 232);
+        }
+
         footer {
             text-align: center;
+            margin: 100px 0px;
+        }
+
+        @media screen and (max-width: 610px) {
+
+            body {
+                font-size: 20px;
+            }
+
+            #how {
+                padding: 40px 0px 0px;
+            }
+
+            #howlist {
+                padding: 0px;
+            }
+
+            #howlist li {
+                padding: 20px 20px;
+                font-size: 1em;
+                height: 80px;
+            }
+
+            #howlist li:nth-child(even) {
+                padding: 20px 20px;
+            }
+
+            #howlist img {
+                width: 30px;
+                padding-right: 20px;
+            }
+
+            .whatyougetlist li {
+                padding: 40px 20px;
+                font-size: 1em;
+            }
+
+
+
+            header,
+            .textdiv {
+                padding: 40px 30px;
+            }
+
+            #areyoualso {
+                font-size: 1.2em;
+            }
+
+            #petter img {
+                width: 100%;
+            }
+
+            #why {
+                background: radial-gradient(circle, rgb(21, 0, 34) 1%, rgba(43, 43, 43, 1) 49%);
+
+            }
+
+            #petter {
+                background: radial-gradient(circle, rgb(42, 28, 1) 1%, rgba(43, 43, 43, 1) 40%);
+
+            }
+
+            #why,
+            #how {
+                font-size: 1em;
+            }
+
+            #how p {
+                font-weight: 700;
+            }
+
+            #price {
+                padding: 67px 0px 50px;
+            }
+
+            #youget {
+                padding: 40px 0px 0px;
+            }
+
+            button {
+                font-size: 1.7em;
+                box-shadow: 6px 4px black;
+                border-radius: 6px;
+                padding: 20px 20px 16px;
+            }
         }
     </style>
 </head>
@@ -200,7 +296,7 @@
 <body>
     <header>
         <h2>Petter for Producers</h2>
-        <h1>A Piano Course Made For Producers</h1>
+        <h1>A Piano Course Made&nbsp;For&nbsp;Producers</h1>
     </header>
     <div class="textdiv" id="areyoualso">
         <div>
@@ -323,9 +419,12 @@
             degree from the Rhythmic Music Conservatory in Copenhagen.
         </p>
     </div>
-    <footer>
+    <footer class="textdiv">
+        <p>If you have any questions at all about my course, feel free to <a href="mailto:petter.rylen@gmail.com">send
+                me
+                an
+                email</a>.</p>
+        <br><br>
+        /Petter Rylén
     </footer>
-    <script>
-
-    </script>
 </body>
