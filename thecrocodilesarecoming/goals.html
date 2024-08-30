@@ -9,7 +9,7 @@
     <style>
         body {
             font-family: 'Josefin Sans', sans-serif;
-            background-color: rgb(52, 52, 52);
+            background-color: rgb(74, 74, 74);
             color: white;
             margin: 0;
             padding: 20px;
@@ -41,7 +41,7 @@
         .description {
             margin: 10px 0;
             cursor: pointer;
-            color: #ddd;
+            color: #ffffff;
         }
 
         .history {
@@ -50,7 +50,7 @@
             padding-left: 15px;
             margin: 10px 0;
             font-size: 0.9em;
-            color: #bbb;
+            color: #fffabf;
         }
 
         .update-input {
@@ -86,6 +86,7 @@
 
 <body>
     <div class="container">
+        <h1>My Goals</h1>
         <div id="goal-list">
             <!-- Initial Goals -->
             <div class="goal" style="background-color: #FF6F61;">
@@ -94,27 +95,25 @@
 
                 </p>
                 <ul class="history"></ul>
-                <input type="text" placeholder="Write your daily update..." class="update-input"
+                <input type="text" placeholder="" class="update-input"
                     onkeydown="updateDescriptionOnEnter(event, this)">
             </div>
 
             <div class="goal" style="background-color: #5E35B1;">
                 <h2 class="editable-title" onclick="editTitle(this)">Only Check Instagram on Fridays</h2>
                 <p class="description" onclick="toggleHistory(this)">
-
                 </p>
                 <ul class="history"></ul>
-                <input type="text" placeholder="Write your daily update..." class="update-input"
+                <input type="text" placeholder="" class="update-input"
                     onkeydown="updateDescriptionOnEnter(event, this)">
             </div>
 
             <div class="goal" style="background-color: #D32F2F;">
                 <h2 class="editable-title" onclick="editTitle(this)">Finish My Piano Course</h2>
                 <p class="description" onclick="toggleHistory(this)">
-
                 </p>
                 <ul class="history"></ul>
-                <input type="text" placeholder="Write your daily update..." class="update-input"
+                <input type="text" placeholder="" class="update-input"
                     onkeydown="updateDescriptionOnEnter(event, this)">
             </div>
         </div>
@@ -205,7 +204,7 @@
 
                         const updateInput = document.createElement('input');
                         updateInput.setAttribute('type', 'text');
-                        updateInput.setAttribute('placeholder', 'Write your daily update...');
+                        updateInput.setAttribute('placeholder', '');
                         updateInput.classList.add('update-input');
                         updateInput.setAttribute('onkeydown', 'updateDescriptionOnEnter(event, this)');
                         newGoal.appendChild(updateInput);
