@@ -156,9 +156,10 @@
     <header>
         <nav>
             <button id="site-title">Petter Rylén och jakten på konserten</button>
+            <button id="stories-btn">berättelser</button>
             <button id="values-btn">manifest</button>
+            <button id="join-btn">gå med</button>
             <button id="about-btn">om mig</button>
-            <button style="display: none;" id="join-btn">join</button>
         </nav>
     </header>
 
@@ -346,8 +347,16 @@
             loadContent('/dokumentar/about.html');
         });
 
+        document.getElementById('stories-btn').addEventListener('click', function () {
+            loadContent('/dokumentar/stories.html');
+        });
+
         document.getElementById('values-btn').addEventListener('click', function () {
             loadContent('/dokumentar/manifest.html');
+        });
+
+        document.getElementById('join-btn').addEventListener('click', function () {
+            loadContent('/dokumentar/join.html');
         });
 
         // Event listener for the site title to return to the main content
