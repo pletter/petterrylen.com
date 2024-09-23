@@ -52,7 +52,7 @@
         nav {
             margin-top: 10px;
             display: flex;
-            justify-content: start;
+            justify-content: center;
         }
 
         nav button {
@@ -156,9 +156,9 @@
     <header>
         <nav>
             <button id="site-title">Petter Rylén och jakten på konserten</button>
-            <button style="display: none;" id="values-btn">join</button>
+            <button id="values-btn">manifest</button>
             <button id="about-btn">om mig</button>
-            <button style="display: none;" id="values-btn">min värdegrund</button>
+            <button style="display: none;" id="join-btn">join</button>
         </nav>
     </header>
 
@@ -347,7 +347,7 @@
         });
 
         document.getElementById('values-btn').addEventListener('click', function () {
-            loadContent('/values.html');
+            loadContent('/dokumentar/manifest.html');
         });
 
         // Event listener for the site title to return to the main content
