@@ -208,32 +208,4 @@
             }
         });
 
-        // Event listeners for buttons
-        document.getElementById('about-btn').addEventListener('click', function () {
-            loadContent('/dokumentar/about.html');
-        });
-
-        document.getElementById('stories-btn').addEventListener('click', function () {
-            loadContent('/dokumentar/stories.html');
-        });
-
-        document.getElementById('values-btn').addEventListener('click', function () {
-            loadContent('/dokumentar/manifest.html');
-        });
-
-        document.getElementById('join-btn').addEventListener('click', function () {
-            loadContent('/dokumentar/join.html');
-        });
-
-        // Event listener for the site title to return to the main content
-        document.getElementById('site-title').addEventListener('click', function () {
-            document.getElementById('content').innerHTML = originalContent;
-            // Clear localStorage so the original content is shown on refresh
-            localStorage.removeItem('currentContent');
-            localStorage.removeItem('currentPage');
-        });
-    </script>
-    <script async data-uid="f6da53ab8f" src="https://piano-petter.ck.page/f6da53ab8f/index.js"></script>
-</body>
-
-</html>
+   
