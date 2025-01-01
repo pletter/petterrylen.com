@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Petter for Producers</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Global styles */
+
+        body {
+            font-family: "josefin sans", sans-serif;
+            color: #333;
+            font-size: 25px;
+            margin: 0px;
+        }
+
+        h1 {
+            font-size: clamp(25px, 2.5vw, 30px);
+            line-height: 1.6em;
+            font-weight: 500;
+        }
+
+        h2 {
+            font-size: clamp(29px, 8.5vw, 70px);
+            font-weight: 700;
+        }
+
+        h3 {}
+
+        h4 {}
+
+        h6 {}
+
+        p {
+            max-width: 900px;
+            margin: 15px auto;
+            line-height: 1.4em;
+        }
+
+        header {
+            background-color: #dad9c5;
+            background: linear-gradient(180deg, rgba(218, 217, 197, 1) 0%, rgba(252, 228, 204, 1) 100%);
+            padding: 80px 40px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .textdiv {
+            padding: 150px 80px;
+            margin: 0 auto;
+        }
+
+        #areyoualso {
+            font-size: 2em;
+            line-height: 1.5em;
+        }
+
+        #why {
+            font-size: 1.5em;
+            line-height: 1.4em;
+            background: radial-gradient(circle, rgba(65, 0, 106, 1) 13%, rgba(43, 43, 43, 1) 49%);
+
+            color: whitesmoke;
+        }
+
+        #how {
+            font-size: 2em;
+            line-height: 1.4em;
+            text-align: center;
+
+        }
+
+        #petter {
+            line-height: 1.4em;
+            background: radial-gradient(circle, rgba(36, 60, 5, 1) 1%, rgba(43, 43, 43, 1) 40%);
+            color: whitesmoke;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #petter img {
+            width: 50%;
+            margin: 15px auto;
+        }
+
+        #howlist,
+        .whatyougetlist {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        #howlist li {
+            padding: 50px 180px;
+            line-height: 1.3em;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            font-size: 25px;
+        }
+
+        #howlist li:nth-child(even) {
+            padding-left: 220px;
+        }
+
+        #howlist img {
+            width: 60px;
+            padding-right: 40px;
+        }
+
+
+
+        li:nth-child(even) {
+            background: rgb(29, 29, 29);
+            color: white;
+        }
+
+        #price {
+            color: #73eaa5;
+            background: rgb(29, 29, 29);
+            text-transform: uppercase;
+            font-size: clamp(1.5em, 4.5vw, 4em);
+            text-align: center;
+            padding: 100px 0px;
+        }
+
+        #price span {
+            display: block;
+            font-size: 3em;
+            font-weight: 700;
+            margin-top: 70px;
+        }
+
+        #youget {
+            padding: 100px 0px 0px;
+        }
+
+        .whatyougetlist {
+            padding: 0;
+            list-style: none;
+        }
+
+        .whatyougetlist li::before {
+            content: "✓ ";
+            color: #2ecc71;
+        }
+
+
+
+        .whatyougetlist li {
+            font-size: 25px;
+            padding: 50px 200px;
+            line-height: 1.4em;
+        }
+
+
+
+
+        button {
+            background-color: #a3ffb2;
+            color: #00431c;
+            border: 4px solid black;
+            border-radius: 3px;
+            font-family: 'josefin sans';
+            padding: 35px 35px 32px;
+            font-size: 2em;
+            cursor: pointer;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 4px 4px black;
+            filter: drop-shadow(20px 10px 100px gold);
+        }
+
+        button:hover {
+            background-color: hsl(51, 100%, 80%);
+        }
+
+        h4 {
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+            border-bottom: 2px solid black;
+        }
+
+        a:hover {
+            color: rgb(42, 42, 42);
+            text-decoration: none;
+            border-bottom: 2px solid rgb(232, 232, 232);
+        }
+
+        footer {
+            text-align: center;
+            margin: 100px 0px;
+        }
+
+        @media screen and (max-width: 610px) {
+
+            body {
+                font-size: 20px;
+            }
+
+            #how {
+                padding: 40px 0px 0px;
+            }
+
+            #howlist {
+                padding: 0px;
+            }
+
+            #howlist li {
+                padding: 20px 20px;
+                font-size: 1em;
+                height: 80px;
+            }
+
+            #howlist li:nth-child(even) {
+                padding: 20px 20px;
+            }
+
+            #howlist img {
+                width: 30px;
+                padding-right: 20px;
+            }
+
+            .whatyougetlist li {
+                padding: 40px 20px;
+                font-size: 1em;
+            }
+
+
+
+            header,
+            .textdiv {
+                padding: 40px 30px;
+            }
+
+            #areyoualso {
+                font-size: 1.2em;
+            }
+
+            #petter img {
+                width: 100%;
+            }
+
+            #why {
+                background: radial-gradient(circle, rgb(21, 0, 34) 1%, rgba(43, 43, 43, 1) 49%);
+
+            }
+
+            #petter {
+                background: radial-gradient(circle, rgb(42, 28, 1) 1%, rgba(43, 43, 43, 1) 40%);
+
+            }
+
+            #why,
+            #how {
+                font-size: 1em;
+            }
+
+            #how p {
+                font-weight: 700;
+            }
+
+            #price {
+                padding: 67px 0px 50px;
+            }
+
+            #youget {
+                padding: 40px 0px 0px;
+            }
+
+            button {
+                font-size: 1.7em;
+                box-shadow: 6px 4px black;
+                border-radius: 6px;
+                padding: 20px 20px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>Petter for Producers</h2>
+        <h1>A Piano Course Made&nbsp;For&nbsp;Producers</h1>
+    </header>
+    <div class="textdiv" id="areyoualso">
+        <div>
+            Are you also <strong style="
+        color:#b3a400">looking to learn piano?</strong>
+            <br><br>
+            to <strong style="
+            color:#009a95">improvise cool chord progressions
+                and melodies</strong>
+            with more
+            ease .. <br><br>
+            .. instead of <strong style="color:#880101">spending tedious time drawing</strong>, note by note?
+        </div>
+    </div>
+    <div class="textdiv" id="why">
+        <p>
+            I created this course because so many piano teachers think you need to learn sight reading and
+            classical
+            music (which is totally good, but not essential) in order to play piano as a producer.
+            <br> <br>
+            However, I know that all you need to learn is how to play chords, with exciting colors, which you can
+            implement
+            directly in your studio sessions.
+            <br> <br>
+
+            <i>And it's even affordable!</i>
+        </p>
+    </div>
+    <div id="how" class="textdiv">
+        <p>How this course will help you&nbsp;as&nbsp;a&nbsp;producer:</p>
+        <ul id="howlist">
+            <li>
+                <img src="images/keys.png">
+                Explore sounds, melodies and chords&nbsp;faster
+            </li>
+            <li>
+                <img src="images/keys.png">
+                Record your ideas&nbsp;faster
+            </li>
+            <li>
+                <img src="images/keys.png">
+                Make your productions sound more human and alive and less&nbsp;midi-ish
+            </li>
+            <li>
+                <img src="images/keys.png">
+                More ways to find inspiration for starting&nbsp;new&nbsp;songs
+            </li>
+            <li>
+                <img src="images/keys.png">
+                Jam with co-writers or&nbsp;singers
+            </li>
+            <li>
+                <img src="images/keys.png">
+                Perform your songs live together with&nbsp;others
+            </li>
+            <li>
+                <img src="images/keys.png">
+                It’s really fun to learn new&nbsp;instruments
+            </li>
+        </ul>
+    </div>
+    <div id="petter" class="textdiv">
+        <p>
+            Hi, my name is Petter. I’m a jazz pianist, producer, and songwriter who’s played throughout most of Europe
+            & Africa. I did my masters at the Music Conservatory in Copenhagen, and <strong>I’m basically crazy
+                about music and
+                the&nbsp;piano</strong>.
+        </p>
+        <img src="images/petter.png">
+        <p>
+            As a piano and songwriting teacher, I’ve had many producers, working with big names like Coldplay, Justin
+            Bieber etc, come to me with the same frustration of only feeling safe in a few keys on the&nbsp;piano.
+        </p>
+        <p>
+            I will give you the method that helps my students overcome their prison and <strong>become free to play
+                chords in
+                all keys and using any possible&nbsp;color</strong>.
+        </p>
+    </div>
+
+    <div id="price">
+        for
+        <br>
+        <span> 50€</span>
+    </div>
+
+    <div id="youget">
+        <h3 style="text-align: center;">You get:</h3>
+
+        <ul class="whatyougetlist">
+            <li><strong>24/7 and lifetime access to my online video course</strong>, that will take you from a piano
+                noob to
+                a well-playing piano producer
+            <li><strong>A practice partner</strong> that shows you exactly what to do and makes it fun to practice piano
+            <li><strong>4 hours (67 videos) of play along material</strong> where you play together with me, note by
+                note
+            </li>
+            <li><strong>Piano overview </strong> – a method that will teach you to navigate chords in all keys
+                effortlessly for the rest
+                of your life</li>
+            <li><strong>Exciting colors of chords </strong> – to give your songs the feel you're looking for</li>
+            <li><strong>Good timing </strong> for when you record
+            </li>
+            <li><strong>Hand coordination </strong> – play awesome chords and arpeggios with both hands
+        </ul>
+    </div>
+
+    <button>buy the course</button>
+
+    <h4>including:</h4>
+    <ul class="whatyougetlist">
+        <li><strong>Satisfaction guarantee</strong>, if the course is not what you need, I’ll give you a full refund.
+
+        <li><strong>Support:</strong> reach out to me if you get stuck and I'll do my best to help.</li>
+        </li>
+    </ul>
+    <div id="moreabout" style="display: none;">
+        <p>
+            My name is Petter, I love to help songwriters and producers achieve their artistic dreams. I have a masters
+            degree from the Rhythmic Music Conservatory in Copenhagen.
+        </p>
+    </div>
+    <footer class="textdiv">
+        <p>If you have any questions at all about my course, feel free to <a href="mailto:petter.rylen@gmail.com">send
+                me
+                an
+                email</a>.</p>
+        <br><br>
+        /Petter Rylén
+    </footer>
+</body>

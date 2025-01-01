@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Piano Course</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <style>
+
+
+#overview {
+  max-width: 650px;
+  margin: 100px auto 0px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.chapter {
+  display: block;
+  margin: 100px auto;
+  text-align: center;
+  justify-content: center;
+}
+
+.chapterlink {
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  border: none;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* add this to make .arrowdiv position absolute relative to .chapterlink */
+}
+
+.color1 {
+  background-color: #fff9ac;
+}
+
+.color1:hover {
+  background-color: #fdf79d;
+}
+
+.color2 {
+  background-color: #a3f8fa;
+}
+
+.color2:hover {
+  background-color: #96f7f9;
+}
+
+.color3 {
+  background-color: #faa3a3;
+}
+
+.color3:hover {
+  background-color: #fa9494;
+}
+
+.color4 {
+  background-color: #affaa3;
+}
+
+.color4:hover {
+  background-color: #9cfb8d;
+}
+
+.arrowdiv {
+  border: solid #000;
+  border-width: 0 6px 6px 0;
+  transform: rotate(45deg);
+  width: 30px;
+  height: 30px;
+  margin-top: 0px;
+  position: absolute; /* add this to position arrow element */
+  top: 75%; /* add this to position arrow element in center vertically */
+  transition: transform 0.2s;
+}
+
+  .chapterlink:hover > .arrowdiv {
+  transform: translate(0%, 20%) rotate(45deg); /* modify to use transform instead of margin-top */
+  transition: transform 0.2s;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0 auto;
+  font-size: 30px;
+  max-width: 800px;
+  padding: 0;
+  text-align: center;
+  line-height: 1.4em;
+}
+
+h2 {
+  font-size: 40px;
+  margin: 35px 0px 15px;
+}
+
+h3 {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+h6 {
+  font-weight: 300;
+  font-size: 25px;
+  margin-top: 0px;
+  margin-bottom: 110px;
+}
+
+header {
+  background-color: #151011;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 100px;
+}
+
+iframe {
+  padding: 50px 0px;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Piano for producers</h1>
+    </header>
+      <section id="overview">
+        Learn to navigate the piano with ease, through practicing the circle training method.
+      </section>
+      <section id="lessons">
+        <div class="chapter">
+            <div class="chapterlink color1">
+              <div>
+                <h2>Chapter 1</h2>
+              </div>
+              <h3>Practice basic major and minor chords</h3>
+              <h6>start here to learn the circle training method</h6>
+              <div class="arrowdiv"></div>
+            </div>
+        
+          <div class="chapter-content" style="display: none;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Y-MIfPqlIdY" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PswVpeqSNYE" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/xXsWyPiQLmk" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YICiXC5FdAA" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/zkrUQRznB9w" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/_pgdyl0n3w0" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/sJC4QctF_DU" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        
+        <div class="chapter">
+          <div class="chapterlink color2">
+            <div class="arrowdiv"></div>
+            <div>
+              <h2>Chapter 2</h2>
+            </div>
+            <h3>The inversion ladder.</h3>
+            <h6>Climb up the inversions to get to know them</h6>
+
+          </div>
+          <div class="chapter-content" style="display: none;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Y-MIfPqlIdY" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PswVpeqSNYE" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/xXsWyPiQLmk" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YICiXC5FdAA" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/zkrUQRznB9w" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/_pgdyl0n3w0" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/sJC4QctF_DU" frameborder="0" allowfullscreen></iframe>         
+           </div>
+        </div>
+        <div class="chapter">
+          <div class="chapterlink color3">
+            <div class="arrowdiv"></div>
+            <div>
+              <h2>Chapter 3</h2>
+            </div>
+            <h3>let's add the 9.</h3>
+            <h6>the add9 chord is just super beautiful</h6>
+          </div>
+          <div class="chapter-content" style="display: none;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Y-MIfPqlIdY" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PswVpeqSNYE" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/xXsWyPiQLmk" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YICiXC5FdAA" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/zkrUQRznB9w" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/_pgdyl0n3w0" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/sJC4QctF_DU" frameborder="0" allowfullscreen></iframe>         
+           </div>
+        </div>
+        <div class="chapter">
+          <div class="chapterlink color4">
+            <div>
+              <h2>Chapter 4</h2>
+            </div>
+            <h3>Inversions level up.</h3>
+            <h6>let's dive deeper into inversions</h6>
+            <div class="arrowdiv"></div>
+          </div>
+          <div class="chapter-content" style="display: none;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Y-MIfPqlIdY" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PswVpeqSNYE" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/xXsWyPiQLmk" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YICiXC5FdAA" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/zkrUQRznB9w" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/_pgdyl0n3w0" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/sJC4QctF_DU" frameborder="0" allowfullscreen></iframe>         
+           </div>
+        </div>
+        <div class="chapter">
+          <div class="chapterlink color1">
+            <div>
+              <h2>Chapter 5</h2>
+            </div>
+            <h3>Suspense!</h3>
+            <h6>it's time to learn sus4 chords</h6>
+            <div class="arrowdiv"></div>
+          </div>
+          <div class="chapter-content" style="display: none;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Y-MIfPqlIdY" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PswVpeqSNYE" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/xXsWyPiQLmk" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YICiXC5FdAA" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/zkrUQRznB9w" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/_pgdyl0n3w0" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/sJC4QctF_DU" frameborder="0" allowfullscreen></iframe>         
+           </div>
+        </div>
+        <div class="chapter">
+          <div class="chapterlink color2">
+            <div>
+              <h2>Chapter 6</h2>
+            </div>
+            <h3>Seven steps to heaven</h3>
+            <h6>all the 7th chords in one place – your fingers</h6>
+            <div class="arrowdiv"></div>
+          </div>
+          <div class="chapter-content" style="display: none;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Y-MIfPqlIdY" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PswVpeqSNYE" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/xXsWyPiQLmk" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YICiXC5FdAA" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/zkrUQRznB9w" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/_pgdyl0n3w0" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/sJC4QctF_DU" frameborder="0" allowfullscreen></iframe>         
+           </div>
+        </div>
+        <div class="chapter">
+          <div class="chapterlink color3">
+            <div>
+              <h2>Chapter 7</h2>
+            </div>
+            <h3>Become a master of inversions</h3>
+            <h6>Can you beat the boss?</h6>
+            <div class="arrowdiv"></div>
+          </div>
+          <div class="chapter-content" style="display: none;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Y-MIfPqlIdY" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PswVpeqSNYE" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/xXsWyPiQLmk" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YICiXC5FdAA" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/zkrUQRznB9w" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/_pgdyl0n3w0" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/sJC4QctF_DU" frameborder="0" allowfullscreen></iframe>         
+           </div>
+        </div>
+        <!-- Add more chapters here -->
+      </section>
+    <script>
+      // Get all the chapter headers
+      var chapterHeaders = document.querySelectorAll('.chapterlink');
+
+      // Add a click event listener to each chapter header
+      for (var i = 0; i < chapterHeaders.length; i++) {
+        chapterHeaders[i].addEventListener('click', function() {
+          // Get the content of the clicked chapter
+          var chapterContent = this.nextElementSibling;
+          // Toggle the visibility of the chapter content
+          if (chapterContent.style.display === 'none') {
+            chapterContent.style.display = 'block';
+          } else {
+            chapterContent.style.display = 'none';
+          }
+        });
+      }
+    </script>
+    
+  </body>
+</html>
+
+
+

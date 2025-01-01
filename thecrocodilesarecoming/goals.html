@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Goals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            background-color: rgb(53, 53, 53);
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #FF6F61;
+        }
+
+        .goal {
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+            cursor: pointer;
+            color: white;
+        }
+
+        .description {
+            margin: 10px 0;
+            cursor: pointer;
+            color: #ffffff;
+        }
+
+        .history {
+            display: none;
+            list-style-type: none;
+            padding-left: 15px;
+            margin: 10px 0;
+            font-size: 0.9em;
+            color: #fffabf;
+        }
+
+        .update-input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+        }
+
+        .add-goal {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 2em;
+            background-color: #FF6F61;
+            color: white;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .add-goal:hover {
+            background-color: #ff856e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="goal-list">
+            <!-- Goals will be loaded here -->
+        </div>
+        <!-- Add new goal -->
+        <button class="add-goal" onclick="addNewGoal()">+</button>
+    </div>
+
+    <script>
+        // Colors for each new goal, adjusted for contrast
+        const colors = ['#FF6F61', '#5E35B1', '#D32F2F', '#FBC02D', '#1976D2'];
+
+        // Load goals from localStorage
+        function loadGoals() {
+            const goals = JSON.parse(localStorage.getItem('goals')) || [];
+            const goalList = document.getElementById('goal-list');
+            goalList.innerHTML = ''; // Clear the goal list
+
+            goals.forEach((goal, index) => {
+                const goalElement = document.createElement('div');
+                goalElement.classList.add('goal');
+                goalElement.style.backgroundColor = colors[index % colors.length];
+
+                const titleElement = document.createElement('h2');
+                titleElement.classList.add('editable-title');
+                titleElement.setAttribute('onclick', 'editTitle(this, ' + index + ')');
+                titleElement.textContent = goal.title;
+
+                const descriptionElement = document.createElement('p');
+                descriptionElement.classList.add('description');
+                descriptionElement.setAttribute('onclick', 'toggleHistory(this)');
+                descriptionElement.textContent = goal.description;
+
+                const historyElement = document.createElement('ul');
+                historyElement.classList.add('history');
+                goal.history.forEach(entry => {
+                    const historyItem = document.createElement('li');
+                    historyItem.textContent = entry;
+                    historyElement.appendChild(historyItem);
+                });
+
+                const updateInputElement = document.createElement('input');
+                updateInputElement.setAttribute('type', 'text');
+                updateInputElement.classList.add('update-input');
+                updateInputElement.setAttribute('onkeydown', 'updateDescriptionOnEnter(event, this, ' + index + ')');
+
+                goalElement.appendChild(titleElement);
+                goalElement.appendChild(descriptionElement);
+                goalElement.appendChild(historyElement);
+                goalElement.appendChild(updateInputElement);
+
+                goalList.appendChild(goalElement);
+            });
+        }
+
+        // Save goals to localStorage
+        function saveGoals(goals) {
+            localStorage.setItem('goals', JSON.stringify(goals));
+        }
+
+        // Update description on Enter key press
+        function updateDescriptionOnEnter(event, inputElement, goalIndex) {
+            if (event.key === 'Enter') {
+                const goal = inputElement.closest('.goal');
+                const description = goal.querySelector('.description');
+                const history = goal.querySelector('.history');
+
+                const newDescription = inputElement.value.trim();
+
+                if (newDescription) {
+                    const oldDescription = description.textContent;
+                    const historyItem = document.createElement('li');
+                    historyItem.textContent = oldDescription;
+                    history.appendChild(historyItem);
+
+                    description.textContent = newDescription;
+                    inputElement.value = '';  // Clear input field
+
+                    const goals = JSON.parse(localStorage.getItem('goals')) || [];
+                    goals[goalIndex].description = newDescription;
+                    goals[goalIndex].history.push(oldDescription);
+                    saveGoals(goals);
+                } else {
+                    alert("Description cannot be empty!");
+                }
+            }
+        }
+
+        // Toggle history visibility
+        function toggleHistory(descriptionElement) {
+            const history = descriptionElement.nextElementSibling;
+            history.style.display = history.style.display === 'none' || history.style.display === '' ? 'block' : 'none';
+        }
+
+        // Add a new goal
+        function addNewGoal() {
+            const goalList = document.getElementById('goal-list');
+            const newGoalIndex = goalList.children.length;
+
+            const newGoalElement = document.createElement('div');
+            newGoalElement.classList.add('goal');
+            newGoalElement.style.backgroundColor = colors[newGoalIndex % colors.length];
+
+            const titleInputElement = document.createElement('input');
+            titleInputElement.setAttribute('type', 'text');
+            titleInputElement.setAttribute('placeholder', 'New goal title...');
+            titleInputElement.classList.add('update-input');
+
+            titleInputElement.onkeydown = function (event) {
+                if (event.key === 'Enter') {
+                    const newTitle = titleInputElement.value.trim();
+
+                    if (newTitle) {
+                        const titleElement = document.createElement('h2');
+                        titleElement.textContent = newTitle;
+                        titleElement.classList.add('editable-title');
+                        titleElement.setAttribute('onclick', 'editTitle(this, ' + newGoalIndex + ')');
+                        newGoalElement.replaceChild(titleElement, titleInputElement);
+
+                        const descriptionElement = document.createElement('p');
+                        descriptionElement.textContent = '';
+                        descriptionElement.classList.add('description');
+                        descriptionElement.setAttribute('onclick', 'toggleHistory(this)');
+                        newGoalElement.appendChild(descriptionElement);
+
+                        const historyElement = document.createElement('ul');
+                        historyElement.classList.add('history');
+                        newGoalElement.appendChild(historyElement);
+
+                        const updateInputElement = document.createElement('input');
+                        updateInputElement.setAttribute('type', 'text');
+                        updateInputElement.classList.add('update-input');
+                        updateInputElement.setAttribute('onkeydown', 'updateDescriptionOnEnter(event, this, ' + newGoalIndex + ')');
+                        newGoalElement.appendChild(updateInputElement);
+
+                        const goals = JSON.parse(localStorage.getItem('goals')) || [];
+                        goals.push({ title: newTitle, description: '', history: [] });
+                        saveGoals(goals);
+                    } else {
+                        alert("Goal title cannot be empty!");
+                    }
+                }
+            };
+
+            newGoalElement.appendChild(titleInputElement);
+            goalList.appendChild(newGoalElement);
+            titleInputElement.focus();
+        }
+
+        // Edit goal title
+        function editTitle(titleElement, goalIndex) {
+            const currentTitle = titleElement.textContent;
+            const inputElement = document.createElement('input');
+            inputElement.type = 'text';
+            inputElement.value = currentTitle;
+            inputElement.classList.add('update-input');
+            inputElement.onkeydown = function (event) {
+                if (event.key === 'Enter') {
+                    const newTitle = inputElement.value.trim();
+                    if (newTitle) {
+                        titleElement.textContent = newTitle;
+                        titleElement.style.display = 'block';
+                        inputElement.remove();
+
+                        const goals = JSON.parse(localStorage.getItem('goals')) || [];
+                        goals[goalIndex].title = newTitle;
+                        saveGoals(goals);
+                    } else {
+                        alert("Title cannot be empty!");
+                    }
+                }
+            };
+            titleElement.style.display = 'none';
+            titleElement.parentElement.insertBefore(inputElement, titleElement);
+            inputElement.focus();
+        }
+
+        // Load goals when the page is loaded
+        window.onload = loadGoals;
+    

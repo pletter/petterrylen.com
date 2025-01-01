@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Piano for producers – chords practicing program</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Global styles */
+
+        body {
+            font-family: "josefin sans", sans-serif;
+            color: #333;
+            font-size: 20px;
+            line-height: 1.5em;
+            margin: 0px;
+        }
+
+        h1 {
+            font-size: 40px;
+            text-transform: uppercase;
+            line-height: 1.6em;
+            margin: 70px 0px;
+
+        }
+
+        h2 {
+            font-size: 10em;
+            font-weight: 500;
+            line-height: normal;
+            text-transform: capitalize;
+        }
+
+        h3 {
+            margin: 0px;
+            font-size: 3em;
+            line-height: 1.3em;
+            padding: 300px 300px;
+        }
+
+        h4 {
+            font-size: 3em;
+            line-height: 1.3em;
+            text-align: center;
+        }
+
+        h6 {
+            margin: 0px;
+            font-size: 40px;
+        }
+
+        /* Header section */
+
+        header {
+            background-color: #ffff9d;
+            padding: 20px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        header img {
+            width: 800px;
+        }
+
+        header p {
+            font-size: 18px;
+            margin: 10px 0 0 0;
+        }
+
+        #hello {
+            background: hsl(240, 20%, 72%);
+        }
+
+        #hello p {
+            margin-bottom: -485px;
+            text-align: center;
+            line-height: normal;
+            font-size: 10em;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        #hello li:first-child {
+            padding-top: 700px;
+        }
+
+        .whatyouget {
+            margin: 30px 100px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .whatyouget li::before {
+            content: "✓ ";
+            color: #2ecc71;
+        }
+
+        ul {
+            font-style: italic;
+            padding: 0;
+            text-align: left;
+            font-weight: 300;
+        }
+
+        #avoid li {
+            background: url("images/error.png") 50% no-repeat;
+            display: list-item;
+            font-size: 4em;
+            margin: 70px 0px;
+        }
+
+        #avoid li:nth-of-type(2) {
+            text-align: right;
+        }
+
+        #achieve {
+            font-size: 3em;
+        }
+
+        #achieve li {}
+
+
+        .whatyouget li {
+            font-size: 1.5em;
+            padding: 50px 200px;
+        }
+
+        .whatyouget li:nth-child(1) {
+            background: rgb(29, 29, 29);
+            color: white;
+        }
+
+        .whatyouget li:nth-child(2) {
+            background: white;
+            color: rgb(29, 29, 29);
+        }
+
+        .whatyouget li:nth-child(4) {
+            background: white;
+            color: rgb(29, 29, 29);
+        }
+
+        .whatyouget li:nth-child(3) {
+            background: rgb(29, 29, 29);
+            color: white;
+        }
+
+        .whatyouget li:nth-child(6) {
+            background: white;
+            color: rgb(29, 29, 29);
+        }
+
+        .whatyouget li:nth-child(5) {
+            background: rgb(29, 29, 29);
+            color: white;
+        }
+
+
+        li {
+            line-height: 1.5em;
+            padding: 150px 100px;
+        }
+
+        li:first-child {
+            background: rgb(255, 148, 166);
+        }
+
+        li:nth-child(2) {
+            background: #afffaa;
+        }
+
+        li:nth-child(3) {
+            background: hsl(174, 100%, 63%);
+        }
+
+        #petter {
+            font-size: 2em;
+            line-height: 1.6em;
+            max-width: 800px;
+            padding: 100px;
+        }
+
+        #petter div {
+            padding: 200px 0px;
+        }
+
+        #moreabout {
+            text-align: left;
+            font-size: 2em;
+            max-width: 600px;
+            padding: 200px;
+            line-height: 1.6em;
+        }
+
+        #price {
+            color: #73eaa5;
+            background: rgb(29, 29, 29);
+            text-transform: uppercase;
+            font-size: 4em;
+            text-align: center;
+        }
+
+
+        button {
+            background-color: #a3ffb2;
+            color: #00431c;
+            border: 4px solid black;
+            border-radius: 3px;
+            font-family: 'josefin sans';
+            padding: 35px 35px 32px;
+            font-size: 3em;
+            cursor: pointer;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 4px 4px black;
+            filter: drop-shadow(20px 10px 100px gold);
+        }
+
+        button:hover {
+            background-color: hsl(51, 100%, 80%);
+        }
+
+        footer {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h5>Presenting:</h5>
+        <h6>Piano for Producers</h6>
+        <h5>a chords Practicing Program (with Piano Petter)</h5>
+        <img src="images/drawingwithtext.png">
+        <h2>Become a piano powered super producer</h2>
+    </header>
+    <div id="hello">
+        <h3>
+            Hello midi drawing expert! Tired of your trackpad?
+            <br><br>
+            <form method="post" action="subscribe.php">
+                <input style="padding: 20px 20px 17px; background: white; font-family: 'josefin sans'; font-size: 20px;"
+                    type="email" id="email" name="email" required>
+                <input style="padding: 20px 20px 17px; background: white; font-family: 'josefin sans'; font-size: 20px;"
+                    type="submit" value="subscribe to my newsletter and get free piano power-ups" readonly="">
+                <h6>I WILL send you emails to motivate you to play more piano.</h6>
+            </form>
+
+        </h3>
+
+        <p>Do you want to be a super hero piano producer?</p>
+
+
+        <ul id="achieve">
+            <li>To sit down and <strong>instantly get inspired</strong> to explore new ideas</li>
+            <li>To <strong>contribute with exciting chords</strong> when you’re in a co-write session, stop struggling
+                to explain to
+                your
+                piano wiz friend what chord you have in your head </li>
+            <li>To <strong>record your own tracks live with the piano</strong> to the make the music come alive, instead
+                of relying on
+                other
+                people to take your productions to the next level </li>
+        </ul>
+    </div>
+    <h3>Have you given up hope on learning the piano, cause:</h3>
+    <ul id="avoid">
+        <li><strong>You don’t have time</strong> to take on a huge new learning project </li>
+        <li><strong>You don't know where to start</strong>, youtube tutorials were a jungle, feels like there’s a
+            billion things to
+            learn </li>
+        <li>You couldn’t find a piano teacher that understood <strong>what you need as a producer</strong> </li>
+    </ul>
+    <div id="petter">
+        <div>
+            My name is Petter, I’m a jazz pianist turned producer. As a piano and songwriting teacher, I’ve had many
+            producers, working with big names like Coldplay, Justin Bieber etc, come to me with the same frustration of
+            getting stuck with mostly white key chords, and feeling lost when sitting down by the piano.
+        </div>
+        <div>
+            Through teaching these people I’ve come to experience time and time again, that learning the super power of
+            using the piano to explore new chords and melodies and recording their own tracks, is <strong> achievable in
+                a few
+                months with a few minutes of daily practiced</strong>.
+        </div>
+        <div>
+            I’ve created a simple practice program, that step by step takes you through the few things you need to learn
+            to feel free and confident to use the piano in your work as a producer. My goal have been to make it as easy
+            as possible to sit down to practice, therefor the course contains 4 hours of practice material where you
+            practice together with me and know exactly what to do every step of the way.
+        </div>
+    </div>
+
+    <div id="price">
+        For
+        <h3> 50€</h3>
+    </div>
+
+
+    <h3 style="text-align: center;">You get:</h3>
+
+    <ul class="whatyouget">
+        <li><strong>A practice partner</strong> that shows you exactly what to do and makes it fun to practice piano
+            – 4 hours of play
+            along material where you play together with me, note by note</li>
+        <li><strong>Piano overview </strong> – a method that will teach you to navigate chords in all keys
+            effortlessly for the rest
+            of your life</li>
+        <li><strong>Exciting colors of chords </strong> to give your songs the feel you're looking for</li>
+        <li><strong>Timing </strong> – learn to be tight so you can record your ideas to a metronome in your daw
+        </li>
+        <li><strong>Hand coordination </strong> – play awesome chords and arpeggios with both hands. Each exercise
+            comes with a new comping pattern for your chords.</li>
+        <li><strong>Fingers full of inspiration </strong> to make melodies – this course focuses on chords, simply
+            because
+            if you can play
+            supercool chord arpeggios you can also play exciting melodies</li>
+    </ul>
+
+    <button>get your piano powers</button>
+
+    <h4>including:</h4>
+    <ul class="whatyouget">
+
+        <li><strong>Support:</strong> reach out to me if you get stuck</li>
+        <li><strong>Satisfaction guarantee</strong>, if the course is not what you need, you’ll get a full refund.
+        </li>
+    </ul>
+    <div id="moreabout" style="display: none;">
+        <p>
+            My name is Petter, I love to help songwriters and producers achieve their artistic dreams. I have a masters
+            degree from the Rhythmic Music Conservatory in Copenhagen.
+        </p>
+    </div>
+    <footer>
+    </footer>
+    <script>
+      
+    </script>
+</body>

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <title>Beginner's Guide</title>
+    <style>
+        * {
+            touch-action: manipulation;
+        }
+
+        body {
+            font-family: 'josefin sans', Courier, monospace, sans-serif;
+            margin: 2vw 4vw 4vw 4vw;
+        }
+
+        .progressBar {
+            transition: height 1s ease-in-out;
+            background-color: hsl(125, 20%, 65%);
+            width: 100%;
+            border-radius: 3px;
+        }
+
+        .emptyBar {
+            border-right: 0 solid #00000044;
+            border-left: 0 solid #00000044;
+            background-color: rgb(235, 235, 235);
+            padding: 0px 0px;
+            filter: blur(1px);
+            margin-bottom: 13px;
+            margin-right: 12px;
+            border-radius: 3px;
+        }
+
+
+
+        #site {
+            display: flex;
+        }
+
+        .content {
+            width: 70vw;
+            margin: 0 auto;
+            position: fixed;
+            left: 26vw;
+            top: 50px;
+        }
+
+        @media only screen and (max-width: 1420px) {
+            .content {
+                width: calc(75vw - 150px);
+                left: calc(17vw + 185px);
+            }
+        }
+
+        #title {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+        }
+
+        #title img {
+            height: 45px;
+            width: auto;
+            margin: 0px 20px 0px 0px;
+        }
+
+        .durationbox {
+            font-weight: 300;
+            font-size: 100%;
+            font-style: italic;
+            margin: 0px 0px -1px 15px;
+        }
+
+        #title div {
+            display: flex;
+            align-items: center;
+        }
+
+        h2 {
+            color: rgb(236, 236, 236);
+            font-size: 90%;
+            text-align: left;
+            padding: 12px 10px 10px;
+            display: inline-block;
+            margin: 0px 0px 25px;
+            border-radius: 5px;
+            background: rgb(30, 30, 30);
+            box-shadow: 2px 3px rgb(152, 47, 20);
+        }
+
+        h2 span {
+            font-weight: 300;
+            font-size: 91%;
+        }
+
+        #videoContainer {
+            margin-bottom: 30px;
+        }
+
+
+        #textContainer {
+            display: none;
+        }
+
+        .chapterDescription {
+            font-size: 50%;
+            margin: 5px 0px 0px 3px;
+            font-style: italic;
+            text-transform: lowercase;
+        }
+
+        .chapterdiv {
+            margin-bottom: 30px;
+        }
+
+        #leftmenu .chapterlink {
+            font-size: 190%;
+            text-align: left;
+            text-transform: lowercase;
+            padding: 20px 25px 15px;
+            display: grid;
+            margin-top: 10px;
+        }
+
+        .percentage {
+            margin-top: 15px;
+            font-size: 100%;
+            margin-left: 3px;
+            font-weight: 300;
+        }
+
+        .videolink {
+            display: flex;
+        }
+
+        #leftmenu {
+            min-width: 300px;
+            margin: 0px 40px 0px 0px;
+        }
+
+        #leftmenu button {
+            font-family: josefin sans;
+            margin-bottom: 15px;
+            transition: background-color 0.2s ease-in-out;
+            display: block;
+
+        }
+
+        #leftmenu button {
+            border: 1px solid black;
+            background-color: rgb(247, 247, 247);
+            font-size: 1em;
+            padding: 9px 9px 7px;
+        }
+
+
+
+        #leftmenu img {
+            height: 15px;
+            margin-right: 10px;
+            margin-bottom: -2.5px;
+        }
+
+        #backBtn {
+            font-size: 1em;
+            display: none;
+        }
+
+        #backBtn,
+        #nextBtn {
+            font-size: 150%;
+            background-color: rgba(243, 243, 243, 0.324);
+            border: 1px solid black;
+            font-family: josefin sans;
+            padding: 9px 12px 7px;
+        }
+
+        #leftmenu button.hiddenChapter {
+            display: none;
+        }
+
+        #leftmenu button.selectedChapter {
+            background-color: hsl(185, 46%, 66%);
+        }
+
+        #leftmenu button.selected {
+            background-color: hsl(39, 85%, 69%);
+        }
+
+        #leftmenu button.selected:hover {
+            background-color: hsl(39, 85%, 69%);
+        }
+
+        .invisible {
+            visibility: hidden;
+        }
+
+        button {
+            border-radius: 6px;
+            box-shadow: 1px 3px black;
+        }
+
+        #nextBtn:hover,
+        #backBtn:hover,
+        #leftmenu button:hover {
+            background-color: hsl(112, 50%, 82%);
+        }
+
+
+
+
+        @media only screen and (max-width: 800px) {
+
+            body {
+                margin: 4vw;
+
+            }
+
+            header h2 {
+                font-size: 1em;
+                padding: 10px 9px 7px 10px;
+                text-align: left;
+                display: inline-block;
+                margin: -5px 0px 20px -5px;
+                font-weight: 700;
+            }
+
+            #site {
+                flex-direction: column-reverse;
+            }
+
+            .content {
+                width: 90vw;
+                margin: 0px auto 37px;
+                text-align: center;
+                position: unset;
+
+            }
+
+            #title {
+                font-size: 100%;
+                margin-bottom: 20px;
+                line-height: 1.4em;
+            }
+
+            #title img {
+                height: 35px;
+                margin-right: 15px;
+            }
+
+            .durationbox {
+                margin: 7px;
+            }
+
+
+
+            #leftmenu {
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            button {
+                color: black;
+                cursor: pointer;
+            }
+
+            #nextBtn {
+                font-size: 110%;
+            }
+
+
+            #leftmenu button {
+                width: 70vw;
+                text-align: center;
+                padding: 15px 0px 13px;
+            }
+
+            .percentage {
+                margin-left: 0px;
+            }
+
+            #leftmenu .chapterlink {
+                font-size: 190%;
+                width: 80vw;
+                text-align: center;
+            }
+
+            #leftmenu .videolink {
+                display: flex;
+                justify-content: center;
+            }
+
+            #leftmenu button:hover {
+                background-color: hsl(185, 46%, 66%);
+            }
+
+            #videoContainer {
+                margin-bottom: 15px;
+            }
+
+
+        }
+
+        @media only screen and (max-width: 350px) {
+            #title {
+                font-size: 90%;
+            }
+
+            #leftmenu .videolink {
+                font-size: 90%;
+
+            }
+        }
+    </style>
+    <script src="json.js"></script>
+</head>
+
+<body>
+    <div>
+
+    </div>
+
+    <header>
+        <a href="/beginnersguide">
+            <h2>Piano for producers <br><span>Beginner's Guide</span></h2>
+        </a>
+    </header>
+    <div id="site">
+        <div id="leftmenu"></div>
+
+        <div class="content">
+            <div id="type"></div>
+            <h1 id="title">1. Piano basics</h1>
+            <div>
+                <span id="textContainer"></span>
+            </div>
+            <div id="videoContainer" style="aspect-ratio: 16/9;">
+                <iframe width="100%" style="aspect-ratio: 16/9;" src="https://youtu.be/6OeN9-CA9_E"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                    allowfullscreen></iframe>
+            </div>
+
+            <div style="display: grid; grid-template-columns: auto auto;">
+                <div>
+                    <button onclick="previousVideo();" id="backBtn">back</button>
+                </div>
+                <div>
+                    <button style="float: right;" onclick="nextVideo();" id="nextBtn">continue to next lesson</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let oldProgress = 0
+        function countUpdate(start, end, delay, chapter) {
+            let i = start;
+            let increment = start <= end ? 1 : -1; // Determine whether to count up or down
+            let intervalId = setInterval(function () {
+                document.getElementById('chapterprogress' + chapter).innerHTML = i + '%'
+                i += increment;
+                if ((increment > 0 && i > end) || (increment < 0 && i < end)) {
+                    clearInterval(intervalId);
+                }
+            }, delay);
+        }
+        function currentIcon(chapterIndex, videoIndex) {
+            if (allChapters[chapterIndex].videos[videoIndex].type === '1') {
+                return '<img src="speech.png">';
+            }
+
+            else {
+                return '<img src="keys7.png">';
+            }
+
+        }
+        function gotoVideo(chapterIndex, videoIndex) {
+            // make sure these are integers
+            chapterIndex = parseInt(chapterIndex)
+            videoIndex = parseInt(videoIndex)
+
+
+
+            document.getElementById('videoContainer').innerHTML = '<iframe width="100%" style="aspect-ratio: 16/9;" src="https://www.youtube.com/embed/'
+                + allChapters[chapterIndex].videos[videoIndex].videoId + '?autoplay=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1' +
+                '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+
+
+            /* Set title */
+            document.getElementById('title').innerHTML = '<div>' + currentIcon(chapterIndex, videoIndex) + (videoIndex + 1) + ".&nbsp;" + allChapters[chapterIndex].videos[videoIndex].title + '&nbsp;<div class="durationbox">' + allChapters[chapterIndex].videos[videoIndex].duration + '&nbsp;min.</div></div>'
+            /* Set text */
+            document.getElementById('textContainer').innerHTML = allChapters[chapterIndex].videos[videoIndex].description
+
+
+
+
+
+            let isFirstVideo = videoIndex === 0
+            let isFirstChapter = chapterIndex === 0
+            if (isFirstVideo && isFirstChapter) {
+                document.getElementById('backBtn').classList.add('invisible')
+            }
+            else {
+                document.getElementById('backBtn').classList.remove('invisible')
+            }
+
+            let isLastVideo = videoIndex === allChapters[chapterIndex].videos.length - 1
+            if (isLastVideo) {
+                document.getElementById('nextBtn').innerHTML = "Continue to next chapter"
+            }
+            else {
+                document.getElementById('nextBtn').innerHTML = "Continue to next lesson"
+            }
+            let isLastChapter = chapterIndex === allChapters.length - 1
+            if (isLastVideo && isLastChapter) {
+                document.getElementById('nextBtn').classList.add('invisible')
+            }
+
+            else {
+                document.getElementById('nextBtn').classList.remove('invisible')
+            }
+
+            /* update progression and save in localStorage */
+            currentChapterIndex = chapterIndex
+            currentVideoIndex = videoIndex
+            localStorage.setItem("currentChapterIndex", currentChapterIndex);
+            localStorage.setItem("currentVideoIndex", currentVideoIndex);
+
+
+            /* change menu */
+            let allBtn = document.getElementById('leftmenu').getElementsByTagName('button')
+            for (let i = 0; i < allBtn.length; i++) {
+                if (allBtn[i].id === "chapter" + chapterIndex + "menu" + videoIndex) {
+                    allBtn[i].classList.add("selected")
+                    allBtn[i].classList.remove("hiddenChapter")
+                }
+
+                else if (parseInt(allBtn[i].id.slice(7)) !== currentChapterIndex && allBtn[i].id.length > 9) {
+                    allBtn[i].classList.add("hiddenChapter")
+
+                }
+                else if (allBtn[i].id === "chapter" + chapterIndex) {
+                    allBtn[i].classList.add("selectedChapter")
+                }
+
+                else {
+                    allBtn[i].classList.remove("selected")
+                    allBtn[i].classList.remove("selectedChapter")
+                    allBtn[i].classList.remove("hiddenChapter")
+                }
+                for (let i = 0; i < allChapters.length; i++) {
+
+                    let progressBar = parseInt(videoIndex / (allChapters[i].videos.length) * 100)
+                    if (chapterIndex > i) {
+                        document.getElementById('chapterprogress' + i).innerHTML = '100%'
+                        document.getElementsByClassName('progressBar')[i].style.height = '0%'
+                        document.getElementsByClassName('progressBar')[i].style.display = 'none'
+                        document.getElementsByClassName('emptyBar')[i].style.display = 'none'
+
+
+                    }
+                    else if (chapterIndex < (i)) {
+                        document.getElementById('chapterprogress' + i).innerHTML = '0%'
+                        document.getElementsByClassName('progressBar')[i].style.height = '0%'
+                        document.getElementsByClassName('progressBar')[i].style.display = 'none'
+                        document.getElementsByClassName('emptyBar')[i].style.display = 'none'
+
+
+
+                    }
+                    else {
+
+                        countUpdate(oldProgress, progressBar, 30, i)
+                        oldProgress = progressBar
+                        document.getElementsByClassName('progressBar')[i].style.height = 'calc(' + progressBar + '% *1.02 + 18px)'
+                        document.getElementsByClassName('progressBar')[i].style.display = 'block'
+                        document.getElementsByClassName('emptyBar')[i].style.display = 'block'
+
+
+                    }
+                }
+            }
+        }
+        function previousVideo() {
+            if (currentVideoIndex === 0) {
+                currentVideoIndex = allChapters[currentChapterIndex - 1].videos.length - 1;
+                currentChapterIndex -= 1
+            }
+            else {
+                currentVideoIndex = currentVideoIndex - 1
+            }
+            gotoVideo(currentChapterIndex, currentVideoIndex);
+        }
+
+        function nextVideo() {
+            if (currentVideoIndex === allChapters[currentChapterIndex].videos.length - 1) {
+                currentVideoIndex = 0
+                currentChapterIndex += 1
+            }
+            else {
+                currentVideoIndex += 1
+            }
+            gotoVideo(currentChapterIndex, currentVideoIndex);
+        }
+
+        function calculateMinutes() {
+            let videoLength = 0
+
+            for (i = 0; i < allChapters.length; i++) {
+                for (y = 0; y < allChapters[i].videos.length; y++) {
+                    if (allChapters[i].videos[y].type === "2") {
+                        if (allChapters[i].videos[y].duration !== "") {
+                            videoLength += parseInt(allChapters[i].videos[y].duration)
+                        }
+                    }
+                }
+            }
+            return videoLength
+        }
+        function hM(minutesLol) {
+            const hours = Math.floor(minutesLol() / 60);
+            const minutes = minutesLol() % 60;
+            return `${hours}h${minutes}m`;
+        }
+
+        hM(calculateMinutes)
+
+
+
+
+
+
+        function addMenu() {
+            let startChapter = 0;
+            for (let chapterIndex = 0; chapterIndex < allChapters.length; chapterIndex += 1) {
+                let chapter = allChapters[chapterIndex];
+                document.getElementById('leftmenu').innerHTML += '<button class="chapterlink" id="chapter'
+                    + chapterIndex + '" onclick="gotoVideo(' + chapterIndex + ', 0)">' +
+                    chapter.title + "&nbsp;" +
+                    '<span class="chapterDescription">' + chapter.description + '</span><span class="percentage" id="chapterprogress' + chapterIndex + '"></span></button><div style="display: grid; grid-template-columns: 18px auto;"><div class="emptyBar"> <div class="progressBar"></div></div><div class="chaptersdiv"></div></div>';
+                for (let videoIndex = 0; videoIndex < chapter.videos.length; videoIndex += 1) {
+                    document.getElementsByClassName('chaptersdiv')[chapterIndex].innerHTML += '<button id="chapter' + chapterIndex + 'menu' + videoIndex + '" class="videolink" onclick="gotoVideo(' + chapterIndex + ',' + videoIndex + ')">' + currentIcon(chapterIndex, videoIndex) + (videoIndex + 1) + ".&nbsp;" + allChapters[chapterIndex].videos[videoIndex].title + '</button>';
+
+                }
+
+            }
+
+        }
+
+        function getFromLocalStorage(key, defaultValue) {
+            let value = localStorage.getItem(key)
+            if (value === null) {
+                value = defaultValue;
+            }
+            return value;
+        }
+
+
+        let currentChapterIndex = parseInt(getFromLocalStorage("currentChapterIndex", 0));
+        let currentVideoIndex = parseInt(getFromLocalStorage("currentVideoIndex", 0));
+
+        addMenu()
+        gotoVideo(currentChapterIndex, currentVideoIndex)
+
+        /* Listen for keys */
+        document.addEventListener("keydown", function (event) {
+            if (event.keyCode === 37) {
+                // Left arrow key pressed
+                previousVideo()
+            } else if (event.keyCode === 39) {
+                // Right arrow key pressed
+                nextVideo()
+            }
+        });
+    </script>
+
+</body>
+
+</html>

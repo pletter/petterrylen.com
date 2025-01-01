@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Shawn</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .chart-container {
+            height: 400px;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: right;
+        }
+
+        th:first-child,
+        td:first-child {
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        th {
+            background-color: #f5f5f5;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    Comments:
+    <br><br>
+    <ul>
+        <li>Started selling 50€ course in FB + IG in june 23.
+        </li>
+        <li>One simple video ad (changed hardly anything for 1.5 years)</li>
+        <li>Estimated Meta audience size varying between 4-10 million depending on placement</li>
+        <li>Added a retargeting video in oct 23</li>
+        <li>No BF sale in Nov 23 (sales went down)</li>
+        <li>Tried country specific ad sets in march-april 24 – bad idea </li>
+        <li>Made a BF offer Nov 24 (40% off)</li>
+        <li>Dec 24: Stopped ads cause I wanna rethink my offer (sell the full course for $137 and the first part for
+            $29). <br>Also released a second course. Dec 24 sales are all from this course to existing customers</li>
+        <br>
+        <div class="card">
+            <h2>Revenue vs Ad Spend</h2>
+            <div class="chart-container">
+                <canvas id="revenueChart"></canvas>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>ROI Trend</h2>
+            <div class="chart-container">
+                <canvas id="roiChart"></canvas>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Monthly Data by Year</h2>
+            <div style="overflow-x: auto;">
+                <table id="dataTable"></table>
+            </div>
+        </div>
+
+        <script>
+            // Data
+            const data = [
+                { month: "2023-06", adSpend: 137.94, sales: 229.68, roi: 1.67 },
+                { month: "2023-07", adSpend: 292.91, sales: 600.24, roi: 2.05 },
+                { month: "2023-08", adSpend: 361.77, sales: 968.06, roi: 2.68 },
+                { month: "2023-09", adSpend: 663.92, sales: 1465.28, roi: 2.21 },
+                { month: "2023-10", adSpend: 859.19, sales: 2583.85, roi: 3.01 },
+                { month: "2023-11", adSpend: 1024.41, sales: 1575.39, roi: 1.54 },
+                { month: "2023-12", adSpend: 1114.48, sales: 1471.47, roi: 1.32 },
+                { month: "2024-01", adSpend: 1379.78, sales: 3154.15, roi: 2.29 },
+                { month: "2024-02", adSpend: 1746.62, sales: 4007.00, roi: 2.29 },
+                { month: "2024-03", adSpend: 2111.55, sales: 3343.16, roi: 1.58 },
+                { month: "2024-04", adSpend: 2467.05, sales: 2624.62, roi: 1.06 },
+                { month: "2024-05", adSpend: 2084.05, sales: 3192.55, roi: 1.53 },
+                { month: "2024-06", adSpend: 2038.74, sales: 3213.12, roi: 1.58 },
+                { month: "2024-07", adSpend: 2315.11, sales: 3413.14, roi: 1.47 },
+                { month: "2024-08", adSpend: 2457.01, sales: 3189.64, roi: 1.30 },
+                { month: "2024-09", adSpend: 2383.76, sales: 3416.05, roi: 1.43 },
+                { month: "2024-10", adSpend: 2407.08, sales: 3176.72, roi: 1.32 },
+                { month: "2024-11", adSpend: 2508.50, sales: 4004.64, roi: 1.60 },
+                { month: "2024-12", adSpend: 336.39, sales: 1178.81, roi: 3.50 }
+            ];
+
+            // Revenue Chart
+            new Chart(document.getElementById('revenueChart'), {
+                type: 'line',
+                data: {
+                    labels: data.map(d => d.month),
+                    datasets: [{
+                        label: 'Sales',
+                        data: data.map(d => d.sales),
+                        borderColor: '#4f46e5',
+                        tension: 0.1
+                    }, {
+                        label: 'Ad Spend',
+                        data: data.map(d => d.adSpend),
+                        borderColor: '#ef4444',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: value => '$' + value.toFixed(2)
+                            }
+                        }
+                    }
+                }
+            });
+
+            // ROI Chart
+            new Chart(document.getElementById('roiChart'), {
+                type: 'line',
+                data: {
+                    labels: data.map(d => d.month),
+                    datasets: [{
+                        label: 'ROI',
+                        data: data.map(d => d.roi),
+                        borderColor: '#22c55e',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: value => value.toFixed(2) + 'x'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Create Table
+            const table = document.getElementById('dataTable');
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+            // Header row
+            const headerRow = document.createElement('tr');
+            headerRow.innerHTML = '<th>Year/Month</th>' + months.map(m => `<th>${m}</th>`).join('');
+            table.appendChild(headerRow);
+
+            // Create data arrays for each year
+            const years = {
+                2023: Array(12).fill(null),
+                2024: Array(12).fill(null)
+            };
+
+            data.forEach(d => {
+                const [year, month] = d.month.split('-');
+                const monthIndex = parseInt(month) - 1;
+                if (!years[year][monthIndex]) {
+                    years[year][monthIndex] = d;
+                }
+            });
+
+            // Helper function to format currency
+            const formatCurrency = num => num ? '$' + num.toFixed(2) : '-';
+            const formatROI = num => num ? num.toFixed(2) + 'x' : '-';
+
+            // Add rows for each year
+            Object.entries(years).forEach(([year, monthData]) => {
+                // Ad Spend row
+                const spendRow = document.createElement('tr');
+                spendRow.innerHTML = `<td>${year} Ad Spend</td>` +
+                    monthData.map(d => `<td>${d ? formatCurrency(d.adSpend) : '-'}</td>`).join('');
+                table.appendChild(spendRow);
+
+                // Sales row
+                const salesRow = document.createElement('tr');
+                salesRow.innerHTML = `<td>${year} Sales</td>` +
+                    monthData.map(d => `<td>${d ? formatCurrency(d.sales) : '-'}</td>`).join('');
+                table.appendChild(salesRow);
+
+                // ROI row
+                const roiRow = document.createElement('tr');
+                roiRow.innerHTML = `<td>${year} ROI</td>` +
+                    monthData.map(d => `<td>${d ? formatROI(d.roi) : '-'}</td>`).join('');
+                table.appendChild(roiRow);
+
+                // Add spacing row except for last year
+                if (year !== '2024') {
+                    const spacerRow = document.createElement('tr');
+                    spacerRow.innerHTML = '<td colspan="13" style="border: none; height: 20px;"></td>';
+                    table.appendChild(spacerRow);
+                }
+            });
+        </script>
+</body>
+
+</html>

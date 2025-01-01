@@ -1,0 +1,244 @@
+
+		body {
+			margin: 0;
+			width: 100%;
+			font-family: "Josefin Sans", sans-serif;
+			font-size: 20px;
+			font-weight: 300;
+			line-height: 1.6em;
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+		}
+
+		a:hover {
+			color: hsl(30, 60%, 50%);
+		}
+
+		img {
+			display: block;
+			width: 100%;
+		}
+
+		h1 {
+			font-size: 60px;
+			font-family: "Josefin Sans", sans-serif;
+			font-weight: 700;
+			margin-top: 0;
+			text-align:center;
+		}
+		
+		h2 {
+			font-size: 40px;
+			font-family: "Josefin Sans", sans-serif;
+			font-weight: 500;
+			margin-top: 0;
+			text-align: center;
+		}
+		
+		div {
+			box-sizing: border-box;
+		}
+		
+		header {
+			position: relative;
+			padding: 50px;
+			box-sizing: border-box;
+		}
+
+
+		header > div > img {
+			width: 100%;
+			height: calc(100vh - 100px);
+			object-fit: cover;
+			object-position: 65% 40%;
+		}
+
+		nav {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			padding: 20px 50px;
+			background-color: white;
+		}
+
+		nav > div {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		nav > div > div > a {
+			margin-left: 10px;
+		}
+		
+		nav > div > div {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-end;
+		}
+		
+		#title {
+			margin-right:20px;
+		}
+
+		#content {
+			font-size: 18px;
+		}
+				
+		#bio > p {
+			padding:0 auto;
+			max-width: 700px;
+		}
+		
+		#bio a  {
+			color: #cc8033;
+		}
+		
+		#bio a:hover  {
+			color: #3d260f;
+		}
+		
+		#bio {
+			margin-bottom:-1em;
+			max-width:670px;
+		}
+
+		#content > * {
+			padding: 50px;
+			margin: 0 auto;
+		}
+
+		div#albums {
+			background-color: white;
+		}
+
+		#albums > div {
+			display: grid;
+			grid-gap: 20px;
+			grid-template-columns: 1fr 1fr;
+			line-height: normal;
+		}
+		
+		
+		.imgwrap {
+			position: relative;
+		}
+		
+		.imgdescription {
+		    position: absolute;
+		    bottom: 0px;
+		    left: 15px;
+		    visibility: hidden;
+			color: white;
+		    opacity: 0;
+		    transition: opacity .1s, visibility .1s;
+			
+		 }
+		
+		.imgdescription h2 {
+			font-size: 47px;
+			font-weight: 600;
+			font-family: "Avenir", "Helvetica Neue", sans-serif;
+			margin: 0;
+			padding: 0;
+			text-align: left;
+		}
+		
+		.black {
+			color: black;
+			opacity: 0.65;
+		}
+
+		.imgwrap:hover .imgdescription {
+			visibility: visible;
+			opacity: 1;
+		}
+		
+		#concerts {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			flex-wrap: wrap;
+			max-width: 1000px;
+		}
+		
+		#concerts > div {
+			display: inline-grid;
+			grid-gap: 30px;
+			grid-template-columns: 1fr 1.7fr 1fr 0fr;
+			grid-template-rows: 1fr;
+			font-size: 25px;
+		}
+		
+		#concerts > div > *:nth-child(4n+1) {
+			font-weight: 600;
+		}
+
+		#contact {
+			font-size: 30px;
+			max-width: 670px;
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+		
+		#contact p {
+			margin: 0px;
+			line-height: 1.4em;
+		}
+		
+		#contact a  {
+			color: #cc8033;
+		}
+		
+		#contact a:hover  {
+			color: #3d260f;
+		}
+
+		footer {
+			padding: 30px;
+			overflow-x: hidden; 
+		}
+
+		footer > div {
+			position: relative;
+			left: -975px;
+			width: 9999px;
+		}
+		
+		@media (max-width: 450px) {
+			
+			#concerts > div {
+				font-size:18px;
+			}
+			
+			#contact {
+				font-size:18px;
+			}
+		}	
+
+		@media (max-width: 600px) {
+			#albums > div {
+				grid-template-columns: 1fr;
+			}
+		}
+		
+		@media (max-width: 865px) {
+			
+			#concerts {
+				max-width:550px;
+			}
+			
+			#concerts > div {
+				display: inline-grid;
+				grid-gap: 0px;
+				grid-template-columns: 1fr;
+				grid-template-rows:     1fr 1fr 1fr 1fr   1fr 1fr 1fr;
+				
+			}
+		}	

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <title>Björns låträknare</title>
+  <style>
+    body {
+      margin: 8vw;
+      font-family: "josefin sans";
+      font-size: 30px;
+      text-align: center;
+    }
+
+    ul {
+      margin: 0 auto;
+      width: 500px;
+      list-style-type: decimal;
+      text-align: left;
+      line-height: 1.5em;
+    }
+
+    #songs-left-counter {
+      background: rgb(247, 182, 120);
+      padding: 7px 5px 2px;
+    }
+
+    #days-left-counter {
+      background: rgb(211, 233, 240);
+      padding: 7px 5px 2px;
+    }
+
+    button {
+      background: rgb(247, 122, 113);
+      border: 2px black solid;
+      border-radius: 4px;
+      font-family: josefin sans;
+      padding: 10px 10px 7px;
+      font-size: 1em;
+      margin-left: 20px;
+      color: black;
+    }
+
+    button:hover {
+      background: lightblue;
+    }
+
+    #song-input {
+      font-size: 1em;
+      border: 2px solid black;
+      border-radius: 4px;
+      padding: 10px 15px 7px;
+      font-family: "josefin sans";
+    }
+
+    body div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 60px;
+    }
+
+    h2 {
+      margin-top: 60px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Björns låträknare</h1>
+  <p style="display: none;">Skriv namnet på din färdiga låt här:</p>
+  <div>
+    <input id="song-input" type="text">
+    <button id="submit-song-btn">registrera låt</button>
+  </div>
+  <p>Du har <span id="songs-left-counter">30</span> låtar kvar att skriva.</p>
+  <p>Du har <span id="days-left-counter"></span> dagar kvar tills 31:e maj.</p>
+  <h2>Färdiga låtar:</h2>
+  <ul id="song-list"></ul>
+  <script>
+
+    // Get references to the HTML elements we need to manipulate
+    const songInput = document.getElementById("song-input");
+    const submitSongBtn = document.getElementById("submit-song-btn");
+    const songsLeftCounter = document.getElementById("songs-left-counter");
+    const daysLeftCounter = document.getElementById("days-left-counter");
+    const songList = document.getElementById("song-list");
+
+    // Set the target date to May 31st of this year
+    const targetDate = new Date("2024-05-31");
+
+    // Load the submitted songs from localStorage
+    let submittedSongs = JSON.parse(localStorage.getItem("submittedSongs")) || [];
+
+    // Update the songs left counter
+    function updateSongsLeftCounter() {
+      const songsLeft = 30 - submittedSongs.length;
+      songsLeftCounter.textContent = songsLeft;
+    }
+
+    // Update the days left counter
+    function updateDaysLeftCounter() {
+      const now = new Date();
+      const daysLeft = Math.ceil((targetDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+      daysLeftCounter.textContent = daysLeft;
+    }
+
+    // Update the song list
+    function updateSongList() {
+      songList.innerHTML = "";
+      for (let i = 0; i < submittedSongs.length; i++) {
+        const song = submittedSongs[i];
+        const li = document.createElement("li");
+        li.textContent = song;
+        li.addEventListener("click", function () {
+          submittedSongs.splice(i, 1);
+          localStorage.setItem("submittedSongs", JSON.stringify(submittedSongs));
+          updateSongsLeftCounter();
+          updateSongList();
+        });
+        songList.appendChild(li);
+      }
+    }
+
+    // Handle the submit song button click event
+    submitSongBtn.addEventListener("click", function () {
+      const songName = songInput.value;
+      if (songName) {
+        submittedSongs.push(songName);
+        localStorage.setItem("submittedSongs", JSON.stringify(submittedSongs));
+        updateSongsLeftCounter();
+        updateSongList();
+        songInput.value = "";
+      }
+    });
+
+    // Update the counters and song list when the page loads
+    updateSongsLeftCounter();
+    updateDaysLeftCounter();
+    updateSongList();
+
+
+  </script>
+</body>
+
+</html>

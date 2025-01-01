@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Online Songwriting Lessons</title>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-179534280-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-179534280-1');
+	</script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=width-device-width, initial-scale=1.0">
+	<style>
+		@font-face {
+			font-family: avenirbook;
+			src: url(/fonts/avenirltstd-book.otf);
+		}
+
+		@font-face {
+			font-family: avenirmedium;
+			src: url(/fonts/avenirltstd-medium.otf);
+		}
+
+		@font-face {
+			font-family: avenirheavy;
+			src: url(/fonts/avenirltstd-heavy.otf);
+		}
+
+		@font-face {
+			font-family: avenirblack;
+			src: url(/fonts/avenirltstd-black.otf);
+		}
+
+		@font-face {
+			font-family: avenirblackoblique;
+			src: url(/fonts/avenirltstd-blackoblique.otf);
+		}
+
+		html {
+			background-color: #BCBDC0;
+		}
+
+		body {
+			background-color: #342E37;
+			font-family: avenirbook;
+			color: #FAFFFD;
+			margin: 0px;
+		}
+
+		.yt {
+			width: 100%;
+			height: 56.1vw;
+			max-height: 550px;
+		}
+
+		#trailer {
+			margin-top: 0px;
+			max-width: none;
+			padding: 0;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			color: #FAFFFD;
+			margin: 0;
+			margin-block-start: 0.0em;
+			margin-block-end: 0.0em;
+		}
+
+		img {
+			width: 100%;
+			margin: 73px 0px;
+			max-height: 400px;
+			object-fit: cover;
+		}
+
+		header {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		header a {
+			border: none;
+		}
+
+		header a:hover {
+			border: none;
+		}
+
+		header img {
+			margin: 0px;
+		}
+
+		header h1 {
+			font-family: avenirblackoblique;
+			text-align: center;
+			font-size: 80px;
+			line-height: 1.28em;
+			margin: 60px 0px 0px;
+			display: none;
+		}
+
+		#titles {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			margin-top: 70px;
+		}
+
+		.logo {
+			width: 550px;
+		}
+
+		.originality {
+			width: 140px;
+			margin-top: 7px;
+		}
+
+		.signuphover:hover {
+			opacity: 0.8;
+			transition: 0.5s;
+		}
+
+		header div {
+			display: flex;
+			margin: 60px 0 0px;
+			align-items: center;
+		}
+
+		header h2 {
+			font-family: avenirblackoblique;
+			text-align: right;
+			color: #C96C46;
+			line-height: 1.15em;
+			font-weight: normal;
+		}
+
+		.signup {
+			padding: 10px 17px 8px;
+			background-color: #A2D729;
+			color: #342E37;
+			font-weight: 400;
+			font-size: 23px;
+			text-decoration: none;
+			border-radius: 10px;
+			display: inline-block;
+			margin-left: 20px;
+			margin-bottom: 4px;
+			border: none;
+			font-family: avenirblackoblique;
+		}
+
+		.signup:hover {
+			border: none;
+			text-decoration: none;
+		}
+
+		#introtext {
+			text-align: center;
+			font-size: 19px;
+			letter-spacing: 0.4px;
+			font-weight: 100;
+			margin-top: 60px;
+			line-height: 1.25em;
+		}
+
+		#introtext h4 {
+			font-family: avenirblack;
+			color: #A2D729;
+			font-weight: 400;
+			font-size: 28px;
+			margin-top: 35px;
+			letter-spacing: 0.45px;
+			line-height: 1.6em;
+		}
+
+		#introtext h4:nth-child(4) {
+			color: #C96C46;
+		}
+
+		h5 {
+			font-size: 60px;
+			font-weight: 300;
+			color: #A2D729;
+			text-align: center;
+		}
+
+		.orange {
+			color: #C96C46;
+		}
+
+		.green {
+			color: #A2D729;
+		}
+
+		.track {
+			font-size: 18px;
+			font-weight: 100;
+		}
+
+		.trackdesc {
+			text-align: center;
+			margin: 45px 35px 20px;
+			letter-spacing: 0.4px;
+			line-height: 1.5em;
+		}
+
+		.interested {
+			text-align: center;
+			margin: 20px;
+			letter-spacing: 0.4px;
+			font-size: 24px;
+			font-weight: 900;
+			line-height: 1.55em;
+		}
+
+		.trackfacts {
+			margin-top: 25px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		h6 {
+			font-size: 28px;
+			font-weight: 900;
+		}
+
+		.pricebox {
+			display: flex;
+			flex-direction: column;
+			border: 4px solid #858388;
+			border-radius: 7px;
+			padding: 45px;
+			text-align: center;
+			margin: 30px;
+			background-color: ;
+		}
+
+		.pricebox div {
+			display: flex;
+			justify-content: space-evenly;
+			margin: 15px 0px 0px;
+			letter-spacing: 0.4px;
+			line-height: 1.5em;
+		}
+
+		.pricebox img {
+			position: absolute;
+			opacity: 0.7;
+		}
+
+		#prices {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin: 0 auto;
+		}
+
+		.vat {
+			opacity: 0.5;
+			margin: 20px;
+			font-size: 14.3px;
+			text-align: center;
+			margin: 23px auto 20px;
+			letter-spacing: 0.4px;
+			line-height: 1.5em;
+		}
+
+		.track {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-bottom: 60px;
+		}
+
+		.testi {
+			max-width: 460px;
+			margin: 0 auto;
+			padding: 0px 20px;
+			line-height: 1.6em;
+			letter-spacing: 0.4px;
+			margin-top: 35px;
+		}
+
+		#aboutme {
+			max-width: 460px;
+			margin: 0 auto;
+			padding: 0px 20px;
+			line-height: 1.6em;
+			letter-spacing: 0.4px;
+			margin-top: 35px;
+		}
+
+		a {
+			text-decoration: underline;
+			color: #FAFFFD;
+		}
+
+		a:hover {
+			border-bottom: 1px solid #FAFFFD;
+			text-decoration: none;
+		}
+
+		#questions {
+			max-width: 460px;
+			margin: 35px auto 0px;
+			padding: 0px 20px;
+			line-height: 1.6em;
+		}
+
+		#questions div {
+			font-family: avenirheavy;
+			font-weight: 900;
+			margin-top: 25px;
+		}
+
+		#questions ul {
+			margin: 0px;
+		}
+
+		#contact {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding-bottom: 100px;
+		}
+
+		#contact a {
+			padding: 16px 20px 12px;
+			background-color: #A2D729;
+			color: #342E37;
+			letter-spacing: 0.5px;
+			font-size: 19px;
+			font-weight: 500;
+			text-decoration: none;
+			border-radius: 10px;
+			margin: 20px 0px 0px;
+			border: none;
+			font-family: avenirheavy;
+		}
+
+		.narrow {
+			display: none;
+		}
+
+		.mobilimg {
+			display: none;
+		}
+
+		.wideimg {
+			display: block;
+		}
+
+		.contacttext {
+			width: 350px;
+			text-align: center;
+			margin: 23px auto 20px;
+			letter-spacing: 0.4px;
+			line-height: 1.5em;
+		}
+
+		.midbr {
+			display: none;
+		}
+
+		@media screen and (max-width: 736px) {
+
+			.midbr {
+				display: block;
+			}
+
+
+		}
+
+		@media screen and (max-width: 600px) {
+
+			#titles {}
+
+			.logo {
+				width: 90vw;
+			}
+
+			.originality {
+				width: 45vw;
+				padding-top: 2px;
+				padding-left: 4vw;
+			}
+
+			h2 {
+				font-size: 6vw;
+			}
+
+			header h1 {
+				font-size: 15vw;
+			}
+
+			header div {
+				margin-right: 4px;
+			}
+
+			#biweekly {
+				width: auto;
+			}
+
+			.signup {
+				font-size: 6vw;
+			}
+
+			#introtext h4 {
+				font-size: 6.2vw;
+			}
+
+			#introtext {
+				font-size: 5vw;
+			}
+
+			h5 {
+				font-size: 15vw;
+			}
+
+			#prices {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.vat {}
+
+			.wide {
+				display: none;
+			}
+
+			.orange {
+				line-height: 1.15em;
+			}
+
+			.trackdesc {
+				margin-top: 25px;
+				width: 80vw;
+			}
+
+			.pricebox {
+				padding: 20px;
+			}
+
+			.track h6 {
+				font-size: 25px;
+				font-weight: 900;
+			}
+
+			#aboutme,
+			#questions {
+				font-size: 4vw;
+				margin-top: 25px;
+			}
+
+			.mobilimg {
+				display: block;
+			}
+
+			.wideimg {
+				display: none;
+			}
+
+			.contacttext {
+				width: 80vw;
+			}
+
+			.mobilebr {
+				display: block;
+			}
+
+		}
+
+		@media screen and (max-width: 500px) {
+
+			.midbr {
+				display: none;
+			}
+
+		}
+	</style>
+	<link rel="shortcut icon" href="/faviconpiano.png" type="image/x-icon">
+	<meta property="og:image" content="/images/piano.jpg" />
+	<meta property="og:description"
+		content="Online Songwriting Lessons will bring your songs over the finish line with tailored songwriting exercises and supportive video chats." />
+
+</head>
+
+<body>
+	<div id="trailer">
+		<iframe class="yt" src="https://www.youtube-nocookie.com/embed/WPeA4xfTJ8s?controls=0" frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			allowfullscreen>
+		</iframe>
+	</div>
+	<div id="content">
+		{{ content }}
+	</div>
+	<footer>
+
+	</footer>
+</body>
+
+</html>
