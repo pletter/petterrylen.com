@@ -5,69 +5,36 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
 
+.chapter { display: block; }
 
-.chapter {
-  display: block;
-}
+.lesson { margin: 1rem 0 5rem; }
 
-.lesson {
-  margin: 1rem 0 5rem;
-}
-
-body {
-  font-family: "Josefin Sans", sans-serif;
-  margin: 0 auto;
-  max-width: 700px;
-  padding: 0;
+body { font-family: "Josefin Sans", sans-serif; margin: 0 auto; max-width:
+700px; padding: 0;
 
 }
 
-header {
-  background-color: #6200EE;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 1rem;
-}
+header { background-color: #6200EE; color: white; text-align: center; padding:
+1rem; margin-top: 1rem; }
 
-nav {
-  background-color: #2e2e2e;
-  display: flex;
-  justify-content: center;
-}
+nav { background-color: #2e2e2e; display: flex; justify-content: center; }
 
-nav ul {
-  list-style: none;
-  display: flex;
-}
+nav ul { list-style: none; display: flex; }
 
-nav ul li {
-  margin: 0 1rem;
-}
+nav ul li { margin: 0 1rem; }
 
-nav a {
-  color: white;
-  text-decoration: none;
-}
+nav a { color: white; text-decoration: none; }
 
-main {
-  padding: 2rem;
-}
+main { padding: 2rem; }
 
-section {
-  margin-bottom: 2rem;
-}
+section { margin-bottom: 2rem; }
 
-footer {
-  background-color: #02989e;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-}
-
+footer { background-color: #02989e; color: white; text-align: center; padding:
+1rem; }
 
     </style>
-  </head>
+
+</head>
   <body>
     <header>
       <h1>Piano for producers</h1>
@@ -93,7 +60,7 @@ footer {
               <iframe width="560" height="315" src="https://www.youtube.com/embed/6d-ePiHQU1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>              <p>In this lesson, we will teach you the basics of reading sheet music and how to play simple melodies.</p>
             </div>
             <div class="lesson">
-                <h4>Lesson 4: The magical formulas</h4>
+                <h4>Lesson 4: The magical formulasss</h4>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/Koz_powz2Bg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                <p>In this lesson, we will teach you the basics of reading sheet music and how to play simple melodies.</p>
               </div>
               <div class="lesson">
