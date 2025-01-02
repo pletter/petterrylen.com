@@ -20,60 +20,10 @@
     <link rel="stylesheet" href="styles.css">
 
     <script type="module">
-        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.47.5/+esm';
 
-
-        const SUPABASE_URL = 'https://fmhqotvjzgekordlfseh.supabase.co';
-        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZtaHFvdHZqemdla29yZGxmc2VoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjUyNzk5NzgsImV4cCI6MjA0MDg1NTk3OH0.We9iCsTO3NpGADOjKb-_CeIHyv9QgUXX_67EhEBgkWg';
-        const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-        async function checkAccess() {
-            const {
-                data: {
-                    session
-                }
-            } = await supabase.auth.getSession();
-
-            if (session) {
-                const userId = session.user.id;
-                const {
-                    data,
-                    error
-                } = await supabase
-                    .from('profiles')
-                    .select('petterforsingers')
-                    .eq('id', userId)
-                    .single();
-
-                if (error) {
-                    console.error("Error fetching course ownership:", error.message);
-                } else if (data?.petterforproducers) {
-                    window.location.href = 'artofaccompaniment-app.html';
-                }
-            }
-        }
-
-        checkAccess();
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            let imgElement = document.getElementById('toggleimg');
-            let toggle = true;
 
-            // Make sure the interval is only created once
-            if (window.imageSwitcherInterval) {
-                clearInterval(window.imageSwitcherInterval); // Clear previous interval if any
-            }
-
-            window.imageSwitcherInterval = setInterval(() => {
-                if (toggle) {
-                    imgElement.src = '/images/backup2.webp';
-                } else {
-                    imgElement.src = '/images/backup.webp';
-                }
-                toggle = !toggle; // Toggle between true and false
-            }, 1000); // Change every 2 seconds
-        });
     </script>
 
 </head>
@@ -82,10 +32,14 @@
     <div class="pfstext">
         <div class="textbox">
             <div>
-                <div style="transform: rotate(-0.5deg);">
-                    <p>Hejsan!</p>
-                </div>
                 <br>
+                <p><strong style="font-size: 1.6em; line-height: 1.4em; background: rgb(255, 154, 205);">Tja, vad gör du
+                        på
+                        fredag?!</strong></p>
+                <br>
+                <br> <br>
+
+
                 <p>
                     Bakom dessa bakdelar:</p>
                 <br><br>
@@ -96,7 +50,7 @@
                 <br><br>
                 <img src="/images/larry.jpg" style="width: 100%;">
                 <br><br>
-                <p>Han heter Larry.</p>
+                <p><strong style="background: rgb(184, 255, 186);">Han heter Larry.</strong></p>
                 <br><br>
                 <p>
                     Larry är <i>Larry</i> bakom <a href="https://www.facebook.com/LarrysCorner/">Larrys Corner</a>, det
@@ -121,12 +75,12 @@
                 </p>
                 <br><br>
                 <p>
-                    … Petter vem?
+                    … Petter <i>vem</i>?
 
                 </p>
                 <br><br>
                 <p>
-                    (med James Bond-röst…) Petter Rylén 😎😎😎:
+                    (med James Bond-röst…) Petter <i>Rylén</i> 😎😎😎:
                 </p>
                 <br><br>
                 <img src="/images/crocpetter.webp" style="width: 100%;">
@@ -135,19 +89,21 @@
         </div>
         <div class="textbox" style="">
             <div>
-                <br> <br>
+                <br>
                 <p><strong style="background: rgb(255, 250, 189);;">“Det är lyriskt, överraskande, intimt och närvarande
                         [...] En härlig mental sanering med
                         chanstagande och skrapmärken. Tack.”</strong></p>
-
+                <br><br>
                 <p>– <a href="https://jazznyt.blogspot.com/2020/02/petter-rylen-after-meltdown-petter.html">Niels
                         Overgaard</a></p>
-
-
-
                 <br><br>
+            </div>
+        </div>
+        <div class="textbox" style="background: black;">
+            <div> <br><br>
 
-                <p>I 2019 när jag bodde i Newport, Wales, började jag bjuda in allmänheten till pianokonserter i mitt
+                <p>I 2019 när jag bodde i Newport, Wales, började jag bjuda in allmänheten till pianokonserter i
+                    mitt
                     hem varje månad.
                 </p>
                 <br><br>
@@ -158,10 +114,12 @@
                     månader, och nu behövde jag ett forum för att dela med mig av dem.</p>
 
                 <br><br>
-                <p>Till varje konsert bakade jag 3 stora plåtar med “Swedish Brownie” (Google Translate’s
+                <p>Till varje konsert bakade jag 3 stora plåtar med “Swedish Brownie” (Google
+                    Translate’s
                     översättning av “kladdkaka”). </p>
                 <br><br>
-                <p>Hemmakonserterna blev under ett års tid vildare och vildare (och även trevligare och trevligare!)..
+                <p>Hemmakonserterna blev under ett års tid vildare och vildare (<strong
+                        style="background: rgb(182, 247, 255);">och även trevligare och trevligare!</strong>) ..
                 </p>
                 <br><br>
                 <img src="/images/pettercraz.webp" style="width: 100%;">
@@ -171,7 +129,8 @@
                 <p>.. BBC Radio Wales intervjuade mig, jag fick sätta in extrakonserter..</p>
                 <br><br>
                 <p>
-                    .. min konstnär-vän <a href="http://georgegoom.com">George</a> målade abstrakt konst över hela mina
+                    .. min konstnär-vän <a href="http://georgegoom.com">George</a> målade abstrakt konst över hela
+                    mina
                     väggar (min hyresvärd var halvglad när jag
                     skulle flytta..).
                 </p>
@@ -181,14 +140,15 @@
             </div>
         </div>
 
-        <div class="textbox" style="background: black; color: white;">
+        <div class="textbox">
             <div style="color: black;">
                 <p>Dessa konserter var första gången jag för allvar uppträdde ensam med min helt egna musik.
                 </p>
                 <br><br>
 
                 <p>Tidigare hade jag jobbat och turnerat som jazzpianist bla med den helt galna jazztrummis-legenden
-                    <a href="">Kresten Osgood</a> och den fantastiska sångerskan <a href="">Nana Rashid</a>, spelat runt
+                    <a href="">Kresten Osgood</a> och den fantastiska sångerskan <a href="">Nana Rashid</a>, spelat
+                    runt
                     om i Skandinavien, Israel,
                     Palestina, Sydafrika och Nigeria. </strong>
                 </p>
@@ -196,7 +156,8 @@
                 <img src="/images/nigeria.webp" style="width: 100%;">
                 <br><br>
                 <p>
-                    <strong style="background:rgb(161, 254, 164);">“Pianospel som kan påminna lite om Keith Jarrett på
+                    <strong style="background:rgb(161, 254, 164);">“Pianospel som kan påminna lite om Keith Jarrett
+                        på
                         en ytterst bra dag”
                     </strong>
                 </p>
@@ -207,12 +168,14 @@
 
             </div>
         </div>
-        <div class="textbox">
+        <div class="textbox" style="background: black;">
             <div class="">
                 <p>
-                    Under mina smått frenetiska studier till jazzpianist i Köpenhamn, hade jag ett hemligt sidoprojekt,
+                    Under mina smått frenetiska studier till jazzpianist i Köpenhamn, hade jag ett hemligt
+                    sidoprojekt,
                     där
-                    jag skrev och sjöng <a href="https://www.youtube.com/@petterstinderchannel9494">kärlekslåtar till
+                    jag skrev och sjöng <a href="https://www.youtube.com/@petterstinderchannel9494">kärlekslåtar
+                        till
                         alla mina matchningar på Tinder ...</a>
                 </p>
                 <br><br>
@@ -220,7 +183,8 @@
                 <img src="/images/tinder2.webp" style="width: 100%;">
                 <br><br>
                 <p>
-                    Det projektet sådde ett frö i mig, som genom åren efter växte sig till en dröm, om att lämna jazzens
+                    Det projektet sådde ett frö i mig, som genom åren efter växte sig till en dröm, om att lämna
+                    jazzens
                     (i
                     min ögon) prestigeinriktade värld .. </p>
                 <br><br>
@@ -237,30 +201,38 @@
                         och ett halvt album</a> som sjungande soloartist.</p>
                 <br><br>
 
-                <p>Nu är det hög tid för dessa låtar att få komma ut och möta Stockholmsluften i liveformat :)</p>
+                <p><i>Nu</i> är det hög tid för dessa låtar att få komma ut och möta Stockholmsluften i liveformat
+                    :)
+                </p>
                 <br><br>
 
                 <p>Jag kan inte tänka mig en bättre plats för min musik att breda ut sina vingar, än på Larrys
                     Corner.</p>
-                <br><br>
+                <br><br><br>
 
 
             </div>
         </div>
-        <div class="textbox" style="background: black; color: white;">
+        <div class="textbox">
             <div style="color: rgb(0, 0, 0);">
+                <br><br>
                 <p>Såhär funkar det!</p>
                 <br><br>
-                <p>Fredag 10:e kl 19.30 öppnar dörrarna.</p>
+                <p><strong style="background: rgb(195, 195, 255);">Fredag 10:e kl 19.30 öppnar dörrarna.</strong>
+                </p>
                 <br><br>
-                <p>Tove Rhodiner har lovat att värma upp stämningen, och börjar 20 prick.</p>
+                <p>Tove Rhodiner har lovat att värma upp stämningen, och börjar 20 <i>prick</i>.</p>
                 <br><br>
                 <p>Missa henne inte, hon är den mest originella människa jag har träffat på länge!</p>
                 <br><br>
-                <p>Larry’s Corner är som sagt ett litet ställe, och det finns bara 28 platser.</p>
+                <p>Larry’s Corner är som sagt ett <i>litet</i> ställe, och <strong>det finns bara 28
+                        platser</strong>.
+                </p>
                 <br><br>
                 <p>
-                    Du kan förköpa dina biljetter här och nu för endast 120 kr 80 kr (du sparar 40 kr och ser till att
+                    Du kan förköpa dina biljetter här och nu för endast <s>120 kr</s> <strong
+                        style="background: rgb(175, 255, 172);">80 kr</strong> (du sparar 40 kr och ser
+                    till att
                     få
                     plats).
                 </p>
@@ -278,7 +250,11 @@
                         <br><br>
                         <p>PS. Du kan få refunderat hela biljettpriset fram till kl 14.00 fredagen den 10:e.</p>
                         <br><br>
+                        <p>Kontakt:</p>
+                        <br><br>
                         <p><a href="mailto:petter.rylen@gmail.com">petter.rylen@gmail.com</a></p>
+                        <br>
+                        <p>079 340 34 78</p>
 
             </div>
 
