@@ -1,235 +1,297 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<title>Petter Rylén – konsert</title>
-	<meta charset="utf-8">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:wght@200;300;400;500;700;900&display=swap"
-		rel="stylesheet">
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-179534280-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art of Accompaniment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
 
-		gtag('config', 'UA-179534280-1');
-	</script>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=pause_circle,play_circle,volume_off,volume_up" />
 
-	    
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles.css">
 
-	    
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
-		body {
-			margin: 0 auto;
-			width: 80vw;
-			max-width: 600px;
-			font-family: "Josefin Sans", "Helvetica Neue", sans-serif;
-			font-size: 20px;
-			font-weight: 500;
-			letter-spacing: 0.07em;
-			background-color: #FF5B00;
-		}
-
-		a {
-			text-decoration: none;
-			color: hsl(30, 60%, 50%);
-		}
-
-		b {
-			font-weight: 500;
-		}
-
-		a:hover {
-			color: black;
-		}
-
-		img {
-			display: block;
-			width: 90%;
-			margin-bottom: 80px;
-		}
-
-		h1 {
-			font-size: 60px;
-			font-family: "Josefin Sans", sans-serif;
-			font-weight: 700;
-			margin: 70px 0px 60px 0px;
-			text-align: left;
-			line-height: 1.35em;
-		}
-
-		h2 {
-			font-size: 80px;
-			font-family: "Josefin Sans", sans-serif;
-			font-weight: 700;
-			margin-top: 0;
-			text-align: left;
-		}
-
-		h3 {
-			font-size: 35px;
-			font-weight: 400;
-			margin: 0px 0px 60px 0px;
-			text-align: left;
-			line-height: 1.35em;
-		}
-
-		.smaller {
-			font-size: 30px;
-		}
-
-		div {
-			box-sizing: border-box;
-		}
-
-		.text {
-			width: 400px;
-			font-weight: 500;
-			line-height: 1.35em;
-			max-width: 80vw;
-			margin-bottom: 10px;
-		}
-
-		.video {
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			left: 0;
-			margin: 0 auto;
-		}
-
-		header {
-			position: relative;
-			box-sizing: border-box;
-		}
-
-		#links img {
-			width: 50px;
-			margin: 0 20px 0 0;
-		}
-
-		#links {
-			font-size: 35px;
-			margin-bottom: 80px;
-		}
-
-		.linkgrid {
-			display: grid;
-			grid-template-columns: 70px 300px;
-			align-items: center;
-			margin-bottom: 30px;
-		}
-
-		a {
-			color: black;
-			text-decoration: none;
-		}
-
-		a:hover {
-			color: white;
-			text-decoration: none;
-		}
-
-		@media screen and (max-width: 665px) {
-
-			body {
-				width: 85vw;
-			}
-
-			h1 {
-				font-size: 33px;
-			}
-
-			.smaller {
-				font-size: 23px;
-			}
-
-			h2 {
-				font-size: 50px;
-				line-height: 1.20em;
-			}
-
-			h3 {
-				font-size: 30px;
-			}
-
-			.text {
-				max-width: 80vw
-			}
-
-			.linkgrid {
-				grid-template-columns: 70px 200px;
-				font-size: 23px;
-			}
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.47.5/+esm';
 
 
+        const SUPABASE_URL = 'https://fmhqotvjzgekordlfseh.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZtaHFvdHZqemdla29yZGxmc2VoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjUyNzk5NzgsImV4cCI6MjA0MDg1NTk3OH0.We9iCsTO3NpGADOjKb-_CeIHyv9QgUXX_67EhEBgkWg';
+        const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
+        async function checkAccess() {
+            const {
+                data: {
+                    session
+                }
+            } = await supabase.auth.getSession();
 
-		}
-	</style>
+            if (session) {
+                const userId = session.user.id;
+                const {
+                    data,
+                    error
+                } = await supabase
+                    .from('profiles')
+                    .select('petterforsingers')
+                    .eq('id', userId)
+                    .single();
+
+                if (error) {
+                    console.error("Error fetching course ownership:", error.message);
+                } else if (data?.petterforproducers) {
+                    window.location.href = 'artofaccompaniment-app.html';
+                }
+            }
+        }
+
+        checkAccess();
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let imgElement = document.getElementById('toggleimg');
+            let toggle = true;
+
+            // Make sure the interval is only created once
+            if (window.imageSwitcherInterval) {
+                clearInterval(window.imageSwitcherInterval); // Clear previous interval if any
+            }
+
+            window.imageSwitcherInterval = setInterval(() => {
+                if (toggle) {
+                    imgElement.src = '/images/backup2.webp';
+                } else {
+                    imgElement.src = '/images/backup.webp';
+                }
+                toggle = !toggle; // Toggle between true and false
+            }, 1000); // Change every 2 seconds
+        });
+    </script>
+
 </head>
 
-<body>
-	<header>
-		<h1>hej</h1>
-	</header>
-	<div>
+<body style="margin: 0px;">
+    <div class="pfstext">
+        <div class="textbox">
+            <div>
+                <div style="transform: rotate(-0.5deg);">
+                    <p>Hejsan!</p>
+                </div>
+                <br>
+                <p>
+                    Bakom dessa bakdelar:</p>
+                <br><br>
+                <img src="/images/bakdelar.jpg" style="width: 100%;">
+                <br><br>
 
-		<img src="/images/pettertriangle.png">
+                <p>Gömmer sig denna genialiska man:</p>
+                <br><br>
+                <img src="/images/larry.jpg" style="width: 100%;">
+                <br><br>
+                <p>Han heter Larry.</p>
+                <br><br>
+                <p>
+                    Larry är <i>Larry</i> bakom <a href="https://www.facebook.com/LarrysCorner/">Larrys Corner</a>, det
+                    lilla mystiska hörnet på <a href="https://maps.app.goo.gl/wfRo8LFGRF4WELJg6"> Grindsgatan 35,
+                        Södermalm</a>.
+                </p>
+                <br><br>
+                <p>Hörnet som huserar Stockholms mest udda prylar, filmer och konserter.</p>
+                <br><br>
+                <p>Hörnet där det känns som att vad som helst är möjligt.</p>
+                <br><br>
+                <p>Hörnet där <i>konserten jag ska spela på fredag</i> äger rum!</p>
+                <br><br>
+            </div>
+        </div>
+        <div class="textbox" style="background: black;">
+            <div>
+                <br>
+
+                <p>
+                    Hej igen förresten, det är Petter.
+                </p>
+                <br><br>
+                <p>
+                    … Petter vem?
+
+                </p>
+                <br><br>
+                <p>
+                    (med James Bond-röst…) Petter Rylén 😎😎😎:
+                </p>
+                <br><br>
+                <img src="/images/crocpetter.webp" style="width: 100%;">
+                <br>
+            </div>
+        </div>
+        <div class="textbox" style="">
+            <div>
+                <br> <br>
+                <p><strong style="background: rgb(255, 250, 189);;">“Det är lyriskt, överraskande, intimt och närvarande
+                        [...] En härlig mental sanering med
+                        chanstagande och skrapmärken. Tack.”</strong></p>
+
+                <p>– <a href="https://jazznyt.blogspot.com/2020/02/petter-rylen-after-meltdown-petter.html">Niels
+                        Overgaard</a></p>
 
 
-		<div class="text">
-			Det dunkar i bröstet. Externa krafter. Musik från monitorerna omkring mig.
-			<br><br>
-		</div>
 
-		<b>
-			<h2>
-				10 januari 19.30
-			</h2>
+                <br><br>
 
-			<h3></h3>
+                <p>I 2019 när jag bodde i Newport, Wales, började jag bjuda in allmänheten till pianokonserter i mitt
+                    hem varje månad.
+                </p>
+                <br><br>
+                <img src="/images/firsthouse.jpg" style="width: 100%;">
+                <br><br>
+                <p>Jag hade fått ett arbetsstipendium (som jag var stolt över!) för att skriva <a
+                        href="https://youtu.be/g8JF2grfnpA?si=EvHKQoDI6xoDKOed">100 pianostycken</a> på 3
+                    månader, och nu behövde jag ett forum för att dela med mig av dem.</p>
 
-		</b>
-		<br>
-		<br>
-		<div id="links">
-			<a href="http://instagram.com/petterrylen">
-				<div class="linkgrid">
-					<img src="/images/ig.png">
-					petterrylen
-				</div>
-			</a>
-			<a href="https://songwhip.com/petterrylen/the-bended-tree">
-				<div class="linkgrid">
-					<img src="/images/apple.png">
-					<p style="margin: 5px 0px 0px 0px;">Min musik</p>
-				</div>
-			</a>
-		</div>
-		<div style="position: relative;
-padding-bottom: 56.25%;
-overflow: hidden;">
-			<iframe width="560" height="315" class="video" src="https://www.youtube.com/embed/owJsSB8viPk?controls=0"
-				title="YouTube video player" frameborder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-				allowfullscreen></iframe>
-		</div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-	</div>
+                <br><br>
+                <p>Till varje konsert bakade jag 3 stora plåtar med “Swedish Brownie” (Google Translate’s
+                    översättning av “kladdkaka”). </p>
+                <br><br>
+                <p>Hemmakonserterna blev under ett års tid vildare och vildare (och även trevligare och trevligare!)..
+                </p>
+                <br><br>
+                <img src="/images/pettercraz.webp" style="width: 100%;">
+                <br><br>
+                <p>.. lokala pizzabagaren tog med sig gratis pizza till alla som kom (!!)..</p>
+                <br><br>
+                <p>.. BBC Radio Wales intervjuade mig, jag fick sätta in extrakonserter..</p>
+                <br><br>
+                <p>
+                    .. min konstnär-vän <a href="http://georgegoom.com">George</a> målade abstrakt konst över hela mina
+                    väggar (min hyresvärd var halvglad när jag
+                    skulle flytta..).
+                </p>
+                <br><br>
+                <img src="/images/george.webp" style="width: 100%;">
+
+            </div>
+        </div>
+
+        <div class="textbox" style="background: black; color: white;">
+            <div style="color: black;">
+                <p>Dessa konserter var första gången jag för allvar uppträdde ensam med min helt egna musik.
+                </p>
+                <br><br>
+
+                <p>Tidigare hade jag jobbat och turnerat som jazzpianist bla med den helt galna jazztrummis-legenden
+                    <a href="">Kresten Osgood</a> och den fantastiska sångerskan <a href="">Nana Rashid</a>, spelat runt
+                    om i Skandinavien, Israel,
+                    Palestina, Sydafrika och Nigeria. </strong>
+                </p>
+                <br><br>
+                <img src="/images/nigeria.webp" style="width: 100%;">
+                <br><br>
+                <p>
+                    <strong style="background:rgb(161, 254, 164);">“Pianospel som kan påminna lite om Keith Jarrett på
+                        en ytterst bra dag”
+                    </strong>
+                </p>
+                <br>
+                <p> – Salt Peanuts</p>
+                <br><br>
+
+
+            </div>
+        </div>
+        <div class="textbox">
+            <div class="">
+                <p>
+                    Under mina smått frenetiska studier till jazzpianist i Köpenhamn, hade jag ett hemligt sidoprojekt,
+                    där
+                    jag skrev och sjöng <a href="https://www.youtube.com/@petterstinderchannel9494">kärlekslåtar till
+                        alla mina matchningar på Tinder ...</a>
+                </p>
+                <br><br>
+
+                <img src="/images/tinder2.webp" style="width: 100%;">
+                <br><br>
+                <p>
+                    Det projektet sådde ett frö i mig, som genom åren efter växte sig till en dröm, om att lämna jazzens
+                    (i
+                    min ögon) prestigeinriktade värld .. </p>
+                <br><br>
+                <p>.. och fokusera på min egen musik med text och sång.</p>
+                </p>
+                <br><br>
+
+                <p><strong style="background: rgb(173, 255, 234);">För det är det härligaste som finns att
+                        sjunga!!</strong>
+                </p>
+                <br><br>
+
+                <p>De senaste åren har jag därför släppt <a href="https://youtu.be/f8HNlB2w3EU?si=S2YKVj3YqmA2XYsK">två
+                        och ett halvt album</a> som sjungande soloartist.</p>
+                <br><br>
+
+                <p>Nu är det hög tid för dessa låtar att få komma ut och möta Stockholmsluften i liveformat :)</p>
+                <br><br>
+
+                <p>Jag kan inte tänka mig en bättre plats för min musik att breda ut sina vingar, än på Larrys
+                    Corner.</p>
+                <br><br>
+
+
+            </div>
+        </div>
+        <div class="textbox" style="background: black; color: white;">
+            <div style="color: rgb(0, 0, 0);">
+                <p>Såhär funkar det!</p>
+                <br><br>
+                <p>Fredag 10:e kl 19.30 öppnar dörrarna.</p>
+                <br><br>
+                <p>Tove Rhodiner har lovat att värma upp stämningen, och börjar 20 prick.</p>
+                <br><br>
+                <p>Missa henne inte, hon är den mest originella människa jag har träffat på länge!</p>
+                <br><br>
+                <p>Larry’s Corner är som sagt ett litet ställe, och det finns bara 28 platser.</p>
+                <br><br>
+                <p>
+                    Du kan förköpa dina biljetter här och nu för endast 120 kr 80 kr (du sparar 40 kr och ser till att
+                    få
+                    plats).
+                </p>
+                <br><br>
+                <a href=""><button style="font-size: 1.1em;">Fånga en konsertbiljett nu</button></a>
+                <br><br>
+                <p>Ta med din goda vän, var där tidigt, kom och häng med mig, Tove och Larry.</p>
+                <br><br>
+                <p>Vem vet, kanske jag till och med bakar kladdkaka?!</p>
+                <br><br>
+                <p>
+                    <3 </p>
+                        <br><br>
+                        <p>Petter</p>
+                        <br><br>
+                        <p>PS. Du kan få refunderat hela biljettpriset fram till kl 14.00 fredagen den 10:e.</p>
+                        <br><br>
+                        <p><a href="mailto:petter.rylen@gmail.com">petter.rylen@gmail.com</a></p>
+
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+    <script>
+
+    </script>
 </body>
 
 </html>

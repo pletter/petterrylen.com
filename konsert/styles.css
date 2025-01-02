@@ -1,0 +1,585 @@
+body {
+    background: rgb(231, 231, 231);
+    font-family: "Josefin Sans", sans-serif;
+    background-image: url(/images/back.png);
+}
+
+#content {
+    margin: 60px auto 60px;
+    max-width: 800px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#logo {
+    transform: rotate(-7deg);
+    font-size: 1em;
+    margin-top: -30px;
+    font-family: "josefin sans", sans-serif;
+    font-weight: 900 !important;
+    margin-bottom: 120px;
+    font-size: 20px;
+    text-align: center;
+    line-height: normal;
+}
+
+.frontcourses {
+    border-right: 2px grey solid;
+    border-bottom: 2px grey solid;
+    border-top: 2px white solid;
+    border-left: 2px white solid;
+    padding: 10px 10px 7px;
+    display: block;
+    margin: 15px auto;
+    color: black;
+    border-radius: 3px;
+    width: 300px;
+}
+
+.frontcourses h1 {
+    font-size: 1.3em;
+    margin: 0px;
+    font-weight: 900;
+}
+
+.courses h1 {
+    width: min-content;
+    font-size: 2.2em;
+    text-transform: uppercase;
+    text-align: left;
+    font-weight: 900;
+}
+
+.frontcourses:hover {
+    cursor: pointer;
+    background: lightblue !important;
+}
+
+.courses {
+    width: 627px;
+    color: rgb(0, 0, 0);
+    border-right: 3px grey solid;
+    border-bottom: 3px grey solid;
+    border-top: 3px white solid;
+    border-left: 3px white solid;
+    margin: 40px auto 40px;
+    border-radius: 3px;
+    line-height: 2.5em;
+    display: block;
+    padding: 40px 30px 40px;
+    transition: 0s;
+}
+
+.courses:nth-child(1),
+.frontcourses:nth-of-type(1) {
+    background: linear-gradient(90deg, rgba(112, 255, 199, 1) 0%, rgba(79, 182, 255, 1) 100%);
+}
+
+.courses:nth-child(2),
+.frontcourses:nth-of-type(2) {
+    background: linear-gradient(90deg, rgba(255, 183, 112, 1) 0%, rgba(218, 245, 120, 1) 100%);
+}
+
+.courseheader {
+    margin-bottom: -20px;
+    margin-top: 50px;
+}
+
+#notmycourses a {
+    background: rgb(242, 166, 166);
+    background: linear-gradient(90deg, rgb(48, 23, 0) 0%, rgb(53, 39, 0) 100%);
+    color: white;
+    padding: 40px 30px 40px;
+    transition: 0.4s;
+}
+
+.notmy,
+.mine {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.courses img {
+    height: 60px;
+}
+
+.notmy span {
+    margin: 10px 0px 2px;
+}
+
+#attention {
+    background: rgb(80, 80, 80);
+    color: rgb(105, 205, 255);
+    padding: 20px;
+    font-size: 1em;
+    border-radius: 2px;
+}
+
+@keyframes tiltUpDown {
+
+    0%,
+    100% {
+        transform: rotate(-3deg) translateY(0px);
+    }
+
+    50% {
+        transform: rotate(3deg) translateY(-3px);
+    }
+}
+
+.tilting-span {
+    display: inline-block;
+    animation: tiltUpDown 5s infinite ease-in-out;
+}
+
+.tilting-span-two {
+    display: inline-block;
+    animation: tiltUpDown 3s infinite ease-in-out;
+}
+
+.discount {
+    margin: -20px 0px -15px 0px;
+    text-align: left;
+    font-size: 0.7em;
+}
+
+.description {
+    display: none;
+    font-style: italic;
+    font-size: 0.8em;
+    text-align: left;
+    margin-left: 3px;
+    line-height: 2em;
+}
+
+.courses:hover {
+    background: lightblue;
+}
+
+#notmycourses a:hover {
+    background: linear-gradient(90deg, rgb(100, 54, 19) 0%, rgb(84, 41, 0) 100%);
+    transition: 0s;
+}
+
+.whitebox {
+    background: rgb(255, 255, 255);
+    padding: 1px 23px 23px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: 500;
+    margin: 10px 0px 6px;
+}
+
+h1 img {
+    height: 56px;
+    margin-bottom: -15px;
+    transform: rotate(-3deg);
+}
+
+h3 {
+    font-weight: 300;
+    margin: 0px;
+    font-style: italic;
+}
+
+a {
+    text-decoration: none;
+}
+
+input,
+button,
+.fixed-login {
+    font-size: 20px;
+    font-family: "Josefin Sans", sans-serif;
+    padding: 10px 10px 6px;
+    border-radius: 2px;
+    font-weight: 900;
+}
+
+button,
+.fixed-login {
+    background: rgb(255, 214, 178);
+    border-right: 2px grey solid;
+    border-bottom: 2px grey solid;
+    border-top: 2px white solid;
+    border-left: 2px white solid;
+    transition: 0.4s;
+
+}
+
+button:hover,
+.fixed-login:hover {
+    cursor: pointer;
+    background: lightblue;
+    transition: 0.4s;
+}
+
+#showreset {
+    border: none;
+    background: none;
+    font-weight: 900;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.502);
+    padding: 3px;
+    margin: 20px 0px;
+    border-radius: 0px;
+    transition: 0.2s;
+    font-size: 1em;
+}
+
+#showreset:hover,
+.talk a:hover {
+    border-bottom: 2px solid darkcyan;
+    color: darkcyan;
+    transition: 0.2s;
+}
+
+#logindiv {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    gap: 10px;
+    margin: 120px auto 160px;
+    align-items: center;
+}
+
+#logindiv form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.talk {
+    max-width: 450px;
+    padding: 0px 10px;
+    margin: 0 auto;
+    line-height: 1.4em;
+    text-align: center;
+}
+
+.talk a {
+    border-bottom: 2px solid black;
+    color: black;
+    transition: 0.2s;
+}
+
+.talk img {
+    height: 40px;
+    transform: rotate(5deg);
+    margin-bottom: -15px;
+}
+
+.fixed-login {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    color: black;
+}
+
+#resources {
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+    margin: 0px auto 50px;
+    line-height: 1.5em;
+}
+
+#resources a {
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+#resources a:hover {
+    border-bottom: none;
+    color: black;
+}
+
+#error-message {
+    color: #ff0000;
+    font-weight: 500;
+    margin-top: 10px;
+    font-family: 'josefin sans';
+    line-height: 1.3em;
+    text-align: center;
+    font-size: 18px;
+}
+
+alert {
+    font-family: 'josefin sans';
+}
+
+#resetform {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    margin: auto;
+}
+
+#toast {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #444;
+    color: #fff;
+    padding: 15px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: opacity 0.5s ease-out;
+    max-width: 320px;
+}
+
+#aoatitle {
+    width: 98vw; 
+    padding: 0px 1vw; 
+    margin: 30px auto;
+}
+
+.pfstext {
+    text-align: left;
+    margin: 0px auto 50px;
+    font-size: 28px;
+    line-height: 1.5em;
+    font-family: 'josefin sans';
+}
+
+.pfstext a {
+    color: darkblue;
+    border-bottom: 2px solid darkblue;
+    text-decoration: none;
+}
+
+.pfstext a:hover {
+    border-bottom: 2px solid darkblue;
+
+}
+
+.textbox {
+  padding: 50px 0px;
+}
+
+.textbox div {
+    width: 600px;
+    margin: auto;
+}
+
+.textbox p {
+    background: white;
+    display: inline;
+    padding: 4px 4px;
+}
+
+.textbox p strong {
+    color: black;
+}
+
+#bubble2 {
+    display: none;
+}
+
+.pfstext p {
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    padding: 4px 4px;
+}
+
+.video-container {
+    position: relative;
+    width: fit-content !important;
+}
+
+.controls button:active {
+    background: none;
+ }
+
+.controls button {
+    background: none;
+    border: none;
+    filter: drop-shadow(3px 3px 3px black);
+}
+
+.playPause {
+    position: absolute;
+    left: 1.5%;
+    bottom: 6%;
+    color: #fff;
+}
+
+.playPause span, .mute span {
+    font-size: 2em;
+}
+
+.mute {
+    position: absolute;
+    bottom: 6%;
+    right: 1.5%;
+    color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+
+    html {
+        overflow-x: hidden;
+    }
+
+    body {
+        background-size: contain;
+        margin: 0px;
+        overflow-x: hidden;
+    }
+
+    #logo {
+        margin-top: 60px;
+        margin-bottom: 90px;
+    }
+
+    .frontcourses {
+        width: 75vw;
+        margin: 10px auto;
+        padding: 20px;
+    }
+
+    .frontcourses h1 {
+        margin: 0px;
+    }
+
+    #logindiv {
+        margin: 100px auto;
+    }
+
+    .hey {
+        margin: 70px 0px 40px;
+    }
+
+    .talk img {
+        height: 30px;
+        margin-bottom: -10px;
+    }
+
+
+    a,
+    button,
+    input {
+        color: black;
+        font-weight: 500;
+    }
+
+    #content {
+        margin: 30px 0px 60px;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+
+    input {
+        border-right: 2px rgb(197, 197, 197) solid;
+        border-bottom: 2px rgb(236, 236, 236) solid;
+        border-top: 2px grey solid;
+        border-left: 2px grey solid;
+    }
+
+    .courses img,
+    h1 img {
+        height: 35px;
+    }
+
+    .courses {
+        width: 80vw;
+        margin: 20px auto;
+        padding: 10px 10px;
+        line-height: normal;
+    }
+
+    .courses h1 {
+        font-size: 1em;
+        margin: 10px;
+        width: 75vw;
+        text-align: center;
+    }
+
+    .mine,
+    .notmy {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 10px 0px 10px;
+        row-gap: 10px;
+        column-gap: 30px;
+    }
+
+    .courseheader {
+        margin-bottom: -10px;
+    }
+
+    .discount {
+        margin: 20px 0px 10px 0px;
+        text-align: center; 
+        font-size: 0.5em;
+    }
+
+    .description {
+        text-align: center;
+        max-width: 240px;
+        margin: 10px auto;
+    }
+
+    #notmycourses a {
+        padding: 10px 10px;
+    }
+
+    #resources {
+        max-width: 80vw;
+        margin-top: 30px;
+    }
+
+    #aoatitle {
+        margin: 10px 0px 5px;
+    }
+
+    .pfstext {
+        max-width: 100vw;
+        margin: 0px;
+        font-size: 22px;
+    }
+
+    .textbox div {
+        width: 90vw;
+    }
+
+    .pfstext p {
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        padding: 4px 4px;
+    }
+
+    .pfstext img {
+        max-width: 90vw;
+    }
+
+    .pfstext h1 {
+        font-size: 1.5em;
+    }
+
+    #bubble1 {
+        display: none;
+    }
+
+    #bubble2 {
+        display: block;
+    }
+
+    .bubblebox {
+        margin-top: -40px !important;
+        max-width: 340px !important;
+    }
+}
