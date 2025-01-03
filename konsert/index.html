@@ -19,13 +19,13 @@
 
     <link rel="stylesheet" href="styles.css">
 
-
+    EAAS1lq0z7ycBO4RVHvbHYisFND5BkFcUcll1wSHsPLe1b8zGUylkzpZAZAD1GcZB33hfZC8wJLRbOTlpSwLDtMKiDIZCZCqvsWR11YhMYQsnZCS2Ukf0zmMhAOmPgE1XuoLMt81AbBRuKNmE0uqjm1dNJ4hZCXKYzXGCRpVFtrC9M37mc4qRPIlbLMDENufLbyHlSgZDZD
     <!-- Meta Pixel Code -->
     <script>
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
             n.queue = []; t = b.createElement(e); t.async = !0;
@@ -300,7 +300,31 @@
         </div>
     </div>
     <script>
+        // Add this just before the closingtag
+        setTimeout(() => {
+            // Get the fbp cookie value
+            const fbp = document.cookie.split('; ').find(row => row.startsWith('_fbp='))?.split('=')[1];
 
+            // Get the fbc cookie value if it exists
+            const fbc = document.cookie.split('; ').find(row => row.startsWith('_fbc='))?.split('=')[1];
+
+            fetch('https://pianopetter.com/musictracking.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    event_name: 'EngagedVisitor',
+                    event_time: Math.floor(Date.now() / 1000),
+                    user_data: {
+                        client_user_agent: navigator.userAgent,
+                        fbp: fbp || '',
+                        fbc: fbc || '',
+                        page_url: window.location.href
+                    }
+                })
+            });
+        }, 8000);
     </script>
 </body>
 
