@@ -65,14 +65,19 @@
     <ul>
         <li>Started selling 50€ course in FB + IG in june 23.
         </li>
-        <li>One simple video ad (changed hardly anything for 1.5 years)</li>
+        <li>One simple video ad (changed hardly anything for 1.5 years..)</li>
         <li>Estimated Meta audience size varying between 4-10 million depending on placement</li>
-        <li>Added a retargeting video in oct 23</li>
-        <li>No BF sale in Nov 23 (sales went down)</li>
-        <li>Tried country specific ad sets in march-april 24 – bad idea </li>
-        <li>Made a BF offer Nov 24 (40% off)</li>
-        <li>Dec 24: Stopped ads cause I wanna rethink my offer (sell the full course for $137 and the first part for
-            $29). <br>Also released a second course. Dec 24 sales are all from this course to existing customers</li>
+        <li>Oct 2023: Added a retargeting video </li>
+        <li>Nov 2023: No BF sale in (sales went down)</li>
+        <li>March 2024: Added a freebie + email sign up to the same landing page the course was selling at</li>
+        <li>March-april 2024: Tried country specific ad sets – probably bad idea </li>
+        <li>Nov 2024: Made a BF offer (40% off)</li>
+        <li>Dec 2024: Stopped ads for 2 weeks to rethink my offer – sell the first module of the course for $29 and the
+            remaining 6 modules as an upsell for $98.
+            <br>Also released a second course (not part of this data).
+        </li>
+        <li>January 2025: includes the initial $29 sales. In addition I made 3 x $98 upsells to full course (+ a handful
+            "upsells" to the second course. Quotations because it's a slightly different target audience..</li>
         <br>
         <div class="card">
             <h2>Revenue vs Ad Spend</h2>
@@ -116,7 +121,8 @@
                 { month: "2024-09", adSpend: 2383.76, sales: 3416.05, roi: 1.43 },
                 { month: "2024-10", adSpend: 2407.08, sales: 3176.72, roi: 1.32 },
                 { month: "2024-11", adSpend: 2508.50, sales: 4004.64, roi: 1.60 },
-                { month: "2024-12", adSpend: 336.39, sales: 1178.81, roi: 3.50 }
+                { month: "2024-12", adSpend: 1030, sales: 1682, roi: 1.63 },
+                { month: "2025-01", adSpend: 1075, sales: 1914, roi: 1.78 }
             ];
 
             // Revenue Chart
@@ -188,7 +194,8 @@
             // Create data arrays for each year
             const years = {
                 2023: Array(12).fill(null),
-                2024: Array(12).fill(null)
+                2024: Array(12).fill(null),
+                2025: Array(12).fill(null)
             };
 
             data.forEach(d => {
@@ -224,7 +231,7 @@
                 table.appendChild(roiRow);
 
                 // Add spacing row except for last year
-                if (year !== '2024') {
+                if (year !== '2025') {
                     const spacerRow = document.createElement('tr');
                     spacerRow.innerHTML = '<td colspan="13" style="border: none; height: 20px;"></td>';
                     table.appendChild(spacerRow);
