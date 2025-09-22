@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <title>Tuberkolosen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'arial', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('/images/anslag.webp');
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .music-player {
+            background: rgba(0, 0, 0, 0);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .player-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .ep-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ae0003;
+            margin-bottom: 5px;
+        }
+
+        .artist-name {
+            font-size: 1.1rem;
+            color: #efefef;
+            margin-bottom: 20px;
+        }
+
+        .current-track {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ededed;
+            margin-bottom: 10px;
+        }
+
+        .audio-controls {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .controls-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .control-btn {
+            background: linear-gradient(135deg, #fade0d 0%, #fcff37 100%);
+            border: none;
+            color: rgb(38, 38, 38);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .control-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(199, 200, 208, 0.4);
+        }
+
+        .control-btn.play-pause {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+        }
+
+        .progress-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .time {
+            font-size: 0.9rem;
+            color: #f2f2f2;
+            min-width: 35px;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 6px;
+            background: #f6f3f3;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #eadf66 0%, #ce4523 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .volume-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .volume-slider {
+            width: 100px;
+            height: 6px;
+            background: #fafafa;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .playlist {
+            margin-top: 30px;
+        }
+
+        .playlist-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .track-list {
+            list-style: none;
+        }
+
+        .track-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            margin-bottom: 8px;
+            background: rgba(245, 240, 240, 0.436);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .track-item:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateX(5px);
+        }
+
+        .track-item.active {
+            background: linear-gradient(135deg, #eadf66 0%, #fff27d 100%);
+            color: rgb(23, 23, 23);
+        }
+
+        .track-number {
+            font-weight: 500;
+            margin-right: 15px;
+            margin-left: 15px;
+            width: 20px;
+        }
+
+        .track-name {
+            flex: 1;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="music-player">
+        <div class="player-header">
+            <h1 class="ep-title"> <i>Tuberkolosen</i></h1>
+        </div>
+
+        <audio id="audioPlayer" class="audio-controls"></audio>
+
+        <div class="controls-row">
+            <button class="control-btn" id="prevBtn">⏮</button>
+            <button class="control-btn play-pause" id="playPauseBtn">▶</button>
+            <button class="control-btn" id="nextBtn">⏭</button>
+        </div>
+
+        <div class="progress-container">
+            <span class="time" id="currentTime">0:00</span>
+            <div class="progress-bar" id="progressBar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span class="time" id="totalTime">0:00</span>
+        </div>
+
+
+        <div class="playlist">
+            <ul class="track-list" id="trackList">
+                <!-- Tracks will be populated by JavaScript -->
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        // 🎵 ADD YOUR AUDIO FILES HERE 🎵
+        // Replace these with your actual audio file names
+        const tracks = [
+            { name: "Ventilationstrumma", file: "Ventilationstrumma.mp3" },
+            { name: "Heal", file: "Heal.mp3" },
+            { name: "Tuberkolosen", file: "Tuberkolosen.mp3" },
+            { name: "Låsa in mig", file: "Låsainmig.mp3" },
+            { name: "Home to my babies", file: "Hometomybabies.mp3" }
+        ];
+
+        // Player elements
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const trackList = document.getElementById('trackList');
+        const progressBar = document.getElementById('progressBar');
+        const progressFill = document.getElementById('progressFill');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const totalTimeDisplay = document.getElementById('totalTime');
+
+        let currentTrackIndex = 0;
+        let isPlaying = false;
+
+        // Initialize playlist
+        function initializePlaylist() {
+            trackList.innerHTML = '';
+            tracks.forEach((track, index) => {
+                const li = document.createElement('li');
+                li.className = 'track-item';
+                li.innerHTML = `
+                    <span class="track-number">${index + 1}.</span>
+                    <span class="track-name">${track.name}</span>
+                `;
+                li.addEventListener('click', () => playTrack(index));
+                trackList.appendChild(li);
+            });
+        }
+
+        // Load and play track
+        function playTrack(index) {
+            currentTrackIndex = index;
+            audioPlayer.src = tracks[index].file;
+
+            // Update active track styling
+            document.querySelectorAll('.track-item').forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+
+            audioPlayer.load();
+
+            // Auto-play when track loads
+            audioPlayer.addEventListener('loadeddata', () => {
+                if (audioPlayer.readyState >= 2) {
+                    audioPlayer.play();
+                    isPlaying = true;
+                    playPauseBtn.textContent = '⏸';
+                }
+            }, { once: true });
+        }
+
+        // Play/Pause functionality
+        function togglePlayPause() {
+            if (audioPlayer.src === '') {
+                playTrack(0);
+                return;
+            }
+
+            if (isPlaying) {
+                audioPlayer.pause();
+                playPauseBtn.textContent = '▶';
+                isPlaying = false;
+            } else {
+                audioPlayer.play();
+                playPauseBtn.textContent = '⏸';
+                isPlaying = true;
+            }
+        }
+
+        // Previous track
+        function previousTrack() {
+            const prevIndex = currentTrackIndex > 0 ? currentTrackIndex - 1 : tracks.length - 1;
+            playTrack(prevIndex);
+        }
+
+        // Next track
+        function nextTrack() {
+            const nextIndex = currentTrackIndex < tracks.length - 1 ? currentTrackIndex + 1 : 0;
+            playTrack(nextIndex);
+        }
+
+        // Format time
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Update progress
+        function updateProgress() {
+            if (audioPlayer.duration) {
+                const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+                progressFill.style.width = progress + '%';
+                currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
+                totalTimeDisplay.textContent = formatTime(audioPlayer.duration);
+            }
+        }
+
+        // Seek functionality
+        progressBar.addEventListener('click', (e) => {
+            if (audioPlayer.duration) {
+                const rect = progressBar.getBoundingClientRect();
+                const percent = (e.clientX - rect.left) / rect.width;
+                audioPlayer.currentTime = percent * audioPlayer.duration;
+            }
+        });
+
+
+        // Event listeners
+        playPauseBtn.addEventListener('click', togglePlayPause);
+        prevBtn.addEventListener('click', previousTrack);
+        nextBtn.addEventListener('click', nextTrack);
+
+        audioPlayer.addEventListener('timeupdate', updateProgress);
+        audioPlayer.addEventListener('ended', nextTrack); // Auto-advance to next track
+
+        audioPlayer.addEventListener('loadedmetadata', () => {
+            totalTimeDisplay.textContent = formatTime(audioPlayer.duration);
+        });
+
+        // Initialize
+        initializePlaylist();
+        audioPlayer.volume = 0.7; // Set initial volume to 70%
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            switch (e.code) {
+                case 'Space':
+                    e.preventDefault();
+                    togglePlayPause();
+                    break;
+                case 'ArrowLeft':
+                    previousTrack();
+                    break;
+                case 'ArrowRight':
+                    nextTrack();
+                    break;
+            }
+        });
+    </script>
+</body>
+
+</html>
