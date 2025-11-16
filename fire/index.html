@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <title>Fire - Petter Rylén</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Josefin Sans', 'arial', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('/images/fire.webp');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(
+                0deg,
+                rgba(255, 100, 0, 0.35) 0%,
+                transparent 40%,
+                rgba(255, 150, 0, 0.3) 100%
+            );
+            animation: flicker 7s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes flicker {
+            0%, 100% {
+                opacity: 1;
+                transform: translateY(0px) scaleY(1);
+            }
+            20% {
+                opacity: 0.8;
+                transform: translateY(-6px) scaleY(1.012);
+            }
+            40% {
+                opacity: 0.95;
+                transform: translateY(4px) scaleY(0.988);
+            }
+            60% {
+                opacity: 0.7;
+                transform: translateY(-4px) scaleY(1.01);
+            }
+            80% {
+                opacity: 0.85;
+                transform: translateY(5px) scaleY(0.992);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-size: auto 100%;
+                background-position: center;
+            }
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .music-player {
+            background: transparent;
+            padding: 50px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .music-player {
+                padding: 15px 10px;
+            }
+        }
+
+        .player-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .song-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #d9d9d9;
+            margin-bottom: 5px;
+            font-style: normal;
+        }
+
+        .artist-name {
+            font-size: 1.1rem;
+            color: #efefef;
+            margin-bottom: 20px;
+        }
+
+        .audio-controls {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .controls-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .control-btn {
+            background: rgb(27, 41, 24);
+            border: none;
+            color: #efefef;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            padding-top: 2px;
+        }
+
+        .control-btn:hover {
+            opacity: 0.8;
+        }
+
+        .progress-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .time {
+            font-size: 0.9rem;
+            color: #f2f2f2;
+            min-width: 35px;
+            position: relative;
+            top: 1px;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 6px;
+            background: #f6f3f3;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #eadf66 0%, #ce4523 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .lyrics-section {
+            background: transparent;
+            padding: 40px 50px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .lyrics-section {
+                padding: 15px 5px;
+            }
+        }
+
+        .lyrics-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ae0003;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .lyrics {
+            color: #efefef;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .lyrics p {
+            margin-bottom: 0;
+        }
+
+        .lyrics p span {
+            background-color: rgb(27, 41, 24);
+            padding: 2px 8px;
+            display: inline;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+            line-height: 2;
+        }
+
+        .lyrics br {
+            display: block;
+            content: "";
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="music-player">
+            <div class="player-header">
+                <h1 class="song-title">Fire</h1>
+            </div>
+
+            <audio id="audioPlayer" class="audio-controls"></audio>
+
+            <div class="controls-row">
+                <button class="control-btn" id="playPauseBtn">▶</button>
+            </div>
+
+            <div class="progress-container">
+                <span class="time" id="currentTime">0:00</span>
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <span class="time" id="totalTime">0:00</span>
+            </div>
+        </div>
+
+        <div class="lyrics-section">
+            <div class="lyrics">
+                <p><span>I turn into smoke when&nbsp;you're&nbsp;around</span></p>
+                <p><span>You're burning me as firewood one&nbsp;by&nbsp;one</span></p>
+                <p><span>I'm stuck in&nbsp;your&nbsp;glow</span></p>
+                <p><span>stuck with my hands on&nbsp;the&nbsp;stove</span></p>
+                <br>
+                <p><span>Your face is like&nbsp;a&nbsp;sun</span></p>
+                <p><span>I can stare at you&nbsp;for&nbsp;hours</span></p>
+                <p><span>There's nowhere I&nbsp;can&nbsp;hide</span></p>
+                <p><span>Oh I like to&nbsp;get&nbsp;stung</span></p>
+                <p><span>I wish I knew how to make my&nbsp;own&nbsp;fire</span></p>
+                <br>
+                <p><span>Day by day&nbsp;you&nbsp;diminish</span></p>
+                <p><span>We need&nbsp;more&nbsp;firewood</span></p>
+                <p><span>When there are no&nbsp;more&nbsp;secrets</span></p>
+                <p><span>I'll&nbsp;be&nbsp;gone</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Player elements
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressFill = document.getElementById('progressFill');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const totalTimeDisplay = document.getElementById('totalTime');
+
+        let isPlaying = false;
+
+        // Set audio source
+        audioPlayer.src = '../firetake3.mp3';
+
+        // Play/Pause functionality
+        function togglePlayPause() {
+            if (isPlaying) {
+                audioPlayer.pause();
+                playPauseBtn.textContent = '▶';
+                isPlaying = false;
+            } else {
+                audioPlayer.play();
+                playPauseBtn.textContent = '⏸';
+                isPlaying = true;
+            }
+        }
+
+        // Format time
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Update progress
+        function updateProgress() {
+            if (audioPlayer.duration) {
+                const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+                progressFill.style.width = progress + '%';
+                currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
+                totalTimeDisplay.textContent = formatTime(audioPlayer.duration);
+            }
+        }
+
+        // Seek functionality
+        progressBar.addEventListener('click', (e) => {
+            if (audioPlayer.duration) {
+                const rect = progressBar.getBoundingClientRect();
+                const percent = (e.clientX - rect.left) / rect.width;
+                audioPlayer.currentTime = percent * audioPlayer.duration;
+            }
+        });
+
+        // Event listeners
+        playPauseBtn.addEventListener('click', togglePlayPause);
+        audioPlayer.addEventListener('timeupdate', updateProgress);
+        audioPlayer.addEventListener('loadedmetadata', () => {
+            totalTimeDisplay.textContent = formatTime(audioPlayer.duration);
+        });
+
+        // Reset to beginning when song ends
+        audioPlayer.addEventListener('ended', () => {
+            isPlaying = false;
+            playPauseBtn.textContent = '▶';
+            audioPlayer.currentTime = 0;
+        });
+
+        // Initialize
+        audioPlayer.volume = 0.7; // Set initial volume to 70%
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                togglePlayPause();
+            }
+        });
+    </script>
+</body>
+
+</html>
