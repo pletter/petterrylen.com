@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventilationstrumma</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background: #0a0a0a;
+            color: #e5e5e5;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .language-toggle {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: #fff;
+            border: 1px solid #fff;
+            color: #0a0a0a;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 100;
+        }
+
+        .language-toggle:hover {
+            background: #f5f5f5;
+            border-color: #f5f5f5;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            gap: 3rem;
+        }
+
+        /* Video Section */
+        .video-section {
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #111;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        video {
+            display: block;
+            max-height: 85vh;
+            width: auto;
+            max-width: 100%;
+        }
+
+        .song-title {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #888;
+            text-align: center;
+        }
+
+        /* Lyrics Section */
+        .lyrics-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+            max-height: 90vh;
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE/Edge */
+        }
+
+        .lyrics-section::-webkit-scrollbar {
+            display: none;
+            /* Chrome/Safari/Opera */
+        }
+
+        .lyrics-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .lyric-line {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #555;
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            padding: 0.3rem 0;
+        }
+
+        .lyric-line.active {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .lyric-line.passed {
+            color: #666;
+        }
+
+        .lyric-line.upcoming {
+            color: #444;
+        }
+
+        .lyric-line.empty {
+            height: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                padding: 1rem;
+                padding-top: 6rem;
+                gap: 2rem;
+            }
+
+            .video-section {
+                width: 100%;
+            }
+
+            video {
+                max-height: 50vh;
+                width: 100%;
+                object-fit: contain;
+            }
+
+            .lyrics-section {
+                max-height: 40vh;
+                padding: 1rem 0;
+                overflow-y: auto;
+                overflow-x: hidden;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                align-items: center;
+            }
+
+            .lyrics-section::-webkit-scrollbar {
+                display: none;
+            }
+
+            .lyrics-container {
+                text-align: center;
+            }
+
+            .lyric-line {
+                font-size: 1rem;
+            }
+
+            .lyric-line.active {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="language-toggle" id="languageToggle">English</button>
+    <div class="container">
+        <div class="video-section">
+            <div class="video-wrapper">
+                <video id="video" controls>
+                    <source src="ventilationstrumma.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="lyrics-section">
+            <div class="lyrics-container" id="lyricsContainer">
+                <!-- Lyrics will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Your synced lyrics data
+        const lyricsData = [
+            { "time": 1.61, "sv": "I en ventilationstrumma,", "en": "In a ventilation drum," },
+            { "time": 9.38, "sv": "det blåser konstant kall blöt vind,", "en": "there's constantly cold wet wind blowing," },
+            { "time": 16.94, "sv": "mina bena är nakna,", "en": "my legs are naked," },
+            { "time": 21.36, "sv": "Har inga långkalsonger här,", "en": "I have no thermal underwear here," },
+            { "time": 26.21, "sv": "Jag har bara huden kvar,", "en": "I only have my skin left," },
+            { "time": 30.75, "sv": "jag sitter ensam,", "en": "I sit alone," },
+            { "time": 35.57, "sv": "har gömt mig hela helgen,", "en": "have been hiding all weekend," },
+            { "time": 43.31, "sv": "jag har en konstig känsla i bröstet,", "en": "I have a strange feeling in my chest," },
+            { "time": 48.16, "sv": "Är det en riktig värld", "en": "Is it a real world" },
+            { "time": 53.27, "sv": "", "en": "" },
+            { "time": 54.51, "sv": "jag önskar jag hade varma sockar,", "en": "I wish I had warm socks," },
+            { "time": 58.09, "sv": "jag önskar jag hade godis,", "en": "I wish I had candy," },
+            { "time": 62.63, "sv": "jag önskar det fanns ett hav,", "en": "I wish there was an ocean," },
+            { "time": 68.11, "sv": "jag önskar det fanns ännu mer tid,", "en": "I wish there was even more time," },
+            { "time": 73.40, "sv": "tid att vara själv,", "en": "time to be alone," },
+            { "time": 76.86, "sv": "tid att läsa min bok,", "en": "time to read my book," },
+            { "time": 80.07, "sv": "Tid att gå promenader", "en": "Time to go for walks" },
+            { "time": 83.84, "sv": "tid att sitta still,", "en": "time to sit still," },
+            { "time": 87.18, "sv": "tid att skriva dagbok,", "en": "time to write in my diary," },
+            { "time": 91.46, "sv": "till att känna efter", "en": "to feel around" },
+            { "time": 94.44, "sv": "vad jag vill göra med min levnadstid,", "en": "what I want to do with my lifetime," },
+            { "time": 103.58, "sv": "", "en": "" },
+            { "time": 109.68, "sv": "Väger 82.9 kilogram,", "en": "Weigh 82.9 kilograms," },
+            { "time": 116.22, "sv": "Vill skicka efter fler mackor,", "en": "Want to order more sandwiches," },
+            { "time": 124.24, "sv": "vill du ha ljusa eller mörka", "en": "do you want light or dark bread" },
+            { "time": 130.53, "sv": "skulle säga en av varje", "en": "I'd say one of each" },
+            { "time": 139.71, "sv": "jag skulle kunna gå ner två kilo tills på tisdag", "en": "I could lose two kilos by Tuesday" },
+            { "time": 157.24, "sv": "alla säger jag inte är tjock,", "en": "everyone says I'm not fat," },
+            { "time": 160.24, "sv": "men jag tycker jag är tjockare än jag behöver,", "en": "but I think I'm fatter than I need to be," },
+            { "time": 166.53, "sv": "kan det få vara ok", "en": "can that be okay" },
+            { "time": 170.09, "sv": "", "en": "" },
+            { "time": 170.94, "sv": "", "en": "" },
+            { "time": 173.84, "sv": "jag önskar jag hade varma sockar,", "en": "I wish I had warm socks," },
+            { "time": 179.47, "sv": "jag önskar jag hade godis,", "en": "I wish I had candy," },
+            { "time": 191.48, "sv": "jag önskar det fanns ett hav,", "en": "I wish there was an ocean," },
+            { "time": 192.76, "sv": "jag önskar att jag hade mer tid", "en": "I wish I had more time" },
+            { "time": 193.95, "sv": "tid att bli varm,", "en": "time to get warm," },
+            { "time": 194.80, "sv": "tid att skriva musik,", "en": "time to write music," },
+            { "time": 195.78, "sv": "tid att bli rik,", "en": "time to get rich," },
+            { "time": 196.67, "sv": "tid att vara pappa,", "en": "time to be a dad," },
+            { "time": 197.37, "sv": "tid att få existera,", "en": "time to exist," },
+            { "time": 198.00, "sv": "tid att sova,", "en": "time to sleep," },
+            { "time": 198.62, "sv": "att sakta ner,", "en": "to slow down," },
+            { "time": 199.12, "sv": "Tid att jobba hårdare", "en": "Time to work harder" },
+            { "time": 203.08, "sv": "Tid att springa så fort jag kan genom korridoren", "en": "Time to run as fast as I can through the corridor" }
+        ];
+
+        const video = document.getElementById('video');
+        const lyricsSection = document.querySelector('.lyrics-section');
+        const lyricsContainer = document.getElementById('lyricsContainer');
+        const languageToggle = document.getElementById('languageToggle');
+        let lyricElements = [];
+        let userIsScrolling = false;
+        let scrollTimeout;
+        let currentLanguage = 'sv';
+
+        // Language toggle
+        languageToggle.addEventListener('click', () => {
+            currentLanguage = currentLanguage === 'sv' ? 'en' : 'sv';
+            languageToggle.classList.toggle('active');
+            languageToggle.textContent = currentLanguage === 'sv' ? 'English' : 'Svenska';
+            renderLyrics();
+        });
+
+        // Detect user scrolling
+        lyricsSection.addEventListener('scroll', () => {
+            userIsScrolling = true;
+            clearTimeout(scrollTimeout);
+
+            // Resume auto-scroll after 3 seconds of no scrolling
+            scrollTimeout = setTimeout(() => {
+                userIsScrolling = false;
+            }, 3000);
+        });
+
+        // Render all lyrics
+        function renderLyrics() {
+            lyricsContainer.innerHTML = '';
+            lyricElements = [];
+
+            lyricsData.forEach((line, index) => {
+                const el = document.createElement('div');
+                const text = line[currentLanguage];
+                el.className = 'lyric-line' + (text === '' ? ' empty' : '');
+                el.textContent = text;
+                el.dataset.index = index;
+
+                // Click to seek
+                el.addEventListener('click', () => {
+                    video.currentTime = line.time;
+                });
+                el.style.cursor = 'pointer';
+
+                lyricsContainer.appendChild(el);
+                lyricElements.push(el);
+            });
+        }
+
+        // Update active lyric based on current time
+        function updateActiveLyric() {
+            const currentTime = video.currentTime;
+            let activeIndex = -1;
+
+            // Find current line
+            for (let i = lyricsData.length - 1; i >= 0; i--) {
+                if (currentTime >= lyricsData[i].time) {
+                    activeIndex = i;
+                    break;
+                }
+            }
+
+            // Update classes
+            lyricElements.forEach((el, index) => {
+                el.classList.remove('active', 'passed', 'upcoming');
+
+                if (index === activeIndex) {
+                    el.classList.add('active');
+                } else if (index < activeIndex) {
+                    el.classList.add('passed');
+                } else {
+                    el.classList.add('upcoming');
+                }
+            });
+
+            // Scroll active line into view only if user is not manually scrolling
+            if (!userIsScrolling && activeIndex >= 0 && lyricElements[activeIndex]) {
+                lyricElements[activeIndex].scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+        }
+
+        // Initialize
+        renderLyrics();
+
+        // Update on time change
+        video.addEventListener('timeupdate', updateActiveLyric);
+        video.addEventListener('seeked', updateActiveLyric);
+    </script>
+</body>
+
+</html>
