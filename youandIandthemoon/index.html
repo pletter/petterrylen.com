@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You and I and the Moon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            background: #07080f;
+            color: #e5e5e5;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Grain overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            background-size: 180px 180px;
+            opacity: 0.045;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Slowly drifting moon glow */
+        body::after {
+            content: '';
+            position: fixed;
+            top: -30vh;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70vw;
+            height: 70vw;
+            max-width: 700px;
+            max-height: 700px;
+            background: radial-gradient(circle, rgba(200, 210, 255, 0.12) 0%, rgba(100, 120, 200, 0.06) 40%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            animation: moonDrift 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes moonDrift {
+            0% {
+                transform: translateX(-50%) translateY(0);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateX(-50%) translateY(6vh);
+                opacity: 1;
+            }
+        }
+
+        /* Stars */
+        .stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle var(--dur, 4s) ease-in-out infinite alternate;
+            animation-delay: var(--delay, 0s);
+            opacity: var(--base-opacity, 0.4);
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: var(--base-opacity, 0.4);
+                transform: scale(1);
+            }
+
+            100% {
+                opacity: 0.05;
+                transform: scale(0.6);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        /* Player */
+        .player {
+            width: 100%;
+            max-width: 420px;
+            margin-bottom: 3rem;
+        }
+
+        .controls-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 14px;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #e5e5e5;
+            width: 54px;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.3rem;
+            border-radius: 50%;
+            padding-top: 2px;
+            backdrop-filter: blur(6px);
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.13);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .progress-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .time {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.4);
+            min-width: 32px;
+            letter-spacing: 0.05em;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.12);
+            cursor: pointer;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: rgba(200, 215, 255, 0.6);
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        /* Lyrics */
+        .lyrics-container {
+            width: 100%;
+            max-width: 560px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .lyric-line {
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.2);
+            line-height: 1.5;
+            text-align: center;
+            transition: all 0.35s ease;
+            padding: 0.2rem 0;
+            cursor: pointer;
+            letter-spacing: 0.03em;
+        }
+
+        .lyric-line.active {
+            color: #fff;
+        }
+
+        .lyric-line.passed {
+            color: rgba(255, 255, 255, 0.28);
+        }
+
+        .lyric-line.upcoming {
+            color: rgba(255, 255, 255, 0.18);
+        }
+
+        .lyric-line.empty {
+            height: 1.2rem;
+        }
+
+        @media (max-width: 600px) {
+            .lyric-line {
+                font-size: 1.15rem;
+            }
+
+            .player {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stars" id="stars"></div>
+
+    <div class="container">
+        <div class="player">
+            <audio id="audioPlayer"></audio>
+
+            <div class="controls-row">
+                <button class="control-btn" id="playPauseBtn">▶</button>
+            </div>
+
+            <div class="progress-container">
+                <span class="time" id="currentTime">0:00</span>
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <span class="time" id="totalTime">0:00</span>
+            </div>
+        </div>
+
+        <div class="lyrics-container" id="lyricsContainer"></div>
+    </div>
+
+    <script>
+        // Stars
+        const starsEl = document.getElementById('stars');
+        const starColors = [
+            '#ff6600',
+            '#00ff88',
+            '#ff00aa',
+            '#00ccff',
+            '#ffee00',
+            '#cc00ff',
+            '#ff2222',
+            '#ffffff',
+        ];
+        for (let i = 0; i < 120; i++) {
+            const s = document.createElement('div');
+            s.className = 'star';
+            const size = Math.random() * 3.5 + 1.2;
+            const color = starColors[Math.floor(Math.random() * starColors.length)];
+            s.style.cssText = `
+                width: ${size}px; height: ${size}px;
+                top: ${Math.random() * 100}%;
+                left: ${Math.random() * 100}%;
+                background: ${color};
+                --dur: ${3 + Math.random() * 6}s;
+                --delay: ${Math.random() * 6}s;
+                --base-opacity: ${0.15 + Math.random() * 0.55};
+            `;
+            starsEl.appendChild(s);
+        }
+
+        // Lyrics data
+        const lyricsData = [
+            { time: 2.290899749665612, text: "I sit next to you on the floor" },
+            { time: 7.902239751318245, text: "there's an invisible force" },
+            { time: 12.7227462090149, text: "a love" },
+            { time: 13.935854292343667, text: "a light pull" },
+            { time: 16.102493417329715, text: "between me and you" },
+            { time: 19.85660274964547, text: "as I listen to your tinkering" },
+            { time: 23.786255793014767, text: "and make little noises to show you I'm with you" },
+            { time: 31.52408616766675, text: "" },
+            { time: 40.277341000992806, text: "Suddenly we disappear from each other" },
+            { time: 44.58255758397855, text: "I started thinking about what worries me" },
+            { time: 49.30253437600827, text: "Will you be ok" },
+            { time: 52.852160376024045, text: "am I teaching you ok" },
+            { time: 58.19519683435031, text: "" },
+            { time: 62.77064620900517, text: "Do you feel my love enough" },
+            { time: 67.2904264583437, text: "Am I open to your love" },
+            { time: 97.75267866765199, text: "" },
+            { time: 124.02709233466739, text: "But then you say a word." },
+            { time: 127.23409070833374, text: "You say moon." },
+            { time: 132.57589845832422, text: "I want to rush to repeat" },
+            { time: 137.92279850034842, text: "but I take a moment to take it in." },
+            { time: 141.9021115419947, text: "The moon you said." },
+            { time: 146.04179804266755, text: "The moon." },
+            { time: 152.42324100101953, text: "Oh the moon." },
+            { time: 160.54036291764308, text: "" },
+            { time: 169.4585470843471, text: "I sit next to you on the floor" },
+            { time: 174.6331482933322, text: "there's an invisible force" },
+            { time: 178.66650075002246, text: "a love" },
+            { time: 180.70593120899895, text: "a light pull" },
+            { time: 182.8524145839877, text: "between me and you" },
+            { time: 186.24913200133253, text: "as I listen to your tinkering" },
+            { time: 190.22331837532934, text: "and make little noises to show you I'm with you" }
+        ];
+
+        // Player
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressFill = document.getElementById('progressFill');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const totalTimeDisplay = document.getElementById('totalTime');
+        const lyricsContainer = document.getElementById('lyricsContainer');
+
+        let isPlaying = false;
+        let lyricElements = [];
+        let userIsScrolling = false;
+        let scrollTimeout;
+        let lastActiveIndex = -1;
+
+        audioPlayer.src = 'youandIandthemoon1.1.mp3';
+
+        function togglePlayPause() {
+            if (isPlaying) {
+                audioPlayer.pause();
+                playPauseBtn.textContent = '▶';
+                isPlaying = false;
+            } else {
+                audioPlayer.play();
+                playPauseBtn.textContent = '⏸';
+                isPlaying = true;
+            }
+        }
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function updateProgress() {
+            if (audioPlayer.duration) {
+                const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+                progressFill.style.width = progress + '%';
+                currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
+                totalTimeDisplay.textContent = formatTime(audioPlayer.duration);
+            }
+            updateActiveLyric();
+        }
+
+        progressBar.addEventListener('click', (e) => {
+            if (audioPlayer.duration) {
+                const rect = progressBar.getBoundingClientRect();
+                const percent = (e.clientX - rect.left) / rect.width;
+                lastActiveIndex = -1;
+                audioPlayer.currentTime = percent * audioPlayer.duration;
+            }
+        });
+
+        playPauseBtn.addEventListener('click', togglePlayPause);
+        audioPlayer.addEventListener('timeupdate', updateProgress);
+        audioPlayer.addEventListener('loadedmetadata', () => {
+            totalTimeDisplay.textContent = formatTime(audioPlayer.duration);
+        });
+        audioPlayer.addEventListener('ended', () => {
+            isPlaying = false;
+            playPauseBtn.textContent = '▶';
+            audioPlayer.currentTime = 0;
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                togglePlayPause();
+            }
+        });
+
+        // Detect user scrolling
+        window.addEventListener('scroll', () => {
+            userIsScrolling = true;
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => { userIsScrolling = false; }, 3000);
+        });
+
+        // Render lyrics
+        lyricsData.forEach((line, index) => {
+            const el = document.createElement('div');
+            el.className = 'lyric-line' + (line.text === '' ? ' empty' : '');
+            el.textContent = line.text;
+            el.addEventListener('click', () => { audioPlayer.currentTime = line.time; });
+            lyricsContainer.appendChild(el);
+            lyricElements.push(el);
+        });
+
+        function updateActiveLyric() {
+            const currentTime = audioPlayer.currentTime;
+            let activeIndex = -1;
+
+            for (let i = lyricsData.length - 1; i >= 0; i--) {
+                if (currentTime >= lyricsData[i].time) {
+                    activeIndex = i;
+                    break;
+                }
+            }
+
+            if (activeIndex === lastActiveIndex) return;
+            lastActiveIndex = activeIndex;
+
+            lyricElements.forEach((el, index) => {
+                el.classList.remove('active', 'passed', 'upcoming');
+                if (index === activeIndex) el.classList.add('active');
+                else if (index < activeIndex) el.classList.add('passed');
+                else el.classList.add('upcoming');
+            });
+
+            if (!userIsScrolling && activeIndex >= 0 && lyricElements[activeIndex]) {
+                lyricElements[activeIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    </script>
+</body>
+
+</html>

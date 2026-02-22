@@ -35,12 +35,10 @@
             left: -10px;
             right: -10px;
             bottom: -10px;
-            background: linear-gradient(
-                0deg,
-                rgba(255, 100, 0, 0.35) 0%,
-                transparent 40%,
-                rgba(255, 150, 0, 0.3) 100%
-            );
+            background: linear-gradient(0deg,
+                    rgba(255, 100, 0, 0.35) 0%,
+                    transparent 40%,
+                    rgba(255, 150, 0, 0.3) 100%);
             animation: flicker 7s ease-in-out infinite;
             pointer-events: none;
             z-index: 0;
@@ -52,22 +50,28 @@
         }
 
         @keyframes flicker {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 1;
                 transform: translateY(0px) scaleY(1);
             }
+
             20% {
                 opacity: 0.8;
                 transform: translateY(-6px) scaleY(1.012);
             }
+
             40% {
                 opacity: 0.95;
                 transform: translateY(4px) scaleY(0.988);
             }
+
             60% {
                 opacity: 0.7;
                 transform: translateY(-4px) scaleY(1.01);
             }
+
             80% {
                 opacity: 0.85;
                 transform: translateY(5px) scaleY(0.992);

@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyrics Sync Studio</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0b;
+            --bg-panel: #141416;
+            --bg-elevated: #1c1c1f;
+            --accent-primary: #ff6b35;
+            --accent-secondary: #ffb347;
+            --accent-glow: rgba(255, 107, 53, 0.3);
+            --text-primary: #f5f5f5;
+            --text-muted: #888;
+            --text-dim: #555;
+            --border-subtle: #2a2a2e;
+            --success: #4ade80;
+            --warning: #fbbf24;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Subtle background texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(ellipse at 20% 0%, rgba(255, 107, 53, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(255, 179, 71, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-weight: 300;
+            font-size: 1.1rem;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 1.5rem;
+            animation: slideUp 0.5s ease-out both;
+        }
+
+        .panel:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .panel-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .panel-icon.audio {
+            background: linear-gradient(135deg, #ff6b35, #ff8f5a);
+        }
+
+        .panel-icon.lyrics {
+            background: linear-gradient(135deg, #ffb347, #ffd07a);
+        }
+
+        .panel-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* Audio Upload */
+        .upload-zone {
+            border: 2px dashed var(--border-subtle);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--bg-elevated);
+        }
+
+        .upload-zone:hover {
+            border-color: var(--accent-primary);
+            background: rgba(255, 107, 53, 0.05);
+        }
+
+        .upload-zone.has-file {
+            border-color: var(--success);
+            border-style: solid;
+        }
+
+        .upload-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .upload-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .file-name {
+            color: var(--success);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            word-break: break-all;
+        }
+
+        #audioFile {
+            display: none;
+        }
+
+        /* Audio Player */
+        .player-section {
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .player-section.visible {
+            display: block;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .waveform-placeholder {
+            height: 60px;
+            background: linear-gradient(90deg,
+                    var(--bg-elevated) 0%,
+                    rgba(255, 107, 53, 0.1) 50%,
+                    var(--bg-elevated) 100%);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .waveform-bars {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            height: 100%;
+            padding: 10px 0;
+        }
+
+        .waveform-bar {
+            width: 4px;
+            background: var(--accent-primary);
+            border-radius: 2px;
+            opacity: 0.4;
+            transition: opacity 0.2s;
+        }
+
+        .playing .waveform-bar {
+            animation: pulse 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            from {
+                opacity: 0.3;
+            }
+
+            to {
+                opacity: 0.8;
+            }
+        }
+
+        .time-display {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.75rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            letter-spacing: 0.05em;
+        }
+
+        .progress-container {
+            position: relative;
+            height: 8px;
+            background: var(--bg-elevated);
+            border-radius: 4px;
+            margin-bottom: 1.25rem;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 4px;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .control-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: all 0.2s ease;
+        }
+
+        .control-btn.play {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .control-btn.play:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 30px var(--accent-glow);
+        }
+
+        .control-btn.secondary {
+            background: var(--bg-elevated);
+            color: var(--text-muted);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .control-btn.secondary:hover {
+            color: var(--text-primary);
+            border-color: var(--text-muted);
+        }
+
+        /* Lyrics Input */
+        .lyrics-input {
+            width: 100%;
+            height: 300px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1rem;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            resize: vertical;
+            transition: border-color 0.2s;
+        }
+
+        .lyrics-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+        }
+
+        .lyrics-input::placeholder {
+            color: var(--text-dim);
+        }
+
+        /* Sync Section */
+        .sync-section {
+            animation: slideUp 0.5s ease-out 0.2s both;
+        }
+
+        .sync-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .sync-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .sync-instructions {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .instruction-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .instruction-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            width: 24px;
+            height: 24px;
+            background: var(--accent-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .step-text kbd {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            padding: 0.15rem 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent-secondary);
+        }
+
+        /* Mark Button */
+        .mark-btn {
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            box-shadow: 0 4px 20px var(--accent-glow);
+            margin-bottom: 1.5rem;
+        }
+
+        .mark-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+
+        .mark-btn:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .mark-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .mark-btn .key-hint {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        /* Timed Lyrics Display */
+        .timed-lyrics {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .timed-lyrics::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .timed-lyrics::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .timed-lyrics::-webkit-scrollbar-thumb {
+            background: var(--border-subtle);
+            border-radius: 3px;
+        }
+
+        .timed-line {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+            gap: 1rem;
+            transition: background 0.2s;
+        }
+
+        .timed-line:last-child {
+            border-bottom: none;
+        }
+
+        .timed-line.current {
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        .timed-line.pending {
+            opacity: 0.4;
+        }
+
+        .timed-line.completed {
+            opacity: 1;
+        }
+
+        .line-time {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-primary);
+            min-width: 70px;
+        }
+
+        .line-time.empty {
+            color: var(--text-dim);
+        }
+
+        .line-text {
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .line-actions {
+            display: flex;
+            gap: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .timed-line:hover .line-actions {
+            opacity: 1;
+        }
+
+        .line-action-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-elevated);
+            color: var(--text-muted);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            transition: all 0.2s;
+        }
+
+        .line-action-btn:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .line-action-btn.delete:hover {
+            border-color: #ef4444;
+            color: #ef4444;
+        }
+
+        /* Export Section */
+        .export-section {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .export-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 1rem 1.5rem;
+            background: var(--bg-panel);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .export-btn:hover {
+            border-color: var(--accent-primary);
+            background: rgba(255, 107, 53, 0.05);
+        }
+
+        .export-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Status Messages */
+        .status-bar {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--bg-panel);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .status-bar.visible {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .status-bar.success {
+            border-color: var(--success);
+        }
+
+        .status-icon {
+            font-size: 1.25rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-dim);
+        }
+
+        .empty-state-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Lyrics Sync Studio</h1>
+            <p class="subtitle">Create perfectly timed lyrics for your music</p>
+        </header>
+
+        <div class="main-grid">
+            <!-- Audio Panel -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-icon audio">🎵</div>
+                    <h2 class="panel-title">Audio Track</h2>
+                </div>
+
+                <label class="upload-zone" id="uploadZone">
+                    <input type="file" id="audioFile" accept="audio/*">
+                    <div class="upload-icon">📁</div>
+                    <div class="upload-text">Drop audio file or click to browse</div>
+                    <div class="file-name" id="fileName"></div>
+                </label>
+
+                <div class="player-section" id="playerSection">
+                    <div class="waveform-placeholder" id="waveform">
+                        <div class="waveform-bars" id="waveformBars"></div>
+                    </div>
+
+                    <div class="time-display">
+                        <span id="currentTime">0:00.000</span>
+                    </div>
+
+                    <div class="progress-container" id="progressContainer">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+
+                    <div class="player-controls">
+                        <button class="control-btn secondary" id="rewindBtn" title="Rewind 5s">⏪</button>
+                        <button class="control-btn play" id="playPauseBtn">▶</button>
+                        <button class="control-btn secondary" id="forwardBtn" title="Forward 5s">⏩</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lyrics Panel -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-icon lyrics">📝</div>
+                    <h2 class="panel-title">Lyrics</h2>
+                </div>
+
+                <textarea class="lyrics-input" id="lyricsInput" placeholder="Paste your lyrics here...
+
+Each line will become a separate timed entry.
+Empty lines will be preserved as breaks."></textarea>
+            </div>
+        </div>
+
+        <!-- Sync Section -->
+        <div class="panel sync-section">
+            <div class="sync-header">
+                <h2 class="sync-title">Sync Your Lyrics</h2>
+            </div>
+
+            <div class="sync-instructions">
+                <div class="instruction-step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Load your audio file and paste lyrics above</div>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Press play and hit <kbd>Space</kbd> or click the button below when each line
+                        starts</div>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">The tool will automatically move to the next line after marking</div>
+                </div>
+            </div>
+
+            <button class="mark-btn" id="markBtn" disabled>
+                <span>Mark Line Timestamp</span>
+                <span class="key-hint">Space</span>
+            </button>
+
+            <div class="timed-lyrics" id="timedLyrics">
+                <div class="empty-state">
+                    <div class="empty-state-icon">🎤</div>
+                    <p>Enter lyrics above to start timing</p>
+                </div>
+            </div>
+
+            <div class="export-section">
+                <button class="export-btn" id="exportJson" disabled>
+                    <span>📄</span> Export JSON
+                </button>
+                <button class="export-btn" id="exportLrc" disabled>
+                    <span>🎵</span> Export LRC
+                </button>
+                <button class="export-btn" id="resetBtn" disabled>
+                    <span>🔄</span> Reset Timings
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="status-bar" id="statusBar">
+        <span class="status-icon" id="statusIcon">✓</span>
+        <span id="statusText">Saved!</span>
+    </div>
+
+    <audio id="audioPlayer"></audio>
+
+    <script>
+        // State
+        let audioFile = null;
+        let lyrics = [];
+        let currentLineIndex = 0;
+        let isPlaying = false;
+
+        // Elements
+        const audioPlayer = document.getElementById('audioPlayer');
+        const audioFileInput = document.getElementById('audioFile');
+        const uploadZone = document.getElementById('uploadZone');
+        const fileName = document.getElementById('fileName');
+        const playerSection = document.getElementById('playerSection');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const rewindBtn = document.getElementById('rewindBtn');
+        const forwardBtn = document.getElementById('forwardBtn');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const progressBar = document.getElementById('progressBar');
+        const progressContainer = document.getElementById('progressContainer');
+        const waveform = document.getElementById('waveform');
+        const waveformBars = document.getElementById('waveformBars');
+        const lyricsInput = document.getElementById('lyricsInput');
+        const markBtn = document.getElementById('markBtn');
+        const timedLyrics = document.getElementById('timedLyrics');
+        const exportJson = document.getElementById('exportJson');
+        const exportLrc = document.getElementById('exportLrc');
+        const resetBtn = document.getElementById('resetBtn');
+        const statusBar = document.getElementById('statusBar');
+        const statusIcon = document.getElementById('statusIcon');
+        const statusText = document.getElementById('statusText');
+
+        // Initialize waveform bars
+        function initWaveform() {
+            waveformBars.innerHTML = '';
+            for (let i = 0; i < 50; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'waveform-bar';
+                bar.style.height = `${20 + Math.random() * 60}%`;
+                bar.style.animationDelay = `${Math.random() * 0.5}s`;
+                waveformBars.appendChild(bar);
+            }
+        }
+        initWaveform();
+
+        // Audio file handling
+        audioFileInput.addEventListener('change', handleAudioFile);
+
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.style.borderColor = 'var(--accent-primary)';
+        });
+
+        uploadZone.addEventListener('dragleave', () => {
+            uploadZone.style.borderColor = '';
+        });
+
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.style.borderColor = '';
+            if (e.dataTransfer.files.length) {
+                audioFileInput.files = e.dataTransfer.files;
+                handleAudioFile();
+            }
+        });
+
+        function handleAudioFile() {
+            const file = audioFileInput.files[0];
+            if (file) {
+                audioFile = file;
+                audioPlayer.src = URL.createObjectURL(file);
+                fileName.textContent = file.name;
+                uploadZone.classList.add('has-file');
+                playerSection.classList.add('visible');
+                updateMarkButton();
+            }
+        }
+
+        // Player controls
+        playPauseBtn.addEventListener('click', togglePlayPause);
+
+        rewindBtn.addEventListener('click', () => {
+            audioPlayer.currentTime = Math.max(0, audioPlayer.currentTime - 5);
+        });
+
+        forwardBtn.addEventListener('click', () => {
+            audioPlayer.currentTime = Math.min(audioPlayer.duration, audioPlayer.currentTime + 5);
+        });
+
+        function togglePlayPause() {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                isPlaying = true;
+                playPauseBtn.textContent = '⏸';
+                waveform.classList.add('playing');
+            } else {
+                audioPlayer.pause();
+                isPlaying = false;
+                playPauseBtn.textContent = '▶';
+                waveform.classList.remove('playing');
+            }
+        }
+
+        audioPlayer.addEventListener('timeupdate', () => {
+            const current = audioPlayer.currentTime;
+            const duration = audioPlayer.duration || 1;
+
+            currentTimeDisplay.textContent = formatTime(current, true);
+            progressBar.style.width = `${(current / duration) * 100}%`;
+
+            updateCurrentLineHighlight();
+        });
+
+        audioPlayer.addEventListener('ended', () => {
+            isPlaying = false;
+            playPauseBtn.textContent = '▶';
+            waveform.classList.remove('playing');
+        });
+
+        progressContainer.addEventListener('click', (e) => {
+            const rect = progressContainer.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            audioPlayer.currentTime = percent * audioPlayer.duration;
+        });
+
+        function formatTime(seconds, showMs = false) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            const ms = Math.floor((seconds % 1) * 1000);
+
+            if (showMs) {
+                return `${mins}:${secs.toString().padStart(2, '0')}.${ms.toString().padStart(3, '0')}`;
+            }
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function formatLrcTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            const hundredths = Math.floor((seconds % 1) * 100);
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}.${hundredths.toString().padStart(2, '0')}`;
+        }
+
+        // Lyrics handling
+        lyricsInput.addEventListener('input', parseLyrics);
+
+        function parseLyrics() {
+            const text = lyricsInput.value;
+            const lines = text.split('\n');
+
+            // Preserve existing timings where possible
+            const oldLyrics = [...lyrics];
+            lyrics = lines.map((line, index) => {
+                const existing = oldLyrics[index];
+                if (existing && existing.text === line) {
+                    return existing;
+                }
+                return {
+                    text: line,
+                    time: null
+                };
+            });
+
+            // Find first un-timed line
+            currentLineIndex = lyrics.findIndex(l => l.time === null);
+            if (currentLineIndex === -1) currentLineIndex = lyrics.length;
+
+            renderTimedLyrics();
+            updateMarkButton();
+            updateExportButtons();
+        }
+
+        function renderTimedLyrics() {
+            if (lyrics.length === 0) {
+                timedLyrics.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🎤</div>
+                        <p>Enter lyrics above to start timing</p>
+                    </div>
+                `;
+                return;
+            }
+
+            timedLyrics.innerHTML = lyrics.map((line, index) => {
+                const statusClass = line.time !== null ? 'completed' :
+                    index === currentLineIndex ? 'current' : 'pending';
+                const timeDisplay = line.time !== null ? formatTime(line.time, true) : '--:--';
+                const timeClass = line.time !== null ? '' : 'empty';
+
+                return `
+                    <div class="timed-line ${statusClass}" data-index="${index}">
+                        <span class="line-time ${timeClass}">${timeDisplay}</span>
+                        <span class="line-text">${line.text || '(empty line)'}</span>
+                        <div class="line-actions">
+                            <button class="line-action-btn" onclick="reMarkLine(${index})" title="Re-mark this line">↺</button>
+                            <button class="line-action-btn delete" onclick="clearLineTime(${index})" title="Clear timing">✕</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Scroll current line into view
+            const currentElement = timedLyrics.querySelector('.current');
+            if (currentElement) {
+                currentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        function updateCurrentLineHighlight() {
+            if (!audioPlayer.duration) return;
+
+            const current = audioPlayer.currentTime;
+
+            document.querySelectorAll('.timed-line').forEach((el, index) => {
+                const line = lyrics[index];
+                if (!line) return;
+
+                const isCurrentlyPlaying = line.time !== null &&
+                    line.time <= current &&
+                    (lyrics[index + 1]?.time === null || lyrics[index + 1]?.time > current);
+
+                if (isCurrentlyPlaying && line.time !== null) {
+                    el.style.background = 'rgba(255, 107, 53, 0.15)';
+                } else {
+                    el.style.background = '';
+                }
+            });
+        }
+
+        // Marking
+        markBtn.addEventListener('click', markCurrentLine);
+
+        function markCurrentLine() {
+            if (currentLineIndex >= lyrics.length) return;
+            if (!audioFile) return;
+
+            lyrics[currentLineIndex].time = audioPlayer.currentTime;
+            currentLineIndex++;
+
+            // Find next un-timed line
+            while (currentLineIndex < lyrics.length && lyrics[currentLineIndex].time !== null) {
+                currentLineIndex++;
+            }
+
+            renderTimedLyrics();
+            updateMarkButton();
+            updateExportButtons();
+            showStatus('Line marked!', 'success');
+        }
+
+        window.reMarkLine = function (index) {
+            currentLineIndex = index;
+            lyrics[index].time = null;
+            renderTimedLyrics();
+            updateMarkButton();
+            updateExportButtons();
+        };
+
+        window.clearLineTime = function (index) {
+            lyrics[index].time = null;
+            if (index < currentLineIndex) {
+                currentLineIndex = index;
+            }
+            renderTimedLyrics();
+            updateMarkButton();
+            updateExportButtons();
+        };
+
+        function updateMarkButton() {
+            const hasAudio = audioFile !== null;
+            const hasMoreLines = currentLineIndex < lyrics.length;
+            markBtn.disabled = !hasAudio || !hasMoreLines;
+
+            if (!hasAudio) {
+                markBtn.querySelector('span:first-child').textContent = 'Load audio first';
+            } else if (!hasMoreLines) {
+                markBtn.querySelector('span:first-child').textContent = 'All lines marked!';
+            } else {
+                const nextLine = lyrics[currentLineIndex]?.text || '(empty line)';
+                const truncated = nextLine.length > 40 ? nextLine.slice(0, 40) + '...' : nextLine;
+                markBtn.querySelector('span:first-child').textContent = `Mark: "${truncated}"`;
+            }
+        }
+
+        function updateExportButtons() {
+            const hasTimedLines = lyrics.some(l => l.time !== null);
+            exportJson.disabled = !hasTimedLines;
+            exportLrc.disabled = !hasTimedLines;
+            resetBtn.disabled = !hasTimedLines;
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Don't trigger if typing in textarea
+            if (e.target === lyricsInput) return;
+
+            if (e.code === 'Space') {
+                e.preventDefault();
+                if (!markBtn.disabled) {
+                    markCurrentLine();
+                }
+            }
+        });
+
+        // Export functions
+        exportJson.addEventListener('click', () => {
+            const data = {
+                lyrics: lyrics.filter(l => l.time !== null).map(l => ({
+                    time: l.time,
+                    text: l.text
+                }))
+            };
+            downloadFile(JSON.stringify(data, null, 2), 'lyrics.json', 'application/json');
+            showStatus('JSON exported!', 'success');
+        });
+
+        exportLrc.addEventListener('click', () => {
+            const lines = lyrics
+                .filter(l => l.time !== null)
+                .map(l => `[${formatLrcTime(l.time)}]${l.text}`)
+                .join('\n');
+            downloadFile(lines, 'lyrics.lrc', 'text/plain');
+            showStatus('LRC exported!', 'success');
+        });
+
+        resetBtn.addEventListener('click', () => {
+            if (confirm('Reset all timings? This cannot be undone.')) {
+                lyrics = lyrics.map(l => ({ ...l, time: null }));
+                currentLineIndex = 0;
+                renderTimedLyrics();
+                updateMarkButton();
+                updateExportButtons();
+                showStatus('Timings reset', 'success');
+            }
+        });
+
+        function downloadFile(content, filename, type) {
+            const blob = new Blob([content], { type });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Status messages
+        function showStatus(message, type = 'success') {
+            statusText.textContent = message;
+            statusIcon.textContent = type === 'success' ? '✓' : 'ℹ';
+            statusBar.className = `status-bar visible ${type}`;
+
+            setTimeout(() => {
+                statusBar.classList.remove('visible');
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>
