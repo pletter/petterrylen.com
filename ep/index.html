@@ -187,6 +187,37 @@
             flex: 1;
             font-weight: 500;
         }
+
+        .master-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .master-btn {
+            background: rgba(245, 240, 240, 0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #ccc;
+            padding: 6px 16px;
+            font-size: 0.75rem;
+            font-family: 'arial', sans-serif;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .master-btn:hover {
+            background: rgba(245, 240, 240, 0.5);
+            color: #fff;
+        }
+
+        .master-btn.active {
+            background: linear-gradient(135deg, #fade0d 0%, #fcff37 100%);
+            color: rgb(38, 38, 38);
+            border-color: transparent;
+        }
     </style>
 </head>
 
@@ -197,6 +228,12 @@
         </div>
 
         <audio id="audioPlayer" class="audio-controls"></audio>
+
+        <div class="master-switcher">
+            <button class="master-btn" id="btnMix" onclick="setMaster('mix')">Original Mix</button>
+            <button class="master-btn active" id="btnDigital" onclick="setMaster('digital')">Digital Master</button>
+            <button class="master-btn" id="btnVinyl" onclick="setMaster('vinyl')">Vinyl Master</button>
+        </div>
 
         <div class="controls-row">
             <button class="control-btn" id="prevBtn">⏮</button>
@@ -224,13 +261,59 @@
     <script>
         // 🎵 ADD YOUR AUDIO FILES HERE 🎵
         // Replace these with your actual audio file names
-        const tracks = [
-            { name: "Ventilationstrumma", file: "Ventilationstrumma.mp3" },
-            { name: "Heal", file: "Heal.mp3" },
-            { name: "Tuberkulosen", file: "Tuberkulosen.mp3" },
-            { name: "Låsa in mig", file: "Lasainmig.mp3" },
-            { name: "Home to my babies", file: "Hometomybabies.mp3" }
-        ];
+        const masters = {
+            mix: [
+                { name: "Ventilationstrumma", file: "Ventilationstrumma.mp3" },
+                { name: "Heal", file: "Heal.mp3" },
+                { name: "Tuberkulosen", file: "Tuberkulosen.mp3" },
+                { name: "Låsa in mig", file: "Lasainmig.mp3" },
+                { name: "Home to my babies", file: "Hometomybabies.mp3" }
+            ],
+            digital: [
+                { name: "Ventilationstrumma", file: "digital/Ventilationstrumma.wav" },
+                { name: "Heal", file: "digital/Heal.wav" },
+                { name: "Tuberkulosen", file: "digital/Tuberkolosen.wav" },
+                { name: "Låsa in mig", file: "digital/Lasainmig.wav" },
+                { name: "Home to my babies", file: "digital/Hometomybabies.wav" }
+            ],
+            vinyl: [
+                { name: "Ventilationstrumma", file: "vinyl/Ventilationstrumma.wav" },
+                { name: "Heal", file: "vinyl/Heal.wav" },
+                { name: "Tuberkulosen", file: "vinyl/Tuberkolosen.wav" },
+                { name: "Låsa in mig", file: "vinyl/Lasainmig.wav" },
+                { name: "Home to my babies", file: "vinyl/Hometomybabies.wav" }
+            ]
+        };
+
+        let currentMaster = 'digital';
+        let tracks = masters[currentMaster];
+
+        function setMaster(master) {
+            currentMaster = master;
+            tracks = masters[master];
+            document.querySelectorAll('.master-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn' + master.charAt(0).toUpperCase() + master.slice(1)).classList.add('active');
+            const wasPlaying = isPlaying;
+            const savedIndex = currentTrackIndex;
+            const savedTime = audioPlayer.currentTime;
+            audioPlayer.pause();
+            isPlaying = false;
+            playPauseBtn.textContent = '▶';
+            initializePlaylist();
+            cachedSrc(tracks[savedIndex].file).then(src => {
+                audioPlayer.src = src;
+                audioPlayer.load();
+                if (wasPlaying) {
+                    audioPlayer.addEventListener('loadeddata', () => {
+                        audioPlayer.currentTime = savedTime;
+                        audioPlayer.play();
+                        isPlaying = true;
+                        playPauseBtn.textContent = '⏸';
+                    }, { once: true });
+                }
+            });
+            document.querySelectorAll('.track-item')[savedIndex]?.classList.add('active');
+        }
 
         // Player elements
         const audioPlayer = document.getElementById('audioPlayer');
@@ -261,16 +344,38 @@
             });
         }
 
+        const CACHE_NAME = 'tuberkulosen-audio-v1';
+
+        async function cachedSrc(file) {
+            if (!('caches' in window)) return file;
+            try {
+                const cache = await caches.open(CACHE_NAME);
+                const cached = await cache.match(file);
+                if (cached) {
+                    const blob = await cached.blob();
+                    return URL.createObjectURL(blob);
+                }
+                const response = await fetch(file);
+                if (response.ok) {
+                    await cache.put(file, response.clone());
+                    const blob = await response.blob();
+                    return URL.createObjectURL(blob);
+                }
+            } catch (e) {}
+            return file;
+        }
+
         // Load and play track
-        function playTrack(index) {
+        async function playTrack(index) {
             currentTrackIndex = index;
-            audioPlayer.src = tracks[index].file;
 
             // Update active track styling
             document.querySelectorAll('.track-item').forEach((item, i) => {
                 item.classList.toggle('active', i === index);
             });
 
+            const src = await cachedSrc(tracks[index].file);
+            audioPlayer.src = src;
             audioPlayer.load();
 
             // Auto-play when track loads
