@@ -293,6 +293,7 @@
             tracks = masters[master];
             document.querySelectorAll('.master-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById('btn' + master.charAt(0).toUpperCase() + master.slice(1)).classList.add('active');
+            audioPlayer.volume = master === 'digital' ? 0.562 : 1.0;
             const wasPlaying = isPlaying;
             const savedIndex = currentTrackIndex;
             const savedTime = audioPlayer.currentTime;
@@ -459,7 +460,7 @@
 
         // Initialize
         initializePlaylist();
-        audioPlayer.volume = 0.7; // Set initial volume to 70%
+        audioPlayer.volume = 0.562; // -5dB
 
         // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
