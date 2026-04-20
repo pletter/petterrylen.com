@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tittar på tjejer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            background: #07080f;
+            color: #e5e5e5;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .bg-video {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        .player {
+            width: 100%;
+            max-width: 420px;
+            margin-bottom: 3rem;
+            background: rgba(0, 0, 0, 0.45);
+            padding: 18px 22px;
+            backdrop-filter: blur(8px);
+        }
+
+        .controls-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 14px;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: none;
+            color: #e5e5e5;
+            width: 54px;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.3rem;
+            font-family: inherit;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            border-radius: 50%;
+            padding-bottom: 3px;
+            backdrop-filter: blur(6px);
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.13);
+        }
+
+        .progress-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .time {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.65);
+            min-width: 32px;
+            letter-spacing: 0.05em;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .lyrics-container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.55rem;
+        }
+
+        .lyric-line {
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.5;
+            text-align: center;
+            transition: all 0.35s ease;
+            padding: 0.45rem 0.85rem 0.2rem;
+            cursor: pointer;
+            letter-spacing: 0.03em;
+            background: rgb(0, 0, 0);
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        .lyric-line.active {
+            color: #ffffff;
+            background: rgb(0, 0, 0);
+        }
+
+        .lyric-line.passed {
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .lyric-line.upcoming {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .lyric-line.empty {
+            height: 1.2rem;
+            background: transparent;
+            backdrop-filter: none;
+            padding: 0;
+        }
+
+        @media (max-width: 600px) {
+            .lyric-line {
+                font-size: 1.15rem;
+            }
+
+            .player {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <video class="bg-video" id="bgVideo" autoplay muted playsinline>
+        <source src="bird2.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <div class="player">
+            <audio id="audioPlayer"></audio>
+
+            <div class="controls-row">
+                <button class="control-btn" id="playPauseBtn">
+                    <svg id="playIcon" width="18" height="18" viewBox="0 0 18 18" fill="currentColor"
+                        style="margin-left:3px;margin-bottom:-3px">
+                        <polygon points="3,1 17,9 3,17" />
+                    </svg>
+                    <svg id="pauseIcon" width="18" height="18" viewBox="0 0 18 18" fill="currentColor"
+                        style="display:none;margin-bottom:-3px">
+                        <rect x="2" y="1" width="5" height="16" rx="1" />
+                        <rect x="11" y="1" width="5" height="16" rx="1" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="progress-container">
+                <span class="time" id="currentTime">0:00</span>
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <span class="time" id="totalTime">0:00</span>
+            </div>
+        </div>
+
+        <div class="lyrics-container" id="lyricsContainer"></div>
+    </div>
+
+    <script>
+        const bgVideo = document.getElementById('bgVideo');
+        bgVideo.addEventListener('ended', () => {
+            bgVideo.pause();
+            const lastFrame = bgVideo.duration ? Math.max(0, bgVideo.duration - 0.05) : 0;
+            bgVideo.currentTime = lastFrame;
+            setTimeout(() => {
+                bgVideo.currentTime = 0;
+                bgVideo.play();
+            }, 3000);
+        });
+
+        const lyricsData = [
+            { time: 9.794240041685596, text: "Jag tar en till" },
+            { time: 12.634476249922722, text: "En till stor" },
+            { time: 15.586893626071726, text: "Stor gul brun" },
+            { time: 19.036731042005425, text: "Kyler i gommen" },
+            { time: 22.03403220861607, text: "Tjock kall ost" },
+            { time: 25.827576334330587, text: "Tre sekunder senare" },
+            { time: 28.706697750039517, text: "Allt borta" },
+            { time: 32.83301470801771, text: "Inte en smula mättare" },
+            { time: 38, text: "" },
+            { time: 46.64293749990659, text: "Titta på tjejer som springer" },
+            { time: 49.40843891768129, text: "Drar mina ögon från glittret på vattenytan" },
+            { time: 54.49621845830131, text: "Vet att jag inte får" },
+            { time: 57.24913091635225, text: "Tittar på killarna med" },
+            { time: 60.54277429233239, text: "Men med en annan sorts längtan" },
+            { time: 64.56667329130688, text: "Jag vill bli klappad på kinden" },
+            { time: 67.76931470828761, text: "Jag vill bli älskad" },
+            { time: 70.61533199964404, text: "Jag vill vara snabbare" },
+            { time: 72.3581379162916, text: "Bevisa mig vänlig och värdig" },
+            { time: 76.81453750059563, text: "Jag vill bli älskad" },
+            { time: 85, text: "" },
+            { time: 93.79425408405245, text: "Drömmer att solen svarar på SMS" },
+            { time: 99.40244162565597, text: "Jag berömde dess vackra smek" },
+            { time: 103.43982216598724, text: "Vill också vara en ekensbergspoet" },
+            { time: 108.25781025027405, text: "Som en flock irriterande fiskmåsar" },
+            { time: 113.91850849932526, text: "Skrika ut min hunger" },
+            { time: 117.1545004166854, text: "Var är alla smörgåssmulorna" },
+            { time: 123, text: "" },
+            { time: 127.63303516742705, text: "Blundar för tjejer som springer" },
+            { time: 130.65817800097614, text: "Fäster mina ögon över glittret på vattenytan" },
+            { time: 136.39234912598116, text: "Vet att jag måste" },
+            { time: 138.83408654137472, text: "Blundar för killarna med" },
+            { time: 141.80278787534664, text: "Med en nyvunnen självinsikt" },
+            { time: 146.03927129133498, text: "Jag vill bli klappad på kinden" },
+            { time: 148.8100428333187, text: "Jag vill bli älskad" },
+            { time: 151.99805770868502, text: "Jag vill vara långsammare" },
+            { time: 153.84334062536269, text: "Slippa bevisa mig vänlig och värdig" },
+            { time: 158.21389591799763, text: "Jag vill bli älskad" }
+        ];
+
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+        const progressBar = document.getElementById('progressBar');
+        const progressFill = document.getElementById('progressFill');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const totalTimeDisplay = document.getElementById('totalTime');
+        const lyricsContainer = document.getElementById('lyricsContainer');
+
+        let isPlaying = false;
+        let lyricElements = [];
+        let userIsScrolling = false;
+        let scrollTimeout;
+        let lastActiveIndex = -1;
+
+        audioPlayer.src = 'tittar0.2.mp3';
+
+        function togglePlayPause() {
+            if (isPlaying) {
+                audioPlayer.pause();
+                playIcon.style.display = '';
+                pauseIcon.style.display = 'none';
+                isPlaying = false;
+            } else {
+                audioPlayer.play();
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = '';
+                isPlaying = true;
+            }
+        }
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function updateProgress() {
+            if (audioPlayer.duration) {
+                const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+                progressFill.style.width = progress + '%';
+                currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
+                totalTimeDisplay.textContent = formatTime(audioPlayer.duration);
+            }
+            updateActiveLyric();
+        }
+
+        progressBar.addEventListener('click', (e) => {
+            if (audioPlayer.duration) {
+                const rect = progressBar.getBoundingClientRect();
+                const percent = (e.clientX - rect.left) / rect.width;
+                lastActiveIndex = -1;
+                audioPlayer.currentTime = percent * audioPlayer.duration;
+            }
+        });
+
+        playPauseBtn.addEventListener('click', togglePlayPause);
+        audioPlayer.addEventListener('timeupdate', updateProgress);
+        audioPlayer.addEventListener('loadedmetadata', () => {
+            totalTimeDisplay.textContent = formatTime(audioPlayer.duration);
+        });
+        audioPlayer.addEventListener('ended', () => {
+            isPlaying = false;
+            playIcon.style.display = '';
+            pauseIcon.style.display = 'none';
+            audioPlayer.currentTime = 0;
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                togglePlayPause();
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            userIsScrolling = true;
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => { userIsScrolling = false; }, 3000);
+        });
+
+        lyricsData.forEach((line) => {
+            const el = document.createElement('div');
+            el.className = 'lyric-line' + (line.text === '' ? ' empty' : '');
+            el.textContent = line.text;
+            el.addEventListener('click', () => { audioPlayer.currentTime = line.time; });
+            lyricsContainer.appendChild(el);
+            lyricElements.push(el);
+        });
+
+        function updateActiveLyric() {
+            const currentTime = audioPlayer.currentTime;
+            let activeIndex = -1;
+
+            for (let i = lyricsData.length - 1; i >= 0; i--) {
+                if (currentTime >= lyricsData[i].time) {
+                    activeIndex = i;
+                    break;
+                }
+            }
+
+            if (activeIndex === lastActiveIndex) return;
+            lastActiveIndex = activeIndex;
+
+            lyricElements.forEach((el, index) => {
+                el.classList.remove('active', 'passed', 'upcoming');
+                if (index === activeIndex) el.classList.add('active');
+                else if (index < activeIndex) el.classList.add('passed');
+                else el.classList.add('upcoming');
+            });
+
+            if (!userIsScrolling && activeIndex >= 0 && lyricElements[activeIndex]) {
+                lyricElements[activeIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    </script>
+</body>
+
+</html>
