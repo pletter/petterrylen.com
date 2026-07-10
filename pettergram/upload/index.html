@@ -524,6 +524,27 @@
 			});
 		}
 
+		// grab the first frame of the chosen video as a jpeg, for the feed thumbnail
+		function capturePoster() {
+			return new Promise(resolve => {
+				const v = document.createElement('video');
+				const giveUp = setTimeout(() => resolve(null), 5000);
+				v.muted = true;
+				v.playsInline = true;
+				v.onloadeddata = () => { v.currentTime = 0.1; };
+				v.onseeked = () => {
+					const c = document.createElement('canvas');
+					c.width = v.videoWidth;
+					c.height = v.videoHeight;
+					c.getContext('2d').drawImage(v, 0, 0);
+					clearTimeout(giveUp);
+					c.toBlob(b => resolve(b), 'image/jpeg', 0.85);
+				};
+				v.onerror = () => { clearTimeout(giveUp); resolve(null); };
+				v.src = objectUrl;
+			});
+		}
+
 		function roundRect(ctx, x, y, w, h, r) {
 			ctx.beginPath();
 			ctx.roundRect(x, y, w, h, r);
@@ -549,6 +570,10 @@
 				fd.append('caption', postType === 'feed' ? $('caption').value : '');
 				fd.append('overlays', JSON.stringify(overlaysToSend));
 				fd.append('file', uploadFile);
+				if (fileKind === 'video') {
+					const posterBlob = await capturePoster();
+					if (posterBlob) fd.append('poster', new File([posterBlob], 'poster.jpg', { type: 'image/jpeg' }));
+				}
 
 				await new Promise((resolve, reject) => {
 					const xhr = new XMLHttpRequest();
