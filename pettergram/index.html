@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>pettergram</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="pettergram">
+	<meta property="og:image" content="/images/petter.jpg">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Josefin+Sans:wght@300;400;600&family=Anton&family=Pacifico&family=Courier+Prime&family=Playfair+Display:wght@700&display=swap"
+		rel="stylesheet">
+	<script src="/pettergram/config.js"></script>
+	<style>
+		* { box-sizing: border-box; margin: 0; padding: 0; }
+
+		:root {
+			--bg: #000;
+			--panel: #0d0d0d;
+			--border: #262626;
+			--text: #f5f5f5;
+			--muted: #a8a8a8;
+			--accent: #0095f6;
+			--like: #ff3040;
+		}
+
+		body {
+			background: var(--bg);
+			color: var(--text);
+			font-family: 'Josefin Sans', -apple-system, sans-serif;
+			min-height: 100vh;
+		}
+
+		a { color: inherit; text-decoration: none; }
+		button { font-family: inherit; background: none; border: none; color: inherit; cursor: pointer; }
+
+		header {
+			position: sticky;
+			top: 0;
+			z-index: 10;
+			background: rgba(0, 0, 0, .85);
+			backdrop-filter: blur(12px);
+			border-bottom: 1px solid var(--border);
+		}
+
+		header .inner {
+			max-width: 470px;
+			margin: 0 auto;
+			padding: 10px 16px;
+			display: flex;
+			align-items: baseline;
+			justify-content: space-between;
+		}
+
+		header h1 {
+			font-family: 'Grand Hotel', cursive;
+			font-size: 30px;
+			font-weight: 400;
+		}
+
+		header a.home {
+			color: var(--muted);
+			font-size: 13px;
+		}
+
+		main {
+			max-width: 470px;
+			margin: 0 auto;
+			padding-bottom: 80px;
+		}
+
+		/* ---------- stories ---------- */
+		#storiesRow {
+			display: flex;
+			justify-content: center;
+			padding: 24px 0 20px;
+			border-bottom: 1px solid var(--border);
+		}
+
+		.storyCircle {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 8px;
+		}
+
+		.ring {
+			width: 110px;
+			height: 110px;
+			border-radius: 50%;
+			padding: 4px;
+			position: relative;
+			background: var(--border);
+		}
+
+		.ring.active {
+			background: none;
+		}
+
+		.ring.active::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			border-radius: 50%;
+			background: conic-gradient(#ff0040, #ff8a00, #ffe600, #2bff00, #00e5ff, #4d00ff, #ff00d4, #ff0040);
+			animation: spinring 2.5s linear infinite;
+		}
+
+		@keyframes spinring {
+			to { transform: rotate(360deg); }
+		}
+
+		.ring img {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			object-fit: cover;
+			border: 4px solid var(--bg);
+			display: block;
+		}
+
+		.storyCircle span { font-size: 13px; color: var(--muted); }
+		.storyCircle.hasStories { cursor: pointer; }
+		.storyCircle.hasStories span { color: var(--text); }
+
+		/* ---------- feed ---------- */
+		article {
+			border-bottom: 1px solid var(--border);
+			padding-bottom: 18px;
+			margin-bottom: 12px;
+		}
+
+		.postHead {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			padding: 12px 14px;
+		}
+
+		.postHead img {
+			width: 34px;
+			height: 34px;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+
+		.postHead .who { font-weight: 600; font-size: 14px; }
+		.postHead .when { color: var(--muted); font-size: 12px; margin-left: auto; }
+
+		.media {
+			position: relative;
+			width: 100%;
+			aspect-ratio: 4 / 5;
+			background: #111;
+			container-type: size;
+			overflow: hidden;
+		}
+
+		.media img, .media video {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			display: block;
+		}
+
+		.overlayText {
+			position: absolute;
+			transform: translate(-50%, -50%);
+			white-space: pre-wrap;
+			text-align: center;
+			padding: .25em .5em;
+			border-radius: .3em;
+			line-height: 1.25;
+			max-width: 90%;
+			pointer-events: none;
+		}
+
+		.actions {
+			display: flex;
+			gap: 18px;
+			padding: 10px 14px 4px;
+		}
+
+		.actions svg {
+			width: 26px;
+			height: 26px;
+			fill: none;
+			stroke: var(--text);
+			stroke-width: 1.8;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+			transition: transform .15s;
+		}
+
+		.actions button:active svg { transform: scale(1.25); }
+		.actions .liked svg { fill: var(--like); stroke: var(--like); }
+
+		.meta { padding: 0 14px; font-size: 14px; }
+		.meta .likes { font-weight: 600; margin-bottom: 4px; }
+		.meta .caption { margin-bottom: 6px; white-space: pre-wrap; }
+		.meta .caption b { margin-right: 6px; }
+		.meta .date { color: var(--muted); font-size: 11px; letter-spacing: .4px; text-transform: uppercase; margin-bottom: 8px; }
+
+		.comments { padding: 0 14px; font-size: 14px; }
+		.comments .c { margin-bottom: 4px; }
+		.comments .c b { margin-right: 6px; }
+		.comments .c span.t { color: var(--muted); font-size: 11px; margin-left: 6px; }
+
+		.commentForm {
+			display: flex;
+			gap: 8px;
+			padding: 8px 14px 0;
+		}
+
+		.commentForm input {
+			flex: 1;
+			background: none;
+			border: none;
+			border-bottom: 1px solid var(--border);
+			color: var(--text);
+			font-family: inherit;
+			font-size: 14px;
+			padding: 6px 0;
+			outline: none;
+		}
+
+		.commentForm button {
+			color: var(--accent);
+			font-weight: 600;
+			font-size: 14px;
+		}
+
+		.commentForm button:disabled { opacity: .4; cursor: default; }
+
+		#empty, #loadError {
+			text-align: center;
+			color: var(--muted);
+			padding: 60px 20px;
+		}
+
+		/* ---------- story viewer ---------- */
+		#storyViewer {
+			position: fixed;
+			inset: 0;
+			background: #000;
+			z-index: 100;
+			display: none;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#storyViewer.open { display: flex; }
+
+		#storyStage {
+			position: relative;
+			height: 100%;
+			max-height: 100vh;
+			aspect-ratio: 9 / 16;
+			max-width: 100vw;
+			background: #111;
+			container-type: size;
+			overflow: hidden;
+		}
+
+		#storyStage img, #storyStage video {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+
+		#storyBars {
+			position: absolute;
+			top: 8px;
+			left: 8px;
+			right: 8px;
+			display: flex;
+			gap: 4px;
+			z-index: 3;
+		}
+
+		#storyBars .bar {
+			flex: 1;
+			height: 3px;
+			border-radius: 2px;
+			background: rgba(255, 255, 255, .35);
+			overflow: hidden;
+		}
+
+		#storyBars .bar i {
+			display: block;
+			height: 100%;
+			width: 0;
+			background: #fff;
+		}
+
+		#storyClose {
+			position: absolute;
+			top: 18px;
+			right: 12px;
+			z-index: 4;
+			font-size: 28px;
+			line-height: 1;
+			color: #fff;
+			text-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+		}
+
+		#storyTime {
+			position: absolute;
+			top: 22px;
+			left: 12px;
+			z-index: 3;
+			font-size: 13px;
+			color: #fff;
+			text-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+		}
+
+		.tapzone {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 35%;
+			z-index: 2;
+		}
+
+		.tapzone.left { left: 0; }
+		.tapzone.right { right: 0; width: 65%; }
+
+		/* ---------- username modal ---------- */
+		#nameModal {
+			position: fixed;
+			inset: 0;
+			background: rgba(0, 0, 0, .7);
+			z-index: 200;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			padding: 20px;
+		}
+
+		#nameModal.open { display: flex; }
+
+		#nameModal .box {
+			background: var(--panel);
+			border: 1px solid var(--border);
+			border-radius: 14px;
+			padding: 26px 22px;
+			width: 100%;
+			max-width: 320px;
+			text-align: center;
+		}
+
+		#nameModal h2 { font-size: 17px; margin-bottom: 6px; font-weight: 600; }
+		#nameModal p { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+
+		#nameModal input {
+			width: 100%;
+			background: #1a1a1a;
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			color: var(--text);
+			font-family: inherit;
+			font-size: 15px;
+			padding: 10px 12px;
+			outline: none;
+			margin-bottom: 14px;
+			text-align: center;
+		}
+
+		#nameModal .go {
+			width: 100%;
+			background: var(--accent);
+			color: #fff;
+			font-weight: 600;
+			font-size: 15px;
+			padding: 10px;
+			border-radius: 8px;
+		}
+
+		#nameModal .cancel {
+			margin-top: 10px;
+			color: var(--muted);
+			font-size: 13px;
+		}
+
+		#toast {
+			position: fixed;
+			bottom: 28px;
+			left: 50%;
+			transform: translateX(-50%);
+			background: #fff;
+			color: #000;
+			font-size: 14px;
+			padding: 10px 18px;
+			border-radius: 20px;
+			opacity: 0;
+			transition: opacity .25s;
+			pointer-events: none;
+			z-index: 300;
+		}
+
+		#toast.show { opacity: 1; }
+	</style>
+</head>
+
+<body>
+	<header>
+		<div class="inner">
+			<h1>pettergram</h1>
+			<a class="home" href="/">petterrylen.com</a>
+		</div>
+	</header>
+
+	<main>
+		<div id="storiesRow">
+			<div class="storyCircle" id="storyCircle">
+				<div class="ring" id="storyRing">
+					<img src="/images/petter.jpg" alt="pianopetter">
+				</div>
+				<span id="storyLabel">pianopetter</span>
+			</div>
+		</div>
+
+		<div id="feed"></div>
+		<div id="empty" hidden>nothing here yet 🎹</div>
+		<div id="loadError" hidden>couldn't reach the server 😞</div>
+	</main>
+
+	<div id="storyViewer">
+		<div id="storyStage">
+			<div id="storyBars"></div>
+			<span id="storyTime"></span>
+			<button id="storyClose">&times;</button>
+			<div class="tapzone left"></div>
+			<div class="tapzone right"></div>
+			<div id="storyMedia"></div>
+		</div>
+	</div>
+
+	<div id="nameModal">
+		<div class="box">
+			<h2>pick a name</h2>
+			<p>choose a username so petter knows who liked &amp; commented</p>
+			<input id="nameInput" maxlength="30" placeholder="your name" autocomplete="off">
+			<button class="go" id="nameGo">let's go</button><br>
+			<button class="cancel" id="nameCancel">never mind</button>
+		</div>
+	</div>
+
+	<div id="toast"></div>
+
+	<script>
+		const API = window.PETTERGRAM_API;
+		const $ = id => document.getElementById(id);
+
+		let stories = [];
+		let posts = [];
+
+		// ---------- helpers ----------
+		function mediaUrl(p) { return window.PETTERGRAM_MEDIA + p.url; }
+
+		function timeAgo(ts) {
+			const s = (Date.now() - ts) / 1000;
+			if (s < 60) return 'just now';
+			if (s < 3600) return Math.floor(s / 60) + ' min';
+			if (s < 86400) return Math.floor(s / 3600) + ' h';
+			if (s < 86400 * 7) return Math.floor(s / 86400) + ' d';
+			return new Date(ts).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+		}
+
+		function fullDate(ts) {
+			return new Date(ts).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+		}
+
+		function esc(s) {
+			const d = document.createElement('div');
+			d.textContent = s;
+			return d.innerHTML;
+		}
+
+		function toast(msg) {
+			const t = $('toast');
+			t.textContent = msg;
+			t.classList.add('show');
+			clearTimeout(t._timer);
+			t._timer = setTimeout(() => t.classList.remove('show'), 2200);
+		}
+
+		function overlayHtml(o) {
+			const bg = o.bg && o.bg !== 'transparent' ? o.bg : 'transparent';
+			return `<div class="overlayText" style="
+				left:${(o.x * 100).toFixed(2)}%;
+				top:${(o.y * 100).toFixed(2)}%;
+				font-family:'${o.font}';
+				font-size:${(o.size * 100).toFixed(2)}cqw;
+				color:${o.color};
+				background:${bg};
+			">${esc(o.text)}</div>`;
+		}
+
+		// ---------- username ----------
+		function getUsername() { return localStorage.getItem('pettergram_username') || ''; }
+
+		function askUsername() {
+			return new Promise(resolve => {
+				const existing = getUsername();
+				if (existing) return resolve(existing);
+				$('nameModal').classList.add('open');
+				$('nameInput').focus();
+				const done = name => {
+					$('nameModal').classList.remove('open');
+					$('nameGo').onclick = $('nameCancel').onclick = $('nameInput').onkeydown = null;
+					if (name) localStorage.setItem('pettergram_username', name);
+					resolve(name);
+				};
+				$('nameGo').onclick = () => done($('nameInput').value.trim());
+				$('nameInput').onkeydown = e => { if (e.key === 'Enter') done($('nameInput').value.trim()); };
+				$('nameCancel').onclick = () => done('');
+			});
+		}
+
+		// ---------- feed ----------
+		function renderFeed() {
+			const feedEl = $('feed');
+			feedEl.innerHTML = '';
+			$('empty').hidden = posts.length > 0;
+			const me = getUsername();
+
+			posts.forEach(p => {
+				const liked = me && p.likedBy.includes(me);
+				const art = document.createElement('article');
+				art.id = 'post-' + p.id;
+				art.innerHTML = `
+					<div class="postHead">
+						<img src="/images/petter.jpg" alt="">
+						<span class="who">pianopetter</span>
+						<span class="when">${timeAgo(p.createdAt)}</span>
+					</div>
+					<div class="media">
+						${p.mediaType === 'video'
+							? `<video src="${mediaUrl(p)}" playsinline controls preload="metadata"></video>`
+							: `<img src="${mediaUrl(p)}" alt="" loading="lazy">`}
+						${(p.overlays || []).map(overlayHtml).join('')}
+					</div>
+					<div class="actions">
+						<button class="likeBtn ${liked ? 'liked' : ''}" title="like">
+							<svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-10-9.6C.3 8 2 4.5 5.5 4c2-.3 4 .7 5 2.4l1.5 2.1 1.5-2.1c1-1.7 3-2.7 5-2.4 3.5.5 5.2 4 3.5 7.4C19.5 16.1 12 21 12 21z"/></svg>
+						</button>
+						<button class="commentBtn" title="comment">
+							<svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.6 0-3.1-.4-4.4-1.2L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg>
+						</button>
+						<button class="shareBtn" title="share">
+							<svg viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>
+						</button>
+					</div>
+					<div class="meta">
+						<div class="likes">${p.likes} like${p.likes === 1 ? '' : 's'}</div>
+						${p.caption ? `<div class="caption"><b>pianopetter</b>${esc(p.caption)}</div>` : ''}
+						<div class="date">${fullDate(p.createdAt)}</div>
+					</div>
+					<div class="comments">
+						${p.comments.map(c => `<div class="c"><b>${esc(c.username)}</b>${esc(c.text)}<span class="t">${timeAgo(c.createdAt)}</span></div>`).join('')}
+					</div>
+					<form class="commentForm">
+						<input placeholder="add a comment…" maxlength="1000">
+						<button type="submit" disabled>post</button>
+					</form>
+				`;
+
+				art.querySelector('.likeBtn').onclick = () => likePost(p, art);
+				art.querySelector('.shareBtn').onclick = () => sharePost(p);
+				art.querySelector('.commentBtn').onclick = () => art.querySelector('.commentForm input').focus();
+
+				const form = art.querySelector('.commentForm');
+				const input = form.querySelector('input');
+				const submit = form.querySelector('button');
+				input.oninput = () => submit.disabled = !input.value.trim();
+				form.onsubmit = e => {
+					e.preventDefault();
+					commentPost(p, input.value.trim(), art);
+				};
+
+				feedEl.appendChild(art);
+			});
+
+			// deep link: /pettergram/#post-xxxx
+			if (location.hash) {
+				const el = document.querySelector(location.hash.replace(/[^#\w-]/g, ''));
+				if (el) el.scrollIntoView();
+			}
+		}
+
+		async function likePost(p, art) {
+			const name = await askUsername();
+			if (!name) return;
+			try {
+				const r = await fetch(`${API}?action=like&id=${p.id}`, {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ username: name })
+				});
+				const data = await r.json();
+				p.likes = data.likes;
+				if (data.liked) p.likedBy.push(name);
+				else p.likedBy = p.likedBy.filter(u => u !== name);
+				art.querySelector('.likeBtn').classList.toggle('liked', data.liked);
+				art.querySelector('.likes').textContent = `${data.likes} like${data.likes === 1 ? '' : 's'}`;
+			} catch (e) {
+				toast("couldn't like right now");
+			}
+		}
+
+		async function commentPost(p, text, art) {
+			if (!text) return;
+			const name = await askUsername();
+			if (!name) return;
+			try {
+				const r = await fetch(`${API}?action=comment&id=${p.id}`, {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ username: name, text })
+				});
+				const c = await r.json();
+				p.comments.push(c);
+				const div = document.createElement('div');
+				div.className = 'c';
+				div.innerHTML = `<b>${esc(c.username)}</b>${esc(c.text)}<span class="t">just now</span>`;
+				art.querySelector('.comments').appendChild(div);
+				const input = art.querySelector('.commentForm input');
+				input.value = '';
+				art.querySelector('.commentForm button').disabled = true;
+			} catch (e) {
+				toast("couldn't comment right now");
+			}
+		}
+
+		function sharePost(p) {
+			const url = `${location.origin}/pettergram/#post-${p.id}`;
+			if (navigator.share) {
+				navigator.share({ title: 'pettergram', text: p.caption || 'check this out', url }).catch(() => { });
+			} else {
+				navigator.clipboard.writeText(url).then(() => toast('link copied!'));
+			}
+		}
+
+		// ---------- stories ----------
+		let storyIndex = 0;
+		let storyTimer = null;
+		let barFill = null;
+
+		function renderStoryCircle() {
+			const active = stories.length > 0;
+			$('storyRing').classList.toggle('active', active);
+			$('storyCircle').classList.toggle('hasStories', active);
+			$('storyLabel').textContent = active ? `pianopetter · ${stories.length}` : 'pianopetter';
+		}
+
+		function openStories() {
+			if (!stories.length) return;
+			storyIndex = 0;
+			$('storyViewer').classList.add('open');
+			$('storyBars').innerHTML = stories.map(() => '<div class="bar"><i></i></div>').join('');
+			showStory();
+		}
+
+		function closeStories() {
+			clearTimeout(storyTimer);
+			if (barFill) { barFill.getAnimations().forEach(a => a.cancel()); barFill = null; }
+			$('storyViewer').classList.remove('open');
+			$('storyMedia').innerHTML = '';
+		}
+
+		function showStory() {
+			clearTimeout(storyTimer);
+			const s = stories[storyIndex];
+			const bars = [...$('storyBars').children];
+			bars.forEach((b, i) => {
+				const fill = b.firstElementChild;
+				fill.getAnimations().forEach(a => a.cancel());
+				fill.style.width = i < storyIndex ? '100%' : '0';
+			});
+			barFill = bars[storyIndex].firstElementChild;
+			$('storyTime').textContent = 'pianopetter · ' + timeAgo(s.createdAt);
+
+			const media = $('storyMedia');
+			if (s.mediaType === 'video') {
+				media.innerHTML = `<video src="${mediaUrl(s)}" playsinline autoplay></video>${(s.overlays || []).map(overlayHtml).join('')}`;
+				const v = media.querySelector('video');
+				v.onloadedmetadata = () => animateBar(Math.min(v.duration, 60) * 1000);
+				v.onended = nextStory;
+				v.onerror = () => { animateBar(3000); storyTimer = setTimeout(nextStory, 3000); };
+			} else {
+				media.innerHTML = `<img src="${mediaUrl(s)}">${(s.overlays || []).map(overlayHtml).join('')}`;
+				animateBar(5000);
+				storyTimer = setTimeout(nextStory, 5000);
+			}
+		}
+
+		function animateBar(ms) {
+			barFill.animate([{ width: '0%' }, { width: '100%' }], { duration: ms, fill: 'forwards' });
+		}
+
+		function nextStory() {
+			if (storyIndex < stories.length - 1) { storyIndex++; showStory(); }
+			else closeStories();
+		}
+
+		function prevStory() {
+			if (storyIndex > 0) { storyIndex--; showStory(); }
+			else closeStories();
+		}
+
+		$('storyCircle').onclick = openStories;
+		$('storyClose').onclick = closeStories;
+		document.querySelector('.tapzone.right').onclick = nextStory;
+		document.querySelector('.tapzone.left').onclick = prevStory;
+		document.addEventListener('keydown', e => {
+			if (!$('storyViewer').classList.contains('open')) return;
+			if (e.key === 'Escape') closeStories();
+			if (e.key === 'ArrowRight') nextStory();
+			if (e.key === 'ArrowLeft') prevStory();
+		});
+
+		// ---------- load ----------
+		async function load() {
+			try {
+				const [sRes, fRes] = await Promise.all([
+					fetch(API + '?action=stories'),
+					fetch(API + '?action=feed')
+				]);
+				stories = await sRes.json();
+				posts = await fRes.json();
+				renderStoryCircle();
+				renderFeed();
+			} catch (e) {
+				$('loadError').hidden = false;
+			}
+		}
+
+		load();
+	</script>
+</body>
+
+</html>

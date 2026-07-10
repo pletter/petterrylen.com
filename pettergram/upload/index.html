@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>pettergram · upload</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="noindex">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Josefin+Sans:wght@300;400;600&family=Anton&family=Pacifico&family=Courier+Prime&family=Playfair+Display:wght@700&display=swap"
+		rel="stylesheet">
+	<script src="/pettergram/config.js"></script>
+	<style>
+		* { box-sizing: border-box; margin: 0; padding: 0; }
+
+		:root {
+			--bg: #000;
+			--panel: #101010;
+			--border: #262626;
+			--text: #f5f5f5;
+			--muted: #a8a8a8;
+			--accent: #0095f6;
+		}
+
+		body {
+			background: var(--bg);
+			color: var(--text);
+			font-family: 'Josefin Sans', -apple-system, sans-serif;
+			min-height: 100vh;
+		}
+
+		button { font-family: inherit; cursor: pointer; }
+		a { color: inherit; }
+
+		header {
+			border-bottom: 1px solid var(--border);
+		}
+
+		header .inner {
+			max-width: 470px;
+			margin: 0 auto;
+			padding: 10px 16px;
+			display: flex;
+			align-items: baseline;
+			justify-content: space-between;
+		}
+
+		header h1 { font-family: 'Grand Hotel', cursive; font-size: 26px; font-weight: 400; }
+		header a { color: var(--muted); font-size: 13px; text-decoration: none; }
+
+		main {
+			max-width: 470px;
+			margin: 0 auto;
+			padding: 18px 16px 100px;
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+		}
+
+		.row { display: flex; gap: 10px; align-items: center; }
+
+		label.small { font-size: 12px; color: var(--muted); display: block; margin-bottom: 6px; }
+
+		input[type=password], input[type=text], textarea {
+			width: 100%;
+			background: var(--panel);
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			color: var(--text);
+			font-family: inherit;
+			font-size: 14px;
+			padding: 10px 12px;
+			outline: none;
+			resize: vertical;
+		}
+
+		/* type toggle */
+		.toggle {
+			display: flex;
+			background: var(--panel);
+			border: 1px solid var(--border);
+			border-radius: 10px;
+			overflow: hidden;
+		}
+
+		.toggle button {
+			flex: 1;
+			background: none;
+			border: none;
+			color: var(--muted);
+			font-size: 14px;
+			font-weight: 600;
+			padding: 11px;
+		}
+
+		.toggle button.on { background: #fff; color: #000; }
+
+		/* file pick */
+		#pickBtn {
+			background: var(--panel);
+			border: 1px dashed var(--border);
+			border-radius: 10px;
+			color: var(--muted);
+			padding: 26px;
+			font-size: 14px;
+			width: 100%;
+		}
+
+		/* editor stage */
+		#stageWrap { display: none; }
+
+		#stage {
+			position: relative;
+			width: 100%;
+			background: #111;
+			overflow: hidden;
+			border-radius: 6px;
+			touch-action: none;
+		}
+
+		#stage.story { aspect-ratio: 9 / 16; }
+		#stage.feed { aspect-ratio: 4 / 5; }
+
+		#stage img, #stage video {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			display: block;
+			pointer-events: none;
+		}
+
+		.overlayText {
+			position: absolute;
+			transform: translate(-50%, -50%);
+			white-space: pre-wrap;
+			text-align: center;
+			padding: .25em .5em;
+			border-radius: .3em;
+			line-height: 1.25;
+			max-width: 90%;
+			cursor: grab;
+			user-select: none;
+			-webkit-user-select: none;
+		}
+
+		.overlayText.sel { outline: 1.5px dashed rgba(255, 255, 255, .8); }
+
+		.stageBar {
+			display: flex;
+			gap: 8px;
+			margin-top: 10px;
+		}
+
+		.stageBar button {
+			background: var(--panel);
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			color: var(--text);
+			font-size: 13px;
+			padding: 8px 14px;
+		}
+
+		/* text toolbar */
+		#textTools {
+			display: none;
+			flex-direction: column;
+			gap: 12px;
+			background: var(--panel);
+			border: 1px solid var(--border);
+			border-radius: 10px;
+			padding: 14px;
+		}
+
+		#textTools.open { display: flex; }
+
+		.fontChips { display: flex; gap: 8px; flex-wrap: wrap; }
+
+		.fontChips button {
+			background: #1c1c1c;
+			border: 1px solid var(--border);
+			border-radius: 18px;
+			color: var(--text);
+			font-size: 15px;
+			padding: 6px 14px;
+		}
+
+		.fontChips button.on { background: #fff; color: #000; }
+
+		.swatches { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+		.swatches span.lbl { font-size: 12px; color: var(--muted); width: 34px; }
+
+		.swatches button {
+			width: 26px;
+			height: 26px;
+			border-radius: 50%;
+			border: 2px solid var(--border);
+			padding: 0;
+		}
+
+		.swatches button.on { border-color: #fff; }
+
+		.swatches button.none {
+			background: repeating-conic-gradient(#555 0 25%, #222 0 50%) 0 0/8px 8px;
+		}
+
+		input[type=range] { width: 100%; accent-color: #fff; }
+
+		#delText {
+			background: none;
+			border: none;
+			color: #ff3040;
+			font-size: 13px;
+			align-self: flex-end;
+		}
+
+		/* post */
+		#postBtn {
+			background: var(--accent);
+			border: none;
+			border-radius: 10px;
+			color: #fff;
+			font-weight: 600;
+			font-size: 16px;
+			padding: 13px;
+			width: 100%;
+		}
+
+		#postBtn:disabled { opacity: .4; }
+
+		#progress {
+			display: none;
+			height: 5px;
+			border-radius: 3px;
+			background: var(--border);
+			overflow: hidden;
+		}
+
+		#progress i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .2s; }
+
+		#status { font-size: 14px; color: var(--muted); text-align: center; min-height: 20px; }
+		#status a { color: var(--accent); }
+	</style>
+</head>
+
+<body>
+	<header>
+		<div class="inner">
+			<h1>pettergram · upload</h1>
+			<a href="/pettergram/">← feed</a>
+		</div>
+	</header>
+
+	<main>
+		<div>
+			<label class="small" for="adminKey">admin key</label>
+			<input type="password" id="adminKey" placeholder="admin key" autocomplete="off">
+		</div>
+
+		<div class="toggle" id="typeToggle">
+			<button data-type="story" class="on">story</button>
+			<button data-type="feed">feed</button>
+		</div>
+
+		<button id="pickBtn">tap to choose a photo or video 📷</button>
+		<input type="file" id="fileInput" accept="image/*,video/*" hidden>
+
+		<div id="stageWrap">
+			<div id="stage" class="story"></div>
+			<div class="stageBar">
+				<button id="addText">Aa add text</button>
+				<button id="changeFile">change file</button>
+			</div>
+		</div>
+
+		<div id="textTools">
+			<textarea id="textValue" rows="2" placeholder="your text"></textarea>
+			<div class="fontChips" id="fontChips"></div>
+			<div>
+				<label class="small">size</label>
+				<input type="range" id="textSize" min="0.02" max="0.16" step="0.005" value="0.06">
+			</div>
+			<div class="swatches" id="colorSwatches"><span class="lbl">text</span></div>
+			<div class="swatches" id="bgSwatches"><span class="lbl">bg</span></div>
+			<button id="delText">delete text</button>
+		</div>
+
+		<div id="captionWrap" style="display:none">
+			<label class="small" for="caption">description</label>
+			<textarea id="caption" rows="3" placeholder="write a caption…"></textarea>
+		</div>
+
+		<button id="postBtn" disabled>post</button>
+		<div id="progress"><i></i></div>
+		<div id="status"></div>
+	</main>
+
+	<script>
+		const API = window.PETTERGRAM_API;
+		const $ = id => document.getElementById(id);
+
+		const FONTS = ['Josefin Sans', 'Anton', 'Pacifico', 'Courier Prime', 'Playfair Display'];
+		const COLORS = ['#ffffff', '#000000', '#ff3040', '#ffe600', '#0095f6', '#ff00d4', '#2bff00'];
+
+		let postType = 'story';       // story | feed
+		let file = null;              // File
+		let fileKind = null;          // image | video
+		let objectUrl = null;
+		let overlays = [];            // {text, font, size, color, bg, x, y, el}
+		let selected = null;
+
+		// ---------- admin key ----------
+		$('adminKey').value = localStorage.getItem('pettergram_admin_key') || '';
+		$('adminKey').oninput = () => {
+			localStorage.setItem('pettergram_admin_key', $('adminKey').value);
+			updatePostBtn();
+		};
+
+		// ---------- type toggle ----------
+		$('typeToggle').onclick = e => {
+			const btn = e.target.closest('button');
+			if (!btn) return;
+			postType = btn.dataset.type;
+			[...$('typeToggle').children].forEach(b => b.classList.toggle('on', b === btn));
+			$('stage').className = postType;
+			$('captionWrap').style.display = postType === 'feed' ? 'block' : 'none';
+			overlays.forEach(renderOverlay);
+		};
+
+		// ---------- file pick ----------
+		$('pickBtn').onclick = () => $('fileInput').click();
+		$('changeFile').onclick = () => $('fileInput').click();
+		$('fileInput').onchange = () => {
+			const f = $('fileInput').files[0];
+			if (!f) return;
+			file = f;
+			fileKind = f.type.startsWith('video/') ? 'video' : 'image';
+			if (objectUrl) URL.revokeObjectURL(objectUrl);
+			objectUrl = URL.createObjectURL(f);
+			overlays.forEach(o => o.el.remove());
+			overlays = [];
+			select(null);
+			const stage = $('stage');
+			stage.innerHTML = fileKind === 'video'
+				? `<video src="${objectUrl}" playsinline autoplay muted loop></video>`
+				: `<img src="${objectUrl}">`;
+			$('pickBtn').style.display = 'none';
+			$('stageWrap').style.display = 'block';
+			updatePostBtn();
+		};
+
+		// ---------- text overlays ----------
+		function buildChips(container, values, getCurrent, apply, styleFn) {
+			values.forEach(v => {
+				const b = document.createElement('button');
+				if (styleFn) styleFn(b, v);
+				b.onclick = () => { apply(v); refreshTools(); };
+				b.dataset.v = v;
+				container.appendChild(b);
+			});
+		}
+
+		buildChips($('fontChips'), FONTS,
+			() => selected && selected.font,
+			v => { if (selected) { selected.font = v; renderOverlay(selected); } },
+			(b, v) => { b.textContent = 'Aa'; b.style.fontFamily = `'${v}'`; b.title = v; });
+
+		buildChips($('colorSwatches'), COLORS,
+			() => selected && selected.color,
+			v => { if (selected) { selected.color = v; renderOverlay(selected); } },
+			(b, v) => b.style.background = v);
+
+		buildChips($('bgSwatches'), ['transparent', ...COLORS],
+			() => selected && selected.bg,
+			v => { if (selected) { selected.bg = v; renderOverlay(selected); } },
+			(b, v) => {
+				if (v === 'transparent') { b.classList.add('none'); b.title = 'no background'; }
+				else b.style.background = v;
+			});
+
+		$('textSize').oninput = () => {
+			if (selected) { selected.size = parseFloat($('textSize').value); renderOverlay(selected); }
+		};
+
+		$('textValue').oninput = () => {
+			if (selected) { selected.text = $('textValue').value; renderOverlay(selected); }
+		};
+
+		$('delText').onclick = () => {
+			if (!selected) return;
+			selected.el.remove();
+			overlays = overlays.filter(o => o !== selected);
+			select(null);
+		};
+
+		$('addText').onclick = () => {
+			if (!file) return;
+			const o = {
+				text: 'your text',
+				font: 'Josefin Sans',
+				size: 0.06,
+				color: '#ffffff',
+				bg: 'transparent',
+				x: 0.5,
+				y: 0.5,
+				el: document.createElement('div')
+			};
+			o.el.className = 'overlayText';
+			$('stage').appendChild(o.el);
+			makeDraggable(o);
+			overlays.push(o);
+			renderOverlay(o);
+			select(o);
+			$('textValue').focus();
+			$('textValue').select();
+		};
+
+		function renderOverlay(o) {
+			const w = $('stage').clientWidth;
+			o.el.textContent = o.text;
+			o.el.style.left = o.x * 100 + '%';
+			o.el.style.top = o.y * 100 + '%';
+			o.el.style.fontFamily = `'${o.font}'`;
+			o.el.style.fontSize = o.size * w + 'px';
+			o.el.style.color = o.color;
+			o.el.style.background = o.bg;
+		}
+
+		function select(o) {
+			selected = o;
+			overlays.forEach(x => x.el.classList.toggle('sel', x === o));
+			$('textTools').classList.toggle('open', !!o);
+			if (o) refreshTools();
+		}
+
+		function refreshTools() {
+			if (!selected) return;
+			$('textValue').value = selected.text;
+			$('textSize').value = selected.size;
+			[...$('fontChips').children].forEach(b => b.classList.toggle('on', b.dataset.v === selected.font));
+			[...$('colorSwatches').querySelectorAll('button')].forEach(b => b.classList.toggle('on', b.dataset.v === selected.color));
+			[...$('bgSwatches').querySelectorAll('button')].forEach(b => b.classList.toggle('on', b.dataset.v === selected.bg));
+		}
+
+		function makeDraggable(o) {
+			o.el.addEventListener('pointerdown', e => {
+				e.preventDefault();
+				select(o);
+				o.el.setPointerCapture(e.pointerId);
+				const rect = $('stage').getBoundingClientRect();
+				const move = ev => {
+					o.x = Math.min(1, Math.max(0, (ev.clientX - rect.left) / rect.width));
+					o.y = Math.min(1, Math.max(0, (ev.clientY - rect.top) / rect.height));
+					renderOverlay(o);
+				};
+				const up = () => {
+					o.el.removeEventListener('pointermove', move);
+					o.el.removeEventListener('pointerup', up);
+				};
+				o.el.addEventListener('pointermove', move);
+				o.el.addEventListener('pointerup', up);
+			});
+		}
+
+		window.addEventListener('resize', () => overlays.forEach(renderOverlay));
+
+		// ---------- posting ----------
+		function updatePostBtn() {
+			$('postBtn').disabled = !file || !$('adminKey').value;
+		}
+
+		function overlayData() {
+			return overlays.map(o => ({
+				text: o.text, font: o.font, size: o.size,
+				color: o.color, bg: o.bg, x: o.x, y: o.y
+			}));
+		}
+
+		// bake text into images so the uploaded file already has the text on it
+		function bakeImage() {
+			return new Promise((resolve, reject) => {
+				const img = new Image();
+				img.onload = () => {
+					const ratio = postType === 'story' ? 16 / 9 : 5 / 4;
+					const W = 1080, H = Math.round(W * ratio);
+					const canvas = document.createElement('canvas');
+					canvas.width = W;
+					canvas.height = H;
+					const ctx = canvas.getContext('2d');
+					ctx.fillStyle = '#111';
+					ctx.fillRect(0, 0, W, H);
+
+					// object-fit: contain
+					const s = Math.min(W / img.naturalWidth, H / img.naturalHeight);
+					const dw = img.naturalWidth * s, dh = img.naturalHeight * s;
+					ctx.drawImage(img, (W - dw) / 2, (H - dh) / 2, dw, dh);
+
+					overlays.forEach(o => {
+						const fs = o.size * W;
+						ctx.font = `${['Playfair Display'].includes(o.font) ? 'bold ' : ''}${fs}px '${o.font}'`;
+						ctx.textAlign = 'center';
+						ctx.textBaseline = 'middle';
+						const lines = o.text.split('\n');
+						const lh = fs * 1.25;
+						const totalH = lh * lines.length;
+						lines.forEach((line, i) => {
+							const cx = o.x * W;
+							const cy = o.y * H - totalH / 2 + lh * (i + .5);
+							if (o.bg !== 'transparent') {
+								const tw = ctx.measureText(line).width;
+								ctx.fillStyle = o.bg;
+								const px = fs * .5, py = fs * .25;
+								roundRect(ctx, cx - tw / 2 - px, cy - lh / 2 - py + lh * .1, tw + px * 2, lh + py * 2 - lh * .2, fs * .3);
+							}
+							ctx.fillStyle = o.color;
+							ctx.fillText(line, cx, cy);
+						});
+					});
+
+					canvas.toBlob(b => b ? resolve(b) : reject(new Error('canvas export failed')), 'image/jpeg', 0.92);
+				};
+				img.onerror = reject;
+				img.src = objectUrl;
+			});
+		}
+
+		function roundRect(ctx, x, y, w, h, r) {
+			ctx.beginPath();
+			ctx.roundRect(x, y, w, h, r);
+			ctx.fill();
+		}
+
+		$('postBtn').onclick = async () => {
+			$('postBtn').disabled = true;
+			$('status').textContent = 'preparing…';
+			try {
+				// make sure the overlay fonts are loaded before drawing on canvas
+				await Promise.all(overlays.map(o => document.fonts.load(`bold 40px '${o.font}'`).then(() => document.fonts.load(`40px '${o.font}'`))));
+
+				let uploadFile = file;
+				let overlaysToSend = overlayData();
+				if (fileKind === 'image' && overlays.length) {
+					uploadFile = new File([await bakeImage()], 'baked.jpg', { type: 'image/jpeg' });
+					overlaysToSend = []; // text is baked in
+				}
+
+				const fd = new FormData();
+				fd.append('type', postType);
+				fd.append('caption', postType === 'feed' ? $('caption').value : '');
+				fd.append('overlays', JSON.stringify(overlaysToSend));
+				fd.append('file', uploadFile);
+
+				await new Promise((resolve, reject) => {
+					const xhr = new XMLHttpRequest();
+					xhr.open('POST', API + '?action=upload');
+					xhr.setRequestHeader('X-Admin-Key', $('adminKey').value);
+					$('progress').style.display = 'block';
+					xhr.upload.onprogress = e => {
+						if (e.lengthComputable) {
+							$('progress').firstElementChild.style.width = (e.loaded / e.total * 100) + '%';
+						}
+					};
+					xhr.onload = () => {
+						if (xhr.status === 200) resolve();
+						else if (xhr.status === 401) reject(new Error('wrong admin key'));
+						else reject(new Error('upload failed (' + xhr.status + ')'));
+					};
+					xhr.onerror = () => reject(new Error('network error — is the server up?'));
+					xhr.send(fd);
+				});
+
+				$('status').innerHTML = 'posted! 🎉 <a href="/pettergram/">see it on the feed</a>';
+				$('progress').style.display = 'none';
+				// reset media
+				overlays.forEach(o => o.el.remove());
+				overlays = [];
+				select(null);
+				file = null;
+				$('fileInput').value = '';
+				$('caption').value = '';
+				$('stage').innerHTML = '';
+				$('stageWrap').style.display = 'none';
+				$('pickBtn').style.display = 'block';
+			} catch (e) {
+				$('status').textContent = '😞 ' + e.message;
+				$('progress').style.display = 'none';
+			}
+			updatePostBtn();
+		};
+
+		updatePostBtn();
+	</script>
+</body>
+
+</html>
