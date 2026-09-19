@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>plog — Petter Rylén</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/plog/plog.css">
+	<link rel="icon" href="/favicon.png">
+</head>
+
+<body>
+	<nav>
+		<a href="/plog/">plog</a>
+	</nav>
+	<div id="content">
+		<h1>plog</h1>
+		<ul id="posts">
+			<li>loading…</li>
+		</ul>
+	</div>
+	<footer></footer>
+
+	<script>
+		fetch('/plog/posts.json?' + Date.now())
+			.then(function (r) { return r.ok ? r.json() : []; })
+			.then(function (posts) {
+				var list = document.getElementById('posts');
+				if (!posts.length) {
+					list.innerHTML = '<li>nothing here yet.</li>';
+					return;
+				}
+				posts.sort(function (a, b) { return b.date.localeCompare(a.date); });
+				list.innerHTML = '';
+				posts.forEach(function (p) {
+					var li = document.createElement('li');
+					var a = document.createElement('a');
+					a.href = '/plog/posts/' + p.slug + '.html';
+
+					var d = document.createElement('div');
+					d.className = 'date';
+					d.textContent = p.date;
+
+					var h = document.createElement('h2');
+					h.textContent = p.title;
+
+					a.appendChild(d);
+					a.appendChild(h);
+					li.appendChild(a);
+
+					if (p.summary) {
+						var s = document.createElement('p');
+						s.className = 'summary';
+						s.textContent = p.summary;
+						li.appendChild(s);
+					}
+					list.appendChild(li);
+				});
+			})
+			.catch(function () {
+				document.getElementById('posts').innerHTML = '<li>nothing here yet.</li>';
+			});
+	</script>
+</body>
+
+</html>

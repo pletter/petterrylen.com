@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>write — plog</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			font-family: Helvetica, Arial, sans-serif;
+			font-weight: 400;
+			color: black;
+			background: white;
+		}
+
+		header {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+			align-items: center;
+			padding: 12px 20px;
+			border-bottom: 1px solid hsl(0, 0%, 88%);
+		}
+
+		header .brand { font-weight: 700; margin-right: 6px; }
+
+		input[type="text"], input[type="date"] {
+			font-family: inherit;
+			font-weight: 400;
+			font-size: 16px;
+			padding: 7px 10px;
+			border: 1px solid hsl(0, 0%, 82%);
+			background: white;
+			color: black;
+		}
+
+		input:focus, textarea:focus { outline: 2px solid hsl(30, 60%, 50%); outline-offset: -1px; }
+
+		#title-in { flex: 1 1 240px; font-size: 18px; }
+		#slug-in { width: 190px; }
+		#summary-in { flex: 1 1 100%; }
+
+		button {
+			font-family: inherit;
+			font-weight: 600;
+			font-size: 16px;
+			padding: 8px 18px;
+			border: 1px solid black;
+			background: black;
+			color: white;
+			cursor: pointer;
+		}
+
+		button:hover { background: hsl(30, 60%, 50%); border-color: hsl(30, 60%, 50%); }
+		button.secondary { background: white; color: black; }
+		button.secondary:hover { background: hsl(0, 0%, 94%); color: black; border-color: black; }
+		button:disabled { opacity: 0.4; cursor: default; }
+
+		main {
+			flex: 1;
+			display: flex;
+			min-height: 0;
+		}
+
+		textarea {
+			flex: 1;
+			border: none;
+			border-right: 1px solid hsl(0, 0%, 88%);
+			padding: 30px;
+			font-family: ui-monospace, Menlo, Consolas, monospace;
+			font-size: 15px;
+			line-height: 1.7em;
+			resize: none;
+		}
+
+		#preview {
+			flex: 1;
+			overflow-y: auto;
+			padding: 30px 40px;
+			font-family: Georgia, "Times New Roman", Times, serif;
+			font-size: 18px;
+			line-height: 1.7em;
+		}
+
+		#preview h1 { font-size: 34px; font-weight: 700; margin-top: 0; line-height: 1.1em; }
+		#preview h2 { font-size: 26px; font-weight: 700; }
+		#preview h3 { font-size: 21px; font-weight: 700; }
+		#preview img { display: block; width: 100%; margin: 20px 0; }
+		#preview pre { background: hsl(0, 0%, 96%); padding: 14px 16px; overflow-x: auto; font-size: 14px; }
+		#preview code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; background: hsl(0, 0%, 96%); padding: 1px 5px; }
+		#preview pre code { background: none; padding: 0; }
+		#preview blockquote { margin: 20px 0; padding-left: 20px; border-left: 3px solid hsl(0, 0%, 85%); color: hsl(0, 0%, 35%); }
+		#preview a { color: black; }
+		#preview .date { font-size: 15px; color: hsl(0, 0%, 40%); }
+
+		#status {
+			padding: 8px 20px;
+			font-size: 15px;
+			border-top: 1px solid hsl(0, 0%, 88%);
+			min-height: 36px;
+			color: hsl(0, 0%, 35%);
+		}
+
+		#status.ok { color: hsl(140, 50%, 30%); }
+		#status.err { color: hsl(0, 60%, 45%); }
+
+		#drafts {
+			font-size: 15px;
+			padding: 7px 10px;
+			border: 1px solid hsl(0, 0%, 82%);
+			font-family: inherit;
+			background: white;
+			max-width: 200px;
+		}
+
+		@media (max-width: 800px) {
+			main { flex-direction: column; }
+			textarea { border-right: none; border-bottom: 1px solid hsl(0, 0%, 88%); min-height: 40vh; }
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<span class="brand">plog</span>
+		<input type="text" id="title-in" placeholder="title" autocomplete="off">
+		<input type="date" id="date-in">
+		<input type="text" id="slug-in" placeholder="slug" autocomplete="off">
+		<select id="drafts" title="Local drafts">
+			<option value="">— drafts —</option>
+		</select>
+		<button id="publish">publish</button>
+		<button class="secondary" id="newpost">new</button>
+		<input type="text" id="summary-in" placeholder="short summary (shown in the plog list)" autocomplete="off">
+	</header>
+
+	<main>
+		<textarea id="editor" placeholder="Write in markdown.
+
+# Big heading
+## Smaller heading
+
+**bold**, *italic*, `code`, [link](https://example.com)
+
+![alt text](/images/something.jpg)
+
+> a quote
+
+- a list item
+- another
+
+---"></textarea>
+		<div id="preview"></div>
+	</main>
+
+	<div id="status">Loading…</div>
+
+	<script>
+		// ---------- tiny markdown renderer ----------
+		function esc(s) {
+			return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+		}
+
+		function inline(s) {
+			// code spans first, protected from other rules via placeholders
+			var codes = [];
+			s = s.replace(/`([^`]+)`/g, function (m, c) {
+				codes.push('<code>' + esc(c) + '</code>');
+				return '\u0000' + (codes.length - 1) + '\u0000';
+			});
+			s = esc(s);
+			s = s.replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, '<img src="$2" alt="$1">');
+			s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2">$1</a>');
+			s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+			s = s.replace(/(^|[^*])\*([^*]+)\*/g, '$1<em>$2</em>');
+			s = s.replace(/\u0000(\d+)\u0000/g, function (m, i) { return codes[i]; });
+			return s;
+		}
+
+		function markdown(src) {
+			var lines = src.replace(/\r\n/g, '\n').split('\n');
+			var out = [], i = 0;
+
+			while (i < lines.length) {
+				var line = lines[i];
+
+				// fenced code
+				if (/^```/.test(line)) {
+					var buf = [];
+					i++;
+					while (i < lines.length && !/^```/.test(lines[i])) { buf.push(lines[i]); i++; }
+					i++;
+					out.push('<pre><code>' + esc(buf.join('\n')) + '</code></pre>');
+					continue;
+				}
+
+				if (/^\s*$/.test(line)) { i++; continue; }
+
+				if (/^---+\s*$/.test(line)) { out.push('<hr>'); i++; continue; }
+
+				var h = line.match(/^(#{1,4})\s+(.*)$/);
+				if (h) {
+					var lvl = h[1].length;
+					out.push('<h' + lvl + '>' + inline(h[2]) + '</h' + lvl + '>');
+					i++;
+					continue;
+				}
+
+				if (/^>\s?/.test(line)) {
+					var q = [];
+					while (i < lines.length && /^>\s?/.test(lines[i])) { q.push(lines[i].replace(/^>\s?/, '')); i++; }
+					out.push('<blockquote>' + markdown(q.join('\n')) + '</blockquote>');
+					continue;
+				}
+
+				if (/^\s*[-*+]\s+/.test(line)) {
+					var items = [];
+					while (i < lines.length && /^\s*[-*+]\s+/.test(lines[i])) {
+						items.push('<li>' + inline(lines[i].replace(/^\s*[-*+]\s+/, '')) + '</li>');
+						i++;
+					}
+					out.push('<ul>' + items.join('') + '</ul>');
+					continue;
+				}
+
+				if (/^\s*\d+\.\s+/.test(line)) {
+					var oitems = [];
+					while (i < lines.length && /^\s*\d+\.\s+/.test(lines[i])) {
+						oitems.push('<li>' + inline(lines[i].replace(/^\s*\d+\.\s+/, '')) + '</li>');
+						i++;
+					}
+					out.push('<ol>' + oitems.join('') + '</ol>');
+					continue;
+				}
+
+				// paragraph: gather until blank line or a new block starts
+				var para = [];
+				while (i < lines.length && !/^\s*$/.test(lines[i]) &&
+					!/^(#{1,4}\s|>|\s*[-*+]\s|\s*\d+\.\s|```|---+\s*$)/.test(lines[i])) {
+					para.push(lines[i]);
+					i++;
+				}
+				if (para.length) out.push('<p>' + inline(para.join('\n')) + '</p>');
+			}
+			return out.join('\n');
+		}
+
+		// ---------- elements ----------
+		var titleIn = document.getElementById('title-in');
+		var dateIn = document.getElementById('date-in');
+		var slugIn = document.getElementById('slug-in');
+		var summaryIn = document.getElementById('summary-in');
+		var editor = document.getElementById('editor');
+		var preview = document.getElementById('preview');
+		// NB: not `status` — a top-level `var status` aliases window.status,
+		// which coerces whatever you assign to a string, so the element is lost
+		// and every say() silently does nothing.
+		var statusEl = document.getElementById('status');
+		var draftsSel = document.getElementById('drafts');
+		var slugTouched = false;
+
+		function slugify(s) {
+			return s.toLowerCase()
+				.replace(/[åä]/g, 'a').replace(/ö/g, 'o').replace(/é/g, 'e')
+				.replace(/[^a-z0-9]+/g, '-')
+				.replace(/^-+|-+$/g, '')
+				.slice(0, 60);
+		}
+
+		function say(msg, kind) {
+			statusEl.textContent = msg;
+			statusEl.className = kind || '';
+		}
+
+		function render() {
+			preview.innerHTML =
+				'<div class="date">' + esc(dateIn.value || '') + '</div>' +
+				'<h1>' + esc(titleIn.value || 'untitled') + '</h1>' +
+				markdown(editor.value);
+		}
+
+		// ---------- server detection ----------
+		var hasServer = false;
+
+		function checkServer() {
+			if (location.protocol === 'file:') {
+				say('File mode — publish saves the file to your downloads.');
+				return Promise.resolve();
+			}
+			// A 404 here is normal and harmless: it just means this page is being
+			// served by something that can't write files (VS Code Live Server,
+			// python -m http.server, …), so publish falls back to downloading.
+			// The browser still logs the failed request in the console.
+			return fetch('/api/ping')
+				.then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+				.then(function () {
+					hasServer = true;
+					say('Connected — publish writes straight into /plog/posts/.', 'ok');
+				})
+				.catch(function () {
+					say('Download mode — publish saves the file to your downloads. Run "node plog/serve.js" to write posts directly.');
+				});
+		}
+
+		// ---------- drafts (localStorage) ----------
+		var DRAFTS = 'blog-drafts'; // kept as-is so existing local drafts aren't orphaned
+
+		function loadDrafts() {
+			try { return JSON.parse(localStorage.getItem(DRAFTS) || '{}'); }
+			catch (e) { return {}; }
+		}
+
+		function saveDraft() {
+			if (!titleIn.value && !editor.value) return;
+			var d = loadDrafts();
+			var key = slugIn.value || slugify(titleIn.value) || 'untitled';
+			d[key] = {
+				title: titleIn.value, date: dateIn.value, slug: slugIn.value,
+				summary: summaryIn.value, body: editor.value, saved: Date.now()
+			};
+			localStorage.setItem(DRAFTS, JSON.stringify(d));
+			refreshDrafts();
+		}
+
+		function refreshDrafts() {
+			var d = loadDrafts();
+			var keys = Object.keys(d).sort(function (a, b) { return (d[b].saved || 0) - (d[a].saved || 0); });
+			draftsSel.innerHTML = '<option value="">— drafts (' + keys.length + ') —</option>';
+			keys.forEach(function (k) {
+				var o = document.createElement('option');
+				o.value = k;
+				o.textContent = d[k].title || k;
+				draftsSel.appendChild(o);
+			});
+		}
+
+		draftsSel.addEventListener('change', function () {
+			var k = draftsSel.value;
+			if (!k) return;
+			var d = loadDrafts()[k];
+			if (!d) return;
+			titleIn.value = d.title || '';
+			dateIn.value = d.date || '';
+			slugIn.value = d.slug || k;
+			summaryIn.value = d.summary || '';
+			editor.value = d.body || '';
+			slugTouched = true;
+			render();
+			say('Loaded draft “' + (d.title || k) + '”.');
+		});
+
+		// ---------- post html ----------
+		// Closing tags are assembled at runtime. A literal closing body/head tag
+		// written out in this file would be found by dev servers (VS Code Live
+		// Server) that inject a live-reload script at that marker, which would
+		// terminate this script early and break the page.
+		function close(tag) { return '<' + '/' + tag + '>'; }
+
+		function postHtml(meta, bodyHtml) {
+			return '<!DOCTYPE html>\n' +
+				'<html lang="en">\n\n' +
+				'<head>\n' +
+				'\t<title>' + esc(meta.title) + ' — Petter Rylén</title>\n' +
+				'\t<meta charset="utf-8">\n' +
+				'\t<meta name="viewport" content="width=device-width, initial-scale=1">\n' +
+				(meta.summary ? '\t<meta name="description" content="' + esc(meta.summary) + '">\n' : '') +
+				'\t<meta property="og:title" content="' + esc(meta.title) + '">\n' +
+				(meta.summary ? '\t<meta property="og:description" content="' + esc(meta.summary) + '">\n' : '') +
+				'\t<link rel="stylesheet" href="/plog/plog.css">\n' +
+				'\t<link rel="icon" href="/favicon.png">\n' +
+				close('head') + '\n\n' +
+				'<body>\n' +
+				'\t<nav>\n' +
+				'\t\t<a href="/plog/">plog</a>\n' +
+				'\t</nav>\n' +
+				'\t<div id="content">\n' +
+				'\t\t<article>\n' +
+				'\t\t\t<div class="date">' + esc(meta.date) + '</div>\n' +
+				'\t\t\t<h1>' + esc(meta.title) + '</h1>\n' +
+				bodyHtml.split('\n').map(function (l) { return '\t\t\t' + l; }).join('\n') + '\n' +
+				'\t\t</article>\n' +
+				'\t</div>\n' +
+				'\t<footer><a href="/plog/">← all plogs</a></footer>\n' +
+				close('body') + '\n\n' +
+				close('html') + '\n';
+		}
+
+		function download(name, text, type) {
+			var blob = new Blob([text], { type: type || 'text/plain' });
+			var url = URL.createObjectURL(blob);
+			var a = document.createElement('a');
+			a.href = url;
+			a.download = name;
+			document.body.appendChild(a);
+			a.click();
+			document.body.removeChild(a);
+			setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+		}
+
+		// ---------- publish ----------
+		document.getElementById('publish').addEventListener('click', function () {
+			var title = titleIn.value.trim();
+			if (!title) { say('Give the post a title first.', 'err'); titleIn.focus(); return; }
+			if (!editor.value.trim()) { say('The post is empty.', 'err'); editor.focus(); return; }
+
+			var slug = (slugIn.value.trim() || slugify(title));
+			if (!slug) { say('Could not make a slug from that title — type one in.', 'err'); return; }
+			slugIn.value = slug;
+
+			var meta = {
+				slug: slug,
+				title: title,
+				date: dateIn.value || new Date().toISOString().slice(0, 10),
+				summary: summaryIn.value.trim()
+			};
+			var html = postHtml(meta, markdown(editor.value));
+
+			saveDraft();
+
+			if (!hasServer) {
+				download(slug + '.html', html, 'text/html');
+				var entry = JSON.stringify(meta, null, '\t');
+				say('Downloaded ' + slug + '.html — put it in /plog/posts/, then add this to /plog/posts.json: ' + JSON.stringify(meta));
+				console.log('Add to /plog/posts.json:\n' + entry);
+				return;
+			}
+
+			say('Publishing…');
+			fetch('/api/publish', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ meta: meta, html: html })
+			})
+				.then(function (r) {
+					return r.json().then(function (j) { return r.ok ? j : Promise.reject(j); });
+				})
+				.then(function (j) {
+					say('Published → ' + j.path + '  (open /plog/ to see it)', 'ok');
+				})
+				.catch(function (e) {
+					say('Publish failed: ' + ((e && e.error) || 'server error'), 'err');
+				});
+		});
+
+		document.getElementById('newpost').addEventListener('click', function () {
+			if (editor.value.trim() && !confirm('Clear the editor? Your draft is saved locally.')) return;
+			saveDraft();
+			titleIn.value = ''; summaryIn.value = ''; slugIn.value = ''; editor.value = '';
+			dateIn.value = new Date().toISOString().slice(0, 10);
+			slugTouched = false;
+			draftsSel.value = '';
+			render();
+			say('New post.');
+		});
+
+		// ---------- wiring ----------
+		titleIn.addEventListener('input', function () {
+			if (!slugTouched) slugIn.value = slugify(titleIn.value);
+			render();
+		});
+		slugIn.addEventListener('input', function () { slugTouched = true; });
+		dateIn.addEventListener('input', render);
+		editor.addEventListener('input', render);
+
+		// tab inserts a tab instead of moving focus
+		editor.addEventListener('keydown', function (e) {
+			if (e.key === 'Tab') {
+				e.preventDefault();
+				var s = editor.selectionStart, en = editor.selectionEnd;
+				editor.value = editor.value.slice(0, s) + '\t' + editor.value.slice(en);
+				editor.selectionStart = editor.selectionEnd = s + 1;
+				render();
+			}
+			if ((e.metaKey || e.ctrlKey) && e.key === 's') {
+				e.preventDefault();
+				saveDraft();
+				say('Draft saved locally.', 'ok');
+			}
+		});
+
+		setInterval(saveDraft, 10000);
+		window.addEventListener('beforeunload', saveDraft);
+
+		dateIn.value = new Date().toISOString().slice(0, 10);
+		refreshDrafts();
+		render();
+		checkServer();
+	</script>
+</body>
+
+</html>

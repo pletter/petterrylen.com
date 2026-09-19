@@ -1,0 +1,14 @@
+[
+	{
+		"slug": "testing",
+		"title": "testing",
+		"date": "2026-08-09",
+		"summary": ""
+	},
+	{
+		"slug": "pipeline-check",
+		"title": "Pipeline Check",
+		"date": "2026-08-07",
+		"summary": "Verifying the editor writes a real post."
+	}
+]
