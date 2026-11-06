@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="sv" style="overflow-x: hidden;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dubbelkonsert på Larrys Corner – Petter Rylén & Blindo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* ---- page-specific styles for larrys.html ---- */
+
+        .textbox .subbanner {
+            width: auto;
+            display: flex;
+            justify-content: flex-end;
+            margin: -6px 16vw -150px 0px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* "Rea-stjärna" starburst badge */
+        .textbox .salestar {
+            position: relative;
+            width: 440px;
+            height: 440px;
+            margin: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: black;
+            font-weight: 700;
+            font-size: 1.25em;
+            line-height: 1.05em;
+        }
+
+        /* the star shape itself – text sits on top and may spill over the rays */
+        .textbox .salestar::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgb(255, 238, 0);
+            animation: sunspin 40s linear infinite;
+            clip-path: polygon(50.0% 0.0%, 61.5% 22.3%, 85.4% 14.6%, 77.7% 38.5%, 100.0% 50.0%, 77.7% 61.5%, 85.4% 85.4%, 61.5% 77.7%, 50.0% 100.0%, 38.5% 77.7%, 14.6% 85.4%, 22.3% 61.5%, 0.0% 50.0%, 22.3% 38.5%, 14.6% 14.6%, 38.5% 22.3%);
+        }
+
+        .salestar span {
+            position: relative;
+            display: inline-block;
+            transform: rotate(-10deg);
+        }
+
+        @keyframes sunspin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .textbox .titlewide {
+            width: min(1000px, 92vw);
+            margin: 0px auto;
+        }
+
+        .pfstext .pagetitle {
+            font-size: 3em;
+            line-height: 1.4em;
+            margin: 0px;
+            font-weight: 700;
+        }
+
+        .pagetitle span {
+            background: rgb(173, 255, 234);
+            padding: 4px 4px;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+        }
+
+        /* "Matias slutade spela trummor..." in typewriter font */
+        /* hand-drawn fast-forward symbol */
+        .ffwd {
+            height: 0.6em;
+            width: auto;
+            vertical-align: -0.04em;
+        }
+
+        /* "Matias slutade spela trummor..." – wider than the rest of the story */
+        .textbox .widetext {
+            width: min(1200px, 92vw);
+            font-size: 0.8em;
+            text-align: center;
+            text-wrap: balance;
+            line-height: 1.5em;
+        }
+
+        /* Placeholders for pictures / videos still to be added */
+        .textbox .placeholder {
+            width: auto;
+            border: 3px dashed rgb(150, 150, 150);
+            background: rgb(245, 245, 245);
+            color: rgb(110, 110, 110);
+            font-style: italic;
+            font-size: 0.7em;
+            text-align: center;
+            padding: 60px 20px;
+            margin: 0px;
+        }
+
+        .oldprice {
+            position: relative;
+            display: inline-block;
+            color: rgb(230, 0, 0);
+            font-weight: 700;
+            background: white;
+            line-height: 1em;
+            padding: 0.2em 0.2em 0.02em;
+        }
+
+        /* red cross over the old price */
+        .oldprice::before,
+        .oldprice::after {
+            content: "";
+            position: absolute;
+            left: -6%;
+            right: -6%;
+            top: 48%;
+            height: 5px;
+            background: rgb(230, 0, 0);
+            transform: rotate(-20deg);
+        }
+
+        .oldprice::before {
+            transform: rotate(20deg);
+        }
+
+        .newprice {
+            display: inline-block;
+            color: black;
+            background: rgb(175, 255, 172);
+            line-height: 1em;
+            padding: 0.2em 0.2em 0.02em;
+            font-weight: 700;
+        }
+
+        /* The secret offer box */
+        /* coupon-style offer box, wider than the text column */
+        .textbox .offerbox {
+            position: relative;
+            box-sizing: border-box;
+            width: min(1000px, 94vw);
+            margin: 95px 0px 0px calc(50% - min(500px, 47vw));
+            background: black;
+            padding: 135px 50px 45px;
+            border: 3px solid black;
+            border-radius: 10px;
+            box-shadow: 10px 10px 0px rgb(255, 154, 205);
+            outline: 3px dashed rgb(255, 238, 0);
+            outline-offset: -16px;
+        }
+
+
+        /* big, chunky ticket button */
+        .pfstext a.ticketlink {
+            border-bottom: none;
+            display: block;
+        }
+
+        .ticketbutton {
+            display: block;
+            width: 100%;
+            font-size: 1.7em;
+            font-weight: 700;
+            line-height: 1.15em;
+            padding: 24px 20px 20px;
+            color: black;
+            background: rgb(255, 154, 205);
+            border: 3px solid black;
+            border-radius: 10px;
+            box-shadow: 6px 6px 0px black;
+            transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+        }
+
+        .ticketbutton:hover {
+            background: rgb(255, 120, 185);
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0px black;
+            transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+        }
+
+        .ticketbutton:active {
+            transform: translate(6px, 6px);
+            box-shadow: 0px 0px 0px black;
+        }
+
+        /* image captions, tucked right under the picture */
+        .pfstext p.caption {
+            font-size: 0.45em;
+            line-height: 1.6em;
+        }
+
+        /* small audio player with waveform for the rehearsal clip */
+        .textbox .player {
+            width: auto;
+            margin: 0px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: white;
+            border-radius: 8px;
+            padding: 12px 16px;
+        }
+
+        .textbox .player div {
+            width: auto;
+            margin: 0px;
+        }
+
+        .player .playbtn {
+            flex: none;
+            width: 44px;
+            height: 44px;
+            padding: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: black;
+            border: none;
+            border-radius: 50%;
+        }
+
+        .player .playbtn:hover {
+            background: rgb(60, 60, 60);
+        }
+
+        .player .playbtn svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+        }
+
+        .player .icon-pause,
+        .player.playing .icon-play {
+            display: none;
+        }
+
+        .player.playing .icon-pause {
+            display: block;
+        }
+
+        .textbox .player .wave {
+            flex: 1;
+            min-width: 0;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            cursor: pointer;
+        }
+
+        .player .wave span {
+            flex: 1;
+            min-width: 1px;
+            background: rgb(160, 160, 160);
+            border-radius: 2px;
+        }
+
+        .player .wave span.played {
+            background: rgb(255, 120, 185);
+        }
+
+        .player .time {
+            flex: none;
+            font-size: 0.55em;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* row of footballs under the DESSUTOM paragraph */
+        .textbox .footballs {
+            width: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 6px;
+            margin: 0px;
+        }
+
+        .footballs .ball {
+            width: 46px;
+            height: 46px;
+            flex-shrink: 1;
+            overflow: visible;
+        }
+
+        /* the rightmost ball bounces */
+        .footballs .bouncy {
+            transform-origin: 50% 100%;
+            animation: ballbounce 1.2s infinite;
+        }
+
+        @keyframes ballbounce {
+            0% {
+                transform: translateY(0px) scale(1.12, 0.88);
+                animation-timing-function: ease-out;
+            }
+
+            12% {
+                transform: translateY(-4px) scale(1, 1);
+                animation-timing-function: ease-out;
+            }
+
+            50% {
+                transform: translateY(-34px) scale(1, 1);
+                animation-timing-function: ease-in;
+            }
+
+            92% {
+                transform: translateY(0px) scale(1, 1);
+            }
+
+            100% {
+                transform: translateY(0px) scale(1.12, 0.88);
+            }
+        }
+
+
+        /* same spinning sun as the top banner, on the corner of the offer box */
+        .textbox .offerbubble {
+            position: absolute;
+            top: -115px;
+            right: -105px;
+            width: 280px;
+            height: 280px;
+            margin: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: black;
+            font-weight: 700;
+            font-size: 1em;
+            line-height: 1.05em;
+        }
+
+        .textbox .offerbubble::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgb(255, 238, 0);
+            animation: sunspin 40s linear infinite;
+            clip-path: polygon(50.0% 0.0%, 61.5% 22.3%, 85.4% 14.6%, 77.7% 38.5%, 100.0% 50.0%, 77.7% 61.5%, 85.4% 85.4%, 61.5% 77.7%, 50.0% 100.0%, 38.5% 77.7%, 14.6% 85.4%, 22.3% 61.5%, 0.0% 50.0%, 22.3% 38.5%, 14.6% 14.6%, 38.5% 22.3%);
+        }
+
+        .offerbubble span {
+            position: relative;
+            display: inline-block;
+            transform: rotate(-10deg);
+        }
+
+        @media only screen and (max-width: 600px) {
+            .textbox .offerbox {
+                width: auto;
+                margin-left: 0px;
+                padding: 100px 16px 30px;
+            }
+
+            .textbox .offerbubble {
+                width: 190px;
+                height: 190px;
+                top: -95px;
+                right: -25px;
+                font-size: 0.85em;
+            }
+
+            .textbox .subbanner {
+                margin-right: 6vw;
+                margin-top: 4px;
+                margin-bottom: -90px;
+            }
+
+            .textbox .salestar {
+                width: 290px;
+                height: 290px;
+                font-size: 1.05em;
+            }
+
+            .textbox .titlewide,
+            .textbox .widetext {
+                width: 90vw;
+            }
+
+            .desktopbr {
+                display: none;
+            }
+
+            .pfstext .pagetitle {
+                font-size: 2.1em;
+            }
+        }
+    </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '382582970797556');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=382582970797556&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+    <!-- Hotjar Tracking Code for petterrylen.com -->
+    <script>
+        (function (h, o, t, j, a, r) {
+            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+            h._hjSettings = { hjid: 5256332, hjsv: 6 };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script'); r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
+</head>
+
+<body style="margin: 0px; overflow: hidden;">
+    <div class="pfstext">
+
+        <!-- ===== BANNER ===== -->
+        <div class="textbox" style="padding: 0px;">
+            <div style="white-space: nowrap;
+            width: 110vw; line-height: 1.25em;
+            overflow: hidden; margin-top: 0px; font-weight: 700; margin-left: -30px;">
+                <p style="padding-top: 0px;">
+                    <strong style="background: rgb(243, 216, 183);">
+                        dubbelkonsert dubbelkonsert dubbelkonsert dubbelkonsert dubbelkonsert
+                        dubbelkonsert dubbelkonsert dubbelkonsert dubbelkonsert dubbelkonsert
+                    </strong>
+                </p>
+            </div>
+            <div class="subbanner">
+                <div class="salestar"><span>förköpsrea<br>och hemligt<br>erbjudande</span></div>
+            </div>
+        </div>
+
+        <!-- ===== RIVALITETEN ===== -->
+        <div class="textbox">
+            <div class="titlewide">
+                <h1 class="pagetitle"><span>Historien om hur jag mötte Björn (Blindo)</span></h1>
+            </div>
+            <br><br>
+            <div style="color: black;">
+                <p><strong>Barcelona</strong> mot <i>Real Madrid</i>.</p>
+                <br><br>
+                <p><i>Gryffindor</i> mot <strong>Slytherin</strong>.</p>
+                <br><br>
+                <p><strong>Koriander</strong> mot <i>inte koriander</i>.</p>
+                <br><br>
+                <p>Rivaliteten som slår dom alla utspelade sig dock mellan två skånska folkhögskolor:</p>
+                <br><br>
+                <p style="font-size: 1.4em;"><strong style="background: rgb(182, 247, 255);"><i>Fridhem</i> vs.
+                        <i>Skurup</i></strong></p>
+                <br><br>
+                <p>Kampen satt djupt i våra folkhögskolehjärtan.</p>
+                <br><br>
+                <p><strong>Vilken var den “<i>bästa</i>” jazzlinjen i Sverige?</strong></p>
+                <br><br>
+                <p>Och ja, vi jämförde oss som jazzmusiker – det gjorde vi.</p>
+                <br><br>
+                <p>Men det fanns något som gick ännu djupare:</p>
+                <br><br>
+                <p><strong style="background: rgb(175, 255, 172);"><i>Den årliga fotbollsmatchen.</i></strong></p>
+                <br><br>
+                <p>Innan min årgång på Fridhem i 2008 gick ryktet att Skurup hade vunnit mot Fridhem ALLA år sedan
+                    jazzlinjerna startade.</p>
+                <br><br>
+                <p>Inte bara vunnit, men komplett <i>utklassat</i> oss.</p>
+                <br><br>
+                <p>Det här året däremot, skulle vara annorlunda.</p>
+                <br><br>
+            </div>
+        </div>
+
+        <!-- ===== MATCHEN ===== -->
+        <div class="textbox" style="background: black;">
+            <div>
+                <br>
+                <p>Vi organiserade träningar med obligatorisk närvaro varje vecka, hela vintern – i regn, blask och
+                    rusk.</p>
+                <br><br>
+                <p>Genom de få kontakter vi hade till “andra sidan”, kunde vi hoppfullt höra att hybrisen på Skurup var
+                    på högvarv.</p>
+                <br><br>
+                <p>När våren kom, och frijazz-marchorkestern hade spelat färdigt, fick de <i>se</i>.</p>
+                <br><br>
+                <p>Vi var organiserade. Vi var nyktra. Vi hade Kim Nkoubou. Vi hade Rasmus Blixt. Jag tror jag själv
+                    gjorde nåt mål.</p>
+                <br><br>
+                <p><strong style="background: rgb(255, 154, 205);">Skurup var chanslösa. Matchen slutade 4-3 till
+                        Fridhem.</strong></p>
+                <br><br>
+                <p style="font-size: 0.6em;"><i>(eller så var det 6-1, jag kommer bara ihåg att vi vann..)</i></p>
+                <br><br>
+                <p>Det var en historisk dag!</p>
+                <br><br>
+                <p>I Skurups lag spelade en bassist, <strong style="background: rgb(255, 250, 189);">Björn
+                        Lindberg</strong>.</p>
+                <br><br>
+                <img src="/images/bjorn19.jpg" alt="Björn Lindberg, 19 år, spelar kontrabas"
+                    style="width: 80%; display: block;">
+                <p class="caption"><i>björn 19 år</i></p>
+                <br><br>
+            </div>
+        </div>
+
+        <!-- ===== KÖPENHAMN ===== -->
+        <div class="textbox">
+            <div style="color: black;">
+                <br>
+                <p>Sommaren ett år senare skulle vi ses på Hyllie Station utanför Malmö, för att ta tåget till
+                    Köpenhamn.</p>
+                <br><br>
+                <p>Som en av några få svenskar hade vi blivit antagna till det prestigefulla Rytmiska
+                    Musikkonservatoriet. Utan att knappt känna varandra utanför fotbollsplanen, skulle vi skriva
+                    kontrakt
+                    på en hyreslägenhet där vi kunde bo när terminen började.</p>
+                <br><br>
+                <img src="/images/kopenhamnkarta.webp" alt="Karta över Østerbro i Köpenhamn – här bodde vi"
+                    style="width: 100%;">
+                <br><br>
+                <p>Vi flyttade in, började skolan i det nya grötspråkiga landet och den danska jazzvärlden öppnade sina
+                    armar för oss.</p>
+                <br><br>
+                <p>Björn lagade fantastisk mat, vi åt digestivekex med tjocka lager smör, och vi spelade jazz nästan
+                    varje dag.</p>
+                <br><br>
+            </div>
+        </div>
+
+        <!-- ===== THE ORIGINAL TRIO ===== -->
+        <div class="textbox" style="background: black;">
+            <div>
+                <br>
+                <p>Jag drömde om att ha världens mest spektakulära jazzpianotrio, och i 2011 mötte vi en fullständigt
+                    gränslöst galen trummis. <strong style="background: rgb(182, 247, 255);">Matias Wolf
+                        Andreassen.</strong></p>
+                <br><br>
+                <img src="/images/matias.webp" alt="Matias Wolf Andreassen spelar trummor i mössa"
+                    style="width: 70%; display: block;">
+                <p class="caption"><i>(Matias hade rysk pälsmössa på sig året om)</i></p>
+                <br><br>
+                <p>Vi startade trion:</p>
+                <br><br>
+                <p
+                    style="font-size: min(2.2em, 8.5vw); line-height: 1.1em; white-space: nowrap; background: none; padding: 0px;">
+                    <strong
+                        style="background: rgb(243, 216, 183); padding: 4px 8px; box-decoration-break: clone; -webkit-box-decoration-break: clone;">The
+                        Original Trio.</strong>
+                </p>
+                <br><br>
+                <p>Inga ord kan beskriva det bandet.</p>
+                <br><br>
+                <img src="/images/originaltrio.jpg" alt="The Original Trio läser tidningen på bussen"
+                    style="width: 100%; display: block;">
+                <p class="caption"><i>(men kanske en bild?!)</i></p>
+                <br><br>
+                <p>Vi repade dag efter dag efter dag efter dag.</p>
+                <br><br>
+                <p>Vi spelade jazz som susade som vinden och flöt som vatten, och bankade som åska.</p>
+                <br><br>
+                <iframe src="https://www.youtube.com/embed/2SB5du4Iumw?start=139" title="The Original Trio"
+                    style="width: 100%; aspect-ratio: 16 / 9; border: 0;"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                <br><br>
+                <p>Vi vände upp och ner på varenda konvention om vad en konsert skulle vara som vi kunde komma på.</p>
+                <br><br>
+                <iframe src="https://www.youtube.com/embed/IjgPxjoMf_o?start=51" title="The Original Trio"
+                    style="width: 100%; aspect-ratio: 16 / 9; border: 0;"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                <br><br>
+                <p>Vi höll möten om hur vi kunde <a href="https://youtu.be/-L5QcrivqaQ" target="_blank"
+                        rel="noopener">ta över världen</a>.</p>
+                <br><br>
+                <p><strong style="background: rgb(255, 154, 205);">The Original Trio var mitt Magnus Opum, mitt
+                        livsverk.</strong></p>
+                <br><br>
+            </div>
+        </div>
+
+        <!-- ===== SLUTET ===== -->
+        <div class="textbox">
+            <div style="color: black;">
+                <br>
+                <p>Men vi drog också mer och mer i olika riktningar.</p>
+                <br><br>
+                <p>Björn flyttade till Malmö, efter att vi bott tillsammans i 4 år.</p>
+                <br><br>
+                <p>Matias var “otrogen” och startade ett annat band.</p>
+                <br><br>
+                <p>Jag ville göra mer och mer <a href="https://youtu.be/xp16KBXGQtE" target="_blank"
+                        rel="noopener">absurda performances</a>, mindre
+                    jazz.</p>
+                <br><br>
+                <p>Allting brakade ihop under en konsert i Odense.</p>
+                <br><br>
+                <p>Jag och Björn hade konspirerat att “sparka” Matias
+                    från bandet – <strong>PÅ SCENEN</strong>, under konserten. Jag läste ett avskedstal och han fick gå
+                    av
+                    scenen.</p>
+                <br><br>
+                <p>Jag vet fortfarande inte om vi menade det som ett skämt eller inte.</p>
+                <br><br>
+                <p>Kort sagt, det blev inte ett bra slut, på en av de mest fantastiska perioderna i mitt liv.</p>
+                <br><br>
+                <p>Vi hann aldrig släppa någon musik, men i mina arkiv finns otaliga <a
+                        href="https://www.youtube.com/watch?v=TMbdk_xJuD8" target="_blank" rel="noopener">legendariska
+                        videor</a> och
+                    musiksnuttar som fortfarande chockerar mig varje gång jag öppnar dom.</p>
+                <br><br>
+            </div>
+        </div>
+
+        <!-- ===== SNABBSPOLNING ===== -->
+        <div class="textbox" style="background: black; padding: 25px 0px;">
+            <div style="text-align: center;">
+                <p><svg class="ffwd" viewBox="0 0 24 14" aria-hidden="true">
+                        <path d="M0 0 L12 7 L0 14 Z M12 0 L24 7 L12 14 Z" fill="black" />
+                    </svg> <i>Snabbspolning ca 10 år</i> <svg class="ffwd" viewBox="0 0 24 14" aria-hidden="true">
+                        <path d="M0 0 L12 7 L0 14 Z M12 0 L24 7 L12 14 Z" fill="black" />
+                    </svg></p>
+                <br><br>
+            </div>
+            <div class="widetext">
+                <p><i>Matias slutade spela trummor, jag flyttade till Nigeria, sen Wales, sen tillbaka till
+                        Sverige.<br class="desktopbr"> Björn blev pop-producent och spelade med tex Alice Boman, Guds
+                        Pengar och Brigaden.</i></p>
+            </div>
+        </div>
+
+        <!-- ===== KONSERTEN ===== -->
+        <div class="textbox">
+            <div style="color: black;">
+                <br>
+                <p>Nu bor vi i Stockholm. Tyvärr inte i samma lägenhet. Men ibland får jag lyckan att smaka Björns
+                    matlagning, som blir mer och mer fantastisk.</p>
+                <br><br>
+                <p>Och vi har varsitt soloprojekt.</p>
+                <br><br>
+                <p>Björn heter <strong style="background: rgb(173, 255, 234);">Blindo</strong>.</p>
+                <br><br>
+                <img src="/images/blindo.jpg" alt="Blindo i rulltrappa med hörlurar"
+                    style="width: 60%; display: block;">
+                <br><br>
+                <p>Jag heter <strong style="background: rgb(255, 250, 189);">Petter Rylén</strong> 👋</p>
+                <br><br>
+                <p>Björn spelar med i mitt band. <i>Tove</i> spelar trummor.</p>
+                <br><br>
+                <p><strong style="background: rgb(195, 195, 255);">Den 20:e november kl 19.32 spelar vi dubbelkonsert
+                        på <a href="https://maps.app.goo.gl/wfRo8LFGRF4WELJg6" target="_blank" rel="noopener">Larrys
+                            Corner</a> på Söder.</strong></p>
+                <br><br>
+                <p>Tove och Björn och jag kommer framföra min upcoming EP “Tuberkulosen” (får berätta historien om den
+                    en annan gång).</p>
+                <br><br>
+                <p>Ett tjuvlyssning från när vi repade:</p>
+                <br><br>
+                <div class="player">
+                    <audio id="repaudio" src="rep1ventilationstrummabjornsmix.mp3" preload="metadata"></audio>
+                    <button class="playbtn" id="repplay" aria-label="Spela">
+                        <svg class="icon-play" viewBox="0 0 20 20">
+                            <path d="M6 3 L17 10 L6 17 Z" />
+                        </svg>
+                        <svg class="icon-pause" viewBox="0 0 20 20">
+                            <rect x="4" y="3" width="4.5" height="14" />
+                            <rect x="11.5" y="3" width="4.5" height="14" />
+                        </svg>
+                    </button>
+                    <div class="wave" id="repwave"></div>
+                    <div class="time" id="reptime">3:12</div>
+                </div>
+                <br>
+                <p>Björn spelar sina <a href="https://blindo.net" target="_blank" rel="noopener">Blindo-låtar</a>.</p>
+                <br><br>
+                <p>Larrys Corner är ett litet hörn, så det finns bara <strong>30 biljetter</strong>. Jag tror det blir
+                    utsålt.</p>
+                <br><br>
+                <p>Biljetterna i dörren kostar 150 kr MEN om du förköper biljett här så har du en garanterad plats och
+                    sparar 20%:</p>
+                <br><br>
+                <p style="font-size: 2.8em; line-height: 1.3em; background: none; padding: 0px;"><span
+                        class="oldprice">150 kr</span></p>
+                <br>
+                <div style="height: 22px;"></div>
+                <p style="font-size: 2.8em; line-height: 1.3em; background: none; padding: 0px;"><span
+                        class="newprice">120 kr</span></p>
+                <br><br><br>
+                <a href="https://forms.gle/GhWiXNtgfSEVMidz8" class="ticketlink"><button class="ticketbutton">Fånga din biljett nu medan de finns
+                        kvar</button></a>
+
+                <!-- ===== HEMLIGT ERBJUDANDE ===== -->
+                <div class="offerbox">
+                    <div class="offerbubble"><span>hemligt<br>erbjudande<br>här</span></div>
+
+                    <p>PS: Vi tycker det är kul med konsert, men det är också roligt att lära känna dem som vill höra
+                        oss
+                        spela.</p>
+                    <br><br>
+                    <p>Därför får <strong style="background: rgb(255, 154, 205);">de 10 första som köper
+                            biljett</strong> också en inbjudan till lunch-bjudning (gratis) hemma hos mig, Petter, och
+                        min
+                        familj i Gröndal, under ledning av mästerkocken Björn, den 6:e december.</p>
+                    <br><br>
+                    <p>Vi kan tex prata om vad som helst, kanske kommer vi visa videor och berätta mer om vår tid med
+                        The
+                        Original Trio.</p>
+                    <br><br>
+                    <!-- TODO: fyll i vilken IP -->
+                    <p><strong>DESSUTOM:</strong> Efter lunchen fortsätter alla som vill till TBA IP där vi delar in
+                        oss i
+                        två lag under Björns och Petters fanor. <i>OBS: ingen tidigare erfarenhet av fotboll
+                            krävs.</i></p>
+                    <br><br>
+                    <div class="footballs" aria-hidden="true">
+                        <svg width="0" height="0" style="position: absolute;" aria-hidden="true">
+                            <defs>
+                                <clipPath id="ballclip">
+                                    <circle r="46" />
+                                </clipPath>
+                                <symbol id="football" viewBox="-50 -50 100 100">
+                                    <circle r="46" fill="white" />
+                                    <g clip-path="url(#ballclip)" fill="black" stroke="black" stroke-width="5"
+                                        stroke-linejoin="round">
+                                        <polygon points="0.0,-13.0 12.4,-4.0 7.6,10.5 -7.6,10.5 -12.4,-4.0" />
+                                        <polygon points="0.0,-33.0 -11.4,-41.3 -7.1,-54.7 7.1,-54.7 11.4,-41.3" />
+                                        <polygon points="31.4,-10.2 35.7,-23.6 49.9,-23.6 54.2,-10.2 42.8,-1.9" />
+                                        <polygon points="19.4,26.7 33.5,26.7 37.9,40.1 26.5,48.4 15.0,40.1" />
+                                        <polygon points="-19.4,26.7 -15.0,40.1 -26.5,48.4 -37.9,40.1 -33.5,26.7" />
+                                        <polygon points="-31.4,-10.2 -42.8,-1.9 -54.2,-10.2 -49.9,-23.6 -35.7,-23.6" />
+                                        <path
+                                            d="M0.0,-13.0 Q2.4,-22.9 0.0,-33.0 M12.4,-4.0 Q22.5,-4.8 31.4,-10.2 M7.6,10.5 Q11.5,19.9 19.4,26.7 M-7.6,10.5 Q-15.4,17.1 -19.4,26.7 M-12.4,-4.0 Q-21.0,-9.4 -31.4,-10.2"
+                                            fill="none" stroke-width="2.5" stroke-linecap="round" />
+                                    </g>
+                                    <circle r="46" fill="none" stroke="black" stroke-width="3" />
+                                    <circle r="48.3" fill="none" stroke="white" stroke-width="3" />
+                                </symbol>
+                            </defs>
+                        </svg>
+                        <svg class="ball" viewBox="-50 -50 100 100">
+                            <use href="#football" x="-50" y="-50" width="100" height="100" transform="rotate(0)" />
+                        </svg>
+                        <svg class="ball" viewBox="-50 -50 100 100">
+                            <use href="#football" x="-50" y="-50" width="100" height="100" transform="rotate(40)" />
+                        </svg>
+                        <svg class="ball" viewBox="-50 -50 100 100">
+                            <use href="#football" x="-50" y="-50" width="100" height="100" transform="rotate(-25)" />
+                        </svg>
+                        <svg class="ball" viewBox="-50 -50 100 100">
+                            <use href="#football" x="-50" y="-50" width="100" height="100" transform="rotate(70)" />
+                        </svg>
+                        <svg class="ball" viewBox="-50 -50 100 100">
+                            <use href="#football" x="-50" y="-50" width="100" height="100" transform="rotate(15)" />
+                        </svg>
+                        <svg class="ball" viewBox="-50 -50 100 100">
+                            <use href="#football" x="-50" y="-50" width="100" height="100" transform="rotate(-50)" />
+                        </svg>
+                        <svg class="ball bouncy" viewBox="-50 -50 100 100">
+                            <use href="#football" x="-50" y="-50" width="100" height="100" transform="rotate(30)" />
+                        </svg>
+                    </div>
+                </div>
+                <br><br><br>
+
+                <p>PPS.</p>
+                <br><br>
+                <p>Om du inte kan den 20:e men vill hålla kontakten (det vill jag!!!) är du välkommen att gå med i
+                    <a href="https://piano-petter.kit.com/943bfbbe51" target="_blank" rel="noopener">mitt nyhetsbrev</a>
+                    eller helt enkelt maila mig på
+                    <a href="mailto:petter.rylen@gmail.com">petter.rylen@gmail.com</a> och säga hej :-)
+                </p>
+                <br><br>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // rehearsal clip player with waveform (peaks precomputed from the mp3)
+        (function () {
+            const peaks = [0.06, 0.13, 0.14, 0.2, 0.21, 0.2, 0.16, 0.21, 0.11, 0.1, 0.15, 0.14, 0.21, 0.17, 0.22, 0.48, 0.47, 0.26, 0.29, 0.48, 0.44, 0.34, 0.37, 0.32, 0.29, 0.33, 0.49, 0.33, 0.51, 0.52, 0.33, 0.37, 0.35, 0.37, 0.58, 0.47, 0.51, 0.43, 0.49, 0.67, 0.66, 0.75, 0.66, 0.68, 0.47, 0.49, 0.57, 0.63, 0.78, 0.7, 0.79, 0.78, 0.93, 0.8, 0.76, 0.66, 0.61, 0.64, 0.69, 0.65, 0.75, 0.75, 0.86, 0.77, 0.77, 0.76, 0.8, 0.93, 0.87, 0.84, 0.86, 0.87, 0.83, 0.79, 0.79, 0.77, 0.83, 0.75, 0.58, 0.64, 0.85, 0.8, 0.79, 0.72, 0.7, 0.72, 0.79, 0.75, 0.76, 0.79, 0.74, 0.8, 0.8, 0.78, 0.86, 0.88, 0.96, 0.86, 0.78, 0.79, 0.76, 0.83, 0.79, 0.88, 0.8, 0.89, 0.83, 0.85, 0.91, 0.91, 0.89, 0.97, 0.92, 0.86, 0.95, 1.0, 0.88, 0.83, 0.87, 0.97, 0.81, 0.57, 0.42, 0.37, 0.36, 0.38, 0.4, 0.34, 0.44, 0.38, 0.26, 0.29, 0.27, 0.22, 0.15, 0.14, 0.13, 0.06, 0.06, 0.06];
+            const audio = document.getElementById('repaudio');
+            const player = audio.closest('.player');
+            const btn = document.getElementById('repplay');
+            const wave = document.getElementById('repwave');
+            const time = document.getElementById('reptime');
+            const fmt = t => Math.floor(t / 60) + ':' + String(Math.floor(t % 60)).padStart(2, '0');
+
+            const bars = peaks.map(p => {
+                const bar = document.createElement('span');
+                bar.style.height = (p * 100) + '%';
+                wave.appendChild(bar);
+                return bar;
+            });
+
+            const paint = () => {
+                if (!audio.duration) return;
+                const n = Math.floor(audio.currentTime / audio.duration * bars.length);
+                bars.forEach((bar, i) => bar.classList.toggle('played', i < n));
+                time.textContent = fmt(audio.currentTime);
+            };
+
+            btn.addEventListener('click', () => audio.paused ? audio.play() : audio.pause());
+            audio.addEventListener('play', () => { player.classList.add('playing'); btn.setAttribute('aria-label', 'Pausa'); });
+            audio.addEventListener('pause', () => { player.classList.remove('playing'); btn.setAttribute('aria-label', 'Spela'); });
+            audio.addEventListener('loadedmetadata', () => { time.textContent = fmt(audio.duration); });
+            audio.addEventListener('timeupdate', paint);
+            audio.addEventListener('ended', () => { audio.currentTime = 0; paint(); });
+            wave.addEventListener('click', e => {
+                if (!audio.duration) return;
+                const r = wave.getBoundingClientRect();
+                audio.currentTime = (e.clientX - r.left) / r.width * audio.duration;
+                paint();
+            });
+        })();
+    </script>
+    <script>
+        setTimeout(() => {
+            const fbp = document.cookie.split('; ').find(row => row.startsWith('_fbp='))?.split('=')[1];
+            const fbc = document.cookie.split('; ').find(row => row.startsWith('_fbc='))?.split('=')[1];
+
+            fetch('https://pianopetter.com/musictracking.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    event_name: 'View content',
+                    event_time: Math.floor(Date.now() / 1000),
+                    user_data: {
+                        client_user_agent: navigator.userAgent,
+                        fbp: fbp || '',
+                        fbc: fbc || '',
+                        page_url: window.location.href
+                    }
+                })
+            });
+        }, 8000);
+    </script>
+</body>
+
+</html>
