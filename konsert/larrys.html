@@ -727,27 +727,64 @@
     </div>
 
     <script>
-        setTimeout(() => {
-            const fbp = document.cookie.split('; ').find(row => row.startsWith('_fbp='))?.split('=')[1];
-            const fbc = document.cookie.split('; ').find(row => row.startsWith('_fbc='))?.split('=')[1];
+        // Meta events: sent both from the browser (pixel) and from the server
+        // (pianopetter.com/musictracking.php), with a shared event_id so Meta
+        // counts each event once.
+        function getCookie(name) {
+            return document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1] || '';
+        }
 
-            fetch('https://pianopetter.com/musictracking.php', {
+        function getFbc() {
+            const fbc = getCookie('_fbc');
+            if (fbc) return fbc;
+            const fbclid = new URLSearchParams(window.location.search).get('fbclid');
+            return fbclid ? `fb.1.${Date.now()}.${fbclid}` : '';
+        }
+
+        function trackEvent(eventName, customData = {}) {
+            const eventId = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random());
+
+            // browser
+            if (window.fbq) fbq('track', eventName, customData, { eventID: eventId });
+
+            // server – keepalive lets the request finish even if the page is left
+            return fetch('https://pianopetter.com/musictracking.php', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                keepalive: true,
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    event_name: 'View content',
+                    event_name: eventName,
+                    event_id: eventId,
                     event_time: Math.floor(Date.now() / 1000),
+                    custom_data: customData,
                     user_data: {
                         client_user_agent: navigator.userAgent,
-                        fbp: fbp || '',
-                        fbc: fbc || '',
+                        fbp: getCookie('_fbp'),
+                        fbc: getFbc(),
                         page_url: window.location.href
                     }
                 })
+            }).catch(err => console.error(`${eventName} not sent:`, err));
+        }
+
+        // ViewContent after 20 seconds on the page
+        setTimeout(() => trackEvent('ViewContent', { content_name: 'Dubbelkonsert Larrys Corner' }), 20000);
+
+        // InitiateCheckout when the ticket button is clicked
+        document.querySelectorAll('.ticketlink').forEach(link => {
+            link.addEventListener('click', e => {
+                trackEvent('InitiateCheckout', {
+                    content_name: 'Dubbelkonsert Larrys Corner',
+                    currency: 'SEK',
+                    value: 120
+                });
+                // opening in a new tab: nothing to wait for
+                if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
+                // same tab: give the pixel a moment before leaving the page
+                e.preventDefault();
+                setTimeout(() => { window.location.href = link.href; }, 400);
             });
-        }, 8000);
+        });
     </script>
 </body>
 
