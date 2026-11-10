@@ -205,6 +205,81 @@
             box-shadow: 0px 0px 0px black;
         }
 
+        /* quiet newsletter sign-up: dashed field + small outlined button */
+        .kitform {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            max-width: 520px;
+            /* 16px minimum stops iOS from zooming in on focus */
+            font-size: max(16px, 0.65em);
+        }
+
+        .kitform input {
+            flex: 1 1 200px;
+            min-width: 0;
+            font-size: inherit;
+            color: black;
+            /* close to the page background, just a touch lighter */
+            background: rgb(238, 238, 238);
+            border: 2px dashed rgb(150, 150, 150);
+            border-radius: 6px;
+            padding: 12px 14px 9px;
+        }
+
+        .kitform input:focus {
+            outline: none;
+            border-color: black;
+        }
+
+        /* a small, calm cousin of the ticket button: pastel + black outline */
+        .kitform button {
+            flex: none;
+            font-size: inherit;
+            color: black;
+            background: rgb(255, 250, 189);
+            border: 2px solid black;
+            border-radius: 6px;
+            box-shadow: 3px 3px 0px black;
+            padding: 12px 22px 9px;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+        }
+
+        .kitform button:hover {
+            background: rgb(255, 243, 140);
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px black;
+        }
+
+        .kitform button:active {
+            transform: translate(3px, 3px);
+            box-shadow: 0px 0px 0px black;
+        }
+
+        .kitform button:disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+
+        .textbox p.kitmsg {
+            font-size: max(16px, 0.65em);
+        }
+
+        /* .textbox p sets display: inline, which would otherwise beat [hidden] */
+        .textbox p.kitmsg[hidden] {
+            display: none;
+        }
+
+        .visuallyhidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip-path: inset(50%);
+            white-space: nowrap;
+        }
+
         /* image captions, tucked right under the picture */
         .pfstext p.caption {
             font-size: 0.45em;
@@ -717,11 +792,20 @@
                 <p>PPS.</p>
                 <br><br>
                 <p>Om du inte kan den 20:e men vill hålla kontakten (det vill jag!!!) är du välkommen att gå med i mitt
-                    nyhetsbrev
-                    <a href="https://piano-petter.kit.com/943bfbbe51" target="_blank" rel="noopener">newspetter</a>
+                    nyhetsbrev newspetter
                     eller helt enkelt maila mig på
                     <a href="mailto:petter.rylen@gmail.com">petter.rylen@gmail.com</a> och säga hej :-)
                 </p>
+                <br><br><br>
+
+                <!-- ===== NEWSPETTER (Kit form 7548909) ===== -->
+                <form class="kitform" action="https://app.kit.com/forms/7548909/subscriptions" method="post">
+                    <label for="kitemail" class="visuallyhidden">din mailadress</label>
+                    <input id="kitemail" type="email" name="email_address" placeholder="din mailadress"
+                        autocomplete="email" required>
+                    <button type="submit">gå med i newspetter</button>
+                </form>
+                <p class="kitmsg" aria-live="polite" hidden></p>
                 <br><br>
             </div>
         </div>
@@ -785,6 +869,38 @@
                 e.preventDefault();
                 setTimeout(() => { window.location.href = link.href; }, 400);
             });
+        });
+
+        // newspetter sign-up: post to Kit in the background and stay on the page.
+        // Without JS the form still works as a normal post to Kit.
+        const kitForm = document.querySelector('.kitform');
+        const kitMsg = document.querySelector('.kitmsg');
+        kitForm.addEventListener('submit', async e => {
+            e.preventDefault();
+            const button = kitForm.querySelector('button');
+            const label = button.textContent;
+            button.disabled = true;
+            button.textContent = 'Skickar…';
+            kitMsg.hidden = true;
+            try {
+                const res = await fetch(kitForm.action, {
+                    method: 'POST',
+                    headers: { Accept: 'application/json' },
+                    body: new FormData(kitForm)
+                });
+                const data = await res.json();
+                if (data.status !== 'success') throw new Error(data.errors?.messages?.join(' ') || 'failed');
+                kitForm.remove();
+                kitMsg.textContent = 'Tack! För att bekräfta prenumerationen, kolla din mail (och din spam-folder).';
+                kitMsg.hidden = false;
+                trackEvent('Lead', { content_name: 'newspetter' });
+            } catch (err) {
+                console.error('Kit sign-up failed:', err);
+                kitMsg.textContent = 'Det gick inte att skicka. Kolla mailadressen och prova igen.';
+                kitMsg.hidden = false;
+                button.disabled = false;
+                button.textContent = label;
+            }
         });
     </script>
 </body>
