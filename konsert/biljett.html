@@ -66,11 +66,6 @@
             line-height: 1.15em;
         }
 
-        .ticket-title .at {
-            display: block;
-            font-weight: 400;
-        }
-
         .ticket-row {
             display: flex;
             gap: 12px;
@@ -112,7 +107,8 @@
             gap: 0 10px;
         }
 
-        .price b {
+        .price b,
+        .price .label {
             font-size: 1.6em;
             line-height: 1.2em;
         }
@@ -312,24 +308,27 @@
 
         <div class="ticket">
             <div class="ticket-main">
-                <h2 class="ticket-title">Petter Rylén + Blindo <span class="at">@ Larry's Corner</span></h2>
+                <h2 class="ticket-title">Petter Rylén + Blindo</h2>
                 <p class="ticket-row"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
                         <rect x="3" y="5" width="18" height="16" rx="2" />
                         <path d="M3 10 H21 M8 3 V7 M16 3 V7" />
                     </svg>
-                    <span><b>Fredag 20/11.</b><br>Dörrarna öppnar kl 19.00, konsertstart 19.30.</span>
+                    <span><b>Fredag 20/11.</b><br>Dörrarna öppnar kl 19.00, konsertstart <b>19.30</b>.</span>
                 </p>
                 <p class="ticket-row"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M12 22 C12 22 5 14.5 5 9.5 A7 7 0 0 1 19 9.5 C19 14.5 12 22 12 22 Z" />
                         <circle cx="12" cy="9.5" r="2.5" />
                     </svg>
-                    <a href="https://maps.app.goo.gl/wfRo8LFGRF4WELJg6" target="_blank" rel="noopener">Grindsgatan 35,
+                    <a href="https://maps.app.goo.gl/wfRo8LFGRF4WELJg6" target="_blank" rel="noopener">Larry's Corner,
+                        Grindsgatan 35,
                         Södermalm.</a>
                 </p>
             </div>
             <div class="ticket-stub">
-                <div class="price"><span>Förköpspris*</span> <b>120 kr</b> <span>(6% moms)</span></div>
-                <p class="small">* Gäller till kl 24 torsdag 19/11. Du betalar med Swish efter att du har bokat.</p>
+                <div class="price"><span class="label">Förköpspris:</span> <b>120 kr<span
+                            style="font-weight: 400;">*</span></b> <span>(6% moms)</span></div>
+                <p class="small">*Gäller till kl 24 torsdag 19/11.</p>
+                <p class="small">Du betalar med Swish efter att du har bokat.</p>
             </div>
         </div>
 
@@ -375,15 +374,16 @@
         </form>
 
         <div class="done" id="done" hidden>
-            <h2>Tack, nu är du bokad!</h2>
+            <h2>Tack, du är bokad!</h2>
             <p>Du har bokat <b id="done-tickets"></b>.</p>
             <div class="swish">Swisha <b id="done-total"></b> till Petter Rylén på <b>123 307 28 08</b>
                 för att bekräfta din bokning.</div>
-            <p>En bekräftelse är på väg till <b id="done-email"></b>. Hittar du den inte, kolla skräpposten.</p>
+            <p>En bekräftelse är på väg till <b id="done-email"></b>. Hittar du den inte inom kort, kolla skräpposten.
+            </p>
         </div>
 
-        <p class="contact"><span>Frågor? Ring 079 340 34 78 eller maila
-                <a href="mailto:petter.rylen@gmail.com">petter.rylen@gmail.com</a></span></p>
+        <p class="contact"><span>Maila gärna
+                <a href="mailto:petter.rylen@gmail.com">petter.rylen@gmail.com</a> om du har frågor!</span></p>
     </main>
 
     <script>
