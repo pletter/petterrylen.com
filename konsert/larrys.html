@@ -826,6 +826,9 @@
             return fbclid ? `fb.1.${Date.now()}.${fbclid}` : '';
         }
 
+        // for testing in Meta Events Manager: open the page with ?test_event_code=TEST12345
+        const testEventCode = new URLSearchParams(window.location.search).get('test_event_code') || '';
+
         function trackEvent(eventName, customData = {}) {
             const eventId = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random());
 
@@ -842,6 +845,7 @@
                     event_id: eventId,
                     event_time: Math.floor(Date.now() / 1000),
                     custom_data: customData,
+                    ...(testEventCode ? { test_event_code: testEventCode } : {}),
                     user_data: {
                         client_user_agent: navigator.userAgent,
                         fbp: getCookie('_fbp'),
