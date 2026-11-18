@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boka biljett – Petter Rylén + Blindo @ Larry's Corner</title>
+    <title>Reservera biljett – Petter Rylén + Blindo @ Larry's Corner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
@@ -304,7 +304,7 @@
 
 <body>
     <main>
-        <h1><span>Boka biljett</span></h1>
+        <h1><span>Reservera biljett</span></h1>
 
         <div class="ticket">
             <div class="ticket-main">
@@ -325,10 +325,10 @@
                 </p>
             </div>
             <div class="ticket-stub">
-                <div class="price"><span class="label">Förköpspris:</span> <b>120 kr<span
+                <div class="price"><span class="label">Pris om du reserverar i förväg:</span> <b>120 kr<span
                             style="font-weight: 400;">*</span></b> <span>(6% moms)</span></div>
-                <p class="small">*Gäller till kl 24 torsdag 19/11.</p>
-                <p class="small">Du betalar med Swish efter att du har bokat.</p>
+                <p class="small">*Gäller om du reserverar senast kl 24 torsdag 19/11.</p>
+                <p class="small">Du betalar när du kommer.</p>
             </div>
         </div>
 
@@ -339,7 +339,7 @@
             </div>
 
             <div class="field">
-                <label for="tickets">Hur många biljetter vill du boka?</label>
+                <label for="tickets">Hur många biljetter vill du reservera?</label>
                 <select id="tickets" name="tickets" required>
                     <option value="1">1 biljett</option>
                     <option value="2">2 biljetter</option>
@@ -349,14 +349,6 @@
                     <option value="6">6 biljetter</option>
                 </select>
             </div>
-
-            <fieldset>
-                <legend>Vill du vara med och spela fotboll den 29/11?</legend>
-                <label class="choice"><input type="radio" name="football" value="Ja"> Ja</label>
-                <label class="choice"><input type="radio" name="football" value="Nej"> Nej, tack</label>
-                <label class="choice"><input type="radio" name="football" value="Kanske, om jag får vara i Petters lag">
-                    Kanske, om jag får vara i Petters lag</label>
-            </fieldset>
 
             <fieldset>
                 <legend>Vill du ha Petters nyhetsbrev "newspetter" med info om hemliga konserter och musikaliska
@@ -369,15 +361,14 @@
                 <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
             </div>
 
-            <button type="submit" id="submit">Boka 1 biljett – 120 kr</button>
+            <button type="submit" id="submit">Reservera 1 biljett</button>
             <p class="error" id="error" hidden></p>
         </form>
 
         <div class="done" id="done" hidden>
-            <h2>Tack, du är bokad!</h2>
-            <p>Du har bokat <b id="done-tickets"></b>.</p>
-            <div class="swish">Swisha <b id="done-total"></b> till Petter Rylén på <b>123 307 28 08</b>
-                för att bekräfta din bokning.</div>
+            <h2>Tack, nu är det reserverat!</h2>
+            <p>Du har reserverat <b id="done-tickets"></b>.</p>
+            <div class="swish">Du betalar <b id="done-total"></b> när du kommer.</div>
             <p>En bekräftelse är på väg till <b id="done-email"></b>. Hittar du den inte inom kort, kolla skräpposten.
             </p>
         </div>
@@ -437,7 +428,7 @@
 
         const updateButton = () => {
             const n = Number(ticketsSelect.value);
-            submit.textContent = `Boka ${ticketText(n)} – ${n * PRICE} kr`;
+            submit.textContent = `Reservera ${ticketText(n)}`;
         };
         ticketsSelect.addEventListener('change', updateButton);
 
@@ -460,13 +451,12 @@
             const payload = {
                 email,
                 tickets,
-                football: form.football.value || null,
                 newsletter: form.newsletter.checked,
                 website: form.website.value
             };
 
             submit.disabled = true;
-            submit.textContent = 'Bokar…';
+            submit.textContent = 'Reserverar…';
             try {
                 const res = await fetch(BOOKING_URL, {
                     method: 'POST',

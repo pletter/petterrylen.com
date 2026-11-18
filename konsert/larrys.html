@@ -171,9 +171,16 @@
 
 
         /* big, chunky ticket button */
+        /* "Ses vi?" glides up to the ticket button instead of jumping */
+        html {
+            scroll-behavior: smooth;
+        }
+
         .pfstext a.ticketlink {
             border-bottom: none;
             display: block;
+            /* some air above the button when "Ses vi?" scrolls up to it */
+            scroll-margin-top: 40vh;
         }
 
         .ticketbutton {
@@ -198,6 +205,15 @@
             transform: translate(3px, 3px);
             box-shadow: 3px 3px 0px black;
             transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+        }
+
+        /* the small note under the button text */
+        .ticketnote {
+            display: block;
+            font-size: 0.42em;
+            font-weight: 400;
+            line-height: 1.2em;
+            margin-top: 12px;
         }
 
         .ticketbutton:active {
@@ -235,6 +251,58 @@
 
         .pfstext p.calendar a:hover {
             border-bottom-width: 2px;
+        }
+
+        /* "copy the link to this page": a smaller sibling of the ticket button */
+        .copylink {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            max-width: 100%;
+            padding: 14px 18px 12px;
+            font-family: inherit;
+            font-size: 0.8em;
+            font-weight: 700;
+            line-height: 1.2em;
+            text-align: left;
+            color: black;
+            background: white;
+            border: 3px solid black;
+            border-radius: 10px;
+            box-shadow: 4px 4px 0px black;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+        }
+
+        .copylink:hover {
+            background: rgb(255, 238, 0);
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px black;
+            transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+        }
+
+        .copylink:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px black;
+        }
+
+        .copylink svg {
+            flex: none;
+            width: 1.2em;
+            height: 1.2em;
+            fill: none;
+            stroke: black;
+            stroke-width: 2;
+            stroke-linejoin: round;
+        }
+
+        /* the small line right under it */
+        .pfstext p.sharenote {
+            display: block;
+            background: none;
+            padding: 0;
+            margin: 10px 0 0 4px;
+            font-size: 0.65em;
         }
 
         /* quiet newsletter sign-up: dashed field + small outlined button */
@@ -757,22 +825,17 @@
                 <br><br>
                 <p>Larrys Corner är ett <i>litet</i> hörn.</p>
                 <br><br>
-                <p>
-                    Det finns <s>26</s><strong> 25 biljetter</strong> kvar just nu.
-                </p>
-                <br><br>
-                <p>Biljetterna i dörren kostar 150 kr MEN om du förköper biljett nu har du en <b>garanterad plats</b>
-                    och får 30 kr
-                    rabatt.</p>
-                <br><br>
-                <p style="font-size: 2.8em; line-height: 1.3em; background: none; padding: 0px;"><span
-                        class="oldprice">150 kr</span></p>
-                <br>
-                <div style="height: 22px;"></div>
-                <p style="font-size: 2.8em; line-height: 1.3em; background: none; padding: 0px;"><span
-                        class="newprice">120 kr</span></p>
+
+                <p>Biljetterna i dörren kostar 150 kr MEN om du reserverar en biljett i förväg har du en <b>garanterad
+                        plats</b>
+                    (och får 30 kr
+                    rabatt när du betalar).</p>
+
+
                 <br><br><br>
-                <a href="/konsert/biljett" class="ticketlink"><button class="ticketbutton">Köp biljett här</button></a>
+                <a href="/konsert/biljett" class="ticketlink" id="reservera"><button class="ticketbutton">Reservera
+                        plats
+                        här<span class="ticketnote">betala när du kommer :)</span></button></a>
 
                 <p class="calendar"><svg viewBox="0 0 24 24" aria-hidden="true">
                         <rect x="3" y="5" width="18" height="16" rx="2" />
@@ -850,6 +913,24 @@
                     </div>
                 </div>
                 <br><br>
+                <p>Ibland är det svårt att komma utanför dörren en fredagkväll ... </p>
+                <br><br>
+                <p>
+
+                    Om du är sugen, reservera gärna
+                    en biljett direkt för att påminna dig själv om att det är fantastiskt att komma ut och uppleva något
+                    nytt!</p>
+                <br><br>
+                <p>
+                    Du kan också:</p>
+                <br><br>
+                <button type="button" class="copylink" data-track="kopiera länken till den här sidan"><svg
+                        viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="8" y="8" width="13" height="13" rx="2" />
+                        <path d="M16 8 V5 A2 2 0 0 0 14 3 H5 A2 2 0 0 0 3 5 V14 A2 2 0 0 0 5 16 H8" />
+                    </svg><span class="copytext">kopiera länken till den här sidan</span></button>
+                <p class="sharenote">(om du vill bjuda med en kompis)</p>
+                <br>
 
                 <p>Hur som helst, tack för att du har läst min historia!
 
@@ -865,22 +946,33 @@
                 <br><br>
                 <img src="/images/seriouslarry.webp" style="width: 100%;">
                 <br><br>
+                <p>Den här konserten kommer aldrig hända igen. Jag tror det kan bli fullsatt. </p>
 
-                <p>PS. Om du inte kan den här gången men vill komma en annan gång är du välkommen att gå med i
-                    mitt
-                    nyhetsbrev "newspetter":
-                </p>
-                <br><br><br>
-
-                <!-- ===== NEWSPETTER (Kit form 7548909) ===== -->
-                <form class="kitform" action="https://app.kit.com/forms/7548909/subscriptions" method="post">
-                    <label for="kitemail" class="visuallyhidden">din mailadress</label>
-                    <input id="kitemail" type="email" name="email_address" placeholder="din mailadress"
-                        autocomplete="email" required>
-                    <button type="submit">gå med i newspetter</button>
-                </form>
-                <p class="kitmsg" aria-live="polite" hidden></p>
                 <br><br>
+                <p><a href="#reservera">Ses</a> vi?</p>
+                <br><br>
+                <p>Vänliga hälsningar, </p>
+                <br><br>
+                <p>Petter Rylén</p>
+
+
+                <div style=" display: none;">
+                    <p>PS. Om du inte kan den här gången men vill komma en annan gång är du välkommen att gå med i
+                        mitt
+                        nyhetsbrev "newspetter":
+                    </p>
+                    <br><br><br>
+
+                    <!-- ===== NEWSPETTER (Kit form 7548909) ===== -->
+                    <form class="kitform" action="https://app.kit.com/forms/7548909/subscriptions" method="post">
+                        <label for="kitemail" class="visuallyhidden">din mailadress</label>
+                        <input id="kitemail" type="email" name="email_address" placeholder="din mailadress"
+                            autocomplete="email" required>
+                        <button type="submit">gå med i newspetter</button>
+                    </form>
+                    <p class="kitmsg" aria-live="polite" hidden></p>
+                    <br><br>
+                </div>
             </div>
         </div>
     </div>
@@ -957,6 +1049,60 @@
             '&dates=20261120T180000Z/20261120T210000Z' +
             '&location=' + encodeURIComponent("Larry's Corner, Grindsgatan 35, Stockholm") +
             '&details=' + encodeURIComponent('Dörrarna öppnar 19.00, konsertstart 19.30.\n\nBiljetter: https://petterrylen.com/konsert/larrys');
+        // ---- every link/button click → a log file on the VPS (pianopetter.com/clickstats.php shows the counts) ----
+        const visitorId = (() => {
+            try {
+                let id = localStorage.getItem('pr_visitor');
+                if (!id) {
+                    id = crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random();
+                    localStorage.setItem('pr_visitor', id);
+                }
+                return id;
+            } catch {
+                return '';
+            }
+        })();
+        document.addEventListener('click', e => {
+            const el = e.target.closest('a, button');
+            if (!el) return;
+            const label = (el.dataset.track || el.getAttribute('aria-label') || el.textContent || '')
+                .replace(/\s+/g, ' ').trim().slice(0, 200);
+            const body = JSON.stringify({
+                page: location.pathname.replace(/\.html$/, ''),
+                label,
+                href: el.getAttribute('href') || '',
+                visitor: visitorId
+            });
+            const url = 'https://pianopetter.com/clicklog.php';
+            // text/plain: no CORS preflight, and the beacon survives leaving the page
+            if (!(navigator.sendBeacon && navigator.sendBeacon(url, new Blob([body], { type: 'text/plain' })))) {
+                fetch(url, { method: 'POST', body, keepalive: true, mode: 'no-cors' }).catch(() => { });
+            }
+        }, true);
+
+        // ---- copy the page link ----
+        const pageUrl = 'https://petterrylen.com/konsert/larrys';
+        document.querySelectorAll('.copylink').forEach(btn => {
+            const label = btn.querySelector('.copytext');
+            const original = label.textContent;
+            btn.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(pageUrl);
+                } catch {
+                    // older browsers: copy through a temporary text field
+                    const field = document.createElement('textarea');
+                    field.value = pageUrl;
+                    document.body.appendChild(field);
+                    field.select();
+                    document.execCommand('copy');
+                    field.remove();
+                }
+                label.textContent = 'Länken är kopierad!';
+                setTimeout(() => { label.textContent = original; }, 2000);
+                trackEvent('CopyLink', { content_name: 'Dubbelkonsert Larrys Corner' });
+            });
+        });
+
         const isAndroid = /Android/i.test(navigator.userAgent);
         document.querySelectorAll('.calendarlink').forEach(link => {
             if (link.dataset.method === 'google' || isAndroid) {
