@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//petterrylen.com//konsert//SV
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:larrys-2026-11-20@petterrylen.com
+DTSTAMP:20261118T120000Z
+DTSTART:20261120T180000Z
+DTEND:20261120T210000Z
+SUMMARY:Petter Rylén + Blindo @ Larry's Corner
+LOCATION:Larry's Corner\, Grindsgatan 35\, Stockholm
+DESCRIPTION:Dörrarna öppnar 19.00\, konsertstart 19.30.\n\nBiljetter: htt
+ ps://petterrylen.com/konsert/larrys
+URL:https://petterrylen.com/konsert/larrys
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Petter Rylén + Blindo @ Larry's Corner
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

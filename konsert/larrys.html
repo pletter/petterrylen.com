@@ -205,6 +205,38 @@
             box-shadow: 0px 0px 0px black;
         }
 
+        /* "add to my calendar": a small link, right-aligned under the ticket button */
+        .pfstext p.calendar {
+            display: block;
+            text-align: right;
+            background: none;
+            padding: 0;
+            margin: 18px 0 0;
+            font-size: 0.65em;
+            line-height: 1.5em;
+        }
+
+        .pfstext p.calendar svg {
+            width: 1.1em;
+            height: 1.1em;
+            margin: 0 6px -0.12em 0;
+            vertical-align: baseline;
+            fill: none;
+            stroke: black;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .pfstext p.calendar a {
+            color: black;
+            border-bottom: 1px solid black;
+        }
+
+        .pfstext p.calendar a:hover {
+            border-bottom-width: 2px;
+        }
+
         /* quiet newsletter sign-up: dashed field + small outlined button */
         .kitform {
             display: flex;
@@ -742,6 +774,14 @@
                 <br><br><br>
                 <a href="/konsert/biljett" class="ticketlink"><button class="ticketbutton">Köp biljett här</button></a>
 
+                <p class="calendar"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="3" y="5" width="18" height="16" rx="2" />
+                        <path d="M3 10 H21 M8 3 V7 M16 3 V7 M12 13 V18 M9.5 15.5 H14.5" />
+                    </svg><a href="/konsert/Petter%20Ryl%C3%A9n%20%2B%20Blindo%20%40%20Larry's%20Corner.ics"
+                        class="calendarlink" data-method="ics">Lägg till i min
+                        kalender</a><span class="gcal"> · <a href="#" class="calendarlink" data-method="google"
+                            target="_blank" rel="noopener">Google-kalender</a></span></p>
+
                 <!-- ===== HEMLIGT ERBJUDANDE ===== -->
                 <div class="offerbox" style="display: none;">
                     <div class="offerbubble"><svg class="sunshape" aria-hidden="true">
@@ -866,8 +906,9 @@
         function trackEvent(eventName, customData = {}) {
             const eventId = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random());
 
-            // browser
-            if (window.fbq) fbq('track', eventName, customData, { eventID: eventId });
+            // browser – Meta's own event names use 'track', our own ones (AddToCalendar) 'trackCustom'
+            const standard = ['PageView', 'ViewContent', 'InitiateCheckout', 'Lead', 'Purchase', 'CompleteRegistration'];
+            if (window.fbq) fbq(standard.includes(eventName) ? 'track' : 'trackCustom', eventName, customData, { eventID: eventId });
 
             // server – keepalive lets the request finish even if the page is left
             return fetch('https://pianopetter.com/musictracking.php', {
@@ -908,6 +949,31 @@
                 setTimeout(() => { window.location.href = link.href; }, 400);
             });
         });
+
+        // "Lägg till i min kalender": the .ics file (Apple, Outlook) or Google Calendar.
+        // On Android the big button goes straight to Google Calendar.
+        const gcalUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+            '&text=' + encodeURIComponent("Petter Rylén + Blindo @ Larry's Corner") +
+            '&dates=20261120T180000Z/20261120T210000Z' +
+            '&location=' + encodeURIComponent("Larry's Corner, Grindsgatan 35, Stockholm") +
+            '&details=' + encodeURIComponent('Dörrarna öppnar 19.00, konsertstart 19.30.\n\nBiljetter: https://petterrylen.com/konsert/larrys');
+        const isAndroid = /Android/i.test(navigator.userAgent);
+        document.querySelectorAll('.calendarlink').forEach(link => {
+            if (link.dataset.method === 'google' || isAndroid) {
+                link.href = gcalUrl;
+                link.target = '_blank';
+                link.rel = 'noopener';
+                link.dataset.method = 'google';
+            }
+            link.addEventListener('click', () => {
+                trackEvent('AddToCalendar', {
+                    content_name: 'Dubbelkonsert Larrys Corner',
+                    method: link.dataset.method
+                });
+            });
+        });
+        // on Android the big button already is Google Calendar
+        if (isAndroid) document.querySelector('.gcal').style.display = 'none';
 
         // newspetter sign-up: post to Kit in the background and stay on the page.
         // Without JS the form still works as a normal post to Kit.
