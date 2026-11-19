@@ -184,18 +184,19 @@
         }
 
         .ticketbutton {
-            display: block;
-            width: 100%;
+            display: inline-block;
+            width: auto;
             /* shrinks smoothly on narrow screens so the text stays on two lines */
-            font-size: min(1.7em, calc((90vw - 50px) / 10.2));
+            font-size: min(1.25em, calc((90vw - 50px) / 10.2));
             white-space: nowrap;
             font-weight: 700;
             line-height: 1.15em;
-            padding: 45px 10px 30px;
+            padding: 16px 20px 12px;
+            text-align: left;
             color: black;
             background: rgb(255, 154, 205);
             border: 3px solid black;
-            border-radius: 10px;
+            border-radius: 0px;
             box-shadow: 6px 6px 0px black;
             transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
         }
@@ -213,7 +214,7 @@
             font-size: 0.42em;
             font-weight: 400;
             line-height: 1.2em;
-            margin-top: 12px;
+            margin-top: 6px;
         }
 
         .ticketbutton:active {
@@ -224,7 +225,7 @@
         /* "add to my calendar": a small link, right-aligned under the ticket button */
         .pfstext p.calendar {
             display: block;
-            text-align: right;
+            text-align: left;
             background: none;
             padding: 0;
             margin: 18px 0 0;
@@ -268,14 +269,13 @@
             color: black;
             background: white;
             border: 3px solid black;
-            border-radius: 10px;
             box-shadow: 4px 4px 0px black;
             cursor: pointer;
             transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
         }
 
         .copylink:hover {
-            background: rgb(255, 238, 0);
+            background: rgb(251, 248, 214);
             transform: translate(2px, 2px);
             box-shadow: 2px 2px 0px black;
             transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
@@ -303,6 +303,42 @@
             padding: 0;
             margin: 10px 0 0 4px;
             font-size: 0.65em;
+        }
+
+        /* the concert section sits on black: flip the bits that have no white text background */
+        .darkbox .ticketbutton {
+            box-shadow: 6px 6px 0px white;
+        }
+
+        .darkbox .ticketbutton:hover {
+            box-shadow: 3px 3px 0px white;
+        }
+
+        .darkbox .copylink {
+            box-shadow: 4px 4px 0px white;
+        }
+
+        .darkbox .copylink:hover {
+            box-shadow: 2px 2px 0px white;
+        }
+
+        .darkbox .ticketbutton:active,
+        .darkbox .copylink:active {
+            box-shadow: 0px 0px 0px white;
+        }
+
+        .pfstext .darkbox p.calendar,
+        .pfstext .darkbox p.sharenote,
+        .pfstext .darkbox p.calendar a {
+            color: white;
+        }
+
+        .pfstext .darkbox p.calendar a {
+            border-bottom-color: white;
+        }
+
+        .pfstext .darkbox p.calendar svg {
+            stroke: white;
         }
 
         /* quiet newsletter sign-up: dashed field + small outlined button */
@@ -773,11 +809,40 @@
             </div>
         </div>
 
-        <!-- ===== KONSERTEN ===== -->
+        <!-- ===== SENSMORALEN ===== -->
         <div class="textbox">
             <div style="color: black;">
                 <br>
-                <p>Nu bor vi i Stockholm. Tyvärr inte i samma lägenhet. Men ibland får jag lyckan att smaka Björns
+                <p>För mig präglades resan genom jazzens jungler av strävan efter att vara <i>bäst</i>.</p>
+                <br><br>
+                <p>Den längtan kom nog både som en press utifrån, från den elitistiska stämningen jag upplevde i alla
+                    musikutbildningar vi gick igenom, men också inifrån, från den där inre fotbollskillen jag växte upp
+                    som.</p>
+                <br><br>
+                <p>Efter att sedan flera år lämnat jazzvärlden bakom mig, för att fokusera på att skriva mina låtar,
+                    har jag dock insett att musik, till skillnad från fotboll, inte är en tävling….</p>
+                <br><br>
+                <p>Det har varit en lång och svår process, som jag egentligen fortfarande går igenom, där jag ofta
+                    måste övertyga mig själv att vara den <i>sämsta</i>, med flit.</p>
+                <br><br>
+                <p>Att ge upp alla idealen, och vara ok med tanken att ingen bryr sig.</p>
+                <br><br>
+                <p>Att välja den mest idiotiska vägen. Att låta allt det mest pinsamma och obekväma komma fram.</p>
+                <br><br>
+                <p>Jag har insett att musik för mig inte handlar om att visa hur <i>bra</i> jag är, men att dela hur jag
+                    känner
+                    och vad jag älskar.</p>
+                <br><br>
+                <p>Hur illa, eller hur underbart det än är.</p>
+            </div>
+        </div>
+
+        <!-- ===== KONSERTEN ===== -->
+        <div class="textbox darkbox" style="background: black;">
+            <div>
+                <br>
+                <p>Numera bor Björn och jag i Stockholm. Tyvärr inte i samma lägenhet. Men ibland får jag lyckan att
+                    smaka Björns
                     matlagning, som blir mer och mer fantastisk.</p>
                 <br><br>
                 <p>Och vi har varsitt soloprojekt.</p>
@@ -832,7 +897,7 @@
                     rabatt när du betalar).</p>
 
 
-                <br><br><br>
+                <br><br>
                 <a href="/konsert/biljett" class="ticketlink" id="reservera"><button class="ticketbutton">Reservera
                         plats
                         här<span class="ticketnote">betala när du kommer :)</span></button></a>
@@ -912,7 +977,7 @@
                         </svg>
                     </div>
                 </div>
-                <br><br>
+                <br>
                 <div style="display: none;">
                     <p>Ibland är det svårt att komma utanför dörren en fredagkväll ... </p>
                     <br><br>
@@ -924,9 +989,7 @@
                         nytt!</p>
                     <br><br>
                 </div>
-                <p>
-                    Du kan också:</p>
-                <br><br>
+
                 <button type="button" class="copylink" data-track="kopiera länken till den här sidan"><svg
                         viewBox="0 0 24 24" aria-hidden="true">
                         <rect x="8" y="8" width="13" height="13" rx="2" />
@@ -949,10 +1012,10 @@
                 <br><br>
                 <img src="/images/seriouslarry.webp" style="width: 100%;">
                 <br><br>
-                <p>Den här konserten kommer aldrig hända igen. Jag tror det kan bli fullsatt. </p>
+                <p>Den här konserten kommer aldrig hända igen!</p>
 
                 <br><br>
-                <p><a href="#reservera">Ses</a> vi?</p>
+                <p><a href="#reservera">Ses</a> vi? :)</p>
                 <br><br>
                 <p>Vänliga hälsningar, </p>
                 <br><br>
